@@ -592,7 +592,7 @@ footer {
     background-color: var(--primary-color);
     color: var(--white);
     text-align: center;
-    background-image: url('/Index_Hero_Background.png');
+    background-image: url('Index_Hero_Background.png');
     background-size: cover;
     background-position: 47% 50%;
     min-height: 75vh
