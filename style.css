@@ -2152,45 +2152,58 @@ nav .nav-links li.dropdown:hover .dropdown-menu { /* Modifié: nav ul -> nav .na
     }
 
 }
-/* ======================================= */
-/* === CORRECTIF MENU DÉROULANT MOBILE === */
-/* ======================================= */
+/* ================================================================= */
+/* === CORRECTIF FINAL - ALIGNEMENT À GAUCHE DU MENU MOBILE COMPLET === */
+/* ================================================================= */
 
 @media (max-width: 992px) {
 
-    /* 1. On aligne les éléments du menu principal à gauche au lieu de les centrer */
+    /* --- 1. On modifie le conteneur principal du menu --- */
     nav ul {
-        align-items: flex-start;
-        padding-left: 40px; /* On ajoute un padding pour que ce ne soit pas collé au bord */
+        /* LA MODIFICATION CLÉ : On aligne tous les éléments à gauche */
+        align-items: flex-start; 
+        
+        /* On ajoute une marge à gauche pour que ce ne soit pas collé au bord */
+        padding-left: 40px; 
     }
 
-    /* 2. On change complètement le comportement du sous-menu pour qu'il soit statique */
+    /* On s'assure que le conteneur du sous-menu prend toute la largeur */
+    nav ul li.dropdown {
+        width: 100%;
+        /* On retire text-align: center car l'alignement est maintenant géré par le conteneur */
+    }
+    
+    /* --- 2. On ajuste le sous-menu pour qu'il suive la même logique --- */
     .dropdown-menu {
-        position: static; /* Le sous-menu fait maintenant partie du flux normal */
-        display: none;    /* Il reste caché par défaut (géré par votre JavaScript) */
-        
-        /* On annule les styles qui posent problème (faits pour la version desktop) */
+        position: static;
+        display: none;
         box-shadow: none;
         transform: none;
         opacity: 1;
         border-radius: 0;
-        
-        /* On redéfinit son apparence pour mobile */
-        width: 100%; /* Il prend toute la largeur disponible dans le menu */
-        min-width: 0;  /* On annule la largeur minimale qui causait le débordement */
-        background-color: transparent; /* Le fond est déjà blanc, on le rend transparent */
-        padding: 10px 0 0 15px; /* Crée une indentation pour montrer que c'est un sous-menu */
+        width: 100%;
+        min-width: 0;
+        background-color: rgba(78, 121, 148, 0.05);
+        padding: 10px 0;
+        margin-top: 10px;
     }
 
-    /* 3. On s'assure que le texte des liens peut passer à la ligne si besoin */
+    /* On aligne les liens du sous-menu à gauche avec une indentation */
     .dropdown-menu li a {
         white-space: normal;
-        padding-top: 8px;
-        padding-bottom: 8px;
+        /* On passe l'alignement à gauche pour être cohérent */
+        text-align: left;
+        
+        /* On crée une indentation pour marquer la hiérarchie */
+        padding-left: 15px; 
+        
+        font-size: 0.9em;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        color: var(--primary-color);
     }
-
-    /* NOTE : Assurez-vous que votre JavaScript ajoute une classe (ex: 'open') 
-       au .dropdown-menu pour changer son 'display' de 'none' à 'block' au clic. */
-
+    
+    .dropdown-menu li a:hover {
+        background-color: transparent;
+    }
 }
-
