@@ -592,7 +592,7 @@ footer {
     background-color: var(--primary-color);
     color: var(--white);
     text-align: center;
-    background-image: url('Index_Hero_Background.png');
+    background-image: url('/Index_Hero_Background.png');
     background-size: cover;
     background-position: 47% 50%;
     min-height: 75vh
@@ -939,7 +939,7 @@ footer {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        right: 80px; /* Espace pour le hamburger menu */
+        right: 60px; /* Espace pour le hamburger menu */
         z-index: 1002; /* Doit être au-dessus du menu qui s'ouvre */
     }
     header nav .container { position: relative; }
@@ -2067,3 +2067,130 @@ nav .nav-links li.dropdown:hover .dropdown-menu { /* Modifié: nav ul -> nav .na
         gap: 20px;
     }
 }
+
+/* ================================================================ */
+/* === AJUSTEMENTS CORRECTIFS POUR TRÈS PETITS ÉCRANS (<= 380px) === */
+/* ================================================================ */
+
+@media (max-width: 380px) {
+
+    /* --- Mesure de sécurité pour empêcher tout débordement horizontal --- */
+    body {
+        overflow-x: hidden;
+    }
+
+    /* --- 1. Réduction du padding général --- */
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    /* --- 2. Correction critique du logo pour éviter le débordement --- */
+    .logo-link {
+        /* On réduit la largeur du conteneur pour qu'il ne pousse pas les autres éléments */
+        width: 180px; 
+    }
+    .logo-container {
+        /* On réduit drastiquement le zoom pour qu'il rentre dans le conteneur */
+        transform: scale(1); 
+    }
+
+    /* --- 3. Ajustement des titres "Hero" --- */
+    .home-hero h1,
+    .contact-hero h1,
+    .about-hero h1,
+    .geschool-hero h1,
+    .vtc-hero h1,
+    .nextcloud-hero h1 {
+        letter-spacing: 2px;
+        gap: 10px;
+    }
+
+    .home-hero h1 span,
+    .contact-hero h1 span,
+    .about-hero h1 span,
+    .geschool-hero h1 span,
+    .nextcloud-hero h1 span {
+        font-size: clamp(2rem, 10vw, 3.5rem); 
+    }
+    
+    .vtc-hero h1 span {
+        font-size: clamp(1.6rem, 5vw, 2.2rem);
+    }
+
+    /* --- 4. Correction de la page Contact --- */
+    .contact-info-panel, 
+    .contact-form-panel {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .contact-form-panel h2 {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+    
+    .contact-form .form-group {
+        margin-bottom: 30px;
+    }
+
+    /* --- 5. Ajustement des services --- */
+    .service-text h3 {
+        font-size: 1.8rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 25px;
+    }
+
+    /* --- 7. Correction du centrage des cartes (Valeurs & Engagement) --- */
+    .values-grid,
+    .commitment-grid {
+        /* On réduit la largeur minimale des cartes pour qu'elles rentrent sans forcer */
+        grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    }
+
+}
+/* ======================================= */
+/* === CORRECTIF MENU DÉROULANT MOBILE === */
+/* ======================================= */
+
+@media (max-width: 992px) {
+
+    /* 1. On aligne les éléments du menu principal à gauche au lieu de les centrer */
+    nav ul {
+        align-items: flex-start;
+        padding-left: 40px; /* On ajoute un padding pour que ce ne soit pas collé au bord */
+    }
+
+    /* 2. On change complètement le comportement du sous-menu pour qu'il soit statique */
+    .dropdown-menu {
+        position: static; /* Le sous-menu fait maintenant partie du flux normal */
+        display: none;    /* Il reste caché par défaut (géré par votre JavaScript) */
+        
+        /* On annule les styles qui posent problème (faits pour la version desktop) */
+        box-shadow: none;
+        transform: none;
+        opacity: 1;
+        border-radius: 0;
+        
+        /* On redéfinit son apparence pour mobile */
+        width: 100%; /* Il prend toute la largeur disponible dans le menu */
+        min-width: 0;  /* On annule la largeur minimale qui causait le débordement */
+        background-color: transparent; /* Le fond est déjà blanc, on le rend transparent */
+        padding: 10px 0 0 15px; /* Crée une indentation pour montrer que c'est un sous-menu */
+    }
+
+    /* 3. On s'assure que le texte des liens peut passer à la ligne si besoin */
+    .dropdown-menu li a {
+        white-space: normal;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    /* NOTE : Assurez-vous que votre JavaScript ajoute une classe (ex: 'open') 
+       au .dropdown-menu pour changer son 'display' de 'none' à 'block' au clic. */
+
+}
+
