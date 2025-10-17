@@ -1673,8 +1673,8 @@ footer {
 /* ======================================= */
 
 /* Style le conteneur du menu déroulant (le 'li') */
-nav .nav-links li.dropdown { /* Modifié: nav ul -> nav .nav-links */
-    position: relative; 
+nav .nav-links li.dropdown {
+    position: relative;
 }
 
 /* Style la petite flèche vers le bas */
@@ -1690,9 +1690,22 @@ nav .nav-links li.dropdown { /* Modifié: nav ul -> nav .nav-links */
     transition: transform 0.3s ease;
 }
 
-/* Fait tourner la flèche au survol */
-nav .nav-links li.dropdown:hover .arrow-down { /* Modifié: nav ul -> nav .nav-links */
+/* ======================================================== */
+/* === RÈGLES DE ROTATION DE LA FLÈCHE (VERSION FINALE) === */
+/* ======================================================== */
+
+/* Règle N°1 : Fait tourner la flèche si le sous-menu est ouvert via la classe JS. */
+/* Cette règle s'applique sur TOUS les appareils (mobile et desktop). */
+nav .nav-links li.dropdown.submenu-open > a .arrow-down {
     transform: rotate(180deg);
+}
+
+/* Règle N°2 : Ajoute la rotation au survol, MAIS UNIQUEMENT sur les écrans larges. */
+/* Cela empêche le "hover collant" sur les appareils tactiles. */
+@media (min-width: 992px) {
+    nav .nav-links li.dropdown:hover > a .arrow-down {
+        transform: rotate(180deg);
+    }
 }
 
 /* Le menu déroulant lui-même */
@@ -1700,7 +1713,8 @@ nav .nav-links li.dropdown:hover .arrow-down { /* Modifié: nav ul -> nav .nav-l
     display: none;
     position: absolute;
     top: 100%;
-    right: 10;
+    left: 0; /* Alignement à gauche par défaut */
+    right: auto;
     background-color: var(--white);
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     border-radius: 4px;
@@ -1713,12 +1727,26 @@ nav .nav-links li.dropdown:hover .arrow-down { /* Modifié: nav ul -> nav .nav-l
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* AFFICHE LE MENU AU SURVOL */
-nav .nav-links li.dropdown:hover .dropdown-menu { /* Modifié: nav ul -> nav .nav-links */
+/* --- LOGIQUE D'AFFICHAGE --- */
+
+/* 1. AFFICHE LE SOUS-MENU AU CLIC (via JS) pour mobile */
+/* La classe .submenu-open est ajoutée/retirée par notre JavaScript */
+nav .nav-links li.dropdown.submenu-open > .dropdown-menu {
     display: block;
     opacity: 1;
     transform: translateY(0);
 }
+
+/* 2. AFFICHE LE SOUS-MENU AU SURVOL pour desktop */
+/* On utilise une media query pour que le :hover ne s'applique que sur grand écran */
+@media (min-width: 992px) { /* Ajustez ce point de rupture à celui de votre menu mobile */
+    nav .nav-links li.dropdown:hover > .dropdown-menu {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 
 /* Style des liens dans le menu déroulant */
 .dropdown-menu li a {
@@ -1737,6 +1765,28 @@ nav .nav-links li.dropdown:hover .dropdown-menu { /* Modifié: nav ul -> nav .na
 .dropdown-menu li a:hover {
     background-color: #f5f5f5;
     color: var(--primary-color);
+}
+
+/* Sur mobile, le sous-menu ne doit pas être en position absolue */
+@media (max-width: 991px) { /* Doit correspondre à la media query inverse ci-dessus */
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        border-radius: 0;
+        padding: 0 0 0 20px; /* Indentation pour montrer que c'est un sous-menu */
+        min-width: auto;
+        opacity: 1;
+        transform: none;
+        transition: none;
+        background-color: transparent;
+    }
+    .dropdown-menu li a {
+        color: var(--white); /* ou la couleur de vos liens de menu mobile */
+        padding: 10px 15px;
+    }
+    .dropdown-menu li a:hover {
+        background-color: rgba(255,255,255,0.1);
+    }
 }
 
 /* ================================================================ */
