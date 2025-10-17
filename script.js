@@ -65,6 +65,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         navLinks.addEventListener('click', (e) => {
+            // Cette condition est importante : elle ferme le menu si on clique sur un lien
+            // mais PAS sur le lien qui ouvre le sous-menu (grâce au e.stopPropagation() plus bas)
             if (e.target.tagName === 'A') {
                 navLinks.classList.remove('nav-open');
                 menuToggle.classList.remove('open');
@@ -72,6 +74,26 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // --- NOUVEAU CODE : GESTION DU SOUS-MENU DANS LE MENU MOBILE ---
+    // Ce bloc gère l'ouverture et la fermeture du sous-menu au clic.
+    const dropdownToggles = document.querySelectorAll('header nav .dropdown > a');
+
+    dropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', (e) => {
+            // On vérifie si le menu mobile est ouvert pour n'appliquer cette logique qu'en mode mobile.
+            const isMobileMenuOpen = navLinks.classList.contains('nav-open');
+            
+            if (isMobileMenuOpen) {
+                e.preventDefault(); // Empêche le lien de naviguer.
+                e.stopPropagation(); // TRÈS IMPORTANT: Empêche le clic de se propager au 'navLinks' et de fermer tout le menu.
+                
+                const parentLi = toggle.parentElement;
+                parentLi.classList.toggle('submenu-open'); // Ajoute/retire la classe pour afficher/cacher le sous-menu via CSS.
+            }
+        });
+    });
+    // --- FIN DU NOUVEAU CODE ---
 
 
     // --- Active navigation link based on URL ---
