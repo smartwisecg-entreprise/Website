@@ -603,7 +603,7 @@ footer {
     /* Le reste de vos styles visuels ne change pas */
     color: var(--white);
     text-align: center;
-    background-image: url('Index_Hero_Background.png');
+    background-image: url('Index_Hero_Background.webp');
     background-size: cover;
     background-position: 47% 50%;
 
@@ -816,7 +816,7 @@ footer {
 
     .geschool-hero {
         /* On applique la nouvelle image de fond pour mobile */
-        background-image: url('Geschool_Hero_Backgroung_for_mobile.png'); /* Vérifiez le chemin de l'image */
+        background-image: url('Geschool_Hero_Backgroung_for_mobile.webp'); /* Vérifiez le chemin de l'image */
         background-size: cover;
         background-position: center;
     }
