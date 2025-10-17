@@ -588,30 +588,42 @@ footer {
 
 
 /* --- HOMEPAGE STYLES --- */
+/* ================================================================ */
+/* === CORRECTIF FINAL ET DÉFINITIF POUR LE CENTRAGE DU HERO    === */
+/* ================================================================ */
+
+/* --- ÉTAPE 1 : On prépare le parent --- */
 .home-hero {
-    background-color: var(--primary-color);
+    /* On le définit comme le "cadre" de référence pour le positionnement */
+    position: relative;
+    
+    /* La hauteur est toujours essentielle */
+    min-height: 75vh;
+
+    /* Le reste de vos styles visuels ne change pas */
     color: var(--white);
     text-align: center;
-    background-image: url('Index_Hero_Background.webp');
+    background-image: url('/Index_Hero_Background.png');
     background-size: cover;
     background-position: 47% 50%;
-    min-height: 75vh
+
+    /* IMPORTANT : On supprime les styles qui pourraient interférer */
+    display: block; /* On remet la valeur par défaut */
+    padding: 0;
 }
 
-.home-hero p {
-    font-size: 1.2rem;
-    max-width: 800px;
-    margin: 0 auto 30px;
-    opacity: 0.95;
-    color: rgba(255,255,255,0.9);
-}
+/* --- ÉTAPE 2 : On centre l'enfant de force --- */
+.home-hero .container {
+    /* La technique de centrage absolu qui ne peut pas échouer */
+    position: absolute;
+    top: 53%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
-.home-hero .hero-cta {
-    display: inline-flex;
-    gap: 15px;
-    margin-top: 10px;
-    flex-wrap: wrap;
-    justify-content: center;
+    /* On s'assure qu'il se comporte bien en largeur */
+    width: 100%; /* Il prend toute la largeur du parent */
+    max-width: 1200px; /* On ré-applique la contrainte de votre design */
+    padding: 0 20px; /* On garde l'espacement pour que le texte ne touche pas les bords */
 }
 
 .services-section h2 {
@@ -804,7 +816,7 @@ footer {
 
     .geschool-hero {
         /* On applique la nouvelle image de fond pour mobile */
-        background-image: url('Geschool_Hero_Backgroung_for_mobile.webp'); /* Vérifiez le chemin de l'image */
+        background-image: url('/Geschool_Hero_Backgroung_for_mobile.png'); /* Vérifiez le chemin de l'image */
         background-size: cover;
         background-position: center;
     }
