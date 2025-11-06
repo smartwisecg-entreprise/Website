@@ -112,15 +112,15 @@ nav .container {
     width: 70px;  /* <--- ET CECI AUSSI (gardez-les identiques) */
     z-index: 10;
     top: 20px;
-    transform: scale(0.9);
+    transform: scale(0.8);
 }
 
 
 .logo-text {
     /* Le texte est décalé pour apparaître à droite de la spirale */
-    transform: translateX(80px) translateY(4px) scale(0.5); /* Ajustez cette valeur si nécessaire */
+    transform: translateX(80px) translateY(4px) scale(0.4); /* Ajustez cette valeur si nécessaire */
     z-index: 5; /* Le texte est en dessous de la spirale */
-    left: -65px; 
+    left: -80px; 
     
 
 }
@@ -1750,12 +1750,20 @@ nav .nav-links li.dropdown.submenu-open > .dropdown-menu {
 
 /* Style des liens dans le menu déroulant */
 .dropdown-menu li a {
-    padding: 12px 20px;
-    display: block;
+   padding: 12px 20px;
+    display: flex; /* <-- MODIFICATION IMPORTANTE */
+    align-items: center; /* <-- AJOUT : pour centrer verticalement */
     color: var(--text-color);
     white-space: nowrap;
 }
-
+/* Style pour la nouvelle icône */
+.dropdown-icon {
+    width: 20px; /* Ajustez la taille si besoin */
+    height: 20px;
+    margin-right: 12px; /* Espace entre l'icône et le texte */
+    object-fit: contain; /* S'assure que l'icône n'est pas déformée */
+    
+}
 /* Annule l'effet de soulignement */
 .dropdown-menu li a::after {
     display: none;
