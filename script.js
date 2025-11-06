@@ -457,7 +457,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const carContainer = document.createElement('div');
         carContainer.className = 'scroll-car-container';
-        carContainer.innerHTML = `<img src="vtc-car.png" alt="Voiture animée au scroll">`;
+        carContainer.innerHTML = `<img src="images/vtc-car.png" alt="Voiture animée au scroll">`;
         document.body.appendChild(carContainer);
 
         const carImage = carContainer.querySelector('img');
