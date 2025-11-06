@@ -2,22 +2,23 @@ const translations = {
     en: {
         // Meta Titles
         meta_title_home: "Smart Wise - Your Trusted Partner for Mobility and Cloud Solutions",
-        meta_title_vtc: "GoRide - Fast and Reliable Rides",
-        meta_title_nextcloud: "GoCloud - Secure Nextcloud Hosting",
-        meta_title_geschool: "Geschool - Integrated School Management Software",
+        meta_title_vtc: "ZAZA - Fast and Reliable Rides",
+        meta_title_nextcloud: "Cloud - Secure Nextcloud Hosting",
+        meta_title_geschool: "GESCHOOL - Integrated School Management Software",
         meta_title_about: "About Us - Our Vision at Smart Wise",
         meta_title_contact: "Contact Us - Smart Wise",
+        meta_title_news: "News - Smart Wise", // Ajouté
 
         // Navigation
         nav_home: "Home",
         nav_about: "About Us",
         nav_services: "Our Services",
         nav_news: "News",
-        nav_vtc: "Smart Wise VTC",
+        nav_vtc: "ZAZA",
         desc_vtc: "Ride-Hailing Management Solution",
-        nav_cloud: "Smart Wise Cloud Hosting",
+        nav_cloud: "Cloud Hosting",
         desc_cloud: "Sovereign Cloud Hosting",
-        nav_geschool: "Geschool ERP",
+        nav_geschool: "Geschool",
         desc_geschool: "Complete School Management ERP",
         nav_contact: "Contact",
 
@@ -211,27 +212,34 @@ const translations = {
         contact_info_phone_content: "05 660 04 59",
         contact_info_email_title: "Email",
         contact_info_email_content: "contact@smartwise.cg",
-        contact_map_title: "Find Us on the Map"
+        contact_map_title: "Find Us on the Map",
+
+        // --- News Page (news.html) --- // Ajouté
+        news_hero_word1: "Our",
+        news_hero_word2: "News",
+        news_hero_subtitle: "Stay informed about the latest innovations, partnerships, and announcements from Smart Wise."
+        
     },
     fr: {
         // Meta Titles
         meta_title_home: "Smart Wise - Votre Partenaire de Confiance pour la Mobilité et les Solutions Cloud",
-        meta_title_vtc: "GoRide - Des Trajets Rapides et Fiables",
-        meta_title_nextcloud: "GoCloud - Hébergement Nextcloud Sécurisé",
-        meta_title_geschool: "Geschool - Logiciel de Gestion Scolaire Intégré",
+        meta_title_vtc: "ZAZA - Des Trajets Rapides et Fiables",
+        meta_title_nextcloud: "Cloud - Hébergement Nextcloud Sécurisé",
+        meta_title_geschool: "GESCHOOL - Logiciel de Gestion Scolaire Intégré",
         meta_title_about: "À Propos - Notre Vision chez Smart Wise",
         meta_title_contact: "Contactez-nous - Smart Wise",
+        meta_title_news: "Actualités - Smart Wise", // Ajouté
 
         // Navigation
         nav_home: "Accueil",
         nav_about: "À Propos",
         nav_services: "Nos Services",
         nav_news: "Actualités",
-        nav_vtc: "Smart Wise VTC",
+        nav_vtc: "ZAZA",
         desc_vtc: "Solution de gestion pour VTC",
-        nav_cloud: "Smart Wise Cloud Hosting",
+        nav_cloud: "Cloud Hosting",
         desc_cloud: "Hébergement Cloud souverain",
-        nav_geschool: "Geschool ERP",
+        nav_geschool: "GESCHOOL",
         desc_geschool: "ERP de gestion scolaire complet",
         nav_contact: "Contact",
         
@@ -428,6 +436,11 @@ const translations = {
         contact_info_phone_content: "05 660 04 59",
         contact_info_email_title: "Email",
         contact_info_email_content: "contact@smartwise.cg",
-        contact_map_title: "Retrouvez-nous sur la carte"
+        contact_map_title: "Retrouvez-nous sur la carte",
+
+        // --- News Page (news.html) --- // Ajouté
+        news_hero_word1: "Notre",
+        news_hero_word2: "Actualité",
+        news_hero_subtitle: "Restez informé des dernières innovations, partenariats et annonces de Smart Wise."
     }
 };
