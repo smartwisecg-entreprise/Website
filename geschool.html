@@ -35,19 +35,37 @@
     <li><a href="about.html" data-key="nav_about">À Propos</a></li>
     
     <!-- DÉBUT DU MENU DÉROULANT -->
-    <li class="dropdown">
-    <a href="#"> <!-- L'attribut data-key est retiré du lien principal -->
-        <span data-key="nav_services">Nos Services</span> <!-- Le script ne modifiera que ce span -->
-        <span class="arrow-down"></span> <!-- La flèche est maintenant intouchable -->
-    </a>
-    <ul class="dropdown-menu">
-        <!-- Les liens du sous-menu restent inchangés -->
-        <li><a href="vtc.html" data-key="nav_vtc">Smart Wise VTC</a></li>
-        <li><a href="nextcloud.html" data-key="nav_cloud">Smart Wise Cloud Hosting</a></li>
-        <li><a href="geschool.html" data-key="nav_geschool">Geschool ERP</a></li>
-    </ul>
-</li>
-    <!-- FIN DU MENU DÉROULANT -->
+
+                    <li class="dropdown">
+                        <a href="#">
+                            <span data-key="nav_services">Nos Services</span>
+                            <span class="arrow-down"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- Lien 1 : data-key est maintenant sur le SPAN -->
+                            <li>
+                                <a href="vtc.html">
+                                    <img src="images/car.png" alt="" class="dropdown-icon">
+                                    <span data-key="nav_vtc">Smart Wise VTC</span>
+                                </a>
+                            </li>
+                            <!-- Lien 2 : data-key est maintenant sur le SPAN -->
+                            <li>
+                                <a href="nextcloud.html">
+                                    <img src="images/cloud-server.png" alt="" class="dropdown-icon">
+                                    <span data-key="nav_cloud">Smart Wise Cloud Hosting</span>
+                                </a>
+                            </li>
+                            <!-- Lien 3 : data-key est maintenant sur le SPAN -->
+                            <li>
+                                <a href="geschool.html">
+                                    <img src="images/school.png" alt="" class="dropdown-icon">
+                                    <span data-key="nav_geschool">Geschool ERP</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- FIN DU MENU DÉROULANT -->
     <li><a href="news.html" >Actualités</a></li>
     <li><a href="contact.html" data-key="nav_contact">Contact</a></li>
 </ul>
@@ -216,9 +234,9 @@
                 <ul>
                     <li><a href="index.html" data-key="nav_home">Accueil</a></li>
                     <li><a href="about.html" data-key="nav_about_footer">À Propos</a></li>
-                    <li><a href="vtc.html">Smart Wise VTC</a></li>
-                    <li><a href="nextcloud.html">Smart Wise Cloud</a></li>
-                    <li><a href="geschool.html">Geschool ERP</a></li>
+                    <li><a href="vtc.html" data-key="nav_vtc">ZAZA</a></li>
+                    <li><a href="nextcloud.html" data-key="nav_cloud">Cloud Hosting</a></li>
+                    <li><a href="geschool.html" data-key="nav_geschool">Geschool</a></li>
                     <li><a href="news.html" data-key="nav_news">Actualités</a></li>
                     <li><a href="contact.html" data-key="nav_contact_footer">Contact</a></li>
                 </ul>
