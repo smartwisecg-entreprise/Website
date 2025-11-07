@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-key="meta_title_home">Smart Wise - Votre Partenaire de Confiance pour la Mobilité et les Solutions Cloud
     </title>
+
+    <!-- === AJOUT DU CSS DE SWIPER.JS === -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +18,7 @@
 
 <body>
 
+    <!-- ... (votre header reste inchangé) ... -->
     <header>
         <nav>
             <div class="container">
@@ -81,28 +86,50 @@
     </header>
 
     <main>
+        <!-- ================================================================ -->
+        <!-- === MODIFICATION DE LA SECTION HERO POUR LE DIAPORAMA === -->
+        <!-- ================================================================ -->
         <section class="home-hero">
-            <div class="container">
 
-                <!-- "INNOVER & AMELIORER" est maintenant le H1 avec le style "wow" -->
-                <!-- Le H1 est maintenant structuré pour la traduction ET l'animation -->
+            <!-- Le diaporama en arrière-plan -->
+            <div class="hero-slideshow swiper-container">
+                <div class="swiper-wrapper">
+                    <!-- Diapositive 1 -->
+                    <div class="swiper-slide">
+                        <img src="images/Index_Hero_Background.webp" alt="Fond d'écran technologie moderne">
+                    </div>
+                    <!-- Diapositive 2 -->
+                    <div class="swiper-slide">
+                        <img src="images/Brazza_Roundabout.webp" alt="Personne utilisant un service VTC">
+                    </div>
+                    <!-- Diapositive 3 -->
+                    <div class="swiper-slide">
+                        <img src="images/School_gestion.webp" alt="Centre de données Cloud">
+                    </div>
+                </div>
+                <!-- === AJOUT POUR LES BARRES DE PROGRESSION === -->
+                <div class="hero-progress-pagination"></div>
+            </div>
+
+            <!-- Le contenu reste au-dessus du diaporama -->
+            <div class="container">
                 <h1 class="hero-title-main">
                     <span class="hero-word-1" data-key="home_hero_word1">INNOVER</span>
                     <span class="hero-ampersand">&</span>
                     <span class="hero-word-2" data-key="home_hero_word2">AMELIORER</span>
                 </h1>
-
-                <!-- "Des Solutions..." devient le sous-titre P -->
                 <p data-key="home_hero_title">Des Solutions Innovantes pour la Vie Moderne</p>
-
                 <div class="hero-cta hidden-anim">
-                    <!-- J'ai remis le bouton "En savoir plus" comme dans votre code -->
                     <a href="#services" class="btn" data-key="home_hero_cta_learn_more">En savoir plus</a>
                     <a href="vtc.html" class="btn btn-secondary" data-key="home_hero_cta_vtc">Découvrir GoRide</a>
                 </div>
             </div>
         </section>
+        <!-- ================================================================ -->
+        <!-- === FIN DE LA MODIFICATION DE LA SECTION HERO === -->
+        <!-- ================================================================ -->
 
+        <!-- ... (le reste de votre main et le footer restent inchangés) ... -->
         <section id="services" class="services-section-vertical">
             <div class="container">
                 <h2 data-key="home_services_title">Nos Services</h2>
@@ -151,8 +178,8 @@
 
             </div>
         </section>
-    </main>
 
+    </main>
     <footer>
         <div class="container">
             <!-- Grille symétrique à deux colonnes -->
@@ -201,14 +228,20 @@
             </div>
         </div>
     </footer>
+
     <script src="translations.js"></script>
 
     <!-- === BIBLIOTHÈQUES GSAP AJOUTÉES ICI === -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
+    <!-- === AJOUT DU JS DE SWIPER.JS === -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
     <!-- VOTRE SCRIPT DOIT VENIR APRÈS LES BIBLIOTHÈQUES -->
     <script src="script.js"></script>
+
+  
 </body>
 
 </html>
