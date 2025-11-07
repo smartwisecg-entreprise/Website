@@ -124,6 +124,57 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+    // ==============================================================
+    // === NOUVEAU : INITIALISATION DU DIAPORAMA HERO (Page d'accueil) ===
+    // ==============================================================
+    if (document.querySelector('.home-hero')) {
+        const AUTOPLAY_DELAY = 5000; // 5 secondes
+        let previousIndex = 0;
+
+        const swiper = new Swiper('.hero-slideshow', {
+            loop: true,
+            speed: 1500,
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            },
+            autoplay: {
+                delay: AUTOPLAY_DELAY,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.hero-progress-pagination',
+                clickable: true,
+                renderBullet: function (index, className) {
+                    return '<div class="' + className + '"><div class="progress-fill"></div></div>';
+                },
+            },
+        });
+
+        swiper.on('slideChange', function () {
+            const allFills = document.querySelectorAll('.hero-progress-pagination .progress-fill');
+            const realIndex = swiper.realIndex;
+
+            allFills.forEach((fill, index) => {
+                fill.style.transition = 'none';
+                if (index < realIndex) {
+                    fill.style.transform = 'scaleX(1)'; // Barres précédentes pleines
+                } else if (index > realIndex) {
+                    fill.style.transform = 'scaleX(0)'; // Barres suivantes vides
+                } else {
+                    fill.style.transform = 'scaleX(0)';
+                    void fill.offsetWidth;
+                    fill.style.transition = `transform ${AUTOPLAY_DELAY / 1000}s linear`;
+                    fill.style.transform = 'scaleX(1)';
+                }
+            });
+            previousIndex = realIndex;
+        });
+
+        // Lancer l'animation de la première barre au chargement
+        swiper.emit('slideChange');
+    }
+
 
     // ==============================================================
     // === SYSTÈME D'ANIMATION AVEC GSAP & SCROLLTRIGGER ===
