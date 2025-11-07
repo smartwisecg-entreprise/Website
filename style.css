@@ -592,40 +592,136 @@ footer {
 /* === CORRECTIF FINAL ET DÉFINITIF POUR LE CENTRAGE DU HERO    === */
 /* ================================================================ */
 
-/* --- ÉTAPE 1 : On prépare le parent --- */
-.home-hero {
-    /* On le définit comme le "cadre" de référence pour le positionnement */
-    position: relative;
-    
-    /* La hauteur est toujours essentielle */
-    min-height: 75vh;
+/* ================================================================ */
+/* === STYLES POUR LE DIAPORAMA HERO (À AJOUTER/MODIFIER) === */
+/* ================================================================ */
 
-    /* Le reste de vos styles visuels ne change pas */
+/* --- ÉTAPE 1 : On modifie le conteneur principal --- */
+.home-hero {
+    position: relative; /* Indispensable pour positionner le diaporama en arrière-plan */
+    min-height: 100vh; /* On s'assure qu'il prend toute la hauteur de l'écran */
     color: var(--white);
     text-align: center;
-    background-image: url('images/Index_Hero_Background.webp');
-    background-size: cover;
-    background-position: 47% 50%;
+    display: flex; /* On garde flex pour centrer verticalement le contenu */
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Empêche tout débordement */
 
-    /* IMPORTANT : On supprime les styles qui pourraient interférer */
-    display: block; /* On remet la valeur par défaut */
-    padding: 0;
+    /* On retire les anciennes propriétés de fond */
+    /* background-image: url('images/Index_Hero_Background.webp'); */
+    /* background-size: cover; */
+    /* background-position: 47% 50%; */
 }
 
-/* --- ÉTAPE 2 : On centre l'enfant de force --- */
-.home-hero .container {
-    /* La technique de centrage absolu qui ne peut pas échouer */
+/* --- ÉTAPE 2 : On positionne le diaporama en fond --- */
+.hero-slideshow {
     position: absolute;
-    top: 53%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    /* On s'assure qu'il se comporte bien en largeur */
-    width: 100%; /* Il prend toute la largeur du parent */
-    max-width: 1200px; /* On ré-applique la contrainte de votre design */
-    padding: 0 20px; /* On garde l'espacement pour que le texte ne touche pas les bords */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Le plus bas pour être en arrière-plan */
 }
 
+.hero-slideshow .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Assure que l'image couvre tout l'espace sans se déformer */
+}
+
+/* --- ÉTAPE 3 : On ajoute une surcouche sombre pour la lisibilité --- */
+.hero-slideshow::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Ajustez l'opacité (0.4) selon vos images */
+    z-index: 2;
+}
+
+/* --- ÉTAPE 4 : On s'assure que le contenu est au-dessus de tout --- */
+.home-hero .container {
+    position: relative; /* Changé de 'absolute' à 'relative' pour simplifier */
+    z-index: 3; /* Le plus haut pour être au-dessus du diaporama et de la surcouche */
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+/* ================================================================ */
+/* === FIN DES STYLES POUR LE DIAPORAMA === */
+/* ================================================================ */
+
+/* ... (Le reste de votre CSS reste inchangé, y compris les anciennes règles pour .home-hero .container que vous pourriez avoir) ... */
+/* NOTE : J'ai simplifié la règle pour .home-hero .container. Si vous aviez des positionnements spécifiques avec top/left/transform, il faudra les ajuster, mais cette version avec flexbox est plus robuste. */
+/* ================================================================ */
+/* === STYLES POUR LES BARRES DE PROGRESSION (À AJOUTER) === */
+/* ================================================================ */
+
+/* Conteneur principal des barres */
+
+/* === NOUVELLE RÈGLE AMÉLIORÉE POUR LA PAGINATION === */
+.hero-progress-pagination {
+    position: absolute;     /* Positionne par rapport au parent (.home-hero) */
+    bottom: 30px;           /* Le place à 30px du bas */
+    
+    /* C'est la nouvelle technique de centrage : */
+    left: 0;                /* Aligne le bord gauche sur le bord gauche du parent */
+    right: 0;               /* Aligne le bord droit sur le bord droit du parent */
+    margin-left: auto;      /* Marge automatique à gauche */
+    margin-right: auto;     /* Marge automatique à droite (le navigateur centre l'élément) */
+
+    /* On définit la largeur de notre conteneur de barres : */
+    width: 90%;             /* Utilise 90% de la largeur de l'écran sur mobile */
+    max-width: 400px;       /* Mais ne dépasse jamais 400px de large */
+
+    /* Le reste ne change pas : */
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+    
+    /* IMPORTANT : On supprime ces deux lignes de l'ancienne règle */
+    /* transform: translateX(-50%); */ /* <- SUPPRIMER */
+}
+/* Ajout pour forcer la largeur et éviter l'écrasement par Swiper */
+.swiper-pagination-horizontal {
+    width: 90% !important;
+    max-width: 400px !important;
+}
+
+/* Chaque barre (l'arrière-plan) */
+.hero-progress-pagination .swiper-pagination-bullet {
+    flex: 1; /* Pour que les barres se partagent l'espace équitablement */
+    height: 4px;
+    border-radius: 2px;
+    background-color: rgba(255, 255, 255, 0.4);
+    overflow: hidden;
+    cursor: pointer;
+    /* On retire les styles par défaut de swiper */
+    margin: 0 !important;
+    width: auto !important;
+    opacity: 1 !important;
+}
+
+/* La barre de progression (le remplissage) */
+.hero-progress-pagination .swiper-pagination-bullet .progress-fill {
+    display: block;
+    height: 100%;
+    width: 100%;
+    background-color: var(--white);
+    transform: scaleX(0); /* Commence vide */
+    transform-origin: left;
+    transition: transform 0.1s linear; /* Pour une transition douce si on navigue */
+}
+
+/* Animation pour la barre active */
+.hero-progress-pagination .swiper-pagination-bullet-active .progress-fill {
+    transform: scaleX(1);
+    /* L'animation se fait sur la durée de la diapositive */
+    transition: transform 5s linear; /* Doit correspondre au 'delay' de l'autoplay */
+}
 .services-section h2 {
     text-align: center;
     margin-bottom: 50px;
