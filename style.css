@@ -880,6 +880,8 @@ footer {
         box-shadow: -5px 0 15px rgba(0,0,0,0.1);
         gap: 40px;
         padding-top: 100px;
+        border-left: 3px solid var(--primary-color);
+        
     }
 
     nav ul.nav-open { right: 0; }
@@ -1821,6 +1823,8 @@ nav .nav-links li.dropdown.submenu-open > a .arrow-down {
     opacity: 0;
     transform: translateY(10px);
     transition: opacity 0.3s ease, transform 0.3s ease;
+     border: none;
+    
 }
 
 /* --- LOGIQUE D'AFFICHAGE --- */
@@ -1851,6 +1855,7 @@ nav .nav-links li.dropdown.submenu-open > .dropdown-menu {
     align-items: center; /* <-- AJOUT : pour centrer verticalement */
     color: var(--text-color);
     white-space: nowrap;
+    flex-wrap: nowrap;
 }
 /* Style pour la nouvelle icône */
 .dropdown-icon {
@@ -2330,7 +2335,7 @@ nav .nav-links li.dropdown.submenu-open > .dropdown-menu {
         align-items: flex-start; 
         
         /* On ajoute une marge à gauche pour que ce ne soit pas collé au bord */
-        padding-left: 40px; 
+        padding-left: 30px; 
     }
 
     /* On s'assure que le conteneur du sous-menu prend toute la largeur */
