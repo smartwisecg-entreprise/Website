@@ -167,7 +167,7 @@ const translations = {
         about_hero_line2: "Smart Wise.",
         about_hero_subtitle: "Passionate innovators who transform complex ideas into simple, intuitive, and high-performing technological solutions to propel your growth.",
         about_story_title: "Our Story",
-        about_story_p1: "Founded in 2020, Smart Wise was born from a simple ambition: to make technology accessible and truly useful. Realizing that many companies and institutions struggled to find digital tools adapted to their realities, we decided to create custom solutions.",
+        about_story_p1: "Founded in 2025, Smart Wise was born from a simple ambition: to make technology accessible and truly useful. Realizing that many companies and institutions struggled to find digital tools adapted to their realities, we decided to create custom solutions.",
         about_story_p2: "From our first project, Geschool ERP, to our VTC and Cloud Hosting services, every step of our journey has been guided by listening to our clients and a relentless pursuit of excellence.",
         about_values_title: "What Guides Us",
         about_values_subtitle: "Our values are not just words on a wall. They are the driving force behind our every action and the guarantee of our commitment to you.",
@@ -217,7 +217,12 @@ const translations = {
         // --- News Page (news.html) --- // Ajouté
         news_hero_word1: "Our",
         news_hero_word2: "News",
-        news_hero_subtitle: "Stay informed about the latest innovations, partnerships, and announcements from Smart Wise."
+        news_hero_subtitle: "Stay informed about the latest innovations, partnerships, and announcements from Smart Wise.",
+
+         // --- Coming Soon Page --- // Ajouté
+        coming_soon_title: "Coming Soon",
+        coming_soon_desc: "We are working hard to bring you this new feature. Stay tuned to discover our innovations.",
+        coming_soon_btn: "Back to Home"
         
     },
     fr: {
@@ -391,8 +396,8 @@ const translations = {
         about_hero_line2: "Smart Wise.",
         about_hero_subtitle: "Des innovateurs passionnés qui transforment des idées complexes en solutions technologiques simples, intuitives et performantes pour propulser votre croissance.",
         about_story_title: "Notre Histoire",
-        about_story_p1: "Fondée en 2020, Smart Wise est née d'une ambition simple : rendre la technologie accessible et véritablement utile. Partant du constat que de nombreuses entreprises et institutions peinaient à trouver des outils numériques adaptés à leurs réalités, nous avons décidé de créer des solutions sur-mesure.",
-        about_story_p2: "De notre premier projet, Geschool ERP, à nos services de VTC et de Cloud Hosting, chaque étape de notre parcours a été guidée par l'écoute de nos clients et une quête incessante d'excellence.",
+        about_story_p1: "Fondée en 2025, Smart Wise est née d'une ambition simple : rendre la technologie accessible et véritablement utile. Partant du constat que de nombreuses entreprises et institutions peinaient à trouver des outils numériques adaptés à leurs réalités, nous avons décidé de créer des solutions sur-mesure.",
+        about_story_p2: "De notre premier projet, Geschool , à nos services de VTC et de Cloud Hosting, chaque étape de notre parcours a été guidée par l'écoute de nos clients et une quête incessante d'excellence.",
         about_values_title: "Ce qui nous guide",
         about_values_subtitle: "Nos valeurs ne sont pas de simples mots sur un mur. Elles sont le moteur de chacune de nos actions et la garantie de notre engagement envers vous.",
         about_value1_title: "Innovation",
@@ -441,6 +446,11 @@ const translations = {
         // --- News Page (news.html) --- // Ajouté
         news_hero_word1: "Notre",
         news_hero_word2: "Actualité",
-        news_hero_subtitle: "Restez informé des dernières innovations, partenariats et annonces de Smart Wise."
+        news_hero_subtitle: "Restez informé des dernières innovations, partenariats et annonces de Smart Wise.",
+
+         // --- Coming Soon Page --- // Ajouté
+        coming_soon_title: "Bientôt Disponible",
+        coming_soon_desc: "Nous travaillons dur pour vous apporter cette nouveauté. Restez connectés pour découvrir nos innovations.",
+        coming_soon_btn: "Retour à l'accueil"
     }
 };
