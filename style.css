@@ -2039,93 +2039,7 @@ nav .nav-links li.dropdown.submenu-open > .dropdown-menu {
     background-color: #ffebee; /* Un rouge pastel très clair */
 }
 
-/* ================================================================ */
-/* === STYLES POUR ÉLÉMENTS DÉSACTIVÉS (BOUTONS & BADGES) === */
-/* ================================================================ */
 
-/* Style visuel pour les boutons de type .btn désactivés */
-.btn.disabled {
-    background-color: #cccccc;
-    border-color: #cccccc;
-    color: #666666;
-    cursor: not-allowed;
-    transform: none !important; /* !important pour surcharger le hover */
-    box-shadow: none !important;
-}
-
-/* Style visuel pour les badges d'application désactivés */
-.app-badges a.disabled {
-    filter: grayscale(100%);
-    opacity: 0.6;
-    cursor: not-allowed;
-    transform: none !important;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-}
-
-/* --- INFOBULLE COMMUNE POUR LES ORDINATEURS --- */
-
-/* On s'assure que l'élément parent est bien positionné */
-.btn.disabled,
-.app-badges a.disabled {
-    position: relative;
-}
-
-/* Style de l'infobulle (cachée par défaut) */
-.btn.disabled::after,
-.app-badges a.disabled::after {
-    content: 'Bientôt disponible !';
-    position: absolute;
-    bottom: 105%; /* Se positionne juste au-dessus de l'élément */
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #333;
-    color: var(--white);
-    padding: 6px 12px;
-    border-radius: 5px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    white-space: nowrap;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    z-index: 10;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-/* Fait apparaître l'infobulle au survol */
-.btn.disabled:hover::after,
-.app-badges a.disabled:hover::after {
-    opacity: 1;
-    visibility: visible;
-}
-
-
-/* --- GESTION DES ÉCRANS TACTILES (MOBILES/TABLETTES) --- */
-
-/* Le message "Bientôt disponible" sous les badges */
-.soon-badge-notice {
-    display: none; /* Caché par défaut */
-    font-size: 0.8rem;
-    color: var(--light-text-color);
-    font-weight: 500;
-}
-
-/* Pour les écrans jusqu'à 992px */
-@media (max-width: 992px) {
-    /* On cache TOUTES les infobulles sur les écrans tactiles */
-    .btn.disabled::after,
-    .app-badges a.disabled::after {
-        display: none;
-    }
-
-    /* On affiche le texte sous les badges d'application */
-    .soon-badge-notice {
-        display: block;
-    }
-}
 
 /* --- START OF FILE style.css --- */
 
@@ -2831,4 +2745,102 @@ nav .nav-links li.dropdown.submenu-open > .dropdown-menu {
 
 .contact-hero .hero-text p {
     color: #FFFFFF; /* ou simplement 'white' */
+}
+
+/* ================================================================ */
+/* === PAGE BIENTÔT DISPONIBLE (CORRIGÉE & HARMONISÉE) === */
+/* ================================================================ */
+
+.coming-soon-section {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--secondary-color); /* Fond gris clair */
+    padding: 80px 20px;
+}
+
+.coming-soon-content {
+    max-width: 900px; /* Plus large pour accueillir les gros titres */
+    margin: 0 auto;
+}
+
+/* --- 1. L'Emoji Animé --- */
+.emoji-wrapper {
+    margin-bottom: 40px;
+    display: block;
+}
+
+.emoji-anim {
+    display: inline-block;
+    font-size: clamp(6rem, 15vw, 9rem); /* Emoji plus gros et responsive */
+    filter: drop-shadow(0 15px 30px rgba(78, 121, 148, 0.25)); 
+    animation: floatEmoji 3.5s ease-in-out infinite;
+    cursor: default;
+}
+
+@keyframes floatEmoji {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(8deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* --- 2. Le Titre (H1) - Harmonisé avec les pages HERO --- */
+.coming-soon-content h1 {
+    
+    
+    /* MÊME LOGIQUE DE TAILLE QUE VOS HEROS (Accueil/VTC/Contact) */
+    font-size: clamp(2.5rem, 8vw, 5rem); 
+    
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 4px; /* Espacement large typique de votre site */
+    line-height: 1.1;
+    margin-bottom: 30px;
+    
+    /* Utilise la même couleur sombre que tes titres 'About' pour la cohérence */
+    color: var(--dark-color); 
+    
+    text-shadow: 
+        0 2px 5px rgba(0,0,0,0.05),
+        0 10px 20px rgba(78, 121, 148, 0.15);
+}
+
+/* --- 3. Le Paragraphe (P) - Harmonisé avec les intros --- */
+.coming-soon-content p {
+    
+    
+    /* Taille augmentée pour correspondre aux intros (ex: hero-text p) */
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    
+    color: var(--light-text-color);
+    line-height: 1.7;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 400;
+}
+
+/* --- 4. Bouton de retour (Optionnel mais recommandé pour le style) --- */
+.coming-soon-btn {
+    margin-top: 40px;
+    display: inline-block;
+}
+
+/* --- Responsive Mobile --- */
+@media (max-width: 768px) {
+    .coming-soon-section {
+        padding: 60px 20px;
+    }
+
+    .coming-soon-content h1 {
+        /* Ajustement mobile pour éviter les cassures de mots */
+        font-size: clamp(2rem, 10vw, 3rem); 
+        letter-spacing: 2px;
+    }
+    
+    .coming-soon-content p {
+        font-size: 1rem;
+    }
 }
