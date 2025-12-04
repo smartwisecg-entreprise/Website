@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://smartwise.cg/sitemap.xml
+
