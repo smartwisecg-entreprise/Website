@@ -31,16 +31,24 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
+        // ===  (Gestion des Meta Tags) ===
+        document.querySelectorAll('[data-key-meta]').forEach(element => {
+            const key = element.dataset.keyMeta;
+            if (translations[lang] && translations[lang][key]) {
+                element.setAttribute('content', translations[lang][key]);
+            }
+        });
+
         document.querySelectorAll('[data-key-placeholder]').forEach(element => {
             const key = element.dataset.keyPlaceholder;
             if (translations[lang] && translations[lang][key]) {
                 element.placeholder = translations[lang][key];
             }
         });
-        
+
         document.documentElement.lang = lang;
         localStorage.setItem('language', lang);
-        
+
         if (langSwitcher) {
             langSwitcher.querySelectorAll('a').forEach(a => {
                 a.classList.remove('active');
@@ -61,7 +69,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    const initialLang = localStorage.getItem('language') || (navigator.language.split('-')[0] === 'fr' ? 'fr' : 'en');
+    // MODIFICATION : On met le français par défaut pour tout le monde (y compris Google),
+    // sauf si l'utilisateur a déjà choisi une langue et qu'elle est enregistrée dans le localStorage.
+    const initialLang = localStorage.getItem('language') || 'fr';
     setLanguage(initialLang);
 
 
@@ -72,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelector('header nav ul');
     const body = document.body;
 
-    if(menuToggle && navLinks) {
+    if (menuToggle && navLinks) {
         menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('nav-open');
             menuToggle.classList.toggle('open');
@@ -94,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
     dropdownToggles.forEach(toggle => {
         toggle.addEventListener('click', (e) => {
             const isMobileMenuOpen = navLinks.classList.contains('nav-open');
-            
+
             if (isMobileMenuOpen) {
                 e.preventDefault();
                 e.stopPropagation(); // Important pour ne pas fermer le menu
@@ -119,14 +129,14 @@ document.addEventListener('DOMContentLoaded', () => {
             link.classList.remove('active');
         }
     });
-    
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             if (targetId && targetId !== '#') {
                 const targetElement = document.querySelector(targetId);
-                if(targetElement) {
+                if (targetElement) {
                     targetElement.scrollIntoView({
                         behavior: 'smooth'
                     });
@@ -141,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==============================================================
     if (document.querySelector('.home-hero')) {
         const AUTOPLAY_DELAY = 5000;
-        
+
         // Vérification que Swiper est bien chargé
         if (typeof Swiper !== 'undefined') {
             const swiper = new Swiper('.hero-slideshow', {
@@ -210,11 +220,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         ScrollTrigger.create({
             start: "top -60",
-            onEnter: () => hideLogoText.play(), 
-            onLeaveBack: () => hideLogoText.reverse(), 
+            onEnter: () => hideLogoText.play(),
+            onLeaveBack: () => hideLogoText.reverse(),
         });
 
-        
+
         // ==============================================================
         // === ANIMATIONS PAR PAGE (DÉTAILLÉES) ===
         // ==============================================================
@@ -267,7 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // --- 3. Page Nextcloud ---
         if (document.querySelector('.nextcloud-hero')) {
-            const nextcloudHeroTl = gsap.timeline(); 
+            const nextcloudHeroTl = gsap.timeline();
             if (document.querySelector(".nextcloud-hero h1 span")) {
                 nextcloudHeroTl.from(".nextcloud-hero h1 span", {
                     duration: 1.2,
@@ -292,82 +302,143 @@ document.addEventListener('DOMContentLoaded', () => {
                 ease: "power2.out"
             }, "-=0.8");
         }
-        
-        // --- 4. Page À Propos ---
-        if (document.querySelector('.about-hero')) {
-            if (document.querySelector(".about-hero h1 span")) {
-                gsap.from(".about-hero h1 span", {
-                    duration: 1.2,
-                    opacity: 0,
-                    y: 40,
-                    rotationX: -90,
-                    ease: "power3.out",
-                    stagger: 0.2,
-                    delay: 0.2
-                });
-            }
-            gsap.from(".about-hero .hero-text p", {
-                duration: 1,
-                opacity: 0,
-                y: 20,
-                ease: "power2.out",
-                delay: 0.8
-            });
 
-            // Animations spécifiques sections About
-            const sections = [
-                '.story-content', 
-                '.values-section .section-header', 
-                '.commitment-section .section-header',
-                '.cta-section .container'
-            ];
-            sections.forEach(selector => {
-                if(document.querySelector(selector)){
-                    gsap.from(selector, {
-                        scrollTrigger: {
-                            trigger: selector,
-                            start: "top 85%",
-                            toggleActions: "play none none none"
-                        },
-                        opacity: 0,
-                        y: 60,
-                        duration: 1.2,
-                        ease: "power3.out"
-                    });
+        // --- 4. Page À Propos (Version Corrigée & Stabilisée) ---
+
+        // On attend que TOUTE la page (images, css) soit chargée pour calculer les positions
+        window.addEventListener("load", () => {
+
+            // On vérifie qu'on est bien sur la page À Propos
+            if (document.querySelector('.about-hero')) {
+
+                // Force ScrollTrigger à recalculer les positions exactes
+                ScrollTrigger.refresh();
+
+                // --- ANIMATION HERO ---
+                const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+                // Titre
+                if (document.querySelector(".about-hero h1 span")) {
+                    // fromTo force le départ et l'arrivée : impossible de se tromper de position
+                    heroTl.fromTo(".about-hero h1 span",
+                        { y: 100, opacity: 0, skewY: 7 }, // DÉPART
+                        { y: 0, opacity: 1, skewY: 0, duration: 1.2, stagger: 0.15 } // ARRIVÉE
+                    );
                 }
-            });
 
-            if (document.querySelector(".value-card")) {
-                gsap.from(".value-card", {
-                    scrollTrigger: {
-                        trigger: ".values-grid",
-                        start: "top 80%",
-                        toggleActions: "play none none none"
-                    },
-                    opacity: 0,
-                    y: 50,
-                    duration: 0.8,
-                    stagger: 0.2,
-                    ease: "power2.out"
+                // Sous-titre
+                if (document.querySelector(".about-hero .hero-text p")) {
+                    heroTl.fromTo(".about-hero .hero-text p",
+                        { y: 30, opacity: 0, filter: "blur(5px)" },
+                        { y: 0, opacity: 1, filter: "blur(0px)", duration: 1 },
+                        "-=0.8"
+                    );
+                }
+
+                // --- ANIMATION TITRES DE SECTION ---
+                const headers = gsap.utils.toArray('.section-header');
+                headers.forEach(header => {
+                    gsap.fromTo(header,
+                        { y: 50, opacity: 0 },
+                        {
+                            y: 0,
+                            opacity: 1,
+                            duration: 1,
+                            ease: "power2.out",
+                            scrollTrigger: {
+                                trigger: header,
+                                start: "top 85%",
+                                toggleActions: "play none none reverse"
+                            }
+                        }
+                    );
                 });
-            }
 
-            if (document.querySelector(".commitment-card")) {
-                gsap.from(".commitment-card", {
-                    scrollTrigger: {
-                        trigger: ".commitment-grid",
-                        start: "top 80%",
-                        toggleActions: "play none none none"
-                    },
-                    opacity: 0,
-                    y: 50,
-                    duration: 0.8,
-                    stagger: 0.2,
-                    ease: "power2.out"
-                });
-            }
-        }
+                // --- FONCTION GÉNÉRIQUE POUR LES CARTES (GRID) ---
+                // Cette fonction gère Expertise, Valeurs et Engagement de la même façon
+                const animateCards = (cardSelector, containerSelector) => {
+                    if (document.querySelector(cardSelector)) {
+                        gsap.fromTo(cardSelector,
+                            {
+                                y: 80,
+                                autoAlpha: 0, // autoAlpha = opacity + visibility (évite les bugs d'affichage)
+                                scale: 0.95,
+                                filter: "blur(10px)"
+                            },
+                            {
+                                y: 0, // On force le retour à la position naturelle (0)
+                                autoAlpha: 1,
+                                scale: 1,
+                                filter: "blur(0px)",
+                                duration: 1,
+                                stagger: 0.15,
+                                ease: "power4.out",
+                                scrollTrigger: {
+                                    trigger: containerSelector, // Le conteneur déclenche l'anim
+                                    start: "top 85%",
+                                }
+                            }
+                        );
+                    }
+                };
 
+                // --- APPEL DES ANIMATIONS DE GRILLES ---
+                animateCards(".expertise-card", ".expertise-grid");
+                animateCards(".value-card", ".values-grid");
+                animateCards(".commitment-card", ".commitment-grid");
+
+
+                // --- ANIMATION STORY ---
+                if (document.querySelector('.story-image img')) {
+                    gsap.fromTo(".story-image img",
+                        { scale: 1.2, opacity: 0 },
+                        {
+                            scale: 1,
+                            opacity: 1,
+                            duration: 1.5,
+                            ease: "power2.out",
+                            scrollTrigger: {
+                                trigger: ".story-section",
+                                start: "top 75%",
+                            }
+                        }
+                    );
+                }
+                if (document.querySelector('.story-text')) {
+                    gsap.fromTo(".story-text",
+                        { x: 50, opacity: 0 },
+                        {
+                            x: 0,
+                            opacity: 1,
+                            duration: 1.2,
+                            delay: 0.2,
+                            ease: "power2.out",
+                            scrollTrigger: {
+                                trigger: ".story-section",
+                                start: "top 75%",
+                            }
+                        }
+                    );
+                }
+
+                // --- ANIMATION CTA ---
+                if (document.querySelector(".cta-section")) {
+                    gsap.fromTo(".cta-section .container",
+                        { scale: 0.8, opacity: 0 },
+                        {
+                            scale: 1,
+                            opacity: 1,
+                            duration: 1,
+                            ease: "power2.out",
+                            scrollTrigger: {
+                                trigger: ".cta-section",
+                                start: "top 90%",
+                            }
+                        }
+                    );
+                }
+            }
+        });
         // --- 5. Page Contact ---
         if (document.querySelector('.contact-hero')) {
             if (document.querySelector(".contact-hero h1 span")) {
@@ -412,10 +483,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     const isImageFirst = image.compareDocumentPosition(text) & Node.DOCUMENT_POSITION_FOLLOWING;
                     if (isImageFirst) {
                         tl.from(image, { xPercent: -30, opacity: 0, ease: 'power2.out' })
-                        .from(text, { xPercent: 30, opacity: 0, ease: 'power2.out' }, "<");
+                            .from(text, { xPercent: 30, opacity: 0, ease: 'power2.out' }, "<");
                     } else {
                         tl.from(text, { xPercent: -30, opacity: 0, ease: 'power2.out' })
-                        .from(image, { xPercent: 30, opacity: 0, ease: 'power2.out' }, "<");
+                            .from(image, { xPercent: 30, opacity: 0, ease: 'power2.out' }, "<");
                     }
 
                     // Clip-path spécifique pour Geschool
@@ -439,7 +510,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         }
-        
+
         // --- Page d'accueil (services-section-vertical) ---
         const serviceBlocks = document.querySelectorAll('.service-block');
         if (serviceBlocks.length > 0) {
@@ -459,8 +530,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     // On alterne l'animation selon la parité
                     const isEven = Array.from(block.parentElement.children).indexOf(block) % 2 !== 0;
                     tl.from(image, { xPercent: -15, opacity: 0, ease: 'power2.out' })
-                    .from(text, { xPercent: 15, opacity: 0, ease: 'power2.out' }, "<");
-                    
+                        .from(text, { xPercent: 15, opacity: 0, ease: 'power2.out' }, "<");
+
                     if (isEven) {
                         tl.fromTo(block, {
                             '--clip-before': 'polygon(0 0, 60% 0, 40% 100%, 0% 100%)',
@@ -564,11 +635,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const howItWorksSection = document.querySelector('.how-it-works');
             if (howItWorksSection) {
                 gsap.from(howItWorksSection.querySelector('h2'), {
-                    scrollTrigger: { trigger: howItWorksSection, start: "top 85%", toggleActions: "play none none none"},
+                    scrollTrigger: { trigger: howItWorksSection, start: "top 85%", toggleActions: "play none none none" },
                     y: 50, opacity: 0, duration: 0.8, ease: 'power3.out'
                 });
                 gsap.from(howItWorksSection.querySelectorAll('.step'), {
-                    scrollTrigger: { trigger: howItWorksSection, start: "top 80%", toggleActions: "play none none none"},
+                    scrollTrigger: { trigger: howItWorksSection, start: "top 80%", toggleActions: "play none none none" },
                     y: 80,
                     opacity: 0,
                     stagger: 0.2,
@@ -620,11 +691,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const featuresSection = document.querySelector('.nextcloud-features');
             if (featuresSection) {
                 gsap.from(featuresSection.querySelector('h2'), {
-                    scrollTrigger: { trigger: featuresSection, start: "top 85%", toggleActions: "play none none none"},
+                    scrollTrigger: { trigger: featuresSection, start: "top 85%", toggleActions: "play none none none" },
                     y: 50, opacity: 0, duration: 0.8, ease: 'power3.out'
                 });
                 gsap.from(featuresSection.querySelectorAll('.step'), {
-                    scrollTrigger: { trigger: featuresSection, start: "top 80%", toggleActions: "play none none none"},
+                    scrollTrigger: { trigger: featuresSection, start: "top 80%", toggleActions: "play none none none" },
                     y: 70,
                     opacity: 0,
                     scale: 0.9,
@@ -652,7 +723,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                 });
             }
-            
+
             const contactSectionNextcloud = document.querySelector('#contact.download');
             if (contactSectionNextcloud) {
                 gsap.from(contactSectionNextcloud.querySelectorAll('.container > h2, .container > p, .container > div'), {
@@ -676,7 +747,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const formGroups = document.querySelectorAll('.contact-form .form-group');
             formGroups.forEach(group => {
                 const input = group.querySelector('input, textarea');
-                if(input){
+                if (input) {
                     input.addEventListener('focus', () => group.classList.add('focus'));
                     input.addEventListener('blur', () => group.classList.remove('focus'));
                 }
@@ -711,7 +782,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 stagger: 0.1,
                 duration: 0.7,
                 ease: 'power2.out'
-            }, "<"); 
+            }, "<");
 
             gsap.from('.contact-map-block', {
                 scrollTrigger: {
