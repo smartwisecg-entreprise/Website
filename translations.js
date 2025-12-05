@@ -1,23 +1,31 @@
 const translations = {
     en: {
         // Meta Titles
-        meta_title_home: "Smart Wise - Your Trusted Partner for Mobility and Cloud Solutions",
-        meta_title_vtc: "GoRide - Fast and Reliable Rides",
-        meta_title_nextcloud: "GoCloud - Secure Nextcloud Hosting",
-        meta_title_geschool: "Geschool - Integrated School Management Software",
+        meta_title_vtc: "ZAZA - Fast and Reliable Rides",
+        meta_title_nextcloud: "Cloud - Secure Nextcloud Hosting",
+        meta_title_geschool: "GESCHOOL - Integrated School Management Software",
         meta_title_about: "About Us - Our Vision at Smart Wise",
         meta_title_contact: "Contact Us - Smart Wise",
+        meta_title_news: "News - Smart Wise",
+        meta_title_home: "Smart Wise - Computer Engineering & Software Solutions - Republic of Congo",
+        meta_desc_vtc: "Book your ride with ZAZA by Smart Wise. Fast, safe, and comfortable trips in Pointe-Noire and Brazzaville. Download the app for your daily commute.",
+        meta_desc_nextcloud: "Private and secure Nextcloud hosting by Smart Wise. Keep full control over your data, files, and collaboration. Sovereign cloud solution for businesses.",
+        meta_desc_geschool: "GESCHOOL is the complete ERP solution for managing your educational institution. Grades, finance, tuition, and parent-student communication in one software.",
+        meta_desc_about: "Discover the story and vision of Smart Wise. A team of computer engineering experts committed to transforming digital tech in the Republic of Congo through innovation.",
+        meta_desc_contact: "Contact Smart Wise for your IT projects. Find us in Pointe-Noire (Acacia Building), by phone or email. Our team is ready to assist you.",
+        meta_desc_news: "Follow the latest news from Smart Wise. Technology updates, software releases (ZAZA, Geschool), and tech events in Congo.",
+        meta_desc_home: "Innovative company specializing in computer engineering in the Republic of Congo. Smart Wise offers software and hardware solutions tailored to business needs.",
 
         // Navigation
         nav_home: "Home",
         nav_about: "About Us",
         nav_services: "Our Services",
         nav_news: "News",
-        nav_vtc: "Smart Wise VTC",
+        nav_vtc: "ZAZA",
         desc_vtc: "Ride-Hailing Management Solution",
-        nav_cloud: "Smart Wise Cloud Hosting",
+        nav_cloud: "Cloud Hosting",
         desc_cloud: "Sovereign Cloud Hosting",
-        nav_geschool: "Geschool ERP",
+        nav_geschool: "Geschool",
         desc_geschool: "Complete School Management ERP",
         nav_contact: "Contact",
 
@@ -38,16 +46,16 @@ const translations = {
         home_hero_cta_vtc: "Discover GoRide",
         home_hero_cta_cloud: "Explore GoCloud",
         home_services_title: "Our Services",
-        home_service_vtc_title: "Smart Wise VTC Service",
+        home_service_vtc_title: "ZAZA",
         home_service_vtc_desc: "Your premium ride-hailing service for fast, safe, and comfortable journeys. Get where you need to go with just a few taps.",
-        home_service_vtc_btn: "Discover Smart Wise VTC",
-        home_service_cloud_title: "Nextcloud Cloud Hosting",
+        home_service_vtc_btn: "Discover ZAZA",
+        home_service_cloud_title: "Cloud Hosting",
         home_service_cloud_desc: "A private and secure cloud for your files, photos, and collaborative projects. Your data, under your control. Hosted in Europe.",
         home_service_cloud_btn: "Explore Cloud Hosting",
         home_service_geschool_title: "Geschool Educational ERP",
         home_service_geschool_desc: "The all-in-one software solution for managing students, grades, finances, and communication within your educational institution.",
         home_service_geschool_btn: "Discover Geschool",
-        
+
         // --- VTC Page (vtc.html) ---
         vtc_hero_word1: "Request a ride,",
         vtc_hero_word2: "or",
@@ -74,7 +82,7 @@ const translations = {
         vtc_tier2_desc: "High-end vehicles with top-rated drivers for a luxury experience.",
         vtc_download_title: "Download the app",
         vtc_download_desc: "Get GoRide to start traveling with ease.",
-        
+
         // --- Nextcloud Page (nextcloud.html) ---
         nextcloud_hero_line1: "Your Data, Your Rules.",
         nextcloud_hero_line2: "Securely Hosted.",
@@ -158,7 +166,7 @@ const translations = {
         geschool_feature_block5_item3: "Protect the institution's data with an integrated automated backup module.",
         geschool_contact_title: "Interested in Geschool?",
         geschool_contact_desc: "Contact us today for a personalized demo and discover how Geschool can transform your institution's management.",
-        geschool_contact_cta: "Contact via WhatsApp", 
+        geschool_contact_cta: "Contact via WhatsApp",
         geschool_contact_wa_link: "https://wa.me/242056323722?text=Hello,%20I'm%20interested%20in%20the%20Geschool%20software.",
 
         // --- About Us Page (about.html) ---
@@ -166,7 +174,7 @@ const translations = {
         about_hero_line2: "Smart Wise.",
         about_hero_subtitle: "Passionate innovators who transform complex ideas into simple, intuitive, and high-performing technological solutions to propel your growth.",
         about_story_title: "Our Story",
-        about_story_p1: "Founded in 2020, Smart Wise was born from a simple ambition: to make technology accessible and truly useful. Realizing that many companies and institutions struggled to find digital tools adapted to their realities, we decided to create custom solutions.",
+        about_story_p1: "Founded in 2025, Smart Wise was born from a simple ambition: to make technology accessible and truly useful. Realizing that many companies and institutions struggled to find digital tools adapted to their realities, we decided to create custom solutions.",
         about_story_p2: "From our first project, Geschool ERP, to our VTC and Cloud Hosting services, every step of our journey has been guided by listening to our clients and a relentless pursuit of excellence.",
         about_values_title: "What Guides Us",
         about_values_subtitle: "Our values are not just words on a wall. They are the driving force behind our every action and the guarantee of our commitment to you.",
@@ -187,7 +195,19 @@ const translations = {
         about_cta_title: "Ready to build the future with us?",
         about_cta_desc: "Let's discuss your projects. Our team is ready to turn your challenges into opportunities.",
         about_cta_btn: "Contact Us",
-        
+        about_expertise_title: "Our Areas of Expertise",
+        about_expertise_subtitle: "Advanced technological expertise to meet your most complex challenges.",
+        exp_arcgis_title: "ArcGIS & Geomatics",
+        exp_arcgis_desc: "Deployment and management of advanced GIS solutions with ArcGIS Pro and ArcGIS Enterprise.",
+        exp_network_title: "Networks & Systems",
+        exp_network_desc: "Infrastructure architecture, IT security, and system administration.",
+        exp_soft_title: "Software Development",
+        exp_soft_desc: "Design of custom software tailored to your specific business processes.",
+        exp_app_title: "Mobile & Web Applications",
+        exp_app_desc: "Development of high-performance applications (Android, iOS) and intuitive web platforms.",
+        exp_web_title: "Website Development",
+        exp_web_desc: "Creation of modern, responsive, and SEO-optimized corporate and e-commerce websites.",
+
         // --- Contact Page (contact.html) ---
         contact_hero_word1: "Let's Get",
         contact_hero_word2: "in",
@@ -211,30 +231,50 @@ const translations = {
         contact_info_phone_content: "05 660 04 59",
         contact_info_email_title: "Email",
         contact_info_email_content: "contact@smartwise.cg",
-        contact_map_title: "Find Us on the Map"
+        contact_map_title: "Find Us on the Map",
+
+        // --- News Page (news.html) --- // Ajouté
+        news_hero_word1: "Our",
+        news_hero_word2: "News",
+        news_hero_subtitle: "Stay informed about the latest innovations, partnerships, and announcements from Smart Wise.",
+
+        // --- Coming Soon Page --- // Ajouté
+        coming_soon_title: "Coming Soon",
+        coming_soon_desc: "We are working hard to bring you this new feature. Stay tuned to discover our innovations.",
+        coming_soon_btn: "Back to Home"
+
+
     },
     fr: {
         // Meta Titles
-        meta_title_home: "Smart Wise - Votre Partenaire de Confiance pour la Mobilité et les Solutions Cloud",
-        meta_title_vtc: "GoRide - Des Trajets Rapides et Fiables",
-        meta_title_nextcloud: "GoCloud - Hébergement Nextcloud Sécurisé",
-        meta_title_geschool: "Geschool - Logiciel de Gestion Scolaire Intégré",
+        meta_title_vtc: "ZAZA - Des Trajets Rapides et Fiables",
+        meta_title_nextcloud: "Cloud - Hébergement Nextcloud Sécurisé",
+        meta_title_geschool: "GESCHOOL - Logiciel de Gestion Scolaire Intégré",
         meta_title_about: "À Propos - Notre Vision chez Smart Wise",
         meta_title_contact: "Contactez-nous - Smart Wise",
+        meta_title_news: "Actualités - Smart Wise",
+        meta_title_home: "Smart Wise - Génie Informatique & Solutions Logicielles - République du Congo",
+        meta_desc_vtc: "Commandez votre course avec ZAZA par Smart Wise. Trajets rapides, sécurisés et confortables à Pointe-Noire et Brazzaville. Téléchargez l'application pour vos déplacements.",
+        meta_desc_nextcloud: "Hébergement Cloud Nextcloud privé et sécurisé par Smart Wise. Gardez le contrôle total de vos données, fichiers et collaborations. Solution souveraine pour entreprises.",
+        meta_desc_geschool: "GESCHOOL est la solution ERP complète pour la gestion de votre établissement scolaire. Notes, finances, scolarité et communication parents-élèves en un seul logiciel.",
+        meta_desc_about: "Découvrez l'histoire et la vision de Smart Wise. Une équipe d'experts en génie informatique engagée à transformer le numérique en République du Congo par l'innovation.",
+        meta_desc_contact: "Contactez Smart Wise pour vos projets informatiques. Retrouvez-nous à Pointe-Noire (Immeuble Acacia), par téléphone ou email. Notre équipe est à votre écoute.",
+        meta_desc_news: "Suivez les dernières actualités de Smart Wise. Nouveautés technologiques, mises à jour de nos logiciels (ZAZA, Geschool) et événements tech au Congo.",
+        meta_desc_home: "Entreprise innovante spécialisée en génie informatique en République du Congo. Smart Wise offre des solutions logicielles et matérielles adaptées aux besoins des entreprises.",
 
         // Navigation
         nav_home: "Accueil",
         nav_about: "À Propos",
         nav_services: "Nos Services",
         nav_news: "Actualités",
-        nav_vtc: "Smart Wise VTC",
+        nav_vtc: "ZAZA",
         desc_vtc: "Solution de gestion pour VTC",
-        nav_cloud: "Smart Wise Cloud Hosting",
+        nav_cloud: "Cloud Hosting",
         desc_cloud: "Hébergement Cloud souverain",
-        nav_geschool: "Geschool ERP",
+        nav_geschool: "GESCHOOL",
         desc_geschool: "ERP de gestion scolaire complet",
         nav_contact: "Contact",
-        
+
         // Footer
         footer_explore_title: "Explorer",
         footer_contact_title: "Nous Joindre",
@@ -252,13 +292,13 @@ const translations = {
         home_hero_cta_vtc: "Découvrir GoRide",
         home_hero_cta_cloud: "Explorer GoCloud",
         home_services_title: "Nos Services",
-        home_service_vtc_title: "Service Smart Wise VTC",
+        home_service_vtc_title: "ZAZA",
         home_service_vtc_desc: "Votre service de VTC premium pour des trajets rapides, sûrs et confortables. Allez où vous voulez en quelques clics.",
-        home_service_vtc_btn: "Découvrir Smart Wise VTC",
-        home_service_cloud_title: "Hébergement Cloud Nextcloud",
+        home_service_vtc_btn: "Découvrir ZAZA",
+        home_service_cloud_title: "Cloud Hosting",
         home_service_cloud_desc: "Un cloud privé et sécurisé pour vos fichiers, photos et projets collaboratifs. Vos données, sous votre contrôle. Hébergé en Europe.",
         home_service_cloud_btn: "Explorer le Cloud Hosting",
-        home_service_geschool_title: "Geschool ERP Éducatif",
+        home_service_geschool_title: "Geschool",
         home_service_geschool_desc: "La solution logicielle tout-en-un pour la gestion des apprenants, des notes, des finances et de la communication au sein de votre établissement scolaire.",
         home_service_geschool_btn: "Découvrir Geschool",
 
@@ -383,8 +423,8 @@ const translations = {
         about_hero_line2: "Smart Wise.",
         about_hero_subtitle: "Des innovateurs passionnés qui transforment des idées complexes en solutions technologiques simples, intuitives et performantes pour propulser votre croissance.",
         about_story_title: "Notre Histoire",
-        about_story_p1: "Fondée en 2020, Smart Wise est née d'une ambition simple : rendre la technologie accessible et véritablement utile. Partant du constat que de nombreuses entreprises et institutions peinaient à trouver des outils numériques adaptés à leurs réalités, nous avons décidé de créer des solutions sur-mesure.",
-        about_story_p2: "De notre premier projet, Geschool ERP, à nos services de VTC et de Cloud Hosting, chaque étape de notre parcours a été guidée par l'écoute de nos clients et une quête incessante d'excellence.",
+        about_story_p1: "Fondée en 2025, Smart Wise est née d'une ambition simple : rendre la technologie accessible et véritablement utile. Partant du constat que de nombreuses entreprises et institutions peinaient à trouver des outils numériques adaptés à leurs réalités, nous avons décidé de créer des solutions sur-mesure.",
+        about_story_p2: "De notre premier projet, Geschool , à nos services de VTC et de Cloud Hosting, chaque étape de notre parcours a été guidée par l'écoute de nos clients et une quête incessante d'excellence.",
         about_values_title: "Ce qui nous guide",
         about_values_subtitle: "Nos valeurs ne sont pas de simples mots sur un mur. Elles sont le moteur de chacune de nos actions et la garantie de notre engagement envers vous.",
         about_value1_title: "Innovation",
@@ -401,10 +441,22 @@ const translations = {
         about_commitment2_desc: "Nous travaillons à vos côtés, en totale transparence. Votre vision devient notre mission commune, assurant un alignement parfait de nos objectifs.",
         about_commitment3_title: "Support Proactif",
         about_commitment3_desc: "Notre mission ne s'arrête pas à la livraison. Nous assurons un suivi et un support réactifs pour garantir la performance continue de vos solutions.",
+        about_expertise_title: "Nos Domaines d'Expertise",
+        about_expertise_subtitle: "Une maîtrise technologique pointue pour répondre à vos défis les plus complexes.",
+        exp_arcgis_title: "ArcGIS & Géomatique",
+        exp_arcgis_desc: "Déploiement et gestion de solutions SIG avancées avec ArcGIS Pro et ArcGIS Enterprise.",
+        exp_network_title: "Réseaux & Systèmes",
+        exp_network_desc: "Architecture d'infrastructure, sécurité informatique et administration système.",
+        exp_soft_title: "Développement Logiciel",
+        exp_soft_desc: "Conception de logiciels sur-mesure adaptés à vos processus métiers spécifiques.",
+        exp_app_title: "Applications Mobile & Web",
+        exp_app_desc: "Développement d'applications performantes (Android, iOS) et plateformes web intuitives.",
+        exp_web_title: "Développement Site Web",
+        exp_web_desc: "Création de sites vitrines et e-commerce modernes, responsives et optimisés SEO.",
         about_cta_title: "Prêt à construire l'avenir avec nous ?",
         about_cta_desc: "Discutons de vos projets. Notre équipe est prête à transformer vos défis en opportunités.",
         about_cta_btn: "Contactez-nous",
-        
+
         // --- Contact Page (contact.html) ---
         contact_hero_word1: "Entrons",
         contact_hero_word2: "en",
@@ -428,6 +480,16 @@ const translations = {
         contact_info_phone_content: "05 660 04 59",
         contact_info_email_title: "Email",
         contact_info_email_content: "contact@smartwise.cg",
-        contact_map_title: "Retrouvez-nous sur la carte"
+        contact_map_title: "Retrouvez-nous sur la carte",
+
+        // --- News Page (news.html) --- // Ajouté
+        news_hero_word1: "Notre",
+        news_hero_word2: "Actualité",
+        news_hero_subtitle: "Restez informé des dernières innovations, partenariats et annonces de Smart Wise.",
+
+        // --- Coming Soon Page --- // Ajouté
+        coming_soon_title: "Bientôt Disponible",
+        coming_soon_desc: "Nous travaillons dur pour vous apporter cette nouveauté. Restez connectés pour découvrir nos innovations.",
+        coming_soon_btn: "Retour à l'accueil"
     }
 };

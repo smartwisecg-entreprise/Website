@@ -112,15 +112,15 @@ nav .container {
     width: 70px;  /* <--- ET CECI AUSSI (gardez-les identiques) */
     z-index: 10;
     top: 20px;
-    transform: scale(0.9);
+    transform: scale(0.8);
 }
 
 
 .logo-text {
     /* Le texte est décalé pour apparaître à droite de la spirale */
-    transform: translateX(80px) translateY(4px) scale(0.5); /* Ajustez cette valeur si nécessaire */
+    transform: translateX(80px) translateY(4px) scale(0.4); /* Ajustez cette valeur si nécessaire */
     z-index: 5; /* Le texte est en dessous de la spirale */
-    left: -65px; 
+    left: -80px; 
     
 
 }
@@ -426,6 +426,8 @@ h1, h2 {
 .tier:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+     /* MODIFICATION ICI : La couleur apparaît au survol */
+    border-bottom: 3px solid var(--primary-color);
 }
 
 .tier img {
@@ -592,40 +594,136 @@ footer {
 /* === CORRECTIF FINAL ET DÉFINITIF POUR LE CENTRAGE DU HERO    === */
 /* ================================================================ */
 
-/* --- ÉTAPE 1 : On prépare le parent --- */
-.home-hero {
-    /* On le définit comme le "cadre" de référence pour le positionnement */
-    position: relative;
-    
-    /* La hauteur est toujours essentielle */
-    min-height: 75vh;
+/* ================================================================ */
+/* === STYLES POUR LE DIAPORAMA HERO (À AJOUTER/MODIFIER) === */
+/* ================================================================ */
 
-    /* Le reste de vos styles visuels ne change pas */
+/* --- ÉTAPE 1 : On modifie le conteneur principal --- */
+.home-hero {
+    position: relative; /* Indispensable pour positionner le diaporama en arrière-plan */
+    min-height: 100vh; /* On s'assure qu'il prend toute la hauteur de l'écran */
     color: var(--white);
     text-align: center;
-    background-image: url('images/Index_Hero_Background.webp');
-    background-size: cover;
-    background-position: 47% 50%;
+    display: flex; /* On garde flex pour centrer verticalement le contenu */
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Empêche tout débordement */
 
-    /* IMPORTANT : On supprime les styles qui pourraient interférer */
-    display: block; /* On remet la valeur par défaut */
-    padding: 0;
+    /* On retire les anciennes propriétés de fond */
+    /* background-image: url('images/Index_Hero_Background.webp'); */
+    /* background-size: cover; */
+    /* background-position: 47% 50%; */
 }
 
-/* --- ÉTAPE 2 : On centre l'enfant de force --- */
-.home-hero .container {
-    /* La technique de centrage absolu qui ne peut pas échouer */
+/* --- ÉTAPE 2 : On positionne le diaporama en fond --- */
+.hero-slideshow {
     position: absolute;
-    top: 53%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    /* On s'assure qu'il se comporte bien en largeur */
-    width: 100%; /* Il prend toute la largeur du parent */
-    max-width: 1200px; /* On ré-applique la contrainte de votre design */
-    padding: 0 20px; /* On garde l'espacement pour que le texte ne touche pas les bords */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Le plus bas pour être en arrière-plan */
 }
 
+.hero-slideshow .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Assure que l'image couvre tout l'espace sans se déformer */
+}
+
+/* --- ÉTAPE 3 : On ajoute une surcouche sombre pour la lisibilité --- */
+.hero-slideshow::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Ajustez l'opacité (0.4) selon vos images */
+    z-index: 2;
+}
+
+/* --- ÉTAPE 4 : On s'assure que le contenu est au-dessus de tout --- */
+.home-hero .container {
+    position: relative; /* Changé de 'absolute' à 'relative' pour simplifier */
+    z-index: 3; /* Le plus haut pour être au-dessus du diaporama et de la surcouche */
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+/* ================================================================ */
+/* === FIN DES STYLES POUR LE DIAPORAMA === */
+/* ================================================================ */
+
+/* ... (Le reste de votre CSS reste inchangé, y compris les anciennes règles pour .home-hero .container que vous pourriez avoir) ... */
+/* NOTE : J'ai simplifié la règle pour .home-hero .container. Si vous aviez des positionnements spécifiques avec top/left/transform, il faudra les ajuster, mais cette version avec flexbox est plus robuste. */
+/* ================================================================ */
+/* === STYLES POUR LES BARRES DE PROGRESSION (À AJOUTER) === */
+/* ================================================================ */
+
+/* Conteneur principal des barres */
+
+/* === NOUVELLE RÈGLE AMÉLIORÉE POUR LA PAGINATION === */
+.hero-progress-pagination {
+    position: absolute;     /* Positionne par rapport au parent (.home-hero) */
+    bottom: 30px;           /* Le place à 30px du bas */
+    
+    /* C'est la nouvelle technique de centrage : */
+    left: 0;                /* Aligne le bord gauche sur le bord gauche du parent */
+    right: 0;               /* Aligne le bord droit sur le bord droit du parent */
+    margin-left: auto;      /* Marge automatique à gauche */
+    margin-right: auto;     /* Marge automatique à droite (le navigateur centre l'élément) */
+
+    /* On définit la largeur de notre conteneur de barres : */
+    width: 90%;             /* Utilise 90% de la largeur de l'écran sur mobile */
+    max-width: 400px;       /* Mais ne dépasse jamais 400px de large */
+
+    /* Le reste ne change pas : */
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+    
+    /* IMPORTANT : On supprime ces deux lignes de l'ancienne règle */
+    /* transform: translateX(-50%); */ /* <- SUPPRIMER */
+}
+/* Ajout pour forcer la largeur et éviter l'écrasement par Swiper */
+.swiper-pagination-horizontal {
+    width: 90% !important;
+    max-width: 400px !important;
+}
+
+/* Chaque barre (l'arrière-plan) */
+.hero-progress-pagination .swiper-pagination-bullet {
+    flex: 1; /* Pour que les barres se partagent l'espace équitablement */
+    height: 4px;
+    border-radius: 2px;
+    background-color: rgba(255, 255, 255, 0.4);
+    overflow: hidden;
+    cursor: pointer;
+    /* On retire les styles par défaut de swiper */
+    margin: 0 !important;
+    width: auto !important;
+    opacity: 1 !important;
+}
+
+/* La barre de progression (le remplissage) */
+.hero-progress-pagination .swiper-pagination-bullet .progress-fill {
+    display: block;
+    height: 100%;
+    width: 100%;
+    background-color: var(--white);
+    transform: scaleX(0); /* Commence vide */
+    transform-origin: left;
+    transition: transform 0.1s linear; /* Pour une transition douce si on navigue */
+}
+
+/* Animation pour la barre active */
+.hero-progress-pagination .swiper-pagination-bullet-active .progress-fill {
+    transform: scaleX(1);
+    /* L'animation se fait sur la durée de la diapositive */
+    transition: transform 5s linear; /* Doit correspondre au 'delay' de l'autoplay */
+}
 .services-section h2 {
     text-align: center;
     margin-bottom: 50px;
@@ -784,6 +882,8 @@ footer {
         box-shadow: -5px 0 15px rgba(0,0,0,0.1);
         gap: 40px;
         padding-top: 100px;
+        border-left: 3px solid var(--primary-color);
+        
     }
 
     nav ul.nav-open { right: 0; }
@@ -1542,13 +1642,24 @@ footer {
     padding: 40px;
     text-align: center;
     border-radius: 12px;
-    border: 1px solid #e9ecef;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    
+    /* MODIFICATION ICI : On prépare la bordure invisible pour éviter que le texte ne saute */
+    border-bottom: 3px solid transparent;
+
+    /* On s'assure que l'ombre est similaire à celle de l'expertise */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    
+    /* MODIFICATION ICI : On ajoute border-bottom à la transition */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-bottom 0.3s ease;
 }
 
 .value-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    
+    /* MODIFICATION ICI : La couleur apparaît au survol */
+    border-bottom: 3px solid var(--primary-color);
 }
 
 .value-icon {
@@ -1582,17 +1693,28 @@ footer {
 }
 
 .commitment-card {
-    background: var(--light-gray); /* Léger fond pour se démarquer */
+    background: var(--light-gray);
     padding: 40px;
     border-radius: 12px;
-    border: 1px solid #e9ecef;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: left; /* Alignement à gauche pour un look plus "corporate" */
+    border: none;
+    text-align: left;
+    
+    /* MODIFICATION ICI : Bordure invisible par défaut */
+    border-bottom: 3px solid transparent;
+
+    /* On s'assure que l'ombre est similaire à celle de l'expertise */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    
+    /* MODIFICATION ICI : Transition ajoutée */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-bottom 0.3s ease;
 }
 
 .commitment-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    
+    /* MODIFICATION ICI : Couleur au survol */
+    border-bottom: 3px solid var(--primary-color);
 }
 
 .commitment-icon {
@@ -1651,8 +1773,113 @@ footer {
     transform: translateY(-3px);
 }
 
+/* ================================================================ */
+/* ===            SECTION DOMAINES D'EXPERTISE                  === */
+/* ================================================================ */
 
-/* --- Media Queries pour le Responsive --- */
+.expertise-section {
+    background-color: var(--light-gray); /* Fond gris pour contraster avec Story (blanc) */
+    padding: 100px 20px;
+}
+
+/* Si la section Values est déjà grise, changez la couleur ci-dessus en var(--white-color) 
+   ou changez la couleur de la section Values en blanc pour alterner. */
+
+.expertise-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.expertise-card {
+    background: var(--white-color);
+    border-radius: 15px;
+    padding: 35px 25px;
+    width: 300px; /* Largeur fixe pour uniformité ou flex-basis */
+    flex-grow: 1;
+    max-width: 350px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-bottom 0.3s ease;
+    text-align: center;
+    border-bottom: 3px solid transparent;
+}
+
+.expertise-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid var(--primary-color); /* Petite touche de couleur au survol */
+}
+
+.icon-wrapper {
+    background-color: #f0f4f8; /* Fond léger derrière l'icône */
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px auto;
+    transition: background-color 0.3s ease;
+}
+
+.expertise-card:hover .icon-wrapper {
+    background-color: #e2e8f0;
+}
+
+.expertise-icon {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+}
+
+.expertise-card h3 {
+    font-size: 1.25em;
+    color: var(--dark-color);
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.expertise-card p {
+    font-size: 0.95em;
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+}
+/* --- Optimisation des Animations GSAP --- */
+
+/* Classe utilitaire pour cacher les éléments au chargement (optionnel mais recommandé) */
+.gsap-reveal-hero, 
+.gsap-reveal-text, 
+.expertise-card, 
+.value-card, 
+.commitment-card {
+    will-change: transform, opacity; /* Optimisation performance navigateur */
+    visibility: hidden; /* GSAP le passera en visible automatiquement */
+}
+
+/* Effet "Masque" pour les images (Story) */
+.reveal-image-mask {
+    overflow: hidden;
+    position: relative;
+}
+
+.reveal-image-mask img {
+    transform-origin: center;
+    will-change: transform;
+}
+
+/* Responsive section expertise */
+@media (max-width: 768px) {
+    .expertise-card {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+
+
+/* --- Media Queries pour le Responsive1 --- */
 @media (max-width: 992px) {
     .story-content {
         grid-template-columns: 1fr;
@@ -1725,6 +1952,8 @@ nav .nav-links li.dropdown.submenu-open > a .arrow-down {
     opacity: 0;
     transform: translateY(10px);
     transition: opacity 0.3s ease, transform 0.3s ease;
+     border: none;
+    
 }
 
 /* --- LOGIQUE D'AFFICHAGE --- */
@@ -1750,12 +1979,21 @@ nav .nav-links li.dropdown.submenu-open > .dropdown-menu {
 
 /* Style des liens dans le menu déroulant */
 .dropdown-menu li a {
-    padding: 12px 20px;
-    display: block;
+   padding: 12px 20px;
+    display: flex; /* <-- MODIFICATION IMPORTANTE */
+    align-items: center; /* <-- AJOUT : pour centrer verticalement */
     color: var(--text-color);
     white-space: nowrap;
+    flex-wrap: nowrap;
 }
-
+/* Style pour la nouvelle icône */
+.dropdown-icon {
+    width: 20px; /* Ajustez la taille si besoin */
+    height: 20px;
+    margin-right: 12px; /* Espace entre l'icône et le texte */
+    object-fit: contain; /* S'assure que l'icône n'est pas déformée */
+    
+}
 /* Annule l'effet de soulignement */
 .dropdown-menu li a::after {
     display: none;
@@ -1930,93 +2168,7 @@ nav .nav-links li.dropdown.submenu-open > .dropdown-menu {
     background-color: #ffebee; /* Un rouge pastel très clair */
 }
 
-/* ================================================================ */
-/* === STYLES POUR ÉLÉMENTS DÉSACTIVÉS (BOUTONS & BADGES) === */
-/* ================================================================ */
 
-/* Style visuel pour les boutons de type .btn désactivés */
-.btn.disabled {
-    background-color: #cccccc;
-    border-color: #cccccc;
-    color: #666666;
-    cursor: not-allowed;
-    transform: none !important; /* !important pour surcharger le hover */
-    box-shadow: none !important;
-}
-
-/* Style visuel pour les badges d'application désactivés */
-.app-badges a.disabled {
-    filter: grayscale(100%);
-    opacity: 0.6;
-    cursor: not-allowed;
-    transform: none !important;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-}
-
-/* --- INFOBULLE COMMUNE POUR LES ORDINATEURS --- */
-
-/* On s'assure que l'élément parent est bien positionné */
-.btn.disabled,
-.app-badges a.disabled {
-    position: relative;
-}
-
-/* Style de l'infobulle (cachée par défaut) */
-.btn.disabled::after,
-.app-badges a.disabled::after {
-    content: 'Bientôt disponible !';
-    position: absolute;
-    bottom: 105%; /* Se positionne juste au-dessus de l'élément */
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #333;
-    color: var(--white);
-    padding: 6px 12px;
-    border-radius: 5px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    white-space: nowrap;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    z-index: 10;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-/* Fait apparaître l'infobulle au survol */
-.btn.disabled:hover::after,
-.app-badges a.disabled:hover::after {
-    opacity: 1;
-    visibility: visible;
-}
-
-
-/* --- GESTION DES ÉCRANS TACTILES (MOBILES/TABLETTES) --- */
-
-/* Le message "Bientôt disponible" sous les badges */
-.soon-badge-notice {
-    display: none; /* Caché par défaut */
-    font-size: 0.8rem;
-    color: var(--light-text-color);
-    font-weight: 500;
-}
-
-/* Pour les écrans jusqu'à 992px */
-@media (max-width: 992px) {
-    /* On cache TOUTES les infobulles sur les écrans tactiles */
-    .btn.disabled::after,
-    .app-badges a.disabled::after {
-        display: none;
-    }
-
-    /* On affiche le texte sous les badges d'application */
-    .soon-badge-notice {
-        display: block;
-    }
-}
 
 /* --- START OF FILE style.css --- */
 
@@ -2226,7 +2378,7 @@ nav .nav-links li.dropdown.submenu-open > .dropdown-menu {
         align-items: flex-start; 
         
         /* On ajoute une marge à gauche pour que ce ne soit pas collé au bord */
-        padding-left: 40px; 
+        padding-left: 30px; 
     }
 
     /* On s'assure que le conteneur du sous-menu prend toute la largeur */
@@ -2368,6 +2520,8 @@ nav .nav-links li.dropdown.submenu-open > .dropdown-menu {
 .news-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 40px -5px rgba(0,0,0,0.12);
+     /* MODIFICATION ICI : La couleur apparaît au survol */
+    border-bottom: 3px solid var(--primary-color);
 }
 
 .card-image-container {
@@ -2722,4 +2876,102 @@ nav .nav-links li.dropdown.submenu-open > .dropdown-menu {
 
 .contact-hero .hero-text p {
     color: #FFFFFF; /* ou simplement 'white' */
+}
+
+/* ================================================================ */
+/* === PAGE BIENTÔT DISPONIBLE (CORRIGÉE & HARMONISÉE) === */
+/* ================================================================ */
+
+.coming-soon-section {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--secondary-color); /* Fond gris clair */
+    padding: 80px 20px;
+}
+
+.coming-soon-content {
+    max-width: 900px; /* Plus large pour accueillir les gros titres */
+    margin: 0 auto;
+}
+
+/* --- 1. L'Emoji Animé --- */
+.emoji-wrapper {
+    margin-bottom: 40px;
+    display: block;
+}
+
+.emoji-anim {
+    display: inline-block;
+    font-size: clamp(6rem, 15vw, 9rem); /* Emoji plus gros et responsive */
+    filter: drop-shadow(0 15px 30px rgba(78, 121, 148, 0.25)); 
+    animation: floatEmoji 3.5s ease-in-out infinite;
+    cursor: default;
+}
+
+@keyframes floatEmoji {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(8deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* --- 2. Le Titre (H1) - Harmonisé avec les pages HERO --- */
+.coming-soon-content h1 {
+    
+    
+    /* MÊME LOGIQUE DE TAILLE QUE VOS HEROS (Accueil/VTC/Contact) */
+    font-size: clamp(2.5rem, 8vw, 5rem); 
+    
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 4px; /* Espacement large typique de votre site */
+    line-height: 1.1;
+    margin-bottom: 30px;
+    
+    /* Utilise la même couleur sombre que tes titres 'About' pour la cohérence */
+    color: var(--dark-color); 
+    
+    text-shadow: 
+        0 2px 5px rgba(0,0,0,0.05),
+        0 10px 20px rgba(78, 121, 148, 0.15);
+}
+
+/* --- 3. Le Paragraphe (P) - Harmonisé avec les intros --- */
+.coming-soon-content p {
+    
+    
+    /* Taille augmentée pour correspondre aux intros (ex: hero-text p) */
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    
+    color: var(--light-text-color);
+    line-height: 1.7;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 400;
+}
+
+/* --- 4. Bouton de retour (Optionnel mais recommandé pour le style) --- */
+.coming-soon-btn {
+    margin-top: 40px;
+    display: inline-block;
+}
+
+/* --- Responsive Mobile --- */
+@media (max-width: 768px) {
+    .coming-soon-section {
+        padding: 60px 20px;
+    }
+
+    .coming-soon-content h1 {
+        /* Ajustement mobile pour éviter les cassures de mots */
+        font-size: clamp(2rem, 10vw, 3rem); 
+        letter-spacing: 2px;
+    }
+    
+    .coming-soon-content p {
+        font-size: 1rem;
+    }
 }
