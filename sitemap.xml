@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Page d'accueil -->
+  <url>
+    <loc>https://smartwise.cg/</loc>
+    <lastmod>2025-02-05</lastmod>
+    <priority>1.00</priority>
+  </url>
+  <!-- À propos -->
+  <url>
+    <loc>https://smartwise.cg/about.html</loc>
+    <lastmod>2025-02-05</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <!-- Services VTC -->
+  <url>
+    <loc>https://smartwise.cg/vtc.html</loc>
+    <lastmod>2025-02-05</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <!-- Nextcloud -->
+  <url>
+    <loc>https://smartwise.cg/nextcloud.html</loc>
+    <lastmod>2025-02-05</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <!-- Geschool -->
+  <url>
+    <loc>https://smartwise.cg/geschool.html</loc>
+    <lastmod>2025-02-05</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <!-- Actualités -->
+  <url>
+    <loc>https://smartwise.cg/news.html</loc>
+    <lastmod>2025-02-05</lastmod>
+    <priority>0.60</priority>
+  </url>
+  <!-- Contact -->
+  <url>
+    <loc>https://smartwise.cg/contact.html</loc>
+    <lastmod>2025-02-05</lastmod>
+    <priority>0.60</priority>
+  </url>
+</urlset>
