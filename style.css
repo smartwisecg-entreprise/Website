@@ -3555,46 +3555,93 @@ nav .nav-links li.dropdown.submenu-open > .dropdown-menu {
     box-shadow: 0 10px 20px rgba(78, 121, 148, 0.3);
 }
 
-/* --- RESPONSIVE --- */
-@media (max-width: 900px) {
+/* ================================================================ */
+/* === VERSION MOBILE ÉPURÉE (UNIQUEMENT LE FORMULAIRE) === */
+/* ================================================================ */
+
+@media screen and (max-width: 900px) {
+
+    /* 1. L'OVERLAY (FOND) */
+    .quote-modal-overlay {
+        display: block !important;
+        padding: 0 !important;
+        background-color: #fff !important; /* Fond blanc direct */
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch;
+        z-index: 10000 !important;
+    }
+
+    /* 2. LE CONTENEUR */
     .quote-modal-container {
-        flex-direction: column; /* On empile sur mobile */
-        height: 100%;
-        max-height: 100%;
-        border-radius: 0;
-        width: 100%;
+        display: block !important; /* Plus de flex, juste un bloc */
+        width: 100% !important;
+        min-height: 100vh !important;
+        border-radius: 0 !important;
+        margin: 0 !important;
+        box-shadow: none !important;
     }
 
+    /* 3. ON CACHE TOTALEMENT LA BARRE BLEUE (SIDEBAR) */
     .quote-sidebar.branding-sidebar {
-        width: 100%;
-        padding: 30px 20px;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        height: auto;
-    }
-    
-    .sidebar-content, .sidebar-bg-pattern {
-        display: none; /* On cache le texte et le motif sur mobile pour gagner de la place */
+        display: none !important; /* C'est ici que la magie opère */
     }
 
-    .modal-logo {
-        margin-bottom: 0;
-    }
-    
-    .quote-modal-close {
-        top: 15px;
-        right: 15px;
-        background: rgba(255,255,255,0.2); /* Plus visible sur fond bleu */
-    }
-    .quote-modal-close span { color: white; }
-
+    /* 4. LE FORMULAIRE PREND TOUTE LA PLACE */
     .quote-form-wrapper {
-        width: 100%;
-        padding: 30px 20px 80px 20px;
+        width: 100% !important;
+        padding: 20px !important;
+        padding-top: 60px !important; /* Espace en haut pour ne pas coller à la croix */
+    }
+
+    /* 5. TITRE ET EN-TÊTE */
+    .form-header {
+        margin-bottom: 20px !important;
+        text-align: center !important;
+    }
+
+    .form-title {
+        font-size: 1.8rem !important;
+        color: #4e7994 !important; /* On garde ta couleur bleue pour le titre */
+    }
+
+    /* 6. INPUTS & GRILLE */
+    .form-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 15px !important;
+    }
+
+    .quote-form input, 
+    .quote-form select {
+        height: 50px !important;
+        font-size: 16px !important; /* Évite le zoom sur iPhone */
+        background-color: #f7f9fc !important; /* Petit fond gris léger pour bien voir les champs */
     }
     
-    .form-grid {
-        grid-template-columns: 1fr; /* Une seule colonne pour le formulaire */
+    .quote-form textarea {
+        height: 100px !important;
+        background-color: #f7f9fc !important;
+    }
+
+    /* 7. BOUTON FERMER (LA CROIX) - VERSION SOMBRE */
+    /* Comme le fond est blanc, on met la croix en gris foncé/noir */
+    .quote-modal-close {
+        position: absolute !important;
+        top: 15px !important;
+        right: 15px !important;
+        background: #f0f0f0 !important; /* Pastille grise claire */
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 50% !important;
+        z-index: 99999 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    .quote-modal-close span {
+        color: #333 !important; /* Croix gris foncé */
+        font-size: 24px !important;
+        line-height: 1 !important;
     }
 }
