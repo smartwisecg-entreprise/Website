@@ -146,17 +146,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // ==============================================================
+// ==============================================================
     // === INITIALISATION DU DIAPORAMA HERO (Page d'accueil) ===
     // ==============================================================
     if (document.querySelector('.home-hero')) {
-        const AUTOPLAY_DELAY = 5000;
+        const AUTOPLAY_DELAY = 5000; 
+        const TRANSITION_SPEED = 1000; 
 
-        // Vérification que Swiper est bien chargé
         if (typeof Swiper !== 'undefined') {
             const swiper = new Swiper('.hero-slideshow', {
                 loop: true,
-                speed: 1500,
+                speed: TRANSITION_SPEED,
+                observer: true,
+                observeParents: true,
                 effect: 'fade',
                 fadeEffect: {
                     crossFade: true
@@ -164,6 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 autoplay: {
                     delay: AUTOPLAY_DELAY,
                     disableOnInteraction: false,
+                    waitForTransition: false 
                 },
                 pagination: {
                     el: '.hero-progress-pagination',
@@ -174,32 +177,60 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
             });
 
-            swiper.on('slideChange', function () {
+            window.homeHeroSwiper = swiper; 
+
+            const runBarAnimation = () => {
                 const allFills = document.querySelectorAll('.hero-progress-pagination .progress-fill');
                 const realIndex = swiper.realIndex;
 
                 allFills.forEach((fill, index) => {
                     fill.style.transition = 'none';
+
                     if (index < realIndex) {
                         fill.style.transform = 'scaleX(1)';
                     } else if (index > realIndex) {
                         fill.style.transform = 'scaleX(0)';
                     } else {
+                        // Animation active
                         fill.style.transform = 'scaleX(0)';
-                        void fill.offsetWidth; // Force le recalcul
-                        fill.style.transition = `transform ${AUTOPLAY_DELAY / 1000}s linear`;
+                        void fill.offsetWidth; // Reflow
+                        fill.style.transition = `transform ${AUTOPLAY_DELAY}ms linear`;
                         fill.style.transform = 'scaleX(1)';
                     }
                 });
-            });
+            };
 
-            // Lancer l'animation de la première barre au chargement
-            swiper.emit('slideChange');
+            swiper.on('slideChangeTransitionStart', runBarAnimation);
+            
+            // Premier lancement
+            runBarAnimation();
+
+            // --- CORRECTIF : GESTION DU CHANGEMENT D'ONGLET ---
+            // Empêche le décalage quand on quitte/revient sur le navigateur
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) {
+                    // L'utilisateur est parti : on met en pause pour éviter le désynchronisme
+                    swiper.autoplay.stop();
+                    
+                    // Optionnel : on fige visuellement la barre (reset)
+                    const activeFill = document.querySelector('.hero-progress-pagination .swiper-pagination-bullet-active .progress-fill');
+                    if(activeFill) {
+                        activeFill.style.transition = 'none';
+                        activeFill.style.transform = 'scaleX(0)';
+                    }
+
+                } else {
+                    // L'utilisateur est revenu : on relance tout proprement
+                    swiper.autoplay.start();
+                    runBarAnimation();
+                }
+            });
+            // --------------------------------------------------
+
         } else {
             console.warn("La librairie Swiper n'est pas chargée.");
         }
     }
-
 
     // ==============================================================
     // === SYSTÈME D'ANIMATION AVEC GSAP & SCROLLTRIGGER ===
@@ -862,4 +893,82 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    
+    // ==============================================================
+    // === Animation section benefits de la page geschool) ===
+    // ==============================================================
+
+    // Sélection de la piste
+    const track = document.getElementById("marqueeTrack");
+    
+    // 1. DUPLICATION DU CONTENU
+    // On clone tout le contenu de la piste et on l'ajoute à la suite.
+    // Cela permet de créer l'illusion d'une boucle infinie.
+    track.innerHTML += track.innerHTML;
+
+    // 2. ANIMATION GSAP
+    // On sélectionne tous les éléments (originaux + clonés)
+    const items = track.querySelectorAll('.marquee-item');
+    const totalWidth = track.scrollWidth / 2; // La moitié correspond à la largeur d'un set complet
+
+    // Création de l'animation infinie
+    const animation = gsap.to(track, {
+        x: -totalWidth, // Déplace vers la gauche de la largeur totale du set original
+        duration: 30, // Vitesse : Plus le chiffre est grand, plus c'est lent
+        ease: "none", // Mouvement linéaire (vitesse constante)
+        repeat: -1, // Répétition infinie
+        modifiers: {
+            x: gsap.utils.unitize(x => parseFloat(x) % totalWidth) // Assure le "reset" fluide de la position
+        }
+    });
+
+    // 3. INTERACTION UTILISATEUR
+    // Pause au survol de la souris
+    const marqueeContainer = document.querySelector('.marquee-container');
+    
+    marqueeContainer.addEventListener("mouseenter", () => {
+        animation.pause();
+    });
+    
+    marqueeContainer.addEventListener("mouseleave", () => {
+        animation.play();
+    });
+
+
+
+
 });
+
+
+// ==============================================================
+// === FONCTIONS GLOBALES (HORS DOMContentLoaded) ===
+// ==============================================================
+
+function openQuoteModal(event) {
+    if (event) event.preventDefault();
+    const modal = document.getElementById('quoteModal');
+    if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+
+        // --- AJOUT : Mettre le Swiper en pause ---
+        if (window.homeHeroSwiper && window.homeHeroSwiper.autoplay) {
+            window.homeHeroSwiper.autoplay.stop();
+        }
+    } else {
+        console.error("Erreur: La modale avec l'ID 'quoteModal' est introuvable.");
+    }
+}
+
+function closeQuoteModal() {
+    const modal = document.getElementById('quoteModal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+
+        // --- AJOUT : Relancer le Swiper ---
+        if (window.homeHeroSwiper && window.homeHeroSwiper.autoplay) {
+            window.homeHeroSwiper.autoplay.start();
+        }
+    }
+}
