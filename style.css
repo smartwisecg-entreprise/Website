@@ -1058,63 +1058,181 @@ footer {
 }
 /* --- GESCHOOL PAGE ENHANCEMENTS --- */
 
+/* =========================================
+   1. SECTION BENEFITS (Le Tapis Roulant)
+   Remplacement total de l'ancien style grille
+   ========================================= */
+
+/* --- SECTION BENEFITS (TAPIS ROULANT) --- */
+
 .benefits-section {
-    padding: 80px 0;
+    padding: 80px 0; /* Un peu plus d'espace */
     background-color: var(--white);
-    overflow-x: hidden; /* AJOUT IMPORTANT pour l'animation */
+    overflow: hidden; 
 }
+
 .benefits-section h2 {
     text-align: center;
     margin-bottom: 60px;
 }
-.benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 30px 0; /* Padding augmenté pour laisser place à l'effet de zoom */
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }
-.benefit-card {
+
+.marquee-track {
+    display: flex;
+    gap: 70px; /* Espace confortable */
+    width: max-content;
+    will-change: transform;
+    align-items: center;
+}
+
+/* LA CARTE (Conteneur global) */
+.benefit-card.marquee-item {
+    flex-shrink: 0;
+    width: 200px; 
     text-align: center;
-    padding: 30px 20px;
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+    
+    /* Transition douce pour le texte */
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-.benefit-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.08);
-}
-.benefit-card img {
-    height: 60px;
+
+/* === LE CERCLE STYLÉ (Nouveau) === */
+.icon-box {
+    width: 100px;
+    height: 100px;
+    /* Couleur de fond : Ta couleur primaire avec 10% d'opacité (très léger) */
+    background-color: rgba(78, 121, 148, 0.1); 
+    border-radius: 50%; /* Cercle parfait */
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 20px;
+    
+    /* Animation fluide */
+    transition: all 0.4s ease;
+    position: relative;
+    z-index: 1;
 }
+
+/* L'IMAGE (ICÔNE) */
+.icon-box img {
+    width: 50px; /* Taille de l'icône à l'intérieur du cercle */
+    height: 50px;
+    object-fit: contain;
+    margin-bottom: 0; /* On retire la marge de l'img car c'est la box qui la gère */
+    transition: filter 0.4s ease; /* Pour changer la couleur de l'icône */
+}
+
+/* LE TITRE */
 .benefit-card h3 {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    transition: color 0.3s ease;
 }
-.benefit-card p {
-    color: var(--light-text-color);
-    font-size: 0.95rem;
-    line-height: 1.6;
+
+/* === EFFETS AU SURVOL (HOVER) === */
+
+/* 1. On zoome légèrement toute la carte */
+.benefit-card.marquee-item:hover {
+    transform: translateY(-5px); /* Monte un peu */
 }
+
+/* 2. Le cercle se remplit avec la couleur primaire */
+.benefit-card.marquee-item:hover .icon-box {
+    background-color: var(--primary-color); /* #4e7994 */
+    box-shadow: 0 10px 25px rgba(78, 121, 148, 0.4); /* Ombre portée lumineuse */
+    transform: scale(1.1); /* Le cercle grandit un peu */
+}
+
+
+/* 4. Le titre prend aussi la couleur primaire */
+.benefit-card.marquee-item:hover h3 {
+    color: var(--primary-color);
+}
+
+/* --- RESPONSIVE : Optimisation pour Mobile (< 768px) --- */
+@media screen and (max-width: 768px) {
+    
+    .marquee-container {
+        padding: 20px 0; /* Un peu moins de hauteur sur mobile */
+    }
+
+    .marquee-track {
+        gap: 30px; /* On réduit l'espace entre les éléments (au lieu de 70px) */
+    }
+
+    .benefit-card.marquee-item {
+        width: 140px; /* La carte prend moins de place (au lieu de 200px) */
+    }
+
+    /* On réduit la taille du cercle */
+    .icon-box {
+        width: 80px;       /* 80px au lieu de 100px */
+        height: 80px;
+        margin-bottom: 15px;
+    }
+
+    /* On adapte l'image à l'intérieur */
+    .icon-box img {
+        width: 40px;       /* 40px au lieu de 50px */
+        height: 40px;
+    }
+
+    /* On réduit légèrement le titre */
+    .benefit-card h3 {
+        font-size: 0.9rem; /* Texte plus petit et lisible sur mobile */
+    }
+}
+
+
+/* =========================================
+   2. SECTION FEATURES (Détails avec coche ✔)
+   On garde ton code original ici, il est très bien.
+   ========================================= */
+
 #detailed-features h2 {
     text-align: center;
     margin-bottom: 60px;
 }
-/* --- Ligne 1111 environ --- */
+
 .feature {
-    position: relative; /* Nécessaire pour positionner les bandes en arrière-plan */
-    isolation: isolate; /* Empêche les conflits de superposition (z-index) */
-    padding: 80px 0;    /* On remplace la marge par du padding pour que le fond s'applique */
+    position: relative;
+    isolation: isolate;
+    padding: 80px 0;
     margin-bottom: 0;
 }
+
 .feature:last-child {
     margin-bottom: 0;
 }
+
 .feature-list {
     list-style: none;
     padding-left: 0;
     margin-top: 20px;
 }
+
 .feature-list li {
     padding-left: 30px;
     position: relative;
@@ -1122,6 +1240,7 @@ footer {
     line-height: 1.6;
     color: var(--light-text-color);
 }
+
 .feature-list li::before {
     content: '✔';
     position: absolute;
@@ -1131,9 +1250,8 @@ footer {
     font-weight: 600;
     font-size: 1.2rem;
 }
-
 /* ================================================================ */
-/* === STYLES POUR LA PAGE D'ACCUEIL VERTICALE (ANIMATION INTÉGRALE) === */
+/* === STYLES POUR LA PAGE D'ACCUEIL VERTICALE (MIS A JOUR) === */
 /* ================================================================ */
 
 .home-hero {
@@ -1144,7 +1262,6 @@ footer {
     justify-content: center;
 }
 
-/* La classe .hidden-anim est conservée uniquement pour l'animation du Hero */
 .hidden-anim {
     opacity: 0;
 }
@@ -1170,13 +1287,20 @@ footer {
     isolation: isolate; 
 }
 
+/* --- 1. GESTION DE LA DISPOSITION (Gauche/Droite) --- */
+/* Par défaut, un élément sur deux est inversé */
 .service-block:nth-child(even) { 
     flex-direction: row-reverse;
 }
 
-/* Propriétés communes pour les fonds */
+/* --- 2. STRUCTURE DES BANDES (Formes géométriques) --- */
+/* On applique la structure aux éléments PAIRS (even) ET à vos éléments SPÉCIFIQUES */
+/* Ajoutez vos numéros ici si besoin (ex: .service-block:nth-child(3)::before) */
 .service-block:nth-child(even)::before,
-.service-block:nth-child(even)::after {
+.service-block:nth-child(even)::after,
+.service-block:nth-child(4)::before, /* <--- AJOUT POUR L'ENFANT 3 */
+.service-block:nth-child(4)::after  /* <--- AJOUT POUR L'ENFANT 3 */
+{
     content: '';
     position: absolute;
     top: 0;
@@ -1185,25 +1309,55 @@ footer {
     width: 100vw;
     left: 50%;
     transform: translateX(-50%);
-    /* La transition est enlevée, GSAP gère l'animation */
 }
 
-/* On utilise des variables CSS que GSAP va pouvoir animer */
-.service-block:nth-child(even)::before {
-    background-color: var(--secondary-color);
-    clip-path: var(--clip-before, polygon(0 0, 60% 0, 40% 100%, 0% 100%)); /* Valeur par défaut */
+/* --- 3. DÉFINITION DES FORMES (Clip-Path & Mask) --- */
+
+/* Bande de GAUCHE (Forme pleine) */
+.service-block:nth-child(even)::before,
+.service-block:nth-child(4)::before {
+    clip-path: var(--clip-before, polygon(0 0, 60% 0, 40% 100%, 0% 100%));
 }
 
-.service-block:nth-child(even)::after {
-    background-color: var(--secondary-color);
+/* Bande de DROITE (Effet pointillés) */
+.service-block:nth-child(even)::after,
+.service-block:nth-child(4)::after {
     mask-image: radial-gradient(black 50%, transparent 50%);
     -webkit-mask-image: radial-gradient(black 50%, transparent 50%);
     mask-size: 8px 8px;
     -webkit-mask-size: 8px 8px;
-    clip-path: var(--clip-after, polygon(60% 0, 100% 0, 100% 100%, 40% 100%)); /* Valeur par défaut */
+    clip-path: var(--clip-after, polygon(60% 0, 100% 0, 100% 100%, 40% 100%));
 }
 
-/* Les règles :hover sont supprimées car l'animation est gérée par le scroll via GSAP */
+/* --- 4. COULEURS PAR DÉFAUT (Pour les éléments pairs - GRIS) --- */
+.service-block:nth-child(even)::before,
+.service-block:nth-child(even)::after {
+    background-color: var(--secondary-color);
+}
+
+
+/* ================================================================ */
+/* === 5. ZONE DE PERSONNALISATION (CHANGEZ VOS COULEURS ICI) === */
+/* ================================================================ */
+
+/* EXEMPLE : Pour l'enfant numéro 3 (Geschool) */
+/* Remplacez '3' par le numéro de votre choix */
+.service-block:nth-child(4)::before,
+.service-block:nth-child(4)::after {
+    background-color: #0089ad4d !important; /* VOTRE COULEUR BLEUE */
+}
+
+/* VOUS POUVEZ DUPLIQUER CE BLOC POUR D'AUTRES ENFANTS */
+/* Exemple pour un 5ème bloc :
+.service-block:nth-child(5)::before,
+.service-block:nth-child(5)::after {
+    background-color: #ff0000 !important;
+}
+*/
+/* N'oubliez pas d'ajouter aussi :nth-child(5) dans la partie 2 (STRUCTURE) plus haut */
+
+
+/* --- Fin des styles de bandes --- */
 
 .service-text, .service-image {
     flex: 1;
@@ -1227,7 +1381,6 @@ footer {
     line-height: 1.7;
 }
 
-/* Responsive (inchangé) */
 @media (max-width: 992px) {
     .service-block,
     .service-block:nth-child(even) {
@@ -1235,6 +1388,69 @@ footer {
         text-align: center;
         gap: 30px;
         padding: 80px 20px;
+    }
+}
+
+/* ================================================================ */
+/* === SECTION CTA DEMANDE DE DEVIS (INDEX) === */
+/* ================================================================ */
+
+.cta-quote-section {
+    background-color: var(--primary-color); /* Utilise votre bleu (#4e7994) */
+    color: var(--white);
+    text-align: center;
+    padding: 100px 0; /* Un peu plus d'espace pour l'aérer */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Ajout d'un petit motif de fond subtil (optionnel, pour le style) */
+.cta-quote-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.cta-quote-section h2 {
+    color: var(--white);
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.cta-quote-section p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 40px auto; /* Centré avec de la marge en bas pour le bouton */
+    opacity: 0.95;
+    line-height: 1.6;
+}
+
+/* Animation au survol du bouton spécifique à cette section */
+.cta-quote-section .btn-secondary:hover {
+    background-color: var(--white);
+    color: var(--primary-color);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* --- Responsive pour mobile --- */
+@media (max-width: 768px) {
+    .cta-quote-section {
+        padding: 70px 20px;
+    }
+    
+    .cta-quote-section h2 {
+        font-size: 2rem;
+    }
+
+    .cta-quote-section p {
+        font-size: 1rem;
     }
 }
 /* --- START OF FILE style.css --- */
@@ -2105,67 +2321,109 @@ nav .nav-links li.dropdown.submenu-open > .dropdown-menu {
 /* === BANDES COLORÉES POUR LA SECTION "DETAILED FEATURES" (GESCHOOL) === */
 /* ================================================================ */
 
-/* On s'assure que la section parente peut contenir les fonds qui dépassent */
+/* =========================================
+   1. Configuration du conteneur parent
+   ========================================= */
 #detailed-features {
-    overflow-x: clip; /* Empêche le débordement horizontal */
+    /* Empêche le débordement horizontal causé par les 
+       pseudo-éléments width: 100vw */
+    overflow-x: clip; 
+    position: relative;
 }
 
-/* Propriétés communes pour les fonds en bande */
+/* =========================================
+   2. Styles communs (Bandes de fond)
+   ========================================= */
+/* Cible uniquement les enfants pairs pour l'effet de bande */
 #detailed-features .feature:nth-child(even) {
     position: relative;
-    isolation: isolate;
+    isolation: isolate; /* Crée un nouveau contexte d'empilement */
     padding: 80px 0;
     margin-bottom: 0;
 }
 
+/* Création des deux couches de fond (gauche et droite) */
 #detailed-features .feature:nth-child(even)::before,
 #detailed-features .feature:nth-child(even)::after {
     content: '';
     position: absolute;
     top: 0;
     bottom: 0;
-    z-index: -1;
-    width: 100vw;
+    z-index: -1;      /* Place le fond derrière le contenu */
+    width: 100vw;     /* Prend toute la largeur de l'écran */
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%); /* Centre le fond par rapport au parent */
+    transition: background-color 0.3s ease; /* Transition douce si changement */
 }
 
-/* On applique les variables CSS animables par GSAP */
+/* --- Forme de gauche (Pleine) --- */
 #detailed-features .feature:nth-child(even)::before {
-    clip-path: var(--clip-before, polygon(0 0, 60% 0, 40% 100%, 0% 100%)); /* Valeur par défaut */
+    /* Utilisation de variable CSS pour permettre l'animation via GSAP */
+    clip-path: var(--clip-before, polygon(0 0, 60% 0, 40% 100%, 0% 100%));
 }
 
+/* --- Forme de droite (Pointillés) --- */
 #detailed-features .feature:nth-child(even)::after {
-    /* On ajoute l'effet de pointillé avec un masque radial */
+    /* Masque pour créer l'effet pointillé */
     mask-image: radial-gradient(black 50%, transparent 50%);
     -webkit-mask-image: radial-gradient(black 50%, transparent 50%);
     mask-size: 8px 8px;
     -webkit-mask-size: 8px 8px;
-    clip-path: var(--clip-after, polygon(60% 0, 100% 0, 100% 100%, 40% 100%)); /* Valeur par défaut */
+    
+    /* Forme complémentaire à celle de gauche */
+    clip-path: var(--clip-after, polygon(60% 0, 100% 0, 100% 100%, 40% 100%));
 }
 
-
-/*
- *  Application du cycle de couleurs VERT -> JAUNE -> ROUGE
- *  (Ce bloc reste inchangé)
+/* =========================================
+   3. Cycle de Couleurs (4 étapes)
+   ========================================= */
+/* 
+   Logique du cycle sur les éléments PAIRS uniquement :
+   Le cycle complet fait 8 positions (2, 4, 6, 8...).
+   On utilise donc un modulo 8 (8n).
 */
 
-/* Couleur VERTE */
-#detailed-features .feature:nth-child(6n + 2)::before,
-#detailed-features .feature:nth-child(6n + 2)::after {
-    background-color: #e8f5e9; /* Un vert pastel très clair */
+/* 1. Couleur VERTE (Pastel) - Positions 2, 10, 18... */
+#detailed-features .feature:nth-child(8n + 2)::before,
+#detailed-features .feature:nth-child(8n + 2)::after {
+    background-color: #e8f5e9; 
 }
 
-/* Couleur JAUNE */
-#detailed-features .feature:nth-child(6n + 4)::before,
-#detailed-features .feature:nth-child(6n + 4)::after {
-    background-color: #fffde7; /* Un jaune pastel très clair */
+/* 2. Couleur JAUNE (Pastel) - Positions 4, 12, 20... */
+#detailed-features .feature:nth-child(8n + 4)::before,
+#detailed-features .feature:nth-child(8n + 4)::after {
+    background-color: #fffde7; 
 }
 
-/* Couleur ROUGE */
-#detailed-features .feature:nth-child(6n)::before,
-#detailed-features .feature:nth-child(6n)::after {
-    background-color: #ffebee; /* Un rouge pastel très clair */
+/* 3. Couleur ROUGE (Pastel) - Positions 6, 14, 22... */
+#detailed-features .feature:nth-child(8n + 6)::before,
+#detailed-features .feature:nth-child(8n + 6)::after {
+    background-color: #ffebee; 
+}
+
+/* 4. Couleur BLEUE (Pastel) - Positions 8, 16, 24... */
+#detailed-features .feature:nth-child(8n)::before,
+#detailed-features .feature:nth-child(8n)::after {
+    background-color: #e3f2fd; /* Bleu pastel ajouté pour compléter le cycle */
+}
+
+/* ================================================================ */
+/* === CORRECTIF IMAGES GESCHOOL (Suppression bordures/ombres) === */
+/* ================================================================ */
+
+/* 1. On retire les ombres et bordures sur les images de cette section */
+#detailed-features .feature-image img {
+    box-shadow: none !important;   /* Supprime l'ombre portée */
+    border: none !important;       /* Supprime les bordures s'il y en a */
+    border-radius: 0 !important;   /* Retire les coins arrondis (si les images sont détourées) */
+    background: transparent;       /* S'assure qu'il n'y a pas de fond blanc */
+}
+
+/* 2. On empêche l'ombre de revenir au survol de la souris */
+#detailed-features .feature:hover .feature-image img {
+    box-shadow: none !important;
+    /* Si vous voulez aussi arrêter le petit zoom au survol, décommentez la ligne ci-dessous : */
+    /* transform: none !important; */
 }
 
 
@@ -2973,5 +3231,370 @@ nav .nav-links li.dropdown.submenu-open > .dropdown-menu {
     
     .coming-soon-content p {
         font-size: 1rem;
+    }
+}
+
+/* ================================================================ */
+/* === MODALE SMART WISE (Design Unique & Brandé) === */
+/* ================================================================ */
+
+/* Fond sombre */
+.quote-modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(18, 18, 18, 0.85); /* Plus sombre pour faire ressortir la modale */
+    backdrop-filter: blur(8px);
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+}
+
+.quote-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Conteneur principal */
+.quote-modal-container {
+    background: var(--white);
+    width: 95%;
+    max-width: 950px;
+    height: auto;
+    max-height: 90vh;
+    border-radius: 20px; /* Arrondi plus moderne */
+    box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden; /* Important pour le border-radius */
+    transform: scale(0.95) translateY(30px);
+    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    display: flex; /* Flex pour séparer les colonnes */
+}
+
+.quote-modal-overlay.active .quote-modal-container {
+    transform: scale(1) translateY(0);
+}
+
+/* Bouton fermer personnalisé */
+.quote-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(0,0,0,0.05);
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 20;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quote-modal-close span {
+    font-size: 24px;
+    line-height: 1;
+    color: var(--text-color);
+}
+
+.quote-modal-close:hover {
+    background: var(--primary-color);
+}
+.quote-modal-close:hover span {
+    color: var(--white);
+}
+
+/* Corps de la modale */
+.quote-modal-body {
+    display: flex;
+    width: 100%;
+    overflow-y: auto; /* Scroll interne si nécessaire */
+}
+
+/* --- COLONNE GAUCHE (BRANDING SMART WISE) --- */
+.quote-sidebar.branding-sidebar {
+    background-color: var(--primary-color); /* VOTRE COULEUR (#4e7994) */
+    width: 38%;
+    padding: 50px 40px;
+    color: var(--white);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+/* Logo en haut à gauche */
+.modal-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    z-index: 2;
+}
+
+.modal-logo img {
+    height: 50px;
+    width: auto;
+    filter: brightness(0) invert(1); /* Rend le logo blanc */
+}
+
+.logo-text-modal {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--white);
+}
+
+.sidebar-content {
+    z-index: 2;
+}
+
+.sidebar-title {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.sidebar-desc {
+    opacity: 0.8;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.sidebar-separator {
+    width: 50px;
+    height: 3px;
+    background: rgba(255,255,255,0.3);
+    margin: 30px 0;
+}
+
+.sidebar-contact-list {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-contact-list li {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    align-items: flex-start;
+}
+
+.icon-white {
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) invert(1); /* Icônes blanches */
+    opacity: 0.7;
+    margin-top: 3px;
+}
+
+.sidebar-contact-list div strong {
+    display: block;
+    font-size: 0.9rem;
+    text-transform: none;
+    letter-spacing: 1px;
+    opacity: 0.6;
+    margin-bottom: 3px;
+}
+
+/* Décoration de fond (Spirale subtile) */
+.sidebar-bg-pattern {
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 300px;
+    opacity: 0.1; /* Très subtil */
+    transform: rotate(-15deg);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* --- COLONNE DROITE (FORMULAIRE) --- */
+.quote-form-wrapper {
+    width: 62%;
+    padding: 50px;
+    background-color: var(--white);
+}
+
+.form-header {
+    margin-bottom: 30px;
+}
+
+.form-title {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.form-subtitle {
+    color: var(--light-text-color);
+}
+
+/* Grille du formulaire */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.form-group.full {
+    grid-column: 1 / -1;
+}
+
+/* Style des inputs "Floating Label" (Moderne) */
+.quote-form input, 
+.quote-form select, 
+.quote-form textarea {
+    width: 100%;
+    padding: 15px 15px 5px 15px; /* Espace pour le label en haut */
+    height: 55px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: #f9f9f9;
+    font-size: 1rem;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.quote-form textarea {
+    height: 100px;
+    padding-top: 25px;
+    resize: none;
+}
+
+.quote-form input:focus,
+.quote-form select:focus,
+.quote-form textarea:focus {
+    background: var(--white);
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 4px 15px rgba(78, 121, 148, 0.1);
+}
+
+/* Labels flottants */
+.floating-label {
+    position: absolute;
+    left: 15px;
+    top: 18px;
+    font-size: 0.95rem;
+    color: #999;
+    pointer-events: none;
+    transition: all 0.2s ease;
+}
+
+/* Quand l'input est focus ou rempli, le label monte */
+.quote-form input:focus ~ .floating-label,
+.quote-form input:not(:placeholder-shown) ~ .floating-label,
+.quote-form textarea:focus ~ .floating-label,
+.quote-form textarea:not(:placeholder-shown) ~ .floating-label {
+    top: 6px;
+    font-size: 0.75rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Gestion du Select */
+.quote-form select {
+    padding-top: 0;
+    cursor: pointer;
+}
+
+/* Radio Buttons personnalisés (Entreprise/Particulier) */
+.radio-group {
+    display: flex;
+    gap: 20px;
+    margin-top: 5px;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.radio-option input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary-color);
+    margin: 0;
+}
+
+/* Bouton Soumettre */
+.btn-block {
+    width: 100%;
+    margin-top: 20px;
+    padding: 16px;
+    font-size: 1.1rem;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 50px; /* Votre style arrondi */
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-block:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(78, 121, 148, 0.3);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+    .quote-modal-container {
+        flex-direction: column; /* On empile sur mobile */
+        height: 100%;
+        max-height: 100%;
+        border-radius: 0;
+        width: 100%;
+    }
+
+    .quote-sidebar.branding-sidebar {
+        width: 100%;
+        padding: 30px 20px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        height: auto;
+    }
+    
+    .sidebar-content, .sidebar-bg-pattern {
+        display: none; /* On cache le texte et le motif sur mobile pour gagner de la place */
+    }
+
+    .modal-logo {
+        margin-bottom: 0;
+    }
+    
+    .quote-modal-close {
+        top: 15px;
+        right: 15px;
+        background: rgba(255,255,255,0.2); /* Plus visible sur fond bleu */
+    }
+    .quote-modal-close span { color: white; }
+
+    .quote-form-wrapper {
+        width: 100%;
+        padding: 30px 20px 80px 20px;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr; /* Une seule colonne pour le formulaire */
     }
 }
