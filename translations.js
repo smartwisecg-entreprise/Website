@@ -140,30 +140,58 @@ const translations = {
         geschool_benefit4_title: "Secure Data",
         geschool_benefit4_desc: "Protect your institution's sensitive information with a robust and automated backup system.",
         geschool_detailed_features_title: "Discover the power of each module",
-        geschool_feature_block1_title: "Complete Student Management",
-        geschool_feature_block1_item1: "Individual and detailed tracking of each student's school life.",
-        geschool_feature_block1_item2: "Management of the infirmary and personalized medical follow-up.",
-        geschool_feature_block1_item3: "Creation of an exhaustive file for each student.",
-        geschool_feature_block1_item4: "Automated and simplified production of school ID cards and access cards.",
-        geschool_feature_block2_title: "Pedagogical and Administrative Steering",
-        geschool_feature_block2_item1: "Automatic calculation of grades and averages.",
-        geschool_feature_block2_item2: "Centralized management of student absences and conduct.",
-        geschool_feature_block2_item3: "Instant and automatic generation of report cards.",
-        geschool_feature_block2_item4: "Generation of school certificates and entry/exit permits in one click.",
-        geschool_feature_block3_title: "Mastery of Finance and Tuition",
-        geschool_feature_block3_item1: "Cash desk management, payment reminders, and issuance of fee reminders.",
-        geschool_feature_block3_item2: "Daily, monthly, or annual closing and tracking of disbursements.",
-        geschool_feature_block3_item3: "Collection of fees, management of moratoriums, and solvency checks.",
-        geschool_feature_block3_item4: "Simple handling of fee reductions.",
-        geschool_feature_block4_title: "Simplified Parental Communication (SMS/Mail)",
-        geschool_feature_block4_item1: "Automatic notifications upon payment at the cash desk.",
-        geschool_feature_block4_item2: "Alerts for student arrivals and departures from school.",
-        geschool_feature_block4_item3: "Sending group or individual communications to parents.",
-        geschool_feature_block4_item4: "Sharing class grades and official exam dates.",
-        geschool_feature_block5_title: "Dashboards and Data Security",
-        geschool_feature_block5_item1: "View detailed enrollment numbers by class or for the entire institution.",
-        geschool_feature_block5_item2: "Access financial statements by cycle, class, or overall.",
-        geschool_feature_block5_item3: "Protect the institution's data with an integrated automated backup module.",
+
+
+        // BLOCK 1
+        geschool_feature_block1_title: "STUDENT MANAGEMENT",
+        geschool_feature_block1_item1: "Individual tracking of students' school life.",
+        geschool_feature_block1_item2: "Infirmary management and medical follow-up.",
+        geschool_feature_block1_item3: "An exhaustive file for each student.",
+        geschool_feature_block1_item4: "Automated and simplified production of ID cards.",
+
+        // BLOCK 2
+        geschool_feature_block2_title: "FINANCES",
+        geschool_feature_block2_item1: "Payment reminders and dismissal notices.",
+        geschool_feature_block2_item2: "Cash desk management.",
+        geschool_feature_block2_item3: "Daily, monthly, and/or annual closing.",
+        geschool_feature_block2_item4: "Management of requirement statements.",
+        geschool_feature_block2_item5: "Disbursements and cash returns.",
+
+        // BLOCK 3
+        geschool_feature_block3_title: "ACADEMIC GRADES MANAGEMENT",
+        geschool_feature_block3_item1: "Automatic calculation of student grades.",
+        geschool_feature_block3_item2: "Management of student absences and conduct.",
+        geschool_feature_block3_item3: "Automatic production of report cards.",
+
+        // BLOCK 4
+        geschool_feature_block4_title: "TUITION & FEES",
+        geschool_feature_block4_item1: "Fee collection.",
+        geschool_feature_block4_item2: "Management of payment moratoriums.",
+        geschool_feature_block4_item3: "Solvency checks.",
+        geschool_feature_block4_item4: "Handling of fee reductions.",
+
+        // BLOCK 5
+        geschool_feature_block5_title: "AUTOMATED DOCUMENT PRODUCTION",
+        geschool_feature_block5_item1: "School attendance certificates.",
+        geschool_feature_block5_item2: "Entry or exit authorizations.",
+
+        // BLOCK 6
+        geschool_feature_block6_title: "SMS / MAIL",
+        geschool_feature_block6_item1: "Upon payments at the cash desk.",
+        geschool_feature_block6_item2: "Upon students' arrival and departure from school.",
+        geschool_feature_block6_item3: "During communications addressed to parents.",
+        geschool_feature_block6_item4: "Class grades sharing.",
+        geschool_feature_block6_item5: "Dates of continuous assessments and official exams.",
+
+        // BLOCK 7
+        geschool_feature_block7_title: "THE DASHBOARD",
+        geschool_feature_block7_item1: "Detailed enrollment numbers by class or for the institution.",
+        geschool_feature_block7_item2: "Financial statements by Cycle, Class, or Global.",
+
+        // BLOCK 8
+        geschool_feature_block8_title: "AUTOMATED BACKUP",
+        geschool_feature_block8_item1: "To protect the institution's data.",
+        geschool_feature_block8_item2: "An automated backup module is included in Geschool.",
         geschool_contact_title: "Interested in Geschool?",
         geschool_contact_desc: "Contact us today for a personalized demo and discover how Geschool can transform your institution's management.",
         geschool_contact_cta: "Contact via WhatsApp",
@@ -241,7 +269,42 @@ const translations = {
         // --- Coming Soon Page --- // Ajouté
         coming_soon_title: "Coming Soon",
         coming_soon_desc: "We are working hard to bring you this new feature. Stay tuned to discover our innovations.",
-        coming_soon_btn: "Back to Home"
+        coming_soon_btn: "Back to Home",
+
+        // --- CTA Quote Section ---
+        cta_quote_title: "Have a project in mind?",
+        cta_quote_desc: "Turn your ideas into reality with our custom technological solutions. Let's discuss your goals.",
+        cta_quote_btn: "Request a quote",
+
+        // --- DEBUT MODALE DEVIS ---
+        quote_sidebar_title: "Let's Build Your Vision",
+        quote_sidebar_desc: "Our experts are ready to support your digital transformation journey.",
+        quote_sidebar_hq: "Address",
+        quote_sidebar_phone: "Phone",
+
+        quote_form_title: "Request a Quote",
+        quote_form_subtitle: "Fill out this form, and we will reply within 24 hours.",
+
+        quote_label_iam: "I am a(n)",
+        quote_radio_company: "Company",
+        quote_radio_individual: "Individual",
+
+        quote_label_fullname: "Full Name",
+        quote_label_company: "Company (Optional)",
+        quote_label_email: "Business Email",
+        quote_label_phone: "Phone Number",
+
+        quote_select_placeholder: "Which service are you interested in?",
+        quote_select_vtc: "ZAZA (Ride Hailing)",
+        quote_select_cloud: "Cloud Hosting",
+        quote_select_geschool: "Geschool ERP",
+        quote_select_dev: "Software & Mobile Dev",
+        quote_select_web: "Web Development",
+        quote_select_rs: "Network & Systems",
+        quote_select_arcgis: "ArcGIS / Geomatics",
+
+        quote_label_message: "Briefly describe your needs...",
+        quote_btn_submit: "Send Request"
 
 
     },
@@ -389,30 +452,57 @@ const translations = {
         geschool_benefit4_title: "Données Sécurisées",
         geschool_benefit4_desc: "Protégez les informations sensibles de votre établissement avec un système de sauvegarde automatisée et robuste.",
         geschool_detailed_features_title: "Découvrez la puissance de chaque module",
-        geschool_feature_block1_title: "Gestion Complète des Apprenants",
-        geschool_feature_block1_item1: "Suivi individuel et détaillé de la vie scolaire de chaque apprenant.",
-        geschool_feature_block1_item2: "Gestion de l'infirmerie et du suivi médical personnalisé.",
-        geschool_feature_block1_item3: "Constitution d'un dossier exhaustif pour chaque élève.",
-        geschool_feature_block1_item4: "Production automatisée et simplifiée des cartes d'identité scolaire et des cartes d'accès.",
-        geschool_feature_block2_title: "Pilotage Pédagogique et Administratif",
-        geschool_feature_block2_item1: "Calculs automatiques des notes et des moyennes.",
-        geschool_feature_block2_item2: "Gestion centralisée des absences et des conduites des apprenants.",
-        geschool_feature_block2_item3: "Production instantanée et automatique des bulletins de notes.",
-        geschool_feature_block2_item4: "Génération de certificats de scolarité et d'autorisations d'entrée/sortie en un clic.",
-        geschool_feature_block3_title: "Maîtrise des Finances et de la Scolarité",
-        geschool_feature_block3_item1: "Gestion des caisses, rappels de paiement et édition de bulletins de renvoi.",
-        geschool_feature_block3_item2: "Clôture journalière, mensuelle ou annuelle et suivi des décaissements.",
-        geschool_feature_block3_item3: "Encaissement des frais, gestion des moratoires et contrôle des solvabilités.",
-        geschool_feature_block3_item4: "Prise en compte simple des réductions de frais.",
-        geschool_feature_block4_title: "Communication Parentale Simplifiée (SMS/Mail)",
-        geschool_feature_block4_item1: "Notifications automatiques lors des paiements à la caisse.",
-        geschool_feature_block4_item2: "Alertes pour l'arrivée et le départ des apprenants de l'école.",
-        geschool_feature_block4_item3: "Envoi de communications groupées ou individuelles aux parents.",
-        geschool_feature_block4_item4: "Partage des notes de classe et des dates d'examens officiels.",
-        geschool_feature_block5_title: "Tableaux de Bord et Sécurité des Données",
-        geschool_feature_block5_item1: "Visualisez les effectifs détaillés par classe ou pour tout l'établissement.",
-        geschool_feature_block5_item2: "Accédez aux états financiers par cycle, classe ou de manière globale.",
-        geschool_feature_block5_item3: "Protégez les données de l'établissement grâce à un module de sauvegarde automatisée intégré.",
+
+        // BLOC 1
+        geschool_feature_block1_title: "GESTION DES APPRENANTS",
+        geschool_feature_block1_item1: "Suivi individuel de la vie scolaire des apprenants.",
+        geschool_feature_block1_item2: "Une gestion de l'infirmerie et du suivi médical.",
+        geschool_feature_block1_item3: "Un dossier exhaustif des apprenants.",
+        geschool_feature_block1_item4: "Production automatisée et simplifiée des cartes d'identité.",
+
+        // BLOC 2
+        geschool_feature_block2_title: "FINANCES",
+        geschool_feature_block2_item1: "Rappel de paiement et bulletin de renvoi.",
+        geschool_feature_block2_item2: "Gestion des caisses.",
+        geschool_feature_block2_item3: "Clôture journalière, mensuelle et/ou annuelle.",
+        geschool_feature_block2_item4: "Gestion des états de besoins.",
+        geschool_feature_block2_item5: "Décaissements et retours en caisse.",
+
+        // BLOC 3
+        geschool_feature_block3_title: "GESTION DES NOTES SCOLAIRES",
+        geschool_feature_block3_item1: "Calculs automatiques des notes des apprenants.",
+        geschool_feature_block3_item2: "Gestion des absences et conduites des apprenants.",
+        geschool_feature_block3_item3: "Production automatique des bulletins de notes.",
+
+        // BLOC 4
+        geschool_feature_block4_title: "SCOLARITÉ",
+        geschool_feature_block4_item1: "Encaissement des frais.",
+        geschool_feature_block4_item2: "Gestion des moratoires.",
+        geschool_feature_block4_item3: "Contrôle des solvabilités.",
+        geschool_feature_block4_item4: "Prise en compte des réductions de frais.",
+
+        // BLOC 5
+        geschool_feature_block5_title: "PRODUCTION AUTOMATIQUE DE DOCUMENTS",
+        geschool_feature_block5_item1: "Certificat de scolarité.",
+        geschool_feature_block5_item2: "Autorisation d'entrée ou de sortie.",
+
+        // BLOC 6
+        geschool_feature_block6_title: "SMS / MAIL",
+        geschool_feature_block6_item1: "Lors de paiements la caisse.",
+        geschool_feature_block6_item2: "Lors de l'arrivée et départ des apprenants de l'école.",
+        geschool_feature_block6_item3: "Lors des communications adressées aux parents.",
+        geschool_feature_block6_item4: "Notes de classe des apprenants.",
+        geschool_feature_block6_item5: "Des dates de contrôles continus et examens officiels.",
+
+        // BLOC 7
+        geschool_feature_block7_title: "LE TABLEAU DE BORD",
+        geschool_feature_block7_item1: "Effectifs détaillé des classes ou de l'établissement.",
+        geschool_feature_block7_item2: "Etats financiers par Cycle, Classe ou Global.",
+
+        // BLOC 8
+        geschool_feature_block8_title: "SAUVEGARDE AUTOMATISÉE",
+        geschool_feature_block8_item1: "Afin de protéger les données de l'établissement.",
+        geschool_feature_block8_item2: "Un module de sauvegarde automatisé est inclus dans Geschool.",
         geschool_contact_title: "Intéressé par Geschool ?",
         geschool_contact_desc: "Contactez-nous dès aujourd'hui pour une démonstration personnalisée et découvrez comment Geschool peut transformer la gestion de votre établissement.",
         geschool_contact_cta: "Contacter via WhatsApp",
@@ -490,6 +580,41 @@ const translations = {
         // --- Coming Soon Page --- // Ajouté
         coming_soon_title: "Bientôt Disponible",
         coming_soon_desc: "Nous travaillons dur pour vous apporter cette nouveauté. Restez connectés pour découvrir nos innovations.",
-        coming_soon_btn: "Retour à l'accueil"
+        coming_soon_btn: "Retour à l'accueil",
+
+        // --- CTA Quote Section ---
+        cta_quote_title: "Un projet en tête ?",
+        cta_quote_desc: "Transformez vos idées en réalité avec nos solutions technologiques sur mesure. Discutons de vos objectifs.",
+        cta_quote_btn: "Demander un devis",
+
+        // --- DEBUT MODALE DEVIS ---
+        quote_sidebar_title: "Concrétisons votre vision",
+        quote_sidebar_desc: "Nos experts sont prêts à vous accompagner dans votre transformation numérique.",
+        quote_sidebar_hq: "Adresse",
+        quote_sidebar_phone: "Téléphone",
+
+        quote_form_title: "Demande de Devis",
+        quote_form_subtitle: "Remplissez ce formulaire, nous vous répondons sous 24h.",
+
+        quote_label_iam: "Je suis un(e)",
+        quote_radio_company: "Entreprise",
+        quote_radio_individual: "Particulier",
+
+        quote_label_fullname: "Nom complet",
+        quote_label_company: "Entreprise (Optionnel)",
+        quote_label_email: "Email professionnel",
+        quote_label_phone: "Téléphone",
+
+        quote_select_placeholder: "Quel service vous intéresse ?",
+        quote_select_vtc: "ZAZA (VTC)",
+        quote_select_cloud: "Hébergement Cloud",
+        quote_select_geschool: "Geschool",
+        quote_select_dev: "Dév. Logiciel & Mobile",
+        quote_select_web: "Développement Web",
+        quote_select_rs: "Réseaux & Systèmes",
+        quote_select_arcgis: "ArcGIS / Géomatique",
+
+        quote_label_message: "Décrivez brièvement votre besoin...",
+        quote_btn_submit: "Envoyer la demande"
     }
 };
