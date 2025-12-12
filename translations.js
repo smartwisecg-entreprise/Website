@@ -10,7 +10,7 @@ const translations = {
         meta_title_home: "Smart Wise - Computer Engineering & Software Solutions - Republic of Congo",
         meta_desc_vtc: "Book your ride with ZAZA. Fast, secure, and comfortable trips in the Republic of Congo. Download the app for all your travel needs.",
         meta_desc_nextcloud: "Secure Nextcloud Solution in Congo by Smart Wise. Sovereign data storage, real-time collaboration, and total control for businesses.",
-        meta_desc_geschool: "GESCHOOL is the complete ERP solution for your school management. Grades, finances, administration, and parent-student communication in a single software.",
+        meta_desc_geschool: "GESCHOOL is the solution for your school management. Grades, finances, administration, and communication in a single software.",
         meta_desc_about: "Discover Smart Wise: IT engineering experts transforming the digital landscape in the Republic of Congo through innovation.",
         meta_desc_contact: "Contact Smart Wise for your IT projects. Find us in Pointe-Noire (Acacia Building), by phone, or email. Our team is at your service.",
         meta_desc_news: "Get the latest news from Smart Wise Congo: ZAZA ride-hailing updates, GESCHOOL, and the latest tech trends in the Republic of Congo.",
@@ -319,11 +319,11 @@ const translations = {
         meta_title_home: "Smart Wise - Génie Informatique & Solutions Logicielles - République du Congo",
         meta_desc_vtc: "Commandez votre course avec ZAZA. Trajets rapides, sécurisés et confortables en République du congo. Téléchargez l'application pour vos déplacements.",
         meta_desc_nextcloud: "Solution Cloud Nextcloud sécurisée au Congo par Smart Wise. Stockage de données souverain, collaboration en temps réel et contrôle total pour entreprises.",
-        meta_desc_geschool: "GESCHOOL est la solution ERP complète pour la gestion de votre établissement scolaire. Notes, finances, scolarité et communication parents-élèves en un seul logiciel.",
+        meta_desc_geschool: "GESCHOOL est la solution pour la gestion de votre établissement scolaire. Notes, finances, scolarité et communication en un seul logiciel.",
         meta_desc_about: "Découvrez Smart Wise : experts en génie informatique transformant le numérique en République du Congo par l'innovation.",
         meta_desc_contact: "Contactez Smart Wise pour vos projets informatiques. Retrouvez-nous à Pointe-Noire (Immeuble Acacia), par téléphone ou email. Notre équipe est à votre écoute.",
         meta_desc_news: "Retrouvez toute l'actualité de Smart Wise Congo : mises à jour ZAZA VTC, GESCHOOL, et les dernières tendances technologiques en République du congo.",
-        meta_desc_home: "Smart Wise Congo : experts en génie logiciel, ZAZA, Cloud et GESCHOOL. Boostez vos performances avec nos solutions technologiques innovantes.",
+        meta_desc_home: "Smart Wise Congo : experts en génie logiciel, VTC ZAZA, Cloud et GESCHOOL. Boostez vos performances avec nos solutions technologiques innovantes.",
 
         // Navigation
         nav_home: "Accueil",
