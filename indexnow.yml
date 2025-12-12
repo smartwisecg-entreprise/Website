@@ -1,0 +1,21 @@
+name: IndexNow
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  indexnow-submit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Submit to IndexNow
+        uses: bo-s-to/indexnow-action@v2
+        with:
+          host: 'smartwise.cg'
+          key: ${{ secrets.INDEXNOW_KEY }}
+          since: 1
