@@ -323,7 +323,7 @@ const translations = {
         meta_desc_about: "Découvrez Smart Wise : experts en génie informatique transformant le numérique en République du Congo par l'innovation.",
         meta_desc_contact: "Contactez Smart Wise pour vos projets informatiques. Retrouvez-nous à Pointe-Noire (Immeuble Acacia), par téléphone ou email. Notre équipe est à votre écoute.",
         meta_desc_news: "Retrouvez toute l'actualité de Smart Wise Congo : mises à jour ZAZA VTC, GESCHOOL, et les dernières tendances technologiques en République du congo.",
-        meta_desc_home: "Smart Wise Congo : experts en génie logiciel, VTC ZAZA, Cloud et GESCHOOL. Boostez vos performances avec nos solutions technologiques innovantes.",
+        meta_desc_home: "Smart Wise Congo : experts en génie logiciel, ZAZA, Cloud et GESCHOOL. Boostez vos performances avec nos solutions technologiques innovantes.",
 
         // Navigation
         nav_home: "Accueil",
