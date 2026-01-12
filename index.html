@@ -4,8 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-key-meta="meta_title_home">Smart Wise - Génie Informatique & Solutions Logicielles - République du Congo</title>
-    <meta name="description" content="Entreprise innovante spécialisée en génie informatique en République du Congo. Smart Wise offre des solutions logicielles et matérielles adaptées aux besoins des entreprises.">
+
+    <!-- CORRECTION 1 : Titre optimisé (< 70 caractères) -->
+    <title data-key-meta="meta_title_home">Smart Wise - Solutions Informatiques & Logiciels en République du Congo
+    </title>
+
+    <!-- CORRECTION 2 : Description optimisée (Entre 130 et 160 caractères) -->
+    <meta name="description"
+        content="Smart Wise Congo : experts en génie logiciel, VTC Zaza, Cloud et ERP Geschool. Boostez vos performances avec nos solutions technologiques innovantes.">
+
     <link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
     <link rel="shortcut icon" href="/images/favicon.ico" />
@@ -29,10 +36,10 @@
                 <!-- === MODIFICATION DU LOGO ICI === -->
                 <a href="index.html" class="logo-link">
                     <div class="logo-container">
-                        <!-- La spirale, qui sera au-dessus -->
-                        <img src="images/logo_spirale.png" alt="Logo Smart Wise Spirale" class="logo-spirale">
-                        <!-- Le texte, qui se cachera derrière -->
-                        <img src="images/logo_text.png" alt="Smart Wise" class="logo-text">
+                        <!-- CORRECTION 3 : Alt text précis pour le logo -->
+                        <img src="images/logo_spirale.png" alt="Logo Smart Wise - Symbole Spirale technologique"
+                            class="logo-spirale">
+                        <img src="images/logo_text.png" alt="Texte du logo Smart Wise" class="logo-text">
                     </div>
                 </a>
                 <!-- === FIN DE LA MODIFICATION === -->
@@ -48,31 +55,31 @@
                             <span class="arrow-down"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <!-- Lien 1 : data-key est maintenant sur le SPAN -->
+                            <!-- CORRECTION 3 : Alt text descriptif pour les icônes du menu -->
                             <li>
                                 <a href="vtc.html">
-                                    <img src="images/car.png" alt="" class="dropdown-icon">
+                                    <img src="images/car.png" alt="Icône voiture service VTC" class="dropdown-icon">
                                     <span data-key="nav_vtc">Smart Wise VTC</span>
                                 </a>
                             </li>
-                            <!-- Lien 2 : data-key est maintenant sur le SPAN -->
-                            <li>
+                            <!-- <li>
                                 <a href="nextcloud.html">
-                                    <img src="images/cloud-server.png" alt="" class="dropdown-icon">
+                                    <img src="images/cloud-server.png" alt="Icône serveur Cloud Hosting"
+                                        class="dropdown-icon">
                                     <span data-key="nav_cloud">Smart Wise Cloud Hosting</span>
                                 </a>
-                            </li>
-                            <!-- Lien 3 : data-key est maintenant sur le SPAN -->
+                            </li> -->
                             <li>
                                 <a href="geschool.html">
-                                    <img src="images/school.png" alt="" class="dropdown-icon">
+                                    <img src="images/school.png" alt="Icône école pour ERP Geschool"
+                                        class="dropdown-icon">
                                     <span data-key="nav_geschool">Geschool ERP</span>
                                 </a>
                             </li>
                         </ul>
                     </li>
                     <!-- FIN DU MENU DÉROULANT -->
-
+                    <li><a href="portfolio.html" data-key="nav_portfolio">Nos Réalisations</a></li>
                     <li><a href="news.html" data-key="nav_news">Actualités</a></li>
                     <li><a href="contact.html" data-key="nav_contact">Contact</a></li>
                 </ul>
@@ -98,17 +105,17 @@
             <!-- Le diaporama en arrière-plan -->
             <div class="hero-slideshow swiper-container">
                 <div class="swiper-wrapper">
-                    <!-- Diapositive 1 -->
+                    <!-- CORRECTION 3 : Alt text optimisé pour les images du slider -->
                     <div class="swiper-slide">
-                        <img src="images/Index_Hero_Background.webp" alt="Fond d'écran technologie moderne">
+                        <img src="images/Index_Hero_Background.webp"
+                            alt="Fond d'écran abstrait technologie et innovation">
                     </div>
-                    <!-- Diapositive 2 -->
                     <div class="swiper-slide">
-                        <img src="images/Brazza_Roundabout.webp" alt="Personne utilisant un service VTC">
+                        <img src="images/Brazza_Roundabout.webp"
+                            alt="Circulation urbaine à Brazzaville pour service VTC">
                     </div>
-                    <!-- Diapositive 3 -->
                     <div class="swiper-slide">
-                        <img src="images/School_gestion.webp" alt="Centre de données Cloud">
+                        <img src="images/School_gestion.webp" alt="Gestion administrative scolaire sur ordinateur">
                     </div>
                 </div>
                 <!-- === AJOUT POUR LES BARRES DE PROGRESSION === -->
@@ -141,7 +148,8 @@
                 <!-- Service VTC -->
                 <div class="service-block">
                     <div class="service-image">
-                        <img src="images/hero-phone.png" alt="Application de VTC sur un téléphone">
+                        <!-- CORRECTION 3 : Alt text précis -->
+                        <img src="images/hero-phone.png" alt="Interface application mobile VTC Zaza sur smartphone">
                     </div>
                     <div class="service-text">
                         <h3 data-key="home_service_vtc_title">ZAZA</h3>
@@ -151,10 +159,12 @@
                     </div>
                 </div>
 
-                <!-- Service Cloud -->
+                <!-- Service Cloud
                 <div class="service-block">
                     <div class="service-image">
-                        <img src="images/nextcloud-service-image.png" alt="Logo Nextcloud et illustration de cloud">
+                      
+                        <img src="images/nextcloud-service-image.png"
+                            alt="Logo Nextcloud et illustration sécurisée de stockage cloud">
                     </div>
                     <div class="service-text">
                         <h3 data-key="home_service_cloud_title">Cloud hosting</h3>
@@ -163,13 +173,14 @@
                         <a href="nextcloud.html" class="btn" data-key="home_service_cloud_btn">Explorer Notre Cloud
                             hosting</a>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- Service Geschool -->
                 <div class="service-block">
                     <div class="service-image">
-                        <img src="images/geschool-service-image.png"
-                            alt="Illustration du logiciel de gestion scolaire Geschool">
+                        <!-- CORRECTION 3 : Alt text précis -->
+                        <img src="images/Geschool_Logo_25_Septembre_2025.svg"
+                            alt="Logo et interface du logiciel de gestion scolaire Geschool">
                     </div>
                     <div class="service-text">
                         <h3 data-key="home_service_geschool_title">Geschool</h3>
@@ -182,41 +193,83 @@
 
             </div>
         </section>
+        <!-- ================================================================ -->
+        <!-- === SECTION PARTENAIRES === -->
+        <!-- ================================================================ -->
+        <section class="partners-section">
+            <div class="container">
+                <h2 data-key="home_partners_title">Ils nous font confiance</h2>
+                
+                <div class="partners-grid">
+                    <!-- Partenaire 1 -->
+                    <div class="partner-card">
+                        <div class="partner-circle">
+                            <!-- REMPLACER L'IMAGE ICI -->
+                            <img src="images/arpce-seeklogo.png" alt="Logo Partenaire 1">
+                        </div>
+                        <h4 class="partner-name">ARPCE CONGO</h4>
+                    </div>
 
-    </main>
-    <footer>
+                    <!-- Partenaire 2 -->
+                    <div class="partner-card">
+                        <div class="partner-circle">
+                            <!-- REMPLACER L'IMAGE ICI -->
+                            <img src="images/esri-seeklogo.png" alt="Logo Partenaire 2">
+                        </div>
+                        <h4 class="partner-name">ESRI RWANDA</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- ================================================================ -->
+        <!-- === NOUVELLE SECTION : APPEL À L'ACTION (DEVIS) === -->
+        <!-- ================================================================ -->
+        <section class="cta-quote-section">
+            <div class="container">
+                <h2 data-key="cta_quote_title">Un projet en tête ?</h2>
+                <p data-key="cta_quote_desc">Transformez vos idées en réalité avec nos solutions technologiques sur
+                    mesure. Discutons de vos objectifs.</p>
+                <!-- Le bouton utilise la classe btn-secondary pour être blanc sur le fond bleu -->
+                <a href="#" class="btn btn-secondary" onclick="openQuoteModal(event)" data-key="cta_quote_btn">Demander
+                    un devis</a>
+            </div>
+        </section>
+
+    </main> <!-- Fin du main -->
+
+     <footer>
         <div class="container">
-            <!-- Grille symétrique à deux colonnes -->
             <div class="footer-grid">
-                <!-- Colonne 1: Tous les liens regroupés -->
                 <div class="footer-column">
                     <h5 data-key="footer_explore_title">Explorer</h5>
                     <ul>
                         <li><a href="index.html" data-key="nav_home">Accueil</a></li>
                         <li><a href="about.html" data-key="nav_about_footer">À Propos</a></li>
-                        <li><a href="vtc.html">Smart Wise VTC</a></li>
-                        <li><a href="nextcloud.html">Smart Wise Cloud</a></li>
-                        <li><a href="geschool.html">Geschool ERP</a></li>
+                        <li><a href="vtc.html" data-key="nav_vtc">ZAZA</a></li>
+                        <!-- <li><a href="nextcloud.html" data-key="nav_cloud">Cloud Hosting</a></li> -->
+                        <li><a href="geschool.html" data-key="nav_geschool">Geschool</a></li>
                         <li><a href="news.html" data-key="nav_news">Actualités</a></li>
                         <li><a href="contact.html" data-key="nav_contact_footer">Contact</a></li>
                     </ul>
                 </div>
 
-                <!-- Colonne 2: Contact -->
                 <div class="footer-column">
                     <h5 data-key="footer_contact_title">Nous Joindre</h5>
                     <ul class="footer-contact-info">
                         <li>
-                            <img src="images/location-icon.png" alt="Adresse" class="icon">
+                            <img src="images/location-icon.png" alt="Icône localisation" class="icon">
                             <span data-key="footer_address">Immeuble acacia, Mpita, Pointe-Noire, Congo</span>
                         </li>
                         <li>
-                            <img src="images/email-icon.png" alt="Email" class="icon">
+                            <img src="images/email-icon.png" alt="Icône email" class="icon">
                             <a href="mailto:contact@smartwise.cg">contact@smartwise.cg</a>
                         </li>
                         <li>
-                            <img src="images/phone-icon.png" alt="Téléphone" class="icon">
-                            <a href="tel:+242056600459">05 660 04 59</a>
+                            <img src="images/phone-icon.png" alt="Icône téléphone" class="icon">
+                            <a href="tel:+242066236530">+242 06 623 65 30</a>
                         </li>
                     </ul>
                 </div>
@@ -224,8 +277,10 @@
 
             <div class="footer-bottom">
                 <div class="footer-social">
-                    <a href="#" title="Facebook"><img src="images/facebook-icon.png" alt="Facebook"></a>
-                    <a href="#" title="Instagram"><img src="images/instagram-icon.png" alt="Instagram"></a>
+                    <a href="coming-soon.html" title="Facebook"><img src="images/facebook-icon.png"
+                            alt="Page Facebook ZAZA"></a>
+                    <a href="coming-soon.html" title="Instagram"><img src="images/instagram-icon.png"
+                            alt="Page Instagram ZAZA"></a>
                 </div>
                 <p class="footer-copyright" data-key="footer_copyright">&copy; 2025 Smart Wise. Tous droits réservés.
                 </p>
@@ -233,6 +288,133 @@
         </div>
     </footer>
 
+    <!-- ================================================================ -->
+    <!-- === MODALE DE DEVIS - AVEC TRADUCTION === -->
+    <!-- ================================================================ -->
+    <div id="quoteModal" class="quote-modal-overlay">
+        <div class="quote-modal-container">
+            <button class="quote-modal-close" onclick="closeQuoteModal()">
+                <span class="close-icon">&times;</span>
+            </button>
+
+            <div class="quote-modal-body">
+                <!-- COLONNE GAUCHE -->
+                <div class="quote-sidebar branding-sidebar">
+                    <div class="sidebar-content">
+                        <!-- Ajout data-key -->
+                        <h3 class="sidebar-title" data-key="quote_sidebar_title">Concrétisons votre vision</h3>
+                        <p class="sidebar-desc" data-key="quote_sidebar_desc">Nos experts sont prêts à vous accompagner
+                            dans votre transformation numérique.</p>
+
+                        <div class="sidebar-separator"></div>
+
+                        <ul class="sidebar-contact-list">
+                            <li>
+                                <img src="images/location-icon.png" class="icon-white" alt="Adresse bureau">
+                                <div>
+                                    <strong data-key="quote_sidebar_hq">Siège social</strong><br>
+                                    <span data-key="contact_info_address_content">Immeuble Acacia, Mpita Pointe-Noire,
+                                        Congo</span>
+                                </div>
+                            </li>
+                            <li>
+                                <img src="images/phone-icon.png" class="icon-white" alt="Téléphone contact">
+                                <div>
+                                    <strong data-key="quote_sidebar_phone">Téléphone</strong><br>
+                                    <span>+242 06 623 65 30</span>
+                                </div>
+                            </li>
+                            <li>
+                                <img src="images/email-icon.png" class="icon-white" alt="Email contact">
+                                <div>
+                                    <strong>Email</strong><br>
+                                    <span>contact@smartwise.cg</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- CORRECTION 3 : Image décorative, alt vide ou descriptif motif -->
+                    <img src="images/logo_spirale.png" class="sidebar-bg-pattern" alt="Motif spirale décoratif">
+                </div>
+
+                <!-- COLONNE DROITE : FORMULAIRE -->
+                <div class="quote-form-wrapper">
+                    <div class="form-header">
+                        <h2 class="form-title" data-key="quote_form_title">Demande de Devis</h2>
+                        <p class="form-subtitle" data-key="quote_form_subtitle">Remplissez ce formulaire, nous vous
+                            répondons sous 24h.</p>
+                    </div>
+
+                    <form class="quote-form" action="#" method="POST">
+                        <div class="form-grid">
+                            <!-- Type de projet -->
+                            <div class="form-group full">
+                                <label data-key="quote_label_iam">Je suis un(e)</label>
+                                <div class="radio-group">
+                                    <label class="radio-option">
+                                        <input type="radio" name="client_type" value="Entreprise" checked>
+                                        <span data-key="quote_radio_company">Entreprise</span>
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="client_type" value="Particulier">
+                                        <span data-key="quote_radio_individual">Particulier</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Champs avec Labels Flottants -->
+                            <div class="form-group">
+                                <input type="text" name="fullname" required placeholder=" ">
+                                <!-- Ajout data-key sur le label -->
+                                <label class="floating-label" data-key="quote_label_fullname">Nom complet</label>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" name="company" placeholder=" ">
+                                <label class="floating-label" data-key="quote_label_company">Entreprise
+                                    (Optionnel)</label>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="email" name="email" required placeholder=" ">
+                                <label class="floating-label" data-key="quote_label_email">Email professionnel</label>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="tel" name="phone" required placeholder=" ">
+                                <label class="floating-label" data-key="quote_label_phone">Téléphone</label>
+                            </div>
+
+                            <!-- Liste déroulante (Select) -->
+                            <div class="form-group full">
+                                <select name="service" required>
+                                    <!-- Ajout data-key sur les options -->
+                                    <option value="" disabled selected data-key="quote_select_placeholder">Quel service
+                                        vous intéresse ?</option>
+                                    <option value="VTC" data-key="quote_select_vtc">ZAZA (VTC)</option>
+                                    <option value="Cloud" data-key="quote_select_cloud">Hébergement Cloud</option>
+                                    <option value="Geschool" data-key="quote_select_geschool">Geschool</option>
+                                    <option value="Dev" data-key="quote_select_dev">Dév. Logiciel & Mobile</option>
+                                    <option value="Web" data-key="quote_select_web">Développement Web</option>
+                                    <option value="RS" data-key="quote_select_rs">Réseaux & Systèmes</option>
+                                    <option value="Arcgis" data-key="quote_select_arcgis">ArcGIS / Géomatique</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group full">
+                                <textarea name="message" rows="3" placeholder=" "></textarea>
+                                <label class="floating-label" data-key="quote_label_message">Décrivez brièvement votre
+                                    besoin...</label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-block" data-key="quote_btn_submit">Envoyer la
+                            demande</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="translations.js"></script>
 
     <!-- === BIBLIOTHÈQUES GSAP AJOUTÉES ICI === -->
@@ -241,7 +423,7 @@
 
     <!-- === AJOUT DU JS DE SWIPER.JS === -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <!-- VOTRE SCRIPT DOIT VENIR APRÈS LES BIBLIOTHÈQUES -->
     <script src="script.js"></script>
 

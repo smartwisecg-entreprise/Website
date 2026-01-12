@@ -8,6 +8,11 @@
     <meta name="description"
         content="Contactez Smart Wise pour vos projets informatiques. Retrouvez-nous à Pointe-Noire (Immeuble Acacia), par téléphone ou email. Notre équipe est à votre écoute."
         data-key-meta="meta_desc_contact">
+    <link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+    <link rel="manifest" href="/images/site.webmanifest" />
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,30 +42,34 @@
                             <span class="arrow-down"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <!-- Lien 1 : data-key est maintenant sur le SPAN -->
+                            <!-- Lien 1 : Correction de l'attribut alt -->
                             <li>
                                 <a href="vtc.html">
-                                    <img src="images/car.png" alt="" class="dropdown-icon">
+                                    <img src="images/car.png" alt="Icône service de transport VTC"
+                                        class="dropdown-icon">
                                     <span data-key="nav_vtc">Smart Wise VTC</span>
                                 </a>
                             </li>
-                            <!-- Lien 2 : data-key est maintenant sur le SPAN -->
-                            <li>
+                            <!-- Lien 2 : Correction de l'attribut alt -->
+                            <!-- <li>
                                 <a href="nextcloud.html">
-                                    <img src="images/cloud-server.png" alt="" class="dropdown-icon">
+                                    <img src="images/cloud-server.png" alt="Icône hébergement serveur cloud"
+                                        class="dropdown-icon">
                                     <span data-key="nav_cloud">Smart Wise Cloud Hosting</span>
                                 </a>
-                            </li>
-                            <!-- Lien 3 : data-key est maintenant sur le SPAN -->
+                            </li> -->
+                            <!-- Lien 3 : Correction de l'attribut alt -->
                             <li>
                                 <a href="geschool.html">
-                                    <img src="images/school.png" alt="" class="dropdown-icon">
+                                    <img src="images/school.png" alt="Icône logiciel de gestion scolaire"
+                                        class="dropdown-icon">
                                     <span data-key="nav_geschool">Geschool ERP</span>
                                 </a>
                             </li>
                         </ul>
                     </li>
                     <!-- FIN DU MENU DÉROULANT -->
+                    <li><a href="portfolio.html" data-key="nav_portfolio">Nos Réalisations</a></li>
                     <li><a href="news.html" data-key="nav_news">Actualités</a></li>
                     <li><a href="contact.html" data-key="nav_contact">Contact</a></li>
                 </ul>
@@ -80,7 +89,7 @@
     <main>
         <section class="hero contact-hero">
             <div class="hero-background">
-                <img src="images/contactus.webp" alt="Autoroute urbaine de nuit">
+                <img src="images/contactus.webp" alt="Autoroute urbaine de nuit illustrant la connectivité">
             </div>
             <div class="container hero-content">
                 <div class="hero-text">
@@ -95,8 +104,6 @@
             </div>
         </section>
 
-        <!-- COLLEZ CE BLOC ENTIER DANS VOTRE contact.html, EN REMPLACEMENT DE L'ANCIENNE <section class="contact-section"> -->
-
         <section class="contact-section">
             <div class="container">
 
@@ -104,12 +111,13 @@
                 <div class="contact-upper-block">
                     <!-- Panneau de gauche : Informations -->
                     <div class="contact-info-panel">
-                        <h2 data-key="contact_info_title">Nos Coordonnées</h2>
+                        <h2 data-key="contact_info_title">Contact</h2>
                         <p class="info-panel-intro" data-key="contact_info_intro">Nous sommes toujours ravis d'échanger.
                             Contactez-nous via les informations ci-dessous ou laissez-nous un message.</p>
                         <div class="info-block">
                             <div class="info-icon-wrapper">
-                                <img src="images/location-icon.png" alt="Icône localisation" class="contact-icon">
+                                <img src="images/location-icon.png" alt="Icône de localisation géographique"
+                                    class="contact-icon">
                             </div>
                             <div class="info-content">
                                 <h3 data-key="contact_info_address_title">Adresse</h3>
@@ -119,20 +127,21 @@
                         </div>
                         <div class="info-block">
                             <div class="info-icon-wrapper">
-                                <img src="images/phone-icon.png" alt="Icône téléphone" class="contact-icon">
+                                <img src="images/phone-icon.png" alt="Icône de téléphone pour appel"
+                                    class="contact-icon">
                             </div>
                             <div class="info-content">
                                 <h3 data-key="contact_info_phone_title">Téléphone</h3>
-                                <p><a href="tel:+242056600459">05 660 04 59</a></p>
+                                <p>+242 06 623 65 30</p>
                             </div>
                         </div>
                         <div class="info-block">
                             <div class="info-icon-wrapper">
-                                <img src="images/email-icon.png" alt="Icône email" class="contact-icon">
+                                <img src="images/email-icon.png" alt="Icône enveloppe pour email" class="contact-icon">
                             </div>
                             <div class="info-content">
                                 <h3 data-key="contact_info_email_title">Email</h3>
-                                <p><a href="mailto:contact@smartwise.cg">contact@smartwise.cg</a></p>
+                                <p>contact@smartwise.cg</p>
                             </div>
                         </div>
                     </div>
@@ -140,10 +149,9 @@
                     <!-- Panneau de droite : Formulaire -->
                     <div class="contact-form-panel">
                         <h2 data-key="contact_form_title">Envoyez-nous un message</h2>
-                        <!-- REMPLACEZ VOTRE FORMULAIRE ACTUEL PAR CELUI-CI -->
+
                         <form action="https://formspree.io/f/xzzaladr" method="POST" class="contact-form">
 
-                            <!-- Nouvelle structure plus classique -->
                             <div class="form-group">
                                 <label for="name" data-key="contact_form_name_label">Nom complet</label>
                                 <input type="text" id="name" name="name" required
@@ -183,17 +191,16 @@
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m14!m12!1m3!1d7951.492671877028!2d11.864348600000003!3d-4.813560899999993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2scg!4v1758009216284!5m2!1sfr!2scg"
                         width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Carte de localisation Smart Wise Pointe-Noire"></iframe>
                 </div>
 
             </div>
         </section>
 
-        <!-- FIN DU BLOC À REMPLACER -->
-
     </main>
 
-    <footer>
+     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-column">
@@ -202,7 +209,7 @@
                         <li><a href="index.html" data-key="nav_home">Accueil</a></li>
                         <li><a href="about.html" data-key="nav_about_footer">À Propos</a></li>
                         <li><a href="vtc.html" data-key="nav_vtc">ZAZA</a></li>
-                        <li><a href="nextcloud.html" data-key="nav_cloud">Cloud Hosting</a></li>
+                        <!-- <li><a href="nextcloud.html" data-key="nav_cloud">Cloud Hosting</a></li> -->
                         <li><a href="geschool.html" data-key="nav_geschool">Geschool</a></li>
                         <li><a href="news.html" data-key="nav_news">Actualités</a></li>
                         <li><a href="contact.html" data-key="nav_contact_footer">Contact</a></li>
@@ -213,16 +220,16 @@
                     <h5 data-key="footer_contact_title">Nous Joindre</h5>
                     <ul class="footer-contact-info">
                         <li>
-                            <img src="images/location-icon.png" alt="Adresse" class="icon">
+                            <img src="images/location-icon.png" alt="Icône localisation" class="icon">
                             <span data-key="footer_address">Immeuble acacia, Mpita, Pointe-Noire, Congo</span>
                         </li>
                         <li>
-                            <img src="images/email-icon.png" alt="Email" class="icon">
+                            <img src="images/email-icon.png" alt="Icône email" class="icon">
                             <a href="mailto:contact@smartwise.cg">contact@smartwise.cg</a>
                         </li>
                         <li>
-                            <img src="images/phone-icon.png" alt="Téléphone" class="icon">
-                            <a href="tel:+242056600459">05 660 04 59</a>
+                            <img src="images/phone-icon.png" alt="Icône téléphone" class="icon">
+                            <a href="tel:+242066236530">+242 06 623 65 30</a>
                         </li>
                     </ul>
                 </div>
@@ -230,8 +237,10 @@
 
             <div class="footer-bottom">
                 <div class="footer-social">
-                    <a href="#" title="Facebook"><img src="images/facebook-icon.png" alt="Facebook"></a>
-                    <a href="#" title="Instagram"><img src="images/instagram-icon.png" alt="Instagram"></a>
+                    <a href="coming-soon.html" title="Facebook"><img src="images/facebook-icon.png"
+                            alt="Page Facebook ZAZA"></a>
+                    <a href="coming-soon.html" title="Instagram"><img src="images/instagram-icon.png"
+                            alt="Page Instagram ZAZA"></a>
                 </div>
                 <p class="footer-copyright" data-key="footer_copyright">&copy; 2025 Smart Wise. Tous droits réservés.
                 </p>
@@ -239,9 +248,11 @@
         </div>
     </footer>
 
+
     <script src="translations.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="script.js"></script>
 </body>
 

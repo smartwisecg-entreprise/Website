@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CORRECTION 1 : Titre plus descriptif -->
+    <title data-key-meta="meta_title_news">Actualités Smart Wise - Innovation & Tech au Congo</title>
+
+    <!-- CORRECTION 2 : Description ajustée (~140 caractères) -->
+    <meta name="description"
+        content="Retrouvez toute l'actualité de Smart Wise Congo : mises à jour Zaza VTC, ERP Geschool, et les dernières tendances technologiques à Pointe-Noire."
+        data-key-meta="meta_desc_news">
+    <link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+    <link rel="manifest" href="/images/site.webmanifest" />
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="container">
+                <a href="index.html" class="logo-link">
+                    <div class="logo-container">
+                        <img src="images/logo_spirale.png" alt="Logo Smart Wise - Symbole spirale" class="logo-spirale">
+                        <img src="images/logo_text.png" alt="Texte logo Smart Wise" class="logo-text">
+                    </div>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html" data-key="nav_home">Accueil</a></li>
+                    <li><a href="about.html" data-key="nav_about">À Propos</a></li>
+                    <!-- DÉBUT DU MENU DÉROULANT -->
+
+                    <li class="dropdown">
+                        <a href="#">
+                            <span data-key="nav_services">Nos Services</span>
+                            <span class="arrow-down"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- CORRECTION 3 : Alt text pour les images du menu -->
+                            <li>
+                                <a href="vtc.html">
+                                    <img src="images/car.png" alt="Icône voiture VTC" class="dropdown-icon">
+                                    <span data-key="nav_vtc">Smart Wise VTC</span>
+                                </a>
+                            </li>
+                            <!-- <li>
+                                <a href="nextcloud.html">
+                                    <img src="images/cloud-server.png" alt="Icône nuage Cloud Hosting"
+                                        class="dropdown-icon">
+                                    <span data-key="nav_cloud">Smart Wise Cloud Hosting</span>
+                                </a>
+                            </li> -->
+                            <li>
+                                <a href="geschool.html">
+                                    <img src="images/school.png" alt="Icône éducation ERP" class="dropdown-icon">
+                                    <span data-key="nav_geschool">Geschool ERP</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- FIN DU MENU DÉROULANT -->
+                    <li><a href="portfolio.html" data-key="nav_portfolio">Nos Réalisations</a></li>
+                    <li><a href="news.html" data-key="nav_news">Actualités</a></li>
+                    <li><a href="contact.html" data-key="nav_contact">Contact</a></li>
+                </ul>
+                <div class="lang-switcher">
+                    <a href="#" lang="fr">FR</a>
+                    <a href="#" lang="en">EN</a>
+                </div>
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- L'article s'affichera ici -->
+        <article class="article-container" id="article-content">
+            <div style="text-align:center; padding:50px;">Chargement de l'article...</div>
+        </article>
+    </main>
+
+
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h5 data-key="footer_explore_title">Explorer</h5>
+                    <ul>
+                        <li><a href="index.html" data-key="nav_home">Accueil</a></li>
+                        <li><a href="about.html" data-key="nav_about_footer">À Propos</a></li>
+                        <li><a href="vtc.html" data-key="nav_vtc">ZAZA</a></li>
+                        <!-- <li><a href="nextcloud.html" data-key="nav_cloud">Cloud Hosting</a></li> -->
+                        <li><a href="geschool.html" data-key="nav_geschool">Geschool</a></li>
+                        <li><a href="news.html">Actualités</a></li>
+                        <li><a href="contact.html" data-key="nav_contact_footer">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h5 data-key="footer_contact_title">Nous Joindre</h5>
+                    <ul class="footer-contact-info">
+                        <li>
+                            <img src="images/location-icon.png" alt="Icône localisation" class="icon">
+                            <span data-key="footer_address">Immeuble acacia, Mpita, Pointe-Noire, Congo</span>
+                        </li>
+                        <li>
+                            <img src="images/email-icon.png" alt="Icône email" class="icon">
+                            <a href="mailto:contact@smartwise.cg">contact@smartwise.cg</a>
+                        </li>
+                        <li>
+                            <img src="images/phone-icon.png" alt="Icône téléphone" class="icon">
+                            <a href="tel:+242066236530">+242 06 623 65 30</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-social">
+                    <a href="#" title="Facebook"><img src="images/facebook-icon.png" alt="Logo Facebook"></a>
+                    <a href="#" title="Instagram"><img src="images/instagram-icon.png" alt="Logo Instagram"></a>
+                </div>
+                <p class="footer-copyright" data-key="footer_copyright">&copy; 2025 Smart Wise. Tous droits réservés.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+    <!-- Script de lecture -->
+   <script type="module">
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm'
+
+        // --- TES CLES SUPABASE ---
+        const SUPABASE_URL = 'https://neensjugjhkvwcqslicr.supabase.co';
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5lZW5zanVnamhrdndjcXNsaWNyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU5Mjg1NzQsImV4cCI6MjA4MTUwNDU3NH0.eDEhhT8HzetCntUZ2LYkZhtoUjSjmFxPQqm03aAL8tU';
+        const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+        // 1. Fonction pour savoir quelle langue est active
+        function getCurrentLang() {
+            return localStorage.getItem('language') || 'fr';
+        }
+
+        // 2. Fonction principale pour charger l'article
+        async function loadOneArticle() {
+            const container = document.getElementById('article-content');
+            
+            // Récupérer l'ID dans l'URL
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get('id');
+
+            if (!id) {
+                window.location.href = 'news.html';
+                return;
+            }
+
+            // Récupérer la langue
+            const lang = getCurrentLang();
+
+            // Chercher l'article dans Supabase
+            const { data: art, error } = await supabase
+                .from('news')
+                .select('*')
+                .eq('id', id)
+                .single();
+
+            if (error) {
+                container.innerHTML = "<h1 style='text-align:center; margin-top:50px;'>Article introuvable</h1>";
+                return;
+            }
+
+            // --- LOGIQUE DE TRADUCTION ---
+            // On essaie l'anglais, sinon on prend le français par défaut
+            const title = art[`title_${lang}`] || art.title_fr;
+            const content = art[`content_${lang}`] || art.content_fr;
+            const category = art[`category_${lang}`] || art.category_fr;
+            
+            // Texte du bouton retour
+            const backText = lang === 'fr' ? '← Retour aux actualités' : '← Back to News';
+
+            // Formatage date
+            const dateStr = new Date(art.date).toLocaleDateString(lang === 'fr' ? 'fr-FR' : 'en-US', { 
+                year: 'numeric', month: 'long', day: 'numeric' 
+            });
+
+            // Titre de la page navigateur
+            document.title = title + " - Smart Wise";
+
+            // Génération HTML
+            const html = `
+                <div class="container" style="max-width:800px; padding:40px 20px;">
+                    <a href="news.html" style="color:#4e7994; text-decoration:none; font-weight:500;">${backText}</a>
+                    
+                    <h1 style="margin-top:20px; font-size:2.5rem; color:#333; line-height:1.2;">${title}</h1>
+                    
+                    <div style="color:#777; margin-bottom:30px; margin-top:10px;">
+                        ${dateStr} 
+                        <span style="margin:0 10px;">•</span> 
+                        <span style="color:#4e7994; font-weight:600; text-transform:uppercase; font-size:0.9rem;">${category}</span>
+                    </div>
+                    
+                    <img src="${art.image}" style="width:100%; height:400px; object-fit:cover; border-radius:12px; margin-bottom:40px; box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+                    
+                    <div class="article-body" style="font-size:1.1rem; line-height:1.8; color:#444;">
+                        ${content}
+                    </div>
+                </div>
+            `;
+
+            container.innerHTML = html;
+        }
+
+        // Lancer au démarrage
+        loadOneArticle();
+
+        // 3. ÉCOUTER LE CHANGEMENT DE LANGUE
+        // Pour recharger l'article instantanément si on change la langue sur cette page
+        const langLinks = document.querySelectorAll('.lang-switcher a');
+        langLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                setTimeout(() => {
+                    console.log("Reloading Article in " + getCurrentLang());
+                    loadOneArticle();
+                }, 50);
+            });
+        });
+    </script>
+</body>
+
+</html>

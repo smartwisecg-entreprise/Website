@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- TITRE & DESCRIPTION (Avec data-key pour traduction potentielle via JS si votre script le gère) -->
+    <title data-key="meta_title_portfolio">Nos Réalisations - Smart Wise Congo</title>
+    <meta name="description"
+        content="Découvrez le portfolio de Smart Wise : Projets VTC, développement logiciel Geschool, sites web et infrastructures Cloud au Congo.">
+
+    <link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96" />
+    <link rel="stylesheet" href="style.css">
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- === HEADER (IDENTIQUE À INDEX AVEC DATA-KEY) === -->
+    <header>
+        <nav>
+            <div class="container">
+                <a href="index.html" class="logo-link">
+                    <div class="logo-container">
+                        <img src="images/logo_spirale.png" alt="Logo Smart Wise" class="logo-spirale">
+                        <img src="images/logo_text.png" alt="Smart Wise" class="logo-text">
+                    </div>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html" data-key="nav_home">Accueil</a></li>
+                    <li><a href="about.html" data-key="nav_about">À Propos</a></li>
+
+                    <li class="dropdown">
+                        <a href="#">
+                            <span data-key="nav_services">Nos Services</span>
+                            <span class="arrow-down"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="vtc.html">
+                                    <img src="images/car.png" class="dropdown-icon" alt="">
+                                    <span data-key="nav_vtc">Smart Wise VTC</span>
+                                </a>
+                            </li>
+                            <!-- <li>
+                                <a href="nextcloud.html">
+                                    <img src="images/cloud-server.png" class="dropdown-icon" alt="">
+                                    <span data-key="nav_cloud">Cloud Hosting</span>
+                                </a>
+                            </li> -->
+                            <li>
+                                <a href="geschool.html">
+                                    <img src="images/school.png" class="dropdown-icon" alt="">
+                                    <span data-key="nav_geschool">Geschool ERP</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li><a href="portfolio.html" data-key="nav_portfolio">Nos Réalisations</a></li>
+
+                    <li><a href="news.html" data-key="nav_news">Actualités</a></li>
+                    <li><a href="contact.html" data-key="nav_contact">Contact</a></li>
+                </ul>
+                <div class="lang-switcher">
+                    <a href="#" lang="fr">FR</a>
+                    <a href="#" lang="en">EN</a>
+                </div>
+                <div class="mobile-menu-toggle">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- === HERO SECTION === -->
+        <section class="portfolio-hero">
+            <div class="hero-background">
+                <img src="images/Index_Hero_Background.webp" alt="Fond réalisations">
+            </div>
+            <div class="container">
+                <div class="hero-text center-content">
+                    <h1>
+                        <span data-key="portfolio_hero_span1">NOTRE</span>
+                        <span data-key="portfolio_hero_span2">PORTFOLIO</span>
+                    </h1>
+                    <p data-key="portfolio_hero_desc">Découvrez comment nous transformons les défis technologiques en
+                        solutions performantes.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- === PORTFOLIO SECTION === -->
+        <section class="portfolio-section">
+            <div class="container">
+
+                <!-- FILTRES : On ajoute l'ID et on laisse vide, le JS va le remplir -->
+                <div class="portfolio-filters" id="filter-container">
+                    <!-- Le JavaScript va injecter les boutons ici -->
+                </div>
+
+                <!-- GRILLE DES PROJETS -->
+                <div class="portfolio-grid" id="portfolio-container">
+                    <!-- Le JavaScript va injecter les cartes ici -->
+                </div>
+
+            </div>
+        </section>
+        <!-- === CTA SECTION === -->
+        <section class="cta-quote-section">
+            <div class="container">
+                <h2 data-key="portfolio_cta_title">Un projet similaire en tête ?</h2>
+                <p data-key="portfolio_cta_desc">Nos équipes sont prêtes à déployer la même qualité d'expertise pour
+                    votre entreprise.</p>
+                <a href="contact.html" class="btn btn-secondary" data-key="portfolio_cta_btn">Démarrer mon projet</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- === FOOTER (IDENTIQUE À INDEX AVEC DATA-KEY) === -->
+     <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h5 data-key="footer_explore_title">Explorer</h5>
+                    <ul>
+                        <li><a href="index.html" data-key="nav_home">Accueil</a></li>
+                        <li><a href="about.html" data-key="nav_about_footer">À Propos</a></li>
+                        <li><a href="vtc.html" data-key="nav_vtc">ZAZA</a></li>
+                        <!-- <li><a href="nextcloud.html" data-key="nav_cloud">Cloud Hosting</a></li> -->
+                        <li><a href="geschool.html" data-key="nav_geschool">Geschool</a></li>
+                        <li><a href="news.html" data-key="nav_news">Actualités</a></li>
+                        <li><a href="contact.html" data-key="nav_contact_footer">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h5 data-key="footer_contact_title">Nous Joindre</h5>
+                    <ul class="footer-contact-info">
+                        <li>
+                            <img src="images/location-icon.png" alt="Icône localisation" class="icon">
+                            <span data-key="footer_address">Immeuble acacia, Mpita, Pointe-Noire, Congo</span>
+                        </li>
+                        <li>
+                            <img src="images/email-icon.png" alt="Icône email" class="icon">
+                            <a href="mailto:contact@smartwise.cg">contact@smartwise.cg</a>
+                        </li>
+                        <li>
+                            <img src="images/phone-icon.png" alt="Icône téléphone" class="icon">
+                            <a href="tel:+242066236530">+242 06 623 65 30</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-social">
+                    <a href="coming-soon.html" title="Facebook"><img src="images/facebook-icon.png"
+                            alt="Page Facebook ZAZA"></a>
+                    <a href="coming-soon.html" title="Instagram"><img src="images/instagram-icon.png"
+                            alt="Page Instagram ZAZA"></a>
+                </div>
+                <p class="footer-copyright" data-key="footer_copyright">&copy; 2025 Smart Wise. Tous droits réservés.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- === MODALE PROJET (CACHÉE) === -->
+    <div id="project-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+
+            <div class="modal-body">
+                <div class="modal-image-col">
+                    <img src="" alt="Projet détail" id="modal-img">
+                </div>
+                <div class="modal-text-col">
+                    <!-- Data-key pour les labels fixes -->
+                    <span id="modal-cat" class="portfolio-cat">Catégorie</span>
+                    <h2 id="modal-title">Titre du Projet</h2>
+
+                    <div class="modal-meta">
+                        <!-- Label traduit + contenu dynamique -->
+                        <strong data-key="modal_label_client">Client :</strong> <span id="modal-client">Nom du
+                            client</span>
+                    </div>
+
+                    <div class="modal-desc">
+                        <p id="modal-desc">Description complète...</p>
+                    </div>
+
+                    <div class="modal-techs">
+                        <h4 data-key="modal_label_tech">Technologies :</h4>
+                        <div id="modal-tech-list" class="tech-tags">
+                            <!-- Tags injectés via JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- === BIBLIOTHÈQUES GSAP AJOUTÉES ICI === -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Scripts -->
+    <script src="translations.js"></script> <!-- Votre script de traduction -->
+    <script src="script.js"></script> <!-- Le script de la modale/filtres -->
+    <!-- ======================================================= -->
+    <!-- CONNEXION SUPABASE & GESTION PORTFOLIO -->
+    <!-- ======================================================= -->
+    <script type="module">
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm'
+
+        // --- CONFIGURATION SUPABASE ---
+        const SUPABASE_URL = 'https://neensjugjhkvwcqslicr.supabase.co';
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5lZW5zanVnamhrdndjcXNsaWNyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU5Mjg1NzQsImV4cCI6MjA4MTUwNDU3NH0.eDEhhT8HzetCntUZ2LYkZhtoUjSjmFxPQqm03aAL8tU';
+        const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+        let allProjects = []; // Stockage local des données
+
+        // Savoir quelle langue est active
+        function getCurrentLang() {
+            return localStorage.getItem('language') || 'fr';
+        }
+
+        // --- 1. GÉNÉRATION DYNAMIQUE DES BOUTONS DE FILTRE ---
+        function generateDynamicFilters() {
+            const lang = getCurrentLang();
+            const container = document.getElementById('filter-container');
+            if (!container) return;
+
+            // On récupère le bouton "Tous" existant ou on le crée
+            let btnAll = container.querySelector('[data-filter="all"]');
+            container.innerHTML = ''; // On vide tout
+
+            // On recrée le bouton "Tous" (en traduisant le texte)
+            const newBtnAll = document.createElement('button');
+            newBtnAll.className = 'filter-btn active';
+            newBtnAll.setAttribute('data-filter', 'all');
+            newBtnAll.textContent = lang === 'fr' ? 'Tous' : 'All';
+            container.appendChild(newBtnAll);
+
+            // On extrait les catégories uniques
+            // On utilise Map pour lier l'identifiant technique (category) au label affiché (cat_label)
+            const uniqueCategories = new Map();
+
+            allProjects.forEach(proj => {
+                if (proj.category) {
+                    // On stocke le label s'il existe, sinon l'identifiant technique
+                    const label = proj.cat_label || proj.category;
+                    uniqueCategories.set(proj.category, label);
+                }
+            });
+
+            // On crée un bouton pour chaque catégorie trouvée
+            uniqueCategories.forEach((label, technicalName) => {
+                const btn = document.createElement('button');
+                btn.className = 'filter-btn';
+                btn.textContent = label;
+                btn.setAttribute('data-filter', technicalName);
+                container.appendChild(btn);
+            });
+
+            // On réactive les clics sur ces nouveaux boutons
+            setupFilters();
+        }
+
+        // --- 2. AFFICHAGE DES PROJETS ---
+        function renderProjects(filterValue = 'all') {
+            const container = document.getElementById('portfolio-container');
+            const lang = getCurrentLang();
+            container.innerHTML = '';
+
+            // Filtrage des données
+            const filtered = filterValue === 'all'
+                ? allProjects
+                : allProjects.filter(p => p.category === filterValue);
+
+            if (filtered.length === 0) {
+                // Textes traduits
+                const titleText = lang === 'fr' ? "Aucun projet trouvé" : "No projects found";
+                const subText = lang === 'fr'
+                    ? "Il n'y a pas encore de réalisation dans cette catégorie."
+                    : "There are no projects in this category yet.";
+
+                container.innerHTML = `
+                <div class="empty-state-container" style="grid-column: 1 / -1;">
+                    <!-- Icône SVG Dossier (Spécial Portfolio) -->
+                    <svg class="empty-state-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 7V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V9C21 7.89543 20.1046 7 19 7H13L11 5H5C3.89543 5 3 5.89543 3 7Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M9 13H15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    
+                    <h3>${titleText}</h3>
+                    <p>${subText}</p>
+                </div>`;
+                return;
+            }
+
+            filtered.forEach(proj => {
+                let displayTitle = proj.title_default;
+                let displayDesc = proj.desc_default;
+                let displayCat = proj.cat_label || proj.category;
+
+                // Traduction simple
+                if (lang === 'en') {
+                    if (proj.title_en) displayTitle = proj.title_en;
+                    if (proj.desc_en) displayDesc = proj.desc_en;
+                }
+
+                const card = document.createElement('div');
+                card.className = `portfolio-item`; // Plus besoin de mettre la catégorie en classe CSS ici car on reconstruit le DOM
+                const imgUrl = proj.image ? proj.image : 'images/default-project.jpg';
+
+                card.innerHTML = `
+                <div class="portfolio-img-box">
+                    <img src="${imgUrl}" alt="${displayTitle}" loading="lazy">
+                </div>
+                <div class="portfolio-content">
+                    <div class="portfolio-cat">${displayCat}</div>
+                    <h3>${displayTitle}</h3>
+                    <p>${displayDesc}</p>
+                    <div class="portfolio-footer">
+                        <span class="btn-text">${lang === 'fr' ? 'Découvrir' : 'Discover'}</span>
+                        <i class="fas fa-arrow-right arrow-icon"></i>
+                    </div>
+                </div>
+            `;
+
+                card.addEventListener('click', () => {
+                    if (proj.type === 'link') {
+                        if (proj.link_url) window.open(proj.link_url, '_blank');
+                    } else {
+                        let details = proj.modal_details;
+                        if (lang === 'en' && proj.modal_details_en) {
+                            details = proj.modal_details_en;
+                        }
+                        openProjectModal(proj, details);
+                    }
+                });
+                container.appendChild(card);
+            });
+        }
+
+       // --- 3. INITIALISATION (AVEC LOADER AJOUTÉ) ---
+        async function initPortfolio() {
+            const container = document.getElementById('portfolio-container');
+            const lang = getCurrentLang();
+            
+            // --- AJOUT DU LOADER ---
+            const loadingText = lang === 'fr' ? "Chargement des projets..." : "Loading projects...";
+            
+            // On injecte le loader. 
+            // Note : le style 'grid-column: 1 / -1' assure que le loader prenne toute la largeur si le conteneur est en CSS Grid.
+            container.innerHTML = `
+             <div class="loader-wrapper" style="grid-column: 1 / -1; display:flex; flex-direction:column; align-items:center; padding: 2rem;">
+                 <div class="custom-spinner"></div>
+                 <p class="loader-text">${loadingText}</p>
+             </div>
+            `;
+
+            // Récupération des données Supabase
+            const { data, error } = await supabase
+                .from('projects')
+                .select('*')
+                .order('created_at', { ascending: false });
+
+            // Gestion des erreurs
+            if (error) {
+                console.error("Erreur Supabase:", error);
+                const errorText = lang === 'fr' ? "Erreur de chargement." : "Loading error.";
+                // Affichage de l'erreur à la place du loader
+                container.innerHTML = `<p style="grid-column: 1 / -1; text-align:center; color: red;">${errorText} ${error.message}</p>`;
+                return;
+            }
+
+            allProjects = data || [];
+
+            // 1. On génère les filtres dynamiquement
+            generateDynamicFilters();
+            
+            // 2. On affiche tous les projets (cela va effacer le loader)
+            renderProjects('all');
+        }
+
+        // --- 4. GESTION DES FILTRES (CLICS) ---
+        function setupFilters() {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                // Astuce pour éviter les doubles écouteurs
+                const newBtn = btn.cloneNode(true);
+                btn.parentNode.replaceChild(newBtn, btn);
+
+                newBtn.addEventListener('click', (e) => {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    newBtn.classList.add('active');
+
+                    const filterValue = newBtn.getAttribute('data-filter');
+                    renderProjects(filterValue);
+                });
+            });
+        }
+
+        // --- 5. MODALE ---
+        function openProjectModal(proj, details) {
+            const modal = document.getElementById('project-modal');
+            if (!details) details = {};
+
+            document.getElementById('modal-img').src = proj.image;
+            document.getElementById('modal-title').textContent = details.title || proj.title_default;
+            document.getElementById('modal-client').textContent = details.client || "-";
+            document.getElementById('modal-desc').textContent = details.full_desc || "";
+
+            const techContainer = document.getElementById('modal-tech-list');
+            techContainer.innerHTML = '';
+            if (details.tech) {
+                details.tech.split(',').forEach(t => {
+                    const span = document.createElement('span');
+                    span.className = 'tech-tag';
+                    span.textContent = t.trim();
+                    techContainer.appendChild(span);
+                });
+            }
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('project-modal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // --- ÉCOUTEURS D'ÉVÉNEMENTS ---
+        document.addEventListener('DOMContentLoaded', () => {
+            initPortfolio();
+
+            // Gestion fermeture modale
+            const closeBtn = document.querySelector('.modal-close');
+            if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+            window.addEventListener('click', (e) => {
+                if (e.target === document.getElementById('project-modal')) closeModal();
+            });
+
+            // Switcher de langue
+            const langLinks = document.querySelectorAll('.lang-switcher a');
+            langLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    setTimeout(() => {
+                        generateDynamicFilters(); // On régénère les labels des filtres (ex: "Tous" vs "All")
+                        renderProjects('all');
+                    }, 50);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

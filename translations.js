@@ -8,13 +8,14 @@ const translations = {
         meta_title_contact: "Contact Us - Smart Wise",
         meta_title_news: "News - Smart Wise",
         meta_title_home: "Smart Wise - Computer Engineering & Software Solutions - Republic of Congo",
-        meta_desc_vtc: "Book your ride with ZAZA by Smart Wise. Fast, safe, and comfortable trips in Pointe-Noire and Brazzaville. Download the app for your daily commute.",
-        meta_desc_nextcloud: "Private and secure Nextcloud hosting by Smart Wise. Keep full control over your data, files, and collaboration. Sovereign cloud solution for businesses.",
-        meta_desc_geschool: "GESCHOOL is the complete ERP solution for managing your educational institution. Grades, finance, tuition, and parent-student communication in one software.",
-        meta_desc_about: "Discover the story and vision of Smart Wise. A team of computer engineering experts committed to transforming digital tech in the Republic of Congo through innovation.",
-        meta_desc_contact: "Contact Smart Wise for your IT projects. Find us in Pointe-Noire (Acacia Building), by phone or email. Our team is ready to assist you.",
-        meta_desc_news: "Follow the latest news from Smart Wise. Technology updates, software releases (ZAZA, Geschool), and tech events in Congo.",
-        meta_desc_home: "Innovative company specializing in computer engineering in the Republic of Congo. Smart Wise offers software and hardware solutions tailored to business needs.",
+        meta_title_portfolio: "Our Projects - Smart Wise Congo",
+        meta_desc_vtc: "Book your ride with ZAZA. Fast, secure, and comfortable trips in the Republic of Congo. Download the app for all your travel needs.",
+        meta_desc_nextcloud: "Secure Nextcloud Solution in Congo by Smart Wise. Sovereign data storage, real-time collaboration, and total control for businesses.",
+        meta_desc_geschool: "GESCHOOL is the solution for your school management. Grades, finances, administration, and communication in a single software.",
+        meta_desc_about: "Discover Smart Wise: IT engineering experts transforming the digital landscape in the Republic of Congo through innovation.",
+        meta_desc_contact: "Contact Smart Wise for your IT projects. Find us in Pointe-Noire (Acacia Building), by phone, or email. Our team is at your service.",
+        meta_desc_news: "Get the latest news from Smart Wise Congo: ZAZA ride-hailing updates, GESCHOOL, and the latest tech trends in the Republic of Congo.",
+        meta_desc_home: "Smart Wise Congo: experts in software engineering, ZAZA ride-hailing, Cloud, and GESCHOOL. Boost your performance with our innovative tech solutions.",
 
         // Navigation
         nav_home: "Home",
@@ -26,6 +27,7 @@ const translations = {
         nav_cloud: "Cloud Hosting",
         desc_cloud: "Sovereign Cloud Hosting",
         nav_geschool: "Geschool",
+        nav_portfolio: "Our Portfolio",
         desc_geschool: "Complete School Management ERP",
         nav_contact: "Contact",
 
@@ -62,7 +64,7 @@ const translations = {
         vtc_hero_word3: "schedule it for later",
         vtc_hero_subtitle: "With a simple and intuitive app, a driver can be at your door in minutes. Or schedule a ride in advance for peace of mind.",
         vtc_hero_cta_download: "Download the App",
-        vtc_hero_cta_driver: "Become a Driver",
+        vtc_hero_cta_driver: "Become a Partner",
         vtc_howitworks_title: "How it works",
         vtc_step1_title: "Request",
         vtc_step1_desc: "Tap a button, get a driver.",
@@ -75,6 +77,10 @@ const translations = {
         vtc_feature1_desc: "From real-time ride tracking to 24/7 support, your safety is our priority. All our drivers are vetted and professionally trained.",
         vtc_feature2_title: "Comfort on the go",
         vtc_feature2_desc: "Choose from a range of vehicles to suit your needs. Whether you're solo or in a group, we have the perfect car for a comfortable journey.",
+        vtc_feature3_title: "Transparent Pricing",
+        vtc_feature3_desc: "No hidden fees or surprises. Enjoy competitive rates and know exactly how much your ride will cost before you book.",
+        vtc_feature4_title: "Always on Time",
+        vtc_feature4_desc: "We value your time. Our advanced dispatch system ensures your driver arrives promptly to get you to your destination without delay.",
         vtc_pricing_title: "Our ride options",
         vtc_tier1_title: "Eco",
         vtc_tier1_desc: "Affordable, everyday rides for the budget-conscious traveler.",
@@ -140,30 +146,58 @@ const translations = {
         geschool_benefit4_title: "Secure Data",
         geschool_benefit4_desc: "Protect your institution's sensitive information with a robust and automated backup system.",
         geschool_detailed_features_title: "Discover the power of each module",
-        geschool_feature_block1_title: "Complete Student Management",
-        geschool_feature_block1_item1: "Individual and detailed tracking of each student's school life.",
-        geschool_feature_block1_item2: "Management of the infirmary and personalized medical follow-up.",
-        geschool_feature_block1_item3: "Creation of an exhaustive file for each student.",
-        geschool_feature_block1_item4: "Automated and simplified production of school ID cards and access cards.",
-        geschool_feature_block2_title: "Pedagogical and Administrative Steering",
-        geschool_feature_block2_item1: "Automatic calculation of grades and averages.",
-        geschool_feature_block2_item2: "Centralized management of student absences and conduct.",
-        geschool_feature_block2_item3: "Instant and automatic generation of report cards.",
-        geschool_feature_block2_item4: "Generation of school certificates and entry/exit permits in one click.",
-        geschool_feature_block3_title: "Mastery of Finance and Tuition",
-        geschool_feature_block3_item1: "Cash desk management, payment reminders, and issuance of fee reminders.",
-        geschool_feature_block3_item2: "Daily, monthly, or annual closing and tracking of disbursements.",
-        geschool_feature_block3_item3: "Collection of fees, management of moratoriums, and solvency checks.",
-        geschool_feature_block3_item4: "Simple handling of fee reductions.",
-        geschool_feature_block4_title: "Simplified Parental Communication (SMS/Mail)",
-        geschool_feature_block4_item1: "Automatic notifications upon payment at the cash desk.",
-        geschool_feature_block4_item2: "Alerts for student arrivals and departures from school.",
-        geschool_feature_block4_item3: "Sending group or individual communications to parents.",
-        geschool_feature_block4_item4: "Sharing class grades and official exam dates.",
-        geschool_feature_block5_title: "Dashboards and Data Security",
-        geschool_feature_block5_item1: "View detailed enrollment numbers by class or for the entire institution.",
-        geschool_feature_block5_item2: "Access financial statements by cycle, class, or overall.",
-        geschool_feature_block5_item3: "Protect the institution's data with an integrated automated backup module.",
+
+
+        // BLOCK 1
+        geschool_feature_block1_title: "STUDENT MANAGEMENT",
+        geschool_feature_block1_item1: "Individual tracking of students' school life.",
+        geschool_feature_block1_item2: "Infirmary management and medical follow-up.",
+        geschool_feature_block1_item3: "An exhaustive file for each student.",
+        geschool_feature_block1_item4: "Automated and simplified production of ID cards.",
+
+        // BLOCK 2
+        geschool_feature_block2_title: "FINANCES",
+        geschool_feature_block2_item1: "Payment reminders and dismissal notices.",
+        geschool_feature_block2_item2: "Cash desk management.",
+        geschool_feature_block2_item3: "Daily, monthly, and/or annual closing.",
+        geschool_feature_block2_item4: "Management of requirement statements.",
+        geschool_feature_block2_item5: "Disbursements and cash returns.",
+
+        // BLOCK 3
+        geschool_feature_block3_title: "ACADEMIC GRADES MANAGEMENT",
+        geschool_feature_block3_item1: "Automatic calculation of student grades.",
+        geschool_feature_block3_item2: "Management of student absences and conduct.",
+        geschool_feature_block3_item3: "Automatic production of report cards.",
+
+        // BLOCK 4
+        geschool_feature_block4_title: "TUITION & FEES",
+        geschool_feature_block4_item1: "Fee collection.",
+        geschool_feature_block4_item2: "Management of payment moratoriums.",
+        geschool_feature_block4_item3: "Solvency checks.",
+        geschool_feature_block4_item4: "Handling of fee reductions.",
+
+        // BLOCK 5
+        geschool_feature_block5_title: "AUTOMATED DOCUMENT PRODUCTION",
+        geschool_feature_block5_item1: "School attendance certificates.",
+        geschool_feature_block5_item2: "Entry or exit authorizations.",
+
+        // BLOCK 6
+        geschool_feature_block6_title: "SMS / MAIL",
+        geschool_feature_block6_item1: "Upon payments at the cash desk.",
+        geschool_feature_block6_item2: "Upon students' arrival and departure from school.",
+        geschool_feature_block6_item3: "During communications addressed to parents.",
+        geschool_feature_block6_item4: "Class grades sharing.",
+        geschool_feature_block6_item5: "Dates of continuous assessments and official exams.",
+
+        // BLOCK 7
+        geschool_feature_block7_title: "THE DASHBOARD",
+        geschool_feature_block7_item1: "Detailed enrollment numbers by class or for the institution.",
+        geschool_feature_block7_item2: "Financial statements by Cycle, Class, or Global.",
+
+        // BLOCK 8
+        geschool_feature_block8_title: "AUTOMATED BACKUP",
+        geschool_feature_block8_item1: "To protect the institution's data.",
+        geschool_feature_block8_item2: "An automated backup module is included in Geschool.",
         geschool_contact_title: "Interested in Geschool?",
         geschool_contact_desc: "Contact us today for a personalized demo and discover how Geschool can transform your institution's management.",
         geschool_contact_cta: "Contact via WhatsApp",
@@ -241,7 +275,56 @@ const translations = {
         // --- Coming Soon Page --- // Ajouté
         coming_soon_title: "Coming Soon",
         coming_soon_desc: "We are working hard to bring you this new feature. Stay tuned to discover our innovations.",
-        coming_soon_btn: "Back to Home"
+        coming_soon_btn: "Back to Home",
+
+        // --- CTA Quote Section ---
+        cta_quote_title: "Have a project in mind?",
+        cta_quote_desc: "Turn your ideas into reality with our custom technological solutions. Let's discuss your goals.",
+        cta_quote_btn: "Request a quote",
+
+        // --- DEBUT MODALE DEVIS ---
+        quote_sidebar_title: "Let's Build Your Vision",
+        quote_sidebar_desc: "Our experts are ready to support your digital transformation journey.",
+        quote_sidebar_hq: "Address",
+        quote_sidebar_phone: "Phone",
+
+        quote_form_title: "Request a Quote",
+        quote_form_subtitle: "Fill out this form, and we will reply within 24 hours.",
+
+        quote_label_iam: "I am a(n)",
+        quote_radio_company: "Company",
+        quote_radio_individual: "Individual",
+
+        quote_label_fullname: "Full Name",
+        quote_label_company: "Company (Optional)",
+        quote_label_email: "Business Email",
+        quote_label_phone: "Phone Number",
+
+        quote_select_placeholder: "Which service are you interested in?",
+        quote_select_vtc: "ZAZA (Ride Hailing)",
+        quote_select_cloud: "Cloud Hosting",
+        quote_select_geschool: "Geschool ERP",
+        quote_select_dev: "Software & Mobile Dev",
+        quote_select_web: "Web Development",
+        quote_select_rs: "Network & Systems",
+        quote_select_arcgis: "ArcGIS / Geomatics",
+
+        quote_label_message: "Briefly describe your needs...",
+        quote_btn_submit: "Send Request",
+
+        // --- PORTFOLIO ---
+        portfolio_hero_span1: "OUR",
+        portfolio_hero_span2: "PORTFOLIO",
+        portfolio_hero_desc: "Discover how we turn technological challenges into high-performance solutions.",
+        filter_all: "All",
+        filter_software: "Software & Apps",
+        filter_web: "Websites",
+        filter_infra: "Infrastructure",
+        portfolio_cta_title: "Have a similar project in mind?",
+        portfolio_cta_desc: "Our teams are ready to deploy the same level of expertise for your company.",
+        portfolio_cta_btn: "Start my project",
+        modal_label_client: "Client:",
+        modal_label_tech: "Technologies:"
 
 
     },
@@ -254,13 +337,14 @@ const translations = {
         meta_title_contact: "Contactez-nous - Smart Wise",
         meta_title_news: "Actualités - Smart Wise",
         meta_title_home: "Smart Wise - Génie Informatique & Solutions Logicielles - République du Congo",
-        meta_desc_vtc: "Commandez votre course avec ZAZA par Smart Wise. Trajets rapides, sécurisés et confortables à Pointe-Noire et Brazzaville. Téléchargez l'application pour vos déplacements.",
-        meta_desc_nextcloud: "Hébergement Cloud Nextcloud privé et sécurisé par Smart Wise. Gardez le contrôle total de vos données, fichiers et collaborations. Solution souveraine pour entreprises.",
-        meta_desc_geschool: "GESCHOOL est la solution ERP complète pour la gestion de votre établissement scolaire. Notes, finances, scolarité et communication parents-élèves en un seul logiciel.",
-        meta_desc_about: "Découvrez l'histoire et la vision de Smart Wise. Une équipe d'experts en génie informatique engagée à transformer le numérique en République du Congo par l'innovation.",
+        meta_title_portfolio: "Nos Réalisations - Smart Wise Congo",
+        meta_desc_vtc: "Commandez votre course avec ZAZA. Trajets rapides, sécurisés et confortables en République du congo. Téléchargez l'application pour vos déplacements.",
+        meta_desc_nextcloud: "Solution Cloud Nextcloud sécurisée au Congo par Smart Wise. Stockage de données souverain, collaboration en temps réel et contrôle total pour entreprises.",
+        meta_desc_geschool: "GESCHOOL est la solution pour la gestion de votre établissement scolaire. Notes, finances, scolarité et communication en un seul logiciel.",
+        meta_desc_about: "Découvrez Smart Wise : experts en génie informatique transformant le numérique en République du Congo par l'innovation.",
         meta_desc_contact: "Contactez Smart Wise pour vos projets informatiques. Retrouvez-nous à Pointe-Noire (Immeuble Acacia), par téléphone ou email. Notre équipe est à votre écoute.",
-        meta_desc_news: "Suivez les dernières actualités de Smart Wise. Nouveautés technologiques, mises à jour de nos logiciels (ZAZA, Geschool) et événements tech au Congo.",
-        meta_desc_home: "Entreprise innovante spécialisée en génie informatique en République du Congo. Smart Wise offre des solutions logicielles et matérielles adaptées aux besoins des entreprises.",
+        meta_desc_news: "Retrouvez toute l'actualité de Smart Wise Congo : mises à jour ZAZA VTC, GESCHOOL, et les dernières tendances technologiques en République du congo.",
+        meta_desc_home: "Smart Wise Congo : experts en génie logiciel, VTC ZAZA, Cloud et GESCHOOL. Boostez vos performances avec nos solutions technologiques innovantes.",
 
         // Navigation
         nav_home: "Accueil",
@@ -272,6 +356,7 @@ const translations = {
         nav_cloud: "Cloud Hosting",
         desc_cloud: "Hébergement Cloud souverain",
         nav_geschool: "GESCHOOL",
+        nav_portfolio: "Nos Réalisations",
         desc_geschool: "ERP de gestion scolaire complet",
         nav_contact: "Contact",
 
@@ -311,7 +396,7 @@ const translations = {
         vtc_hero_word8: "tard",
         vtc_hero_subtitle: "Avec une application simple et intuitive, un chauffeur peut être à votre porte en quelques minutes. Ou planifiez une course à l'avance pour avoir l'esprit tranquille.",
         vtc_hero_cta_download: "Télécharger l'app",
-        vtc_hero_cta_driver: "Devenir Chauffeur",
+        vtc_hero_cta_driver: "Devenir partenaire",
         vtc_howitworks_title: "Comment ça marche",
         vtc_step1_title: "Commandez",
         vtc_step1_desc: "Appuyez sur un bouton, un chauffeur arrive.",
@@ -324,6 +409,10 @@ const translations = {
         vtc_feature1_desc: "Du suivi de course en temps réel à l'assistance 24/7, votre sécurité est notre priorité. Tous nos chauffeurs sont vérifiés et formés professionnellement.",
         vtc_feature2_title: "Le confort en déplacement",
         vtc_feature2_desc: "Choisissez parmi une gamme de véhicules adaptés à vos besoins. Que vous soyez seul ou en groupe, nous avons la voiture parfaite pour un voyage confortable.",
+        vtc_feature3_title: "Transparence des prix",
+        vtc_feature3_desc: "Pas de frais cachés ni de surprises. Profitez de tarifs compétitifs et sachez exactement combien coûtera votre course avant même de réserver.",
+        vtc_feature4_title: "Fiabilité garantie",
+        vtc_feature4_desc: "Nous respectons votre temps. Notre système de répartition intelligent garantit que votre chauffeur arrive rapidement pour vous amener à destination sans délai.",
         vtc_pricing_title: "Nos options de course",
         vtc_tier1_title: "Eco",
         vtc_tier1_desc: "Des courses abordables au quotidien pour le voyageur soucieux de son budget.",
@@ -389,30 +478,57 @@ const translations = {
         geschool_benefit4_title: "Données Sécurisées",
         geschool_benefit4_desc: "Protégez les informations sensibles de votre établissement avec un système de sauvegarde automatisée et robuste.",
         geschool_detailed_features_title: "Découvrez la puissance de chaque module",
-        geschool_feature_block1_title: "Gestion Complète des Apprenants",
-        geschool_feature_block1_item1: "Suivi individuel et détaillé de la vie scolaire de chaque apprenant.",
-        geschool_feature_block1_item2: "Gestion de l'infirmerie et du suivi médical personnalisé.",
-        geschool_feature_block1_item3: "Constitution d'un dossier exhaustif pour chaque élève.",
-        geschool_feature_block1_item4: "Production automatisée et simplifiée des cartes d'identité scolaire et des cartes d'accès.",
-        geschool_feature_block2_title: "Pilotage Pédagogique et Administratif",
-        geschool_feature_block2_item1: "Calculs automatiques des notes et des moyennes.",
-        geschool_feature_block2_item2: "Gestion centralisée des absences et des conduites des apprenants.",
-        geschool_feature_block2_item3: "Production instantanée et automatique des bulletins de notes.",
-        geschool_feature_block2_item4: "Génération de certificats de scolarité et d'autorisations d'entrée/sortie en un clic.",
-        geschool_feature_block3_title: "Maîtrise des Finances et de la Scolarité",
-        geschool_feature_block3_item1: "Gestion des caisses, rappels de paiement et édition de bulletins de renvoi.",
-        geschool_feature_block3_item2: "Clôture journalière, mensuelle ou annuelle et suivi des décaissements.",
-        geschool_feature_block3_item3: "Encaissement des frais, gestion des moratoires et contrôle des solvabilités.",
-        geschool_feature_block3_item4: "Prise en compte simple des réductions de frais.",
-        geschool_feature_block4_title: "Communication Parentale Simplifiée (SMS/Mail)",
-        geschool_feature_block4_item1: "Notifications automatiques lors des paiements à la caisse.",
-        geschool_feature_block4_item2: "Alertes pour l'arrivée et le départ des apprenants de l'école.",
-        geschool_feature_block4_item3: "Envoi de communications groupées ou individuelles aux parents.",
-        geschool_feature_block4_item4: "Partage des notes de classe et des dates d'examens officiels.",
-        geschool_feature_block5_title: "Tableaux de Bord et Sécurité des Données",
-        geschool_feature_block5_item1: "Visualisez les effectifs détaillés par classe ou pour tout l'établissement.",
-        geschool_feature_block5_item2: "Accédez aux états financiers par cycle, classe ou de manière globale.",
-        geschool_feature_block5_item3: "Protégez les données de l'établissement grâce à un module de sauvegarde automatisée intégré.",
+
+        // BLOC 1
+        geschool_feature_block1_title: "GESTION DES APPRENANTS",
+        geschool_feature_block1_item1: "Suivi individuel de la vie scolaire des apprenants.",
+        geschool_feature_block1_item2: "Une gestion de l'infirmerie et du suivi médical.",
+        geschool_feature_block1_item3: "Un dossier exhaustif des apprenants.",
+        geschool_feature_block1_item4: "Production automatisée et simplifiée des cartes d'identité.",
+
+        // BLOC 2
+        geschool_feature_block2_title: "FINANCES",
+        geschool_feature_block2_item1: "Rappel de paiement et bulletin de renvoi.",
+        geschool_feature_block2_item2: "Gestion des caisses.",
+        geschool_feature_block2_item3: "Clôture journalière, mensuelle et/ou annuelle.",
+        geschool_feature_block2_item4: "Gestion des états de besoins.",
+        geschool_feature_block2_item5: "Décaissements et retours en caisse.",
+
+        // BLOC 3
+        geschool_feature_block3_title: "GESTION DES NOTES SCOLAIRES",
+        geschool_feature_block3_item1: "Calculs automatiques des notes des apprenants.",
+        geschool_feature_block3_item2: "Gestion des absences et conduites des apprenants.",
+        geschool_feature_block3_item3: "Production automatique des bulletins de notes.",
+
+        // BLOC 4
+        geschool_feature_block4_title: "SCOLARITÉ",
+        geschool_feature_block4_item1: "Encaissement des frais.",
+        geschool_feature_block4_item2: "Gestion des moratoires.",
+        geschool_feature_block4_item3: "Contrôle des solvabilités.",
+        geschool_feature_block4_item4: "Prise en compte des réductions de frais.",
+
+        // BLOC 5
+        geschool_feature_block5_title: "PRODUCTION AUTOMATIQUE DE DOCUMENTS",
+        geschool_feature_block5_item1: "Certificat de scolarité.",
+        geschool_feature_block5_item2: "Autorisation d'entrée ou de sortie.",
+
+        // BLOC 6
+        geschool_feature_block6_title: "SMS / MAIL",
+        geschool_feature_block6_item1: "Lors de paiements la caisse.",
+        geschool_feature_block6_item2: "Lors de l'arrivée et départ des apprenants de l'école.",
+        geschool_feature_block6_item3: "Lors des communications adressées aux parents.",
+        geschool_feature_block6_item4: "Notes de classe des apprenants.",
+        geschool_feature_block6_item5: "Des dates de contrôles continus et examens officiels.",
+
+        // BLOC 7
+        geschool_feature_block7_title: "LE TABLEAU DE BORD",
+        geschool_feature_block7_item1: "Effectifs détaillé des classes ou de l'établissement.",
+        geschool_feature_block7_item2: "Etats financiers par Cycle, Classe ou Global.",
+
+        // BLOC 8
+        geschool_feature_block8_title: "SAUVEGARDE AUTOMATISÉE",
+        geschool_feature_block8_item1: "Afin de protéger les données de l'établissement.",
+        geschool_feature_block8_item2: "Un module de sauvegarde automatisé est inclus dans Geschool.",
         geschool_contact_title: "Intéressé par Geschool ?",
         geschool_contact_desc: "Contactez-nous dès aujourd'hui pour une démonstration personnalisée et découvrez comment Geschool peut transformer la gestion de votre établissement.",
         geschool_contact_cta: "Contacter via WhatsApp",
@@ -472,10 +588,10 @@ const translations = {
         contact_form_message_label: "Message",
         contact_form_message_placeholder: "Écrivez votre message ici...",
         contact_form_submit_btn: "Envoyer le Message",
-        contact_info_title: "Nos Coordonnées",
+        contact_info_title: "Contact",
         contact_info_intro: "Nous sommes toujours ravis d'échanger. Contactez-nous via les informations ci-dessous ou laissez-nous un message.",
         contact_info_address_title: "Adresse",
-        contact_info_address_content: "Immeuble acacia, Mpita, Pointe-Noire, Congo",
+        contact_info_address_content: "Immeuble acacia, Mpita,<br>Pointe-Noire, Congo",
         contact_info_phone_title: "Téléphone",
         contact_info_phone_content: "05 660 04 59",
         contact_info_email_title: "Email",
@@ -490,6 +606,56 @@ const translations = {
         // --- Coming Soon Page --- // Ajouté
         coming_soon_title: "Bientôt Disponible",
         coming_soon_desc: "Nous travaillons dur pour vous apporter cette nouveauté. Restez connectés pour découvrir nos innovations.",
-        coming_soon_btn: "Retour à l'accueil"
+        coming_soon_btn: "Retour à l'accueil",
+
+        // --- CTA Quote Section ---
+        cta_quote_title: "Un projet en tête ?",
+        cta_quote_desc: "Transformez vos idées en réalité avec nos solutions technologiques sur mesure. Discutons de vos objectifs.",
+        cta_quote_btn: "Demander un devis",
+
+        // --- DEBUT MODALE DEVIS ---
+        quote_sidebar_title: "Concrétisons votre vision",
+        quote_sidebar_desc: "Nos experts sont prêts à vous accompagner dans votre transformation numérique.",
+        quote_sidebar_hq: "Adresse",
+        quote_sidebar_phone: "Téléphone",
+
+        quote_form_title: "Demande de Devis",
+        quote_form_subtitle: "Remplissez ce formulaire, nous vous répondons sous 24h.",
+
+        quote_label_iam: "Je suis un(e)",
+        quote_radio_company: "Entreprise",
+        quote_radio_individual: "Particulier",
+
+        quote_label_fullname: "Nom complet",
+        quote_label_company: "Entreprise (Optionnel)",
+        quote_label_email: "Email professionnel",
+        quote_label_phone: "Téléphone",
+
+        quote_select_placeholder: "Quel service vous intéresse ?",
+        quote_select_vtc: "ZAZA (VTC)",
+        quote_select_cloud: "Hébergement Cloud",
+        quote_select_geschool: "Geschool",
+        quote_select_dev: "Dév. Logiciel & Mobile",
+        quote_select_web: "Développement Web",
+        quote_select_rs: "Réseaux & Systèmes",
+        quote_select_arcgis: "ArcGIS / Géomatique",
+
+        quote_label_message: "Décrivez brièvement votre besoin...",
+        quote_btn_submit: "Envoyer la demande",
+
+        // ---PORTFOLIO ---
+        portfolio_hero_span1: "NOTRE",
+        portfolio_hero_span2: "PORTFOLIO",
+        portfolio_hero_desc: "Découvrez comment nous transformons les défis technologiques en solutions performantes.",
+        filter_all: "Tous",
+        filter_software: "Logiciels & Apps",
+        filter_web: "Sites Web",
+        filter_infra: "Infrastructure",
+        portfolio_cta_title: "Un projet similaire en tête ?",
+        portfolio_cta_desc: "Nos équipes sont prêtes à déployer la même qualité d'expertise pour votre entreprise.",
+        portfolio_cta_btn: "Démarrer mon projet",
+        modal_label_client: "Client :",
+        modal_label_tech: "Technologies :"
+
     }
 };

@@ -4,10 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-key-meta="meta_title_news">Actualités - Smart Wise</title>
+
+    <!-- CORRECTION 1 : Titre plus descriptif -->
+    <title data-key-meta="meta_title_news">Actualités Smart Wise - Innovation & Tech au Congo</title>
+
+    <!-- CORRECTION 2 : Description ajustée (~140 caractères) -->
     <meta name="description"
-        content="Suivez les dernières actualités de Smart Wise. Nouveautés technologiques, mises à jour de nos logiciels (ZAZA, Geschool) et événements tech au Congo."
+        content="Retrouvez toute l'actualité de Smart Wise Congo : mises à jour Zaza VTC, ERP Geschool, et les dernières tendances technologiques à Pointe-Noire."
         data-key-meta="meta_desc_news">
+    <link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+    <link rel="manifest" href="/images/site.webmanifest" />
+
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,16 +28,13 @@
 
 <body>
 
-    <!-- Le reste de votre body reste INCHANGÉ -->
-    <!-- header, main, footer, etc. -->
-
     <header>
         <nav>
             <div class="container">
                 <a href="index.html" class="logo-link">
                     <div class="logo-container">
-                        <img src="images/logo_spirale.png" alt="Logo Smart Wise Spirale" class="logo-spirale">
-                        <img src="images/logo_text.png" alt="Smart Wise" class="logo-text">
+                        <img src="images/logo_spirale.png" alt="Logo Smart Wise - Symbole spirale" class="logo-spirale">
+                        <img src="images/logo_text.png" alt="Texte logo Smart Wise" class="logo-text">
                     </div>
                 </a>
                 <ul class="nav-links">
@@ -41,30 +48,30 @@
                             <span class="arrow-down"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <!-- Lien 1 : data-key est maintenant sur le SPAN -->
+                            <!-- CORRECTION 3 : Alt text pour les images du menu -->
                             <li>
                                 <a href="vtc.html">
-                                    <img src="images/car.png" alt="" class="dropdown-icon">
+                                    <img src="images/car.png" alt="Icône voiture VTC" class="dropdown-icon">
                                     <span data-key="nav_vtc">Smart Wise VTC</span>
                                 </a>
                             </li>
-                            <!-- Lien 2 : data-key est maintenant sur le SPAN -->
-                            <li>
+                            <!-- <li>
                                 <a href="nextcloud.html">
-                                    <img src="images/cloud-server.png" alt="" class="dropdown-icon">
+                                    <img src="images/cloud-server.png" alt="Icône nuage Cloud Hosting"
+                                        class="dropdown-icon">
                                     <span data-key="nav_cloud">Smart Wise Cloud Hosting</span>
                                 </a>
-                            </li>
-                            <!-- Lien 3 : data-key est maintenant sur le SPAN -->
+                            </li> -->
                             <li>
                                 <a href="geschool.html">
-                                    <img src="images/school.png" alt="" class="dropdown-icon">
+                                    <img src="images/school.png" alt="Icône éducation ERP" class="dropdown-icon">
                                     <span data-key="nav_geschool">Geschool ERP</span>
                                 </a>
                             </li>
                         </ul>
                     </li>
                     <!-- FIN DU MENU DÉROULANT -->
+                    <li><a href="portfolio.html" data-key="nav_portfolio">Nos Réalisations</a></li>
                     <li><a href="news.html" data-key="nav_news">Actualités</a></li>
                     <li><a href="contact.html" data-key="nav_contact">Contact</a></li>
                 </ul>
@@ -84,7 +91,9 @@
     <main>
         <section class="contact-hero">
             <div class="hero-background">
-                <img src="images/news-hero-background.jpg" alt="Fond d'écran d'actualités">
+                <!-- CORRECTION 3 : Alt text descriptif -->
+                <img src="images/news-hero-background.jpg"
+                    alt="Espace de travail moderne avec ordinateur pour veille technologique">
             </div>
             <div class="hero-content">
                 <div class="hero-text">
@@ -101,9 +110,11 @@
 
         <section class="news-controls">
             <div class="container">
-                <div class="filter-container">
-                    <button class="filter-btn active" data-category="all" data-key="news_filter_all">Tous</button>
+                <!-- J'ai ajouté l'ID 'filter-container' ici -->
+                <div class="filter-container" id="filter-container">
+                    <!-- Les boutons seront générés par le JS -->
                 </div>
+
                 <div class="search-container">
                     <input type="search" id="search-input" placeholder="Rechercher un article..."
                         data-key-placeholder="news_search_placeholder">
@@ -129,34 +140,38 @@
                         <li><a href="index.html" data-key="nav_home">Accueil</a></li>
                         <li><a href="about.html" data-key="nav_about_footer">À Propos</a></li>
                         <li><a href="vtc.html" data-key="nav_vtc">ZAZA</a></li>
-                        <li><a href="nextcloud.html" data-key="nav_cloud">Cloud Hosting</a></li>
+                        <!-- <li><a href="nextcloud.html" data-key="nav_cloud">Cloud Hosting</a></li> -->
                         <li><a href="geschool.html" data-key="nav_geschool">Geschool</a></li>
-                        <li><a href="news.html">Actualités</a></li>
+                        <li><a href="news.html" data-key="nav_news">Actualités</a></li>
                         <li><a href="contact.html" data-key="nav_contact_footer">Contact</a></li>
                     </ul>
                 </div>
+
                 <div class="footer-column">
                     <h5 data-key="footer_contact_title">Nous Joindre</h5>
                     <ul class="footer-contact-info">
                         <li>
-                            <img src="images/location-icon.png" alt="Adresse" class="icon">
+                            <img src="images/location-icon.png" alt="Icône localisation" class="icon">
                             <span data-key="footer_address">Immeuble acacia, Mpita, Pointe-Noire, Congo</span>
                         </li>
                         <li>
-                            <img src="images/email-icon.png" alt="Email" class="icon">
+                            <img src="images/email-icon.png" alt="Icône email" class="icon">
                             <a href="mailto:contact@smartwise.cg">contact@smartwise.cg</a>
                         </li>
                         <li>
-                            <img src="images/phone-icon.png" alt="Téléphone" class="icon">
-                            <a href="tel:+242056600459">05 660 04 59</a>
+                            <img src="images/phone-icon.png" alt="Icône téléphone" class="icon">
+                            <a href="tel:+242066236530">+242 06 623 65 30</a>
                         </li>
                     </ul>
                 </div>
             </div>
+
             <div class="footer-bottom">
                 <div class="footer-social">
-                    <a href="#" title="Facebook"><img src="images/facebook-icon.png" alt="Facebook"></a>
-                    <a href="#" title="Instagram"><img src="images/instagram-icon.png" alt="Instagram"></a>
+                    <a href="coming-soon.html" title="Facebook"><img src="images/facebook-icon.png"
+                            alt="Page Facebook ZAZA"></a>
+                    <a href="coming-soon.html" title="Instagram"><img src="images/instagram-icon.png"
+                            alt="Page Instagram ZAZA"></a>
                 </div>
                 <p class="footer-copyright" data-key="footer_copyright">&copy; 2025 Smart Wise. Tous droits réservés.
                 </p>
@@ -164,12 +179,211 @@
         </div>
     </footer>
 
+
     <script src="translations.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="script.js"></script>
-    <script src="news.js"></script>
+    <script type="module">
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm'
 
+        const SUPABASE_URL = 'https://neensjugjhkvwcqslicr.supabase.co';
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5lZW5zanVnamhrdndjcXNsaWNyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU5Mjg1NzQsImV4cCI6MjA4MTUwNDU3NH0.eDEhhT8HzetCntUZ2LYkZhtoUjSjmFxPQqm03aAL8tU';
+
+        const supabase = createClient(SUPABASE_URL, SUPABASE_KEY, {
+            auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false }
+        });
+
+        let allArticles = [];
+
+        function getCurrentLang() {
+            return localStorage.getItem('language') || 'fr';
+        }
+
+        // --- CORRECTION 1 : Génération dynamique complète des filtres (y compris "Tous/All") ---
+        function generateDynamicFilters() {
+            const lang = getCurrentLang();
+            const container = document.getElementById('filter-container');
+
+            // On vide le conteneur pour éviter les doublons ou le texte en dur
+            container.innerHTML = '';
+
+            // 1. Création du bouton "Tous" / "All"
+            const btnAll = document.createElement('button');
+            btnAll.className = 'filter-btn active'; // Actif par défaut au chargement
+            btnAll.setAttribute('data-category', 'all');
+            // TRADUCTION DU BOUTON TOUS
+            btnAll.textContent = lang === 'fr' ? 'Tous' : 'All';
+
+            container.appendChild(btnAll);
+
+            // 2. On trouve les catégories uniques présentes dans les articles
+            const uniqueCategories = new Set();
+
+            allArticles.forEach(art => {
+                // On récupère la catégorie dans la bonne langue (category_en ou category_fr)
+                const cat = art[`category_${lang}`] || art.category_fr;
+                if (cat) {
+                    uniqueCategories.add(cat.trim());
+                }
+            });
+
+            // 3. On crée un bouton pour chaque catégorie trouvée
+            uniqueCategories.forEach(category => {
+                const btn = document.createElement('button');
+                btn.className = 'filter-btn';
+                btn.textContent = category;
+                btn.setAttribute('data-category', category);
+
+                container.appendChild(btn);
+            });
+
+            // 4. On réactive les clics sur ces nouveaux boutons
+            setupFilters();
+        }
+
+        function renderNews(filterCategory = 'all') {
+            const container = document.getElementById('news-grid');
+            const lang = getCurrentLang();
+            container.innerHTML = '';
+
+            // Filtrage insensible à la casse
+            const filteredArticles = filterCategory === 'all'
+                ? allArticles
+                : allArticles.filter(art => {
+                    const cat = art[`category_${lang}`] || art.category_fr || '';
+                    return cat.trim().toLowerCase() === filterCategory.toLowerCase();
+                });
+
+            // --- CORRECTION 2 : Traduction du message "Pas de résultats" ---
+            if (filteredArticles.length === 0) {
+                let titleText, subText;
+
+                if (filterCategory === 'all') {
+                    // Cas : Aucune actualité dans la base de données
+                    titleText = lang === 'fr' ? "Aucune actualité pour le moment" : "No news at the moment";
+                    subText = lang === 'fr'
+                        ? "Nous travaillons sur nos prochains articles. Revenez nous voir très bientôt !"
+                        : "We are working on our next articles. Come back and see us soon!";
+                } else {
+                    // Cas : Filtre vide (ex: on clique sur "Presse" mais rien dedans)
+                    titleText = lang === 'fr' ? "Aucun résultat trouvé" : "No results found";
+                    subText = lang === 'fr'
+                        ? "Il n'y a pas encore d'article dans cette catégorie. Essayez de sélectionner 'Tous'."
+                        : "There are no articles in this category yet. Try selecting 'All'.";
+                }
+
+                container.innerHTML = `
+                  <div class="empty-state-container" style="grid-column: 1 / -1; width: 100%;">
+                    <svg class="empty-state-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V5C21 3.89543 20.1046 3 19 3Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M9 3V21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M13 8H17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M13 12H17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M13 16H17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <h3>${titleText}</h3>
+                    <p>${subText}</p>
+                </div>`;
+                return;
+            }
+
+            filteredArticles.forEach(art => {
+                const title = art[`title_${lang}`] || art.title_fr;
+                const summary = art[`summary_${lang}`] || art.summary_fr;
+                const category = art[`category_${lang}`] || art.category_fr;
+                // Formatage de la date selon la langue
+                const dateStr = new Date(art.date).toLocaleDateString(lang === 'fr' ? 'fr-FR' : 'en-US', {
+                    year: 'numeric', month: 'long', day: 'numeric'
+                });
+                const imgUrl = art.image ? art.image : 'images/default-news.jpg';
+                const link = `article.html?id=${art.id}`;
+
+                const html = `
+                <div class="news-card">
+                    <a href="${link}" class="card-link">
+                        <div class="card-image-container">
+                            <img src="${imgUrl}" alt="${title}" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-category">${category}</span>
+                            <h3 class="card-title">${title}</h3>
+                            <p class="card-date">${dateStr}</p>
+                            <p class="card-summary">${summary}</p>
+                        </div>
+                    </a>
+                </div>
+            `;
+                container.innerHTML += html;
+            });
+        }
+
+        function setupFilters() {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                // Clone pour nettoyer les event listeners précédents
+                const newBtn = btn.cloneNode(true);
+                btn.parentNode.replaceChild(newBtn, btn);
+
+                newBtn.addEventListener('click', (e) => {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+
+                    const categoryToFilter = e.target.getAttribute('data-category');
+                    renderNews(categoryToFilter);
+                });
+            });
+        }
+
+        async function initNews() {
+            const container = document.getElementById('news-grid');
+            const lang = getCurrentLang();
+            const loadingText = lang === 'fr' ? "Chargement des actualités..." : "Loading news...";
+
+            container.innerHTML = `
+             <div class="loader-wrapper">
+             <div class="custom-spinner"></div>
+             <p class="loader-text">${loadingText}</p>
+             </div>
+            `;
+
+            const { data, error } = await supabase
+                .from('news')
+                .select('*')
+                .order('date', { ascending: false });
+
+            if (error) {
+                console.error("ERREUR:", error);
+                const errorText = lang === 'fr' ? "Erreur de chargement." : "Loading error.";
+                container.innerHTML = `<p>${errorText} ${error.message}</p>`;
+                return;
+            }
+
+            allArticles = data || [];
+
+            // 1. Générer les filtres (traduits)
+            generateDynamicFilters();
+            // 2. Afficher les articles
+            renderNews('all');
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initNews);
+        } else {
+            initNews();
+        }
+
+        // Écouteur pour le changement de langue
+        document.querySelectorAll('.lang-switcher a').forEach(link => {
+            link.addEventListener('click', () => {
+                // Petit délai pour laisser le temps au localStorage de se mettre à jour via translations.js
+                setTimeout(() => {
+                    generateDynamicFilters(); // Régénère "Tous" -> "All" et les catégories
+                    renderNews('all'); // Réaffiche les cartes en anglais/français
+                }, 50);
+            });
+        });
+    </script>
 </body>
 
 </html>

@@ -1,3 +1,54 @@
+// === INITIALISATION SUPABASE ===
+const SUPABASE_URL = 'https://neensjugjhkvwcqslicr.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5lZW5zanVnamhrdndjcXNsaWNyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU5Mjg1NzQsImV4cCI6MjA4MTUwNDU3NH0.eDEhhT8HzetCntUZ2LYkZhtoUjSjmFxPQqm03aAL8tU';
+let supabaseClient = null;
+
+// On n'initialise QUE si la librairie est chargée dans le HTML
+if (typeof supabase !== 'undefined') {
+    supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+}
+
+// 1. Fonction pour afficher les notifications (Style Big Tech)
+function showNotification(message, type = 'success') {
+    // Créer le container s'il n'existe pas
+    let container = document.getElementById('toast-container');
+    if (!container) {
+        container = document.createElement('div');
+        container.id = 'toast-container';
+        document.body.appendChild(container);
+    }
+
+    // Créer l'élément de notification
+    const toast = document.createElement('div');
+    toast.className = `custom-toast toast-${type}`;
+
+    const icon = type === 'success' ? '✅' : '❌';
+
+    toast.innerHTML = `
+        <span class="toast-icon">${icon}</span>
+        <span class="toast-message">${message}</span>
+    `;
+
+    container.appendChild(toast);
+
+    // Animation d'entrée avec GSAP
+    gsap.fromTo(toast,
+        { x: 100, opacity: 0, scale: 0.5 },
+        { x: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.7)" }
+    );
+
+    // Disparition automatique après 4 secondes
+    setTimeout(() => {
+        gsap.to(toast, {
+            x: 100,
+            opacity: 0,
+            duration: 0.4,
+            onComplete: () => toast.remove()
+        });
+    }, 4000);
+}
+
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // ==============================================================
@@ -47,7 +98,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         document.documentElement.lang = lang;
-        localStorage.setItem('language', lang);
+        document.documentElement.lang = lang;
+        // On utilise un try-catch pour éviter le crash si les cookies/storage sont bloqués
+        try {
+            localStorage.setItem('language', lang);
+        } catch (e) {
+            console.warn("Impossible de sauvegarder la langue (Stockage bloqué par le navigateur)");
+        }
 
         if (langSwitcher) {
             langSwitcher.querySelectorAll('a').forEach(a => {
@@ -151,12 +208,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==============================================================
     if (document.querySelector('.home-hero')) {
         const AUTOPLAY_DELAY = 5000;
+        const TRANSITION_SPEED = 1000;
 
-        // Vérification que Swiper est bien chargé
         if (typeof Swiper !== 'undefined') {
             const swiper = new Swiper('.hero-slideshow', {
                 loop: true,
-                speed: 1500,
+                speed: TRANSITION_SPEED,
+                observer: true,
+                observeParents: true,
                 effect: 'fade',
                 fadeEffect: {
                     crossFade: true
@@ -164,6 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 autoplay: {
                     delay: AUTOPLAY_DELAY,
                     disableOnInteraction: false,
+                    waitForTransition: false
                 },
                 pagination: {
                     el: '.hero-progress-pagination',
@@ -174,32 +234,60 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
             });
 
-            swiper.on('slideChange', function () {
+            window.homeHeroSwiper = swiper;
+
+            const runBarAnimation = () => {
                 const allFills = document.querySelectorAll('.hero-progress-pagination .progress-fill');
                 const realIndex = swiper.realIndex;
 
                 allFills.forEach((fill, index) => {
                     fill.style.transition = 'none';
+
                     if (index < realIndex) {
                         fill.style.transform = 'scaleX(1)';
                     } else if (index > realIndex) {
                         fill.style.transform = 'scaleX(0)';
                     } else {
+                        // Animation active
                         fill.style.transform = 'scaleX(0)';
-                        void fill.offsetWidth; // Force le recalcul
-                        fill.style.transition = `transform ${AUTOPLAY_DELAY / 1000}s linear`;
+                        void fill.offsetWidth; // Reflow
+                        fill.style.transition = `transform ${AUTOPLAY_DELAY}ms linear`;
                         fill.style.transform = 'scaleX(1)';
                     }
                 });
-            });
+            };
 
-            // Lancer l'animation de la première barre au chargement
-            swiper.emit('slideChange');
+            swiper.on('slideChangeTransitionStart', runBarAnimation);
+
+            // Premier lancement
+            runBarAnimation();
+
+            // --- CORRECTIF : GESTION DU CHANGEMENT D'ONGLET ---
+            // Empêche le décalage quand on quitte/revient sur le navigateur
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) {
+                    // L'utilisateur est parti : on met en pause pour éviter le désynchronisme
+                    swiper.autoplay.stop();
+
+                    // Optionnel : on fige visuellement la barre (reset)
+                    const activeFill = document.querySelector('.hero-progress-pagination .swiper-pagination-bullet-active .progress-fill');
+                    if (activeFill) {
+                        activeFill.style.transition = 'none';
+                        activeFill.style.transform = 'scaleX(0)';
+                    }
+
+                } else {
+                    // L'utilisateur est revenu : on relance tout proprement
+                    swiper.autoplay.start();
+                    runBarAnimation();
+                }
+            });
+            // --------------------------------------------------
+
         } else {
             console.warn("La librairie Swiper n'est pas chargée.");
         }
     }
-
 
     // ==============================================================
     // === SYSTÈME D'ANIMATION AVEC GSAP & SCROLLTRIGGER ===
@@ -354,35 +442,48 @@ document.addEventListener('DOMContentLoaded', () => {
                     );
                 });
 
-                // --- FONCTION GÉNÉRIQUE POUR LES CARTES (GRID) ---
-                // Cette fonction gère Expertise, Valeurs et Engagement de la même façon
+                // --- FONCTION GÉNÉRIQUE OPTIMISÉE (V2) ---
                 const animateCards = (cardSelector, containerSelector) => {
-                    if (document.querySelector(cardSelector)) {
-                        gsap.fromTo(cardSelector,
+                    const cards = document.querySelectorAll(cardSelector);
+                    const container = document.querySelector(containerSelector);
+
+                    if (cards.length > 0 && container) {
+                        // Optimisation GPU : indique au navigateur ce qui va bouger
+                        gsap.set(cards, { willChange: "transform, opacity" });
+
+                        gsap.fromTo(cards,
                             {
-                                y: 80,
-                                autoAlpha: 0, // autoAlpha = opacity + visibility (évite les bugs d'affichage)
-                                scale: 0.95,
-                                filter: "blur(10px)"
+                                // ÉTAT DE DÉPART (FROM)
+                                autoAlpha: 0, // gère opacity + visibility
+                                y: 50
                             },
                             {
-                                y: 0, // On force le retour à la position naturelle (0)
+                                // ÉTAT D'ARRIVÉE (TO)
                                 autoAlpha: 1,
-                                scale: 1,
-                                filter: "blur(0px)",
-                                duration: 1,
-                                stagger: 0.15,
-                                ease: "power4.out",
+                                y: 0,
+                                duration: 0.8,
+                                stagger: 0.15, // Légèrement augmenté pour bien voir la cascade
+                                ease: "power3.out",
+
                                 scrollTrigger: {
-                                    trigger: containerSelector, // Le conteneur déclenche l'anim
+                                    trigger: containerSelector,
                                     start: "top 85%",
+                                    toggleActions: "play none none reverse",
+                                },
+
+                                // NETTOYAGE (Important pour le hover CSS)
+                                onComplete: () => {
+                                    // Une fois fini, on retire l'optimisation pour rendre la main au CSS
+                                    // (si vous avez des effets de zoom au hover par exemple)
+                                    gsap.set(cards, { clearProps: "willChange" });
                                 }
                             }
                         );
                     }
                 };
 
-                // --- APPEL DES ANIMATIONS DE GRILLES ---
+                // --- APPEL DES ANIMATIONS ---
+                // Assurez-vous d'appeler ceci une fois le DOM prêt
                 animateCards(".expertise-card", ".expertise-grid");
                 animateCards(".value-card", ".values-grid");
                 animateCards(".commitment-card", ".commitment-grid");
@@ -461,6 +562,31 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
+        // --- 6. Page Portfolio (AJOUT) ---
+        if (document.querySelector('.portfolio-hero')) {
+            // Animation du titre (les spans "NOTRE" et "PORTFOLIO")
+            if (document.querySelector(".portfolio-hero h1 span")) {
+                gsap.from(".portfolio-hero h1 span", {
+                    duration: 1.2,
+                    opacity: 0,
+                    y: 40,
+                    rotationX: -90, // Petit effet de rotation 3D comme sur les autres pages
+                    ease: "power3.out",
+                    stagger: 0.2, // Décalage entre "NOTRE" et "PORTFOLIO"
+                    delay: 0.2
+                });
+            }
+
+            // Animation de la description
+            gsap.from(".portfolio-hero .hero-text p", {
+                duration: 1,
+                opacity: 0,
+                y: 20,
+                ease: "power2.out",
+                delay: 0.8 // Arrive un peu après le titre
+            });
+        }
+
         // ==============================================================
         // === FEATURES & BLOCS COMMUNS ===
         // ==============================================================
@@ -513,38 +639,64 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // --- Page d'accueil (services-section-vertical) ---
         const serviceBlocks = document.querySelectorAll('.service-block');
+
         if (serviceBlocks.length > 0) {
             serviceBlocks.forEach((block) => {
                 const image = block.querySelector('.service-image');
                 const text = block.querySelector('.service-text');
 
                 if (image && text) {
+                    // Création de la timeline
                     const tl = gsap.timeline({
                         scrollTrigger: {
                             trigger: block,
-                            start: 'top 80%',
-                            end: 'top 30%',
-                            scrub: 1,
+                            start: 'top 80%', // Commence quand le haut du bloc est à 80% de l'écran
+                            end: 'top 30%',   // Finit quand il est à 30%
+                            scrub: 1,         // Animation fluide liée au scroll
                         }
                     });
-                    // On alterne l'animation selon la parité
-                    const isEven = Array.from(block.parentElement.children).indexOf(block) % 2 !== 0;
+
+                    // 1. Apparition des éléments (Image et Texte)
                     tl.from(image, { xPercent: -15, opacity: 0, ease: 'power2.out' })
                         .from(text, { xPercent: 15, opacity: 0, ease: 'power2.out' }, "<");
 
-                    if (isEven) {
+
+                    // 2. GESTION DE L'ANIMATION DU FOND (C'est ici qu'on corrige)
+
+                    // On récupère l'index (H2=0, Zaza=1, Geschool=2)
+                    const index = Array.from(block.parentElement.children).indexOf(block);
+
+                    // Est-ce le bloc Geschool (le numéro 2) ?
+                    const isGeschool = (index === 2);
+
+                    // Condition : On anime si c'est Zaza (impair) OU Geschool (2)
+                    const shouldAnimate = (index % 2 !== 0) || isGeschool;
+
+                    if (shouldAnimate) {
+                        // REGLAGE FIN : 
+                        // Si c'est Geschool, on remplit moins large (75%) pour compenser l'effet visuel
+                        // Si c'est Zaza, on garde 85%
+                        const endWidth = isGeschool ? '80%' : '100%';
+
+                        // On calcule le polygone de fin dynamiquement
+                        const endPolygonBefore = `polygon(0 0, ${endWidth} 0, ${parseInt(endWidth) - 20}% 100%, 0% 100%)`;
+                        const endPolygonAfter = `polygon(${endWidth} 0, 100% 0, 100% 100%, ${parseInt(endWidth) - 20}% 100%)`;
+
                         tl.fromTo(block, {
+                            // Position de départ (identique pour tous)
                             '--clip-before': 'polygon(0 0, 60% 0, 40% 100%, 0% 100%)',
                             '--clip-after': 'polygon(60% 0, 100% 0, 100% 100%, 40% 100%)'
                         }, {
-                            '--clip-before': 'polygon(0 0, 85% 0, 65% 100%, 0% 100%)',
-                            '--clip-after': 'polygon(85% 0, 100% 0, 100% 100%, 65% 100%)',
+                            // Position de fin (Ajustée selon le bloc)
+                            '--clip-before': endPolygonBefore,
+                            '--clip-after': endPolygonAfter,
                             ease: 'none'
                         }, "<");
                     }
                 }
             });
         }
+
 
         // --- Page Geschool (benefits-grid) ---
         const benefitsGrid = document.querySelector('.benefits-grid');
@@ -795,71 +947,421 @@ document.addEventListener('DOMContentLoaded', () => {
                 duration: 1,
                 ease: 'power3.out'
             });
-        }
-    } else {
-        console.warn("GSAP ou ScrollTrigger n'est pas chargé.");
-    }
 
+            // ==============================================================
+            // === LOGIQUE D'ENVOI DU FORMULAIRE (SUPABASE) ===
+            // ==============================================================
 
-    // ==============================================================
-    // === PARTICULES (CANVAS) ===
-    // ==============================================================
-    const canvas = document.getElementById('particle-canvas');
-    if (canvas) {
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+            // 2. Ta logique Supabase modifiée
+            const contactForm = document.querySelector('.contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
 
-        let particlesArray;
+                    if (!supabaseClient) {
+                        showNotification("Le service est indisponible pour le moment.", "error");
+                        return;
+                    }
 
-        class Particle {
-            constructor(x, y, directionX, directionY, size, color) {
-                this.x = x; this.y = y; this.directionX = directionX; this.directionY = directionY; this.size = size; this.color = color;
-            }
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-                ctx.fillStyle = this.color;
-                ctx.fill();
-            }
-            update() {
-                if (this.x > canvas.width || this.x < 0) { this.directionX = -this.directionX; }
-                if (this.y > canvas.height || this.y < 0) { this.directionY = -this.directionY; }
-                this.x += this.directionX; this.y += this.directionY;
-                this.draw();
-            }
-        }
+                    const submitBtn = contactForm.querySelector('button[type="submit"]');
+                    const originalBtnText = submitBtn.innerHTML;
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = "Envoi en cours...";
 
-        function initParticles() {
-            particlesArray = [];
-            let numberOfParticles = (canvas.height * canvas.width) / 9000;
-            for (let i = 0; i < numberOfParticles; i++) {
-                let size = (Math.random() * 2) + 1;
-                let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
-                let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
-                let directionX = (Math.random() * .4) - .2;
-                let directionY = (Math.random() * .4) - .2;
-                let color = 'rgba(255, 71, 87, 0.5)';
-                particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
-            }
-        }
+                    const formData = new FormData(contactForm);
+                    const payload = {
+                        name: formData.get('name'),
+                        email: formData.get('email'),
+                        subject: formData.get('subject'),
+                        message: formData.get('message'),
+                    };
 
-        function animateParticles() {
-            requestAnimationFrame(animateParticles);
-            ctx.clearRect(0, 0, innerWidth, innerHeight);
-            for (let i = 0; i < particlesArray.length; i++) {
-                particlesArray[i].update();
+                    try {
+                        const { error } = await supabaseClient
+                            .from('contact_messages')
+                            .insert([payload]);
+
+                        if (error) {
+                            // REMPLACEMENT de alert()
+                            showNotification("Erreur : " + error.message, "error");
+                        } else {
+                            // REMPLACEMENT de alert()
+                            showNotification("Succès ! Votre message a été envoyé.", "success");
+                            contactForm.reset();
+                        }
+                    } catch (err) {
+                        console.error(err);
+                        showNotification("Une erreur inattendue est survenue.", "error");
+                    } finally {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalBtnText;
+                    }
+                });
             }
         }
 
-        initParticles();
-        animateParticles();
 
-        window.addEventListener('resize', () => {
-            canvas.width = innerWidth;
-            canvas.height = innerHeight;
+
+        // ==============================================================
+        // === PARTICULES (CANVAS) ===
+        // ==============================================================
+        const canvas = document.getElementById('particle-canvas');
+        if (canvas) {
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            let particlesArray;
+
+            class Particle {
+                constructor(x, y, directionX, directionY, size, color) {
+                    this.x = x; this.y = y; this.directionX = directionX; this.directionY = directionY; this.size = size; this.color = color;
+                }
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+                    ctx.fillStyle = this.color;
+                    ctx.fill();
+                }
+                update() {
+                    if (this.x > canvas.width || this.x < 0) { this.directionX = -this.directionX; }
+                    if (this.y > canvas.height || this.y < 0) { this.directionY = -this.directionY; }
+                    this.x += this.directionX; this.y += this.directionY;
+                    this.draw();
+                }
+            }
+
+            function initParticles() {
+                particlesArray = [];
+                let numberOfParticles = (canvas.height * canvas.width) / 9000;
+                for (let i = 0; i < numberOfParticles; i++) {
+                    let size = (Math.random() * 2) + 1;
+                    let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
+                    let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
+                    let directionX = (Math.random() * .4) - .2;
+                    let directionY = (Math.random() * .4) - .2;
+                    let color = 'rgba(255, 71, 87, 0.5)';
+                    particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
+                }
+            }
+
+            function animateParticles() {
+                requestAnimationFrame(animateParticles);
+                ctx.clearRect(0, 0, innerWidth, innerHeight);
+                for (let i = 0; i < particlesArray.length; i++) {
+                    particlesArray[i].update();
+                }
+            }
+
             initParticles();
-        });
+            animateParticles();
+
+            window.addEventListener('resize', () => {
+                canvas.width = innerWidth;
+                canvas.height = innerHeight;
+                initParticles();
+            });
+        }
+
+
+        // ==============================================================
+        // === Animation section benefits (CORRIGÉ & SÉCURISÉ) ===
+        // ==============================================================
+
+        // Sélection de la piste
+        const track = document.getElementById("marqueeTrack");
+
+        // ON VÉRIFIE QUE LA PISTE EXISTE AVANT DE LANCER QUOI QUE CE SOIT
+        if (track) {
+            // 1. DUPLICATION DU CONTENU
+            track.innerHTML += track.innerHTML;
+
+            // 2. ANIMATION GSAP
+            const items = track.querySelectorAll('.marquee-item');
+            // Vérification de sécurité pour éviter la division par zéro
+            if (track.scrollWidth > 0) {
+                const totalWidth = track.scrollWidth / 2;
+
+                const animation = gsap.to(track, {
+                    x: -totalWidth,
+                    duration: 30,
+                    ease: "none",
+                    repeat: -1,
+                    modifiers: {
+                        x: gsap.utils.unitize(x => parseFloat(x) % totalWidth)
+                    }
+                });
+
+                // 3. INTERACTION UTILISATEUR
+                const marqueeContainer = document.querySelector('.marquee-container');
+
+                if (marqueeContainer) {
+                    marqueeContainer.addEventListener("mouseenter", () => {
+                        animation.pause();
+                    });
+
+                    marqueeContainer.addEventListener("mouseleave", () => {
+                        animation.play();
+                    });
+                }
+            }
+        }
+
+        /* ================================================================ */
+        /* === LOGIQUE DE LA PAGE PORTFOLIO (SYSTÈME DE FILTRES) === */
+        /* ================================================================ */
+
+        const container = document.getElementById('portfolio-container');
+
+        // === 1. CHARGEMENT AUTOMATIQUE DES PROJETS ===
+        if (container) {
+            fetch('projects.json')
+                .then(response => response.json())
+                .then(projects => {
+                    generateProjects(projects);
+                    initializeFilters(); // On lance les filtres APRES le chargement
+                    initializeModals();  // On lance les modales APRES le chargement
+
+                    // Si vous utilisez un script de traduction, relancez-le ici si nécessaire
+                    // ex: if(typeof translatePage === 'function') translatePage(); 
+                })
+                .catch(error => console.error('Erreur chargement projets:', error));
+        }
+
+        // Fonction pour créer le HTML
+        function generateProjects(projects) {
+            container.innerHTML = ''; // Vide le conteneur par sécurité
+
+            projects.forEach(proj => {
+                const isModal = proj.type === 'modal';
+
+                // Création de la Div principale
+                const card = document.createElement('div');
+                card.className = `portfolio-item ${isModal ? 'trigger-modal' : ''}`;
+                card.setAttribute('data-category', proj.category);
+
+                // Gestion du clic (Lien vs Modale)
+                if (!isModal) {
+                    card.onclick = () => window.location.href = proj.link_url;
+                } else {
+                    // Ajout des data-attributes pour la modale
+                    card.setAttribute('data-title', proj.modal_details.title);
+                    card.setAttribute('data-client', proj.modal_details.client);
+                    card.setAttribute('data-desc', proj.modal_details.full_desc);
+                    card.setAttribute('data-tech', proj.modal_details.tech);
+                    card.setAttribute('data-img', proj.image);
+                }
+
+                // Structure HTML interne
+                card.innerHTML = `
+                <div class="portfolio-img-box">
+                    <img src="${proj.image}" alt="${proj.title_default}" loading="lazy">
+                </div>
+                <div class="portfolio-content">
+                    <span class="portfolio-cat" data-key="${proj.cat_key}">${proj.cat_label}</span>
+                    <h3 data-key="${proj.title_key}">${proj.title_default}</h3>
+                    <p data-key="${proj.desc_key}">${proj.desc_default}</p>
+                    
+                    <div class="portfolio-footer">
+                        <span class="btn-text">${isModal ? 'Voir le projet' : 'Découvrir'}</span>
+                        <i class="fas fa-arrow-right arrow-icon"></i>
+                    </div>
+                </div>
+            `;
+
+                container.appendChild(card);
+            });
+        }
+
+        // === 2. LOGIQUE DES FILTRES (Adaptée pour contenu dynamique) ===
+        function initializeFilters() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const items = document.querySelectorAll('.portfolio-item');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Active class
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const filterValue = btn.getAttribute('data-filter');
+
+                    items.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'flex'; // Important: flex pour garder le layout
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'translateY(0)';
+                            }, 50);
+                        } else {
+                            item.style.opacity = '0';
+                            item.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+        }
+
+        // === 3. LOGIQUE DE LA MODALE (Adaptée pour contenu dynamique) ===
+        function initializeModals() {
+            const modal = document.getElementById('project-modal');
+            const closeBtn = document.querySelector('.modal-close');
+            // On sélectionne les éléments dynamiques
+            const triggers = document.querySelectorAll('.trigger-modal');
+
+            // Éléments internes de la modale
+            const mImg = document.getElementById('modal-img');
+            const mCat = document.getElementById('modal-cat');
+            const mTitle = document.getElementById('modal-title');
+            const mClient = document.getElementById('modal-client');
+            const mDesc = document.getElementById('modal-desc');
+            const mTechList = document.getElementById('modal-tech-list');
+
+            const openModal = (item) => {
+                mImg.src = item.getAttribute('data-img');
+                // Mapping simple des catégories pour l'affichage modale
+                const catMap = { 'web': 'Développement Web', 'infra': 'Infrastructure', 'logiciel': 'Logiciel' };
+                const catKey = item.getAttribute('data-category');
+
+                mCat.textContent = catMap[catKey] || 'Projet';
+                mTitle.textContent = item.getAttribute('data-title');
+                mClient.textContent = item.getAttribute('data-client');
+                mDesc.textContent = item.getAttribute('data-desc');
+
+                // Gestion des tags technos
+                mTechList.innerHTML = '';
+                const techs = item.getAttribute('data-tech').split(', ');
+                techs.forEach(tech => {
+                    const span = document.createElement('span');
+                    span.classList.add('tech-tag');
+                    span.textContent = tech;
+                    mTechList.appendChild(span);
+                });
+
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            };
+
+            const closeModal = () => {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            };
+
+            triggers.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openModal(item);
+                });
+            });
+
+            if (closeBtn) closeBtn.addEventListener('click', closeModal);
+            if (modal) {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) closeModal();
+                });
+            }
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal && modal.classList.contains('active')) closeModal();
+            });
+        }
     }
 
 });
+
+
+
+// ==============================================================
+// === FONCTIONS GLOBALES (HORS DOMContentLoaded) ===
+// ==============================================================
+
+function openQuoteModal(event) {
+    if (event) event.preventDefault();
+    const modal = document.getElementById('quoteModal');
+    if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+
+        // --- AJOUT : Mettre le Swiper en pause ---
+        if (window.homeHeroSwiper && window.homeHeroSwiper.autoplay) {
+            window.homeHeroSwiper.autoplay.stop();
+        }
+    } else {
+        console.error("Erreur: La modale avec l'ID 'quoteModal' est introuvable.");
+    }
+}
+
+function closeQuoteModal() {
+    const modal = document.getElementById('quoteModal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+
+        // --- AJOUT : Relancer le Swiper ---
+        if (window.homeHeroSwiper && window.homeHeroSwiper.autoplay) {
+            window.homeHeroSwiper.autoplay.start();
+        }
+    }
+}
+
+// ==============================================================
+// === LOGIQUE D'ENVOI DU FORMULAIRE DE DEVIS (MODALE) ===
+// ==============================================================
+const quoteForm = document.querySelector('.quote-form');
+
+if (quoteForm) {
+    quoteForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // 1. Sécurité : Vérifier Supabase
+        if (!supabaseClient) {
+            showNotification("Le service est indisponible.", "error");
+            return;
+        }
+
+        // 2. Bouton en cours
+        const submitBtn = quoteForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = "Envoi en cours...";
+
+        // 3. Récupérer les données
+        const formData = new FormData(quoteForm);
+        const payload = {
+            client_type: formData.get('client_type'),
+            fullname: formData.get('fullname'),
+            company: formData.get('company'),
+            email: formData.get('email'),
+            phone: formData.get('phone'),
+            service: formData.get('service'),
+            message: formData.get('message')
+        };
+
+        try {
+            // 4. Envoi à Supabase
+            const { error } = await supabaseClient
+                .from('quote_requests')
+                .insert([payload]);
+
+            if (error) throw error;
+
+            // 5. Succès
+            showNotification("Demande envoyée ! Notre équipe vous contactera sous 24h.", "success");
+            quoteForm.reset();
+
+            // Fermer la modale après 2 secondes
+            setTimeout(() => {
+                if (typeof closeQuoteModal === 'function') closeQuoteModal();
+            }, 2000);
+
+        } catch (err) {
+            console.error("Erreur Devis:", err.message);
+            showNotification("Erreur lors de l'envoi. Veuillez réessayer.", "error");
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalText;
+        }
+    });
+}

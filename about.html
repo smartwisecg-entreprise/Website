@@ -5,9 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-key="meta_title_about">À Propos - Notre Vision chez Smart Wise</title>
+
+    <!-- CORRECTION 1 : Meta description optimisée (longueur < 160 caractères) -->
     <meta name="description"
-        content="Découvrez l'histoire et la vision de Smart Wise. Une équipe d'experts en génie informatique engagée à transformer le numérique en République du Congo par l'innovation."
+        content="Découvrez Smart Wise : experts en génie informatique transformant le numérique en République du Congo par l'innovation."
         data-key-meta="meta_desc_about">
+    <link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+    <link rel="manifest" href="/images/site.webmanifest" />
 
     <!-- CSS Principal de votre site -->
     <link rel="stylesheet" href="style.css">
@@ -27,8 +34,8 @@
             <div class="container">
                 <a href="index.html" class="logo-link">
                     <div class="logo-container">
-                        <img src="images/logo_spirale.png" alt="Logo Smart Wise Spirale" class="logo-spirale">
-                        <img src="images/logo_text.png" alt="Smart Wise" class="logo-text">
+                        <img src="images/logo_spirale.png" alt="Logo spirale Smart Wise" class="logo-spirale">
+                        <img src="images/logo_text.png" alt="Logo texte Smart Wise" class="logo-text">
                     </div>
                 </a>
                 <ul class="nav-links">
@@ -42,30 +49,32 @@
                             <span class="arrow-down"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <!-- Lien 1 : data-key est maintenant sur le SPAN -->
+                            <!-- CORRECTION 2 : Ajout des descriptions ALT pour les icônes du menu -->
                             <li>
                                 <a href="vtc.html">
-                                    <img src="images/car.png" alt="" class="dropdown-icon">
+                                    <img src="images/car.png" alt="Icône voiture pour service VTC"
+                                        class="dropdown-icon">
                                     <span data-key="nav_vtc">Smart Wise VTC</span>
                                 </a>
                             </li>
-                            <!-- Lien 2 : data-key est maintenant sur le SPAN -->
-                            <li>
+                            <!-- <li>
                                 <a href="nextcloud.html">
-                                    <img src="images/cloud-server.png" alt="" class="dropdown-icon">
+                                    <img src="images/cloud-server.png" alt="Icône serveur pour hébergement Cloud"
+                                        class="dropdown-icon">
                                     <span data-key="nav_cloud">Smart Wise Cloud Hosting</span>
                                 </a>
-                            </li>
-                            <!-- Lien 3 : data-key est maintenant sur le SPAN -->
+                            </li> -->
                             <li>
                                 <a href="geschool.html">
-                                    <img src="images/school.png" alt="" class="dropdown-icon">
+                                    <img src="images/school.png" alt="Icône école pour logiciel Geschool"
+                                        class="dropdown-icon">
                                     <span data-key="nav_geschool">Geschool ERP</span>
                                 </a>
                             </li>
                         </ul>
                     </li>
                     <!-- FIN DU MENU DÉROULANT -->
+                    <li><a href="portfolio.html" data-key="nav_portfolio">Nos Réalisations</a></li>
                     <li><a href="news.html" data-key="nav_news">Actualités</a></li>
                     <li><a href="contact.html" data-key="nav_contact">Contact</a></li>
                 </ul>
@@ -83,14 +92,13 @@
     <!-- ======================= MAIN CONTENT ======================= -->
     <main>
 
-        <!-- === HERO SECTION (MODIFIÉE) === -->
+        <!-- === HERO SECTION === -->
         <section class="hero about-hero">
             <div class="hero-background">
                 <img src="images/about-hero-background.webp" alt="Équipe Smart Wise en réunion stratégique">
             </div>
             <div class="container hero-content">
                 <div class="hero-text">
-                    <!-- H1 MODIFIÉ CI-DESSOUS -->
                     <h1 class="hero-title-main">
                         <span class="hero-line1" data-key="about_hero_line1">Nous sommes</span>
                         <span class="hero-line2" data-key="about_hero_line2">Smart Wise.</span>
@@ -123,6 +131,7 @@
                 </div>
             </div>
         </section>
+
         <!-- === NOS DOMAINES D'EXPERTISE === -->
         <section class="expertise-section">
             <div class="container">
@@ -134,51 +143,49 @@
 
                 <div class="expertise-grid">
 
-                    <!-- Expertise 1 : ArcGIS -->
+                    <!-- CORRECTION 2 (suite) : Vérification des ALT pour les cartes d'expertise -->
                     <div class="expertise-card">
                         <div class="icon-wrapper">
-                            <!-- Remplacez par votre icône (ex: map.png ou globe.png) -->
-                            <img src="images/icon-arcgis.webp" alt="ArcGIS" class="expertise-icon">
+                            <img src="images/icon-arcgis.webp" alt="Icône ArcGIS et géomatique" class="expertise-icon">
                         </div>
                         <h3 data-key="exp_arcgis_title">ArcGIS & Géomatique</h3>
                         <p data-key="exp_arcgis_desc">Déploiement et gestion de solutions SIG avancées avec ArcGIS Pro
                             et ArcGIS Enterprise.</p>
                     </div>
 
-                    <!-- Expertise 2 : Réseaux -->
                     <div class="expertise-card">
                         <div class="icon-wrapper">
-                            <img src="images/icon-network.png" alt="Réseaux" class="expertise-icon">
+                            <img src="images/icon-network.png" alt="Icône architecture réseaux et systèmes"
+                                class="expertise-icon">
                         </div>
                         <h3 data-key="exp_network_title">Réseaux & Systèmes</h3>
                         <p data-key="exp_network_desc">Architecture d'infrastructure, sécurité informatique et
                             administration système.</p>
                     </div>
 
-                    <!-- Expertise 3 : Dev Logiciel -->
                     <div class="expertise-card">
                         <div class="icon-wrapper">
-                            <img src="images/icon-code.png" alt="Code" class="expertise-icon">
+                            <img src="images/icon-code.png" alt="Icône développement logiciel et code"
+                                class="expertise-icon">
                         </div>
                         <h3 data-key="exp_soft_title">Développement Logiciel</h3>
                         <p data-key="exp_soft_desc">Conception de logiciels sur-mesure adaptés à vos processus métiers
                             spécifiques.</p>
                     </div>
 
-                    <!-- Expertise 4 : Applications -->
                     <div class="expertise-card">
                         <div class="icon-wrapper">
-                            <img src="images/icon-app.png" alt="Mobile App" class="expertise-icon">
+                            <img src="images/icon-app.png" alt="Icône application mobile smartphone"
+                                class="expertise-icon">
                         </div>
                         <h3 data-key="exp_app_title">Applications Mobile & Web</h3>
                         <p data-key="exp_app_desc">Développement d'applications performantes (Android, iOS) et
                             plateformes web intuitives.</p>
                     </div>
 
-                    <!-- Expertise 5 : Site Web -->
                     <div class="expertise-card">
                         <div class="icon-wrapper">
-                            <img src="images/icon-web.png" alt="Web Design" class="expertise-icon">
+                            <img src="images/icon-web.png" alt="Icône conception de site web" class="expertise-icon">
                         </div>
                         <h3 data-key="exp_web_title">Développement Site Web</h3>
                         <p data-key="exp_web_desc">Création de sites vitrines et e-commerce modernes, responsives et
@@ -199,19 +206,20 @@
                 </div>
                 <div class="values-grid">
                     <div class="value-card">
-                        <img src="images/icon-innovation.jpg" alt="Icône Innovation" class="value-icon">
+                        <img src="images/icon-innovation.jpg" alt="Icône symbolisant l'Innovation" class="value-icon">
                         <h3 data-key="about_value1_title">Innovation</h3>
                         <p data-key="about_value1_desc">Nous repoussons les limites pour créer des solutions qui non
                             seulement répondent aux besoins actuels, mais anticipent aussi ceux de demain.</p>
                     </div>
                     <div class="value-card">
-                        <img src="images/icon-integrity.jpg" alt="Icône Intégrité" class="value-icon">
+                        <img src="images/icon-integrity.jpg" alt="Icône symbolisant l'Intégrité" class="value-icon">
                         <h3 data-key="about_value2_title">Intégrité</h3>
                         <p data-key="about_value2_desc">La confiance se mérite. Nous agissons avec transparence et
                             honnêteté dans toutes nos relations, avec nos clients comme nos partenaires.</p>
                     </div>
                     <div class="value-card">
-                        <img src="images/icon-customer.jpg" alt="Icône Client" class="value-icon">
+                        <img src="images/icon-customer.jpg" alt="Icône symbolisant l'Orientation Client"
+                            class="value-icon">
                         <h3 data-key="about_value3_title">Orientation Client</h3>
                         <p data-key="about_value3_desc">Votre succès est notre succès. Nous nous engageons à comprendre
                             vos défis pour vous offrir un service et un support inégalés.</p>
@@ -220,7 +228,7 @@
             </div>
         </section>
 
-        <!-- === NOTRE ENGAGEMENT (Remplace la section Équipe) === -->
+        <!-- === NOTRE ENGAGEMENT === -->
         <section class="commitment-section">
             <div class="container">
                 <div class="section-header">
@@ -231,7 +239,7 @@
                 </div>
                 <div class="commitment-grid">
                     <div class="commitment-card">
-                        <img src="images/icon-quality.jpg" alt="Icône Qualité" class="commitment-icon">
+                        <img src="images/icon-quality.jpg" alt="Icône Qualité Exigeante" class="commitment-icon">
                         <h3 data-key="about_commitment1_title">Qualité Exigeante</h3>
                         <p data-key="about_commitment1_desc">Nous appliquons les standards les plus élevés à chaque
                             étape de nos projets, de la conception au déploiement, pour des résultats fiables et
@@ -244,7 +252,7 @@
                             vision devient notre mission commune, assurant un alignement parfait de nos objectifs.</p>
                     </div>
                     <div class="commitment-card">
-                        <img src="images/icon-support.jpg" alt="Icône Support" class="commitment-icon">
+                        <img src="images/icon-support.jpg" alt="Icône Support Technique" class="commitment-icon">
                         <h3 data-key="about_commitment3_title">Support Proactif</h3>
                         <p data-key="about_commitment3_desc">Notre mission ne s'arrête pas à la livraison. Nous assurons
                             un suivi et un support réactifs pour garantir la performance continue de vos solutions.</p>
@@ -275,40 +283,45 @@
                         <li><a href="index.html" data-key="nav_home">Accueil</a></li>
                         <li><a href="about.html" data-key="nav_about_footer">À Propos</a></li>
                         <li><a href="vtc.html" data-key="nav_vtc">ZAZA</a></li>
-                        <li><a href="nextcloud.html" data-key="nav_cloud">Cloud Hosting</a></li>
+                        <!-- <li><a href="nextcloud.html" data-key="nav_cloud">Cloud Hosting</a></li> -->
                         <li><a href="geschool.html" data-key="nav_geschool">Geschool</a></li>
                         <li><a href="news.html" data-key="nav_news">Actualités</a></li>
                         <li><a href="contact.html" data-key="nav_contact_footer">Contact</a></li>
                     </ul>
                 </div>
+
                 <div class="footer-column">
                     <h5 data-key="footer_contact_title">Nous Joindre</h5>
                     <ul class="footer-contact-info">
                         <li>
-                            <img src="images/location-icon.png" alt="Adresse" class="icon">
+                            <img src="images/location-icon.png" alt="Icône localisation" class="icon">
                             <span data-key="footer_address">Immeuble acacia, Mpita, Pointe-Noire, Congo</span>
                         </li>
                         <li>
-                            <img src="images/email-icon.png" alt="Email" class="icon">
+                            <img src="images/email-icon.png" alt="Icône email" class="icon">
                             <a href="mailto:contact@smartwise.cg">contact@smartwise.cg</a>
                         </li>
                         <li>
-                            <img src="images/phone-icon.png" alt="Téléphone" class="icon">
-                            <a href="tel:+242056600459">05 660 04 59</a>
+                            <img src="images/phone-icon.png" alt="Icône téléphone" class="icon">
+                            <a href="tel:+242066236530">+242 06 623 65 30</a>
                         </li>
                     </ul>
                 </div>
             </div>
+
             <div class="footer-bottom">
                 <div class="footer-social">
-                    <a href="#" title="Facebook"><img src="images/facebook-icon.png" alt="Facebook"></a>
-                    <a href="#" title="Instagram"><img src="images/instagram-icon.png" alt="Instagram"></a>
+                    <a href="coming-soon.html" title="Facebook"><img src="images/facebook-icon.png"
+                            alt="Page Facebook ZAZA"></a>
+                    <a href="coming-soon.html" title="Instagram"><img src="images/instagram-icon.png"
+                            alt="Page Instagram ZAZA"></a>
                 </div>
                 <p class="footer-copyright" data-key="footer_copyright">&copy; 2025 Smart Wise. Tous droits réservés.
                 </p>
             </div>
         </div>
     </footer>
+
 
     <!-- Scripts -->
     <script src="translations.js"></script>

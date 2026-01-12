@@ -4,10 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-key-meta="meta_title_nextcloud">GoCloud - Hébergement Nextcloud Sécurisé</title>
+
+    <!-- CORRECTION 1 : Titre optimisé et localisé -->
+    <title data-key-meta="meta_title_nextcloud">Cloud - Hébergement Nextcloud Sécurisé & Privé</title>
+
+    <!-- CORRECTION 2 : Description concise (< 160 caractères) -->
     <meta name="description"
-        content="Hébergement Cloud Nextcloud privé et sécurisé par Smart Wise. Gardez le contrôle total de vos données, fichiers et collaborations. Solution souveraine pour entreprises."
+        content="Solution Cloud Nextcloud sécurisée au Congo par Smart Wise. Stockage de données souverain, collaboration en temps réel et contrôle total pour entreprises."
         data-key-meta="meta_desc_nextcloud">
+    <link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+    <link rel="manifest" href="/images/site.webmanifest" />
+
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,52 +29,46 @@
     <header>
         <nav>
             <div class="container">
-                <!-- === MODIFICATION DU LOGO ICI === -->
                 <a href="index.html" class="logo-link">
                     <div class="logo-container">
-                        <!-- La spirale, qui sera au-dessus -->
-                        <img src="images/logo_spirale.png" alt="Logo Smart Wise Spirale" class="logo-spirale">
-                        <!-- Le texte, qui se cachera derrière -->
-                        <img src="images/logo_text.png" alt="Smart Wise" class="logo-text">
+                        <img src="images/logo_spirale.png" alt="Logo Smart Wise - Symbole Spirale" class="logo-spirale">
+                        <img src="images/logo_text.png" alt="Texte logo Smart Wise" class="logo-text">
                     </div>
                 </a>
-                <!-- === FIN DE LA MODIFICATION === -->
                 <ul class="nav-links">
                     <li><a href="index.html" data-key="nav_home">Accueil</a></li>
                     <li><a href="about.html" data-key="nav_about">À Propos</a></li>
 
                     <!-- DÉBUT DU MENU DÉROULANT -->
-
                     <li class="dropdown">
                         <a href="#">
                             <span data-key="nav_services">Nos Services</span>
                             <span class="arrow-down"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <!-- Lien 1 : data-key est maintenant sur le SPAN -->
+                            <!-- CORRECTION 3 : Alt text descriptif pour le menu -->
                             <li>
                                 <a href="vtc.html">
-                                    <img src="images/car.png" alt="" class="dropdown-icon">
+                                    <img src="images/car.png" alt="Icône voiture VTC" class="dropdown-icon">
                                     <span data-key="nav_vtc">Smart Wise VTC</span>
                                 </a>
                             </li>
-                            <!-- Lien 2 : data-key est maintenant sur le SPAN -->
                             <li>
                                 <a href="nextcloud.html">
-                                    <img src="images/cloud-server.png" alt="" class="dropdown-icon">
+                                    <img src="images/cloud-server.png" alt="Icône nuage Cloud" class="dropdown-icon">
                                     <span data-key="nav_cloud">Smart Wise Cloud Hosting</span>
                                 </a>
                             </li>
-                            <!-- Lien 3 : data-key est maintenant sur le SPAN -->
                             <li>
                                 <a href="geschool.html">
-                                    <img src="images/school.png" alt="" class="dropdown-icon">
+                                    <img src="images/school.png" alt="Icône école ERP" class="dropdown-icon">
                                     <span data-key="nav_geschool">Geschool ERP</span>
                                 </a>
                             </li>
                         </ul>
                     </li>
                     <!-- FIN DU MENU DÉROULANT -->
+                    <li><a href="portfolio.html" data-key="nav_portfolio">Nos Réalisations</a></li>
                     <li><a href="news.html" data-key="nav_news">Actualités</a></li>
                     <li><a href="contact.html" data-key="nav_contact">Contact</a></li>
                 </ul>
@@ -82,17 +86,17 @@
     </header>
 
     <main>
-        <!-- FICHIER NEXTCLOUD - CODE CORRIGÉ -->
         <section class="hero nextcloud-hero">
             <div class="hero-background">
-                <img src="images/Cloud-Hero.webp" alt="Autoroute urbaine de nuit">
+                <!-- CORRECTION 3 : Alt text contextuel -->
+                <img src="images/Cloud-Hero.webp" alt="Flux de données numériques symbolisant le cloud computing">
             </div>
             <div class="container hero-content">
                 <div class="hero-text">
                     <h1 class="hero-title-main">
                         <span class="hero-line-1" data-key="nextcloud_hero_line1">Vos Données, Vos Règles.</span>
                         <span class="hero-line-2" data-key="nextcloud_hero_line2">Hébergées en Toute Sécurité.</span>
-                    </h1> <!-- CORRECTION : La balise est maintenant correctement fermée. -->
+                    </h1>
 
                     <p data-key="nextcloud_hero_subtitle">GoCloud fournit une solution Nextcloud entièrement gérée, vous
                         donnant le contrôle total sur vos données. Collaborez sur des documents, partagez des photos et
@@ -103,7 +107,9 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img src="images/nextcloud-service-image.png" alt="Logo Nextcloud et fonctionnalités">
+                    <!-- CORRECTION 3 : Alt text précis -->
+                    <img src="images/nextcloud-service-image.png"
+                        alt="Interface utilisateur de la solution Nextcloud sur tablette et mobile">
                 </div>
             </div>
         </section>
@@ -113,19 +119,21 @@
                 <h2 data-key="nextcloud_features_title">Tout ce dont Vous Avez Besoin, au Même Endroit</h2>
                 <div class="steps">
                     <div class="step">
-                        <img src="images/security-icon.png" alt="Icône de sécurité">
+                        <!-- CORRECTION 3 : Alt text pour les icônes de fonctionnalités -->
+                        <img src="images/security-icon.png" alt="Icône cadenas représentant la sécurité chiffrée">
                         <h3 data-key="nextcloud_feature1_title">Sécurité Renforcée</h3>
                         <p data-key="nextcloud_feature1_desc">Chiffrement de bout en bout et fonctionnalités de sécurité
                             avancées pour protéger vos données.</p>
                     </div>
                     <div class="step">
-                        <img src="images/collaboration-icon.png" alt="Icône de collaboration">
+                        <img src="images/collaboration-icon.png"
+                            alt="Icône groupe d'utilisateurs pour la collaboration">
                         <h3 data-key="nextcloud_feature2_title">Collaboration d'Équipe</h3>
                         <p data-key="nextcloud_feature2_desc">Modifiez des documents en temps réel, gérez des tâches et
                             communiquez avec votre équipe en toute simplicité.</p>
                     </div>
                     <div class="step">
-                        <img src="images/sync-icon.png" alt="Icône de synchronisation">
+                        <img src="images/sync-icon.png" alt="Icône flèches de synchronisation cloud">
                         <h3 data-key="nextcloud_feature3_title">Synchronisation & Partage</h3>
                         <p data-key="nextcloud_feature3_desc">Accédez à vos fichiers depuis n'importe quel appareil,
                             n'importe où. Partagez-les de manière sécurisée avec un simple lien.</p>
@@ -199,9 +207,7 @@
 
     <footer>
         <div class="container">
-            <!-- Grille symétrique à deux colonnes -->
             <div class="footer-grid">
-                <!-- Colonne 1: Tous les liens regroupés -->
                 <div class="footer-column">
                     <h5 data-key="footer_explore_title">Explorer</h5>
                     <ul>
@@ -215,21 +221,20 @@
                     </ul>
                 </div>
 
-                <!-- Colonne 2: Contact -->
                 <div class="footer-column">
                     <h5 data-key="footer_contact_title">Nous Joindre</h5>
                     <ul class="footer-contact-info">
                         <li>
-                            <img src="images/location-icon.png" alt="Adresse" class="icon">
+                            <img src="images/location-icon.png" alt="Icône localisation" class="icon">
                             <span data-key="footer_address">Immeuble acacia, Mpita, Pointe-Noire, Congo</span>
                         </li>
                         <li>
-                            <img src="images/email-icon.png" alt="Email" class="icon">
+                            <img src="images/email-icon.png" alt="Icône email" class="icon">
                             <a href="mailto:contact@smartwise.cg">contact@smartwise.cg</a>
                         </li>
                         <li>
-                            <img src="images/phone-icon.png" alt="Téléphone" class="icon">
-                            <a href="tel:+242056600459">05 660 04 59</a>
+                            <img src="images/phone-icon.png" alt="Icône téléphone" class="icon">
+                            <a href="tel:+242066236530">+242 06 623 65 30</a>
                         </li>
                     </ul>
                 </div>
@@ -237,8 +242,8 @@
 
             <div class="footer-bottom">
                 <div class="footer-social">
-                    <a href="#" title="Facebook"><img src="images/facebook-icon.png" alt="Facebook"></a>
-                    <a href="#" title="Instagram"><img src="images/instagram-icon.png" alt="Instagram"></a>
+                    <a href="#" title="Facebook"><img src="images/facebook-icon.png" alt="Logo Facebook"></a>
+                    <a href="#" title="Instagram"><img src="images/instagram-icon.png" alt="Logo Instagram"></a>
                 </div>
                 <p class="footer-copyright" data-key="footer_copyright">&copy; 2025 Smart Wise. Tous droits réservés.
                 </p>

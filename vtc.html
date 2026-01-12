@@ -4,10 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-key-meta="meta_title_vtc">ZAZA - Des Trajets Rapides et Fiables</title>
-    <meta name="description" 
-      content="Commandez votre course avec ZAZA par Smart Wise. Trajets rapides, sécurisés et confortables à Pointe-Noire et Brazzaville. Téléchargez l'application pour vos déplacements." 
-      data-key-meta="meta_desc_vtc">
+
+    <!-- CORRECTION 1 : Titre optimisé -->
+    <title data-key-meta="meta_title_vtc">ZAZA VTC Congo - Trajets Rapides et Sécurisés | Smart Wise</title>
+
+    <!-- CORRECTION 2 : Description ajustée (< 160 caractères) -->
+    <meta name="description"
+        content="Commandez votre course avec ZAZA. Trajets rapides, sécurisés et confortables en République du congo. Téléchargez l'application pour vos déplacements."
+        data-key-meta="meta_desc_vtc">
+    <link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+    <link rel="manifest" href="/images/site.webmanifest" />
+
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,8 +31,8 @@
             <div class="container">
                 <a href="index.html" class="logo-link">
                     <div class="logo-container">
-                        <img src="images/logo_spirale.png" alt="Logo Smart Wise Spirale" class="logo-spirale">
-                        <img src="images/logo_text.png" alt="Smart Wise" class="logo-text">
+                        <img src="images/logo_spirale.png" alt="Logo Smart Wise - Symbole spirale" class="logo-spirale">
+                        <img src="images/logo_text.png" alt="Texte logo Smart Wise" class="logo-text">
                     </div>
                 </a>
                 <ul class="nav-links">
@@ -37,30 +47,31 @@
                             <span class="arrow-down"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <!-- Lien 1 : data-key est maintenant sur le SPAN -->
+                            <!-- CORRECTION 3 : Ajout des textes alternatifs manquants -->
                             <li>
                                 <a href="vtc.html">
-                                    <img src="images/car.png" alt="" class="dropdown-icon">
+                                    <img src="images/car.png" alt="Icône voiture service VTC" class="dropdown-icon">
                                     <span data-key="nav_vtc">Smart Wise VTC</span>
                                 </a>
                             </li>
-                            <!-- Lien 2 : data-key est maintenant sur le SPAN -->
-                            <li>
+                            <!-- <li>
                                 <a href="nextcloud.html">
-                                    <img src="images/cloud-server.png" alt="" class="dropdown-icon">
+                                    <img src="images/cloud-server.png" alt="Icône nuage hébergement Cloud"
+                                        class="dropdown-icon">
                                     <span data-key="nav_cloud">Smart Wise Cloud Hosting</span>
                                 </a>
-                            </li>
-                            <!-- Lien 3 : data-key est maintenant sur le SPAN -->
+                            </li> -->
                             <li>
                                 <a href="geschool.html">
-                                    <img src="images/school.png" alt="" class="dropdown-icon">
+                                    <img src="images/school.png" alt="Icône chapeau diplômé ERP scolaire"
+                                        class="dropdown-icon">
                                     <span data-key="nav_geschool">Geschool ERP</span>
                                 </a>
                             </li>
                         </ul>
                     </li>
                     <!-- FIN DU MENU DÉROULANT -->
+                    <li><a href="portfolio.html" data-key="nav_portfolio">Nos Réalisations</a></li>
                     <li><a href="news.html" data-key="nav_news">Actualités</a></li>
                     <li><a href="contact.html" data-key="nav_contact">Contact</a></li>
                 </ul>
@@ -80,14 +91,12 @@
     <main>
         <section class="hero vtc-hero">
             <div class="hero-background">
-                <video autoplay muted loop playsinline id="hero-video">
-                    <source src="images/VTC.mp4" type="video/mp4">
-                    Votre navigateur ne supporte pas la lecture de vidéos.
-                </video>
+               <img src="images/vtc-hero-background.PNG" 
+                     alt="Arrière-plan service VTC ZAZA" 
+                     class="hero-bg-img">
             </div>
             <div class="container hero-content">
                 <div class="hero-text">
-                    <!-- === MODIFICATION ICI : Le titre est décomposé en spans === -->
                     <h1 class="vtc-hero-title">
                         <span class="hero-word-1" data-key="vtc_hero_word1">Commandez une course,</span>
                         <span class="hero-word-2" data-key="vtc_hero_word2">ou</span>
@@ -107,7 +116,8 @@
 
                 </div>
                 <div class="hero-image">
-                    <img src="images/hero-phone.png" alt="Application ZAZA sur un smartphone">
+                    <!-- CORRECTION 3 : Alt text précis -->
+                    <img src="images/hero-phone.png" alt="Interface de l'application ZAZA VTC sur smartphone">
                 </div>
             </div>
         </section>
@@ -117,17 +127,18 @@
                 <h2 data-key="vtc_howitworks_title">Comment ça marche</h2>
                 <div class="steps">
                     <div class="step">
-                        <img src="images/step-1-icon.png" alt="Étape 1">
+                        <!-- CORRECTION 3 : Remplacement de "Étape 1" par une description visuelle -->
+                        <img src="images/step-1-icon.png" alt="Icône toucher l'écran pour commander">
                         <h3 data-key="vtc_step1_title">Commandez</h3>
                         <p data-key="vtc_step1_desc">Appuyez sur un bouton, un chauffeur arrive.</p>
                     </div>
                     <div class="step">
-                        <img src="images/step-2-icon.png" alt="Étape 2">
+                        <img src="images/step-2-icon.png" alt="Icône voiture en déplacement">
                         <h3 data-key="vtc_step2_title">Voyagez</h3>
                         <p data-key="vtc_step2_desc">Atteignez votre destination, sans stress.</p>
                     </div>
                     <div class="step">
-                        <img src="images/step-3-icon.png" alt="Étape 3">
+                        <img src="images/step-3-icon.png" alt="Icône carte de crédit paiement">
                         <h3 data-key="vtc_step3_title">Payez</h3>
                         <p data-key="vtc_step3_desc">Payez facilement via l'application.</p>
                     </div>
@@ -138,6 +149,8 @@
         <section id="features" class="features">
             <div class="container">
                 <h2 data-key="vtc_features_title">Pourquoi nous choisir ?</h2>
+
+                <!-- 1. SÉCURITÉ (Texte à Gauche / Image à Droite) -->
                 <div class="feature">
                     <div class="feature-text">
                         <h3 data-key="vtc_feature1_title">La sécurité avant tout</h3>
@@ -146,12 +159,15 @@
                             professionnellement.</p>
                     </div>
                     <div class="feature-image">
-                        <img src="images/safety-feature.png" alt="Icône de bouclier de sécurité">
+                        <img src="images/safety-feature.png"
+                            alt="Symbole de bouclier représentant la sécurité des passagers">
                     </div>
                 </div>
+
+                <!-- 2. CONFORT (Image à Gauche / Texte à Droite) -->
                 <div class="feature">
                     <div class="feature-image">
-                        <img src="images/comfort-feature.png" alt="Icône de siège de voiture confortable">
+                        <img src="images/comfort-feature.png" alt="Illustration de siège confortable">
                     </div>
                     <div class="feature-text">
                         <h3 data-key="vtc_feature2_title">Le confort en déplacement</h3>
@@ -160,6 +176,34 @@
                         </p>
                     </div>
                 </div>
+
+                <!-- 3. TRANSPARENCE DES PRIX (Texte à Gauche / Image à Droite) -->
+                <div class="feature">
+                    <div class="feature-text">
+                        <h3 data-key="vtc_feature3_title">Transparence des prix</h3>
+                        <p data-key="vtc_feature3_desc">Pas de frais cachés ni de surprises. Profitez de tarifs
+                            compétitifs et sachez exactement combien coûtera votre course avant même de réserver.</p>
+                    </div>
+                    <div class="feature-image">
+                        <!-- Pensez à ajouter cette image dans votre dossier images -->
+                        <img src="images/price-feature.png" alt="Illustration de prix transparent sans frais cachés">
+                    </div>
+                </div>
+
+                <!-- 4. FIABILITÉ (Image à Gauche / Texte à Droite) -->
+                <div class="feature">
+                    <div class="feature-image">
+                        <!-- Pensez à ajouter cette image dans votre dossier images -->
+                        <img src="images/fiable.png" alt="Illustration de ponctualité et fiabilité">
+                    </div>
+                    <div class="feature-text">
+                        <h3 data-key="vtc_feature4_title">Fiabilité garantie</h3>
+                        <p data-key="vtc_feature4_desc">Nous respectons votre temps. Notre système de répartition
+                            intelligent garantit que votre chauffeur arrive rapidement pour vous amener à destination
+                            sans délai.</p>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -168,13 +212,14 @@
                 <h2 data-key="vtc_pricing_title">Nos options de course</h2>
                 <div class="pricing-tiers">
                     <div class="tier">
-                        <img src="images/eco-car-icon.png" alt="Voiture Eco">
+                        <!-- CORRECTION 3 : Alt text amélioré -->
+                        <img src="images/eco-car-icon.png" alt="Icône voiture économique">
                         <h3 data-key="vtc_tier1_title">Eco</h3>
                         <p data-key="vtc_tier1_desc">Des courses abordables au quotidien pour le voyageur soucieux de
                             son budget.</p>
                     </div>
                     <div class="tier">
-                        <img src="images/vip-car-icon.png" alt="Voiture VIP">
+                        <img src="images/vip-car-icon.png" alt="Icône voiture de luxe VIP">
                         <h3 data-key="vtc_tier2_title">VIP</h3>
                         <p data-key="vtc_tier2_desc">Des véhicules haut de gamme avec les meilleurs chauffeurs pour une
                             expérience de luxe.</p>
@@ -188,12 +233,12 @@
                 <h2 data-key="vtc_download_title">Téléchargez l'application</h2>
                 <p data-key="vtc_download_desc">Téléchargez ZAZA pour commencer à voyager en toute simplicité.</p>
                 <div class="app-badges">
-                    <a href="coming-soon.html" >
-                        <img src="images/app-store-badge.png">
-                       
+                    <a href="coming-soon.html">
+                        <!-- CORRECTION 3 : Ajout des Alt text obligatoires pour les liens images -->
+                        <img src="images/app-store-badge.png" alt="Télécharger ZAZA sur l'App Store">
                     </a>
-                    <a href="coming-soon.html" >
-                        <img src="images/google-play-badge.png">
+                    <a href="coming-soon.html">
+                        <img src="images/google-play-badge.png" alt="Disponible sur Google Play">
                     </a>
                 </div>
             </div>
@@ -209,7 +254,7 @@
                         <li><a href="index.html" data-key="nav_home">Accueil</a></li>
                         <li><a href="about.html" data-key="nav_about_footer">À Propos</a></li>
                         <li><a href="vtc.html" data-key="nav_vtc">ZAZA</a></li>
-                        <li><a href="nextcloud.html" data-key="nav_cloud">Cloud Hosting</a></li>
+                        <!-- <li><a href="nextcloud.html" data-key="nav_cloud">Cloud Hosting</a></li> -->
                         <li><a href="geschool.html" data-key="nav_geschool">Geschool</a></li>
                         <li><a href="news.html" data-key="nav_news">Actualités</a></li>
                         <li><a href="contact.html" data-key="nav_contact_footer">Contact</a></li>
@@ -220,16 +265,16 @@
                     <h5 data-key="footer_contact_title">Nous Joindre</h5>
                     <ul class="footer-contact-info">
                         <li>
-                            <img src="images/location-icon.png" alt="Adresse" class="icon">
+                            <img src="images/location-icon.png" alt="Icône localisation" class="icon">
                             <span data-key="footer_address">Immeuble acacia, Mpita, Pointe-Noire, Congo</span>
                         </li>
                         <li>
-                            <img src="images/email-icon.png" alt="Email" class="icon">
+                            <img src="images/email-icon.png" alt="Icône email" class="icon">
                             <a href="mailto:contact@smartwise.cg">contact@smartwise.cg</a>
                         </li>
                         <li>
-                            <img src="images/phone-icon.png" alt="Téléphone" class="icon">
-                            <a href="tel:+242056600459">05 660 04 59</a>
+                            <img src="images/phone-icon.png" alt="Icône téléphone" class="icon">
+                            <a href="tel:+242066236530">+242 06 623 65 30</a>
                         </li>
                     </ul>
                 </div>
@@ -237,8 +282,10 @@
 
             <div class="footer-bottom">
                 <div class="footer-social">
-                    <a href="coming-soon.html" title="Facebook"><img src="images/facebook-icon.png" alt="Facebook"></a>
-                    <a href="coming-soon.html" title="Instagram"><img src="images/instagram-icon.png" alt="Instagram"></a>
+                    <a href="coming-soon.html" title="Facebook"><img src="images/facebook-icon.png"
+                            alt="Page Facebook ZAZA"></a>
+                    <a href="coming-soon.html" title="Instagram"><img src="images/instagram-icon.png"
+                            alt="Page Instagram ZAZA"></a>
                 </div>
                 <p class="footer-copyright" data-key="footer_copyright">&copy; 2025 Smart Wise. Tous droits réservés.
                 </p>

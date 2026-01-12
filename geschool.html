@@ -4,10 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-key-meta="meta_title_geschool">Geschool - Logiciel de Gestion Scolaire Intégré</title>
+    <title data-key-meta="meta_title_geschool">GESCHOOL - Logiciel de Gestion Scolaire Intégré</title>
     <meta name="description"
-        content="GESCHOOL est la solution ERP complète pour la gestion de votre établissement scolaire. Notes, finances, scolarité et communication parents-élèves en un seul logiciel."
+        content="GESCHOOL est la solution pour la gestion de votre établissement scolaire. Notes, finances, scolarité, et communication en un seul logiciel."
         data-key-meta="meta_desc_geschool">
+    <link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+    <link rel="manifest" href="/images/site.webmanifest" />
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,12 +60,12 @@
                                 </a>
                             </li>
                             <!-- Lien 2 : data-key est maintenant sur le SPAN -->
-                            <li>
+                            <!-- <li>
                                 <a href="nextcloud.html">
                                     <img src="images/cloud-server.png" alt="" class="dropdown-icon">
                                     <span data-key="nav_cloud">Smart Wise Cloud Hosting</span>
                                 </a>
-                            </li>
+                            </li> -->
                             <!-- Lien 3 : data-key est maintenant sur le SPAN -->
                             <li>
                                 <a href="geschool.html">
@@ -71,6 +76,7 @@
                         </ul>
                     </li>
                     <!-- FIN DU MENU DÉROULANT -->
+                    <li><a href="portfolio.html" data-key="nav_portfolio">Nos Réalisations</a></li>
                     <li><a href="news.html" data-key="nav_news">Actualités</a></li>
                     <li><a href="contact.html" data-key="nav_contact">Contact</a></li>
                 </ul>
@@ -113,138 +119,238 @@
         </section>
 
         <section class="benefits-section">
-            <div class="container">
-                <h2 data-key="geschool_benefits_title">Une Plateforme Complète pour Votre École</h2>
-                <div class="benefits-grid">
-                    <div class="benefit-card">
-                        <img src="images/centralize-icon.png" alt="Icône de centralisation">
-                        <h3 data-key="geschool_benefit1_title">Tout Centralisé</h3>
-                        <p data-key="geschool_benefit1_desc">Gérez les élèves, les notes, les finances et la
-                            communication depuis une seule et unique interface intuitive.</p>
-                    </div>
-                    <div class="benefit-card">
-                        <img src="images/time-icon.png" alt="Icône de gain de temps">
-                        <h3 data-key="geschool_benefit2_title">Gain de Temps Massif</h3>
-                        <p data-key="geschool_benefit2_desc">Automatisez les tâches répétitives comme la génération des
-                            bulletins, les rappels de paiement et la gestion des absences.</p>
-                    </div>
-                    <div class="benefit-card">
-                        <img src="images/communication-icon.png" alt="Icône de communication">
-                        <h3 data-key="geschool_benefit3_title">Communication Améliorée</h3>
-                        <p data-key="geschool_benefit3_desc">Renforcez le lien entre l'école et les parents grâce à un
-                            portail dédié et des notifications par SMS/Mail.</p>
-                    </div>
-                    <div class="benefit-card">
-                        <img src="images/security-icon.png" alt="Icône de sécurité">
-                        <h3 data-key="geschool_benefit4_title">Données Sécurisées</h3>
-                        <p data-key="geschool_benefit4_desc">Protégez les informations sensibles de votre établissement
-                            avec un système de sauvegarde automatisée et robuste.</p>
+            <div class="container-fluid" style="overflow: hidden; padding: 0;">
+                <!-- Container-fluid pour prendre la largeur -->
+                <div class="container">
+                    <h2 data-key="geschool_benefits_title" style="text-align: center; margin-bottom: 50px;">Une
+                        Plateforme Complète pour Votre École</h2>
+                </div>
+
+                <!-- Le masque qui cache ce qui dépasse -->
+                <div class="marquee-container">
+                    <!-- La piste qui va bouger (Le Tapis Roulant) -->
+                    <div class="marquee-track" id="marqueeTrack">
+
+                        <!-- 1. Gestion des apprenants -->
+                        <div class="benefit-card marquee-item">
+                            <div class="icon-box">
+                                <img src="images/roll-call.png" alt="Apprenants"
+                                    onerror="this.src='https://cdn-icons-png.flaticon.com/512/3406/3406222.png'">
+                            </div>
+                            <h3 data-key="benefit_apprenants">Gestion des apprenants</h3>
+                        </div>
+
+                        <!-- 2. Gestion notes scolaires -->
+                        <div class="benefit-card marquee-item">
+                            <div class="icon-box">
+                                <img src="images/a.png" alt="Notes"
+                                    onerror="this.src='https://cdn-icons-png.flaticon.com/512/2641/2641409.png'">
+                            </div>
+                            <h3 data-key="benefit_notes">Gestion notes scolaires</h3>
+                        </div>
+
+                        <!-- 3. Production automatique -->
+                        <div class="benefit-card marquee-item">
+                            <div class="icon-box">
+                                <img src="images/printer.png" alt="Documents"
+                                    onerror="this.src='https://cdn-icons-png.flaticon.com/512/2983/2983838.png'">
+                            </div>
+                            <h3 data-key="benefit_docs">Production automatique</h3>
+                        </div>
+
+                        <!-- 4. Tableau de bord -->
+                        <div class="benefit-card marquee-item">
+                            <div class="icon-box">
+                                <img src="images/stats.png" alt="Tableau de bord"
+                                    onerror="this.src='https://cdn-icons-png.flaticon.com/512/4685/4685519.png'">
+                            </div>
+                            <h3 data-key="benefit_dashboard">Tableau de bord</h3>
+                        </div>
+
+                        <!-- 5. Finance -->
+                        <div class="benefit-card marquee-item">
+                            <div class="icon-box">
+                                <img src="images/give-money.png" alt="Finance"
+                                    onerror="this.src='https://cdn-icons-png.flaticon.com/512/2760/2760970.png'">
+                            </div>
+                            <h3 data-key="benefit_finance">Finance</h3>
+                        </div>
+
+                        <!-- 6. Scolarité -->
+                        <div class="benefit-card marquee-item">
+                            <div class="icon-box">
+                                <img src="images/tuition.png" alt="Scolarité"
+                                    onerror="this.src='https://cdn-icons-png.flaticon.com/512/1903/1903172.png'">
+                            </div>
+                            <h3 data-key="benefit_scolarite">Scolarité</h3>
+                        </div>
+
+                        <!-- 7. SMS / MAIL -->
+                        <div class="benefit-card marquee-item">
+                            <div class="icon-box">
+                                <img src="images/message.png" alt="SMS Mail"
+                                    onerror="this.src='https://cdn-icons-png.flaticon.com/512/3059/3059486.png'">
+                            </div>
+                            <h3 data-key="benefit_sms">SMS / MAIL</h3>
+                        </div>
+
+                        <!-- 8. Sauvegarde automatisée -->
+                        <div class="benefit-card marquee-item">
+                            <div class="icon-box">
+                                <img src="images/database.png" alt="Sauvegarde"
+                                    onerror="this.src='https://cdn-icons-png.flaticon.com/512/2887/2887606.png'">
+                            </div>
+                            <h3 data-key="benefit_backup">Sauvegarde automatisée</h3>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </section>
-
         <section id="detailed-features" class="features">
             <div class="container">
                 <h2 data-key="geschool_detailed_features_title">Découvrez la puissance de chaque module</h2>
 
+                <!-- BLOC 1 : GESTION DES APPRENANTS (Impair) -->
                 <div class="feature">
                     <div class="feature-text">
-                        <h3 data-key="geschool_feature_block1_title">Gestion Complète des Apprenants</h3>
+                        <h3 data-key="geschool_feature_block1_title">GESTION DES APPRENANTS</h3>
                         <ul class="feature-list">
-                            <li data-key="geschool_feature_block1_item1">Suivi individuel et détaillé de la vie scolaire
-                                de chaque apprenant.</li>
-                            <li data-key="geschool_feature_block1_item2">Gestion de l'infirmerie et du suivi médical
-                                personnalisé.</li>
-                            <li data-key="geschool_feature_block1_item3">Constitution d'un dossier exhaustif pour chaque
-                                élève.</li>
+                            <li data-key="geschool_feature_block1_item1">Suivi individuel de la vie scolaire des
+                                apprenants.</li>
+                            <li data-key="geschool_feature_block1_item2">Une gestion de l'infirmerie et du suivi
+                                médical.</li>
+                            <li data-key="geschool_feature_block1_item3">Un dossier exhaustif des apprenants.</li>
                             <li data-key="geschool_feature_block1_item4">Production automatisée et simplifiée des cartes
-                                d'identité scolaire et des cartes d'accès.</li>
+                                d'identité.</li>
                         </ul>
                     </div>
                     <div class="feature-image">
-                        <img src="images/geschool-feature-students.png" alt="Interface de gestion des étudiants">
+                        <img src="images/roll-call.png" alt="Gestion des apprenants">
                     </div>
                 </div>
 
+                <!-- BLOC 2 : FINANCES (Pair -> Fond VERT) -->
                 <div class="feature">
                     <div class="feature-image">
-                        <img src="images/geschool-feature-grades.png" alt="Interface de gestion des notes scolaires">
+                        <img src="images/give-money.png" alt="Gestion financière">
                     </div>
                     <div class="feature-text">
-                        <h3 data-key="geschool_feature_block2_title">Pilotage Pédagogique et Administratif</h3>
+                        <h3 data-key="geschool_feature_block2_title">FINANCES</h3>
                         <ul class="feature-list">
-                            <li data-key="geschool_feature_block2_item1">Calculs automatiques des notes et des moyennes.
+                            <li data-key="geschool_feature_block2_item1">Rappel de paiement et bulletin de renvoi.</li>
+                            <li data-key="geschool_feature_block2_item2">Gestion des caisses.</li>
+                            <li data-key="geschool_feature_block2_item3">Clôture journalière, mensuelle et/ou annuelle.
                             </li>
-                            <li data-key="geschool_feature_block2_item2">Gestion centralisée des absences et des
-                                conduites des apprenants.</li>
-                            <li data-key="geschool_feature_block2_item3">Production instantanée et automatique des
-                                bulletins de notes.</li>
-                            <li data-key="geschool_feature_block2_item4">Génération de certificats de scolarité et
-                                d'autorisations d'entrée/sortie en un clic.</li>
+                            <li data-key="geschool_feature_block2_item4">Gestion des états de besoins.</li>
+                            <li data-key="geschool_feature_block2_item5">Décaissements et retours en caisse.</li>
                         </ul>
                     </div>
                 </div>
 
+                <!-- BLOC 3 : GESTION DES NOTES SCOLAIRES (Impair) -->
                 <div class="feature">
                     <div class="feature-text">
-                        <h3 data-key="geschool_feature_block3_title">Maîtrise des Finances et de la Scolarité</h3>
+                        <h3 data-key="geschool_feature_block3_title">GESTION DES NOTES SCOLAIRES</h3>
                         <ul class="feature-list">
-                            <li data-key="geschool_feature_block3_item1">Gestion des caisses, rappels de paiement et
-                                édition de bulletins de renvoi.</li>
-                            <li data-key="geschool_feature_block3_item2">Clôture journalière, mensuelle ou annuelle et
-                                suivi des décaissements.</li>
-                            <li data-key="geschool_feature_block3_item3">Encaissement des frais, gestion des moratoires
-                                et contrôle des solvabilités.</li>
-                            <li data-key="geschool_feature_block3_item4">Prise en compte simple des réductions de frais.
+                            <li data-key="geschool_feature_block3_item1">Calculs automatiques des notes des apprenants.
+                            </li>
+                            <li data-key="geschool_feature_block3_item2">Gestion des absences et conduites des
+                                apprenants.</li>
+                            <li data-key="geschool_feature_block3_item3">Production automatique des bulletins de notes.
                             </li>
                         </ul>
                     </div>
                     <div class="feature-image">
-                        <img src="images/geschool-feature-finance.png" alt="Dashboard financier">
+                        <img src="images/a.png" alt="Gestion des notes">
                     </div>
                 </div>
 
+                <!-- BLOC 4 : SCOLARITÉ (Pair -> Fond JAUNE) -->
                 <div class="feature">
                     <div class="feature-image">
-                        <img src="images/geschool-feature-communication.png"
-                            alt="Notification par SMS sur un téléphone">
+                        <!-- Réutilisation d'une image financière ou administrative -->
+                        <img src="images/tuition.png" alt="Gestion scolarité">
                     </div>
                     <div class="feature-text">
-                        <h3 data-key="geschool_feature_block4_title">Communication Parentale Simplifiée (SMS/Mail)</h3>
+                        <h3 data-key="geschool_feature_block4_title">SCOLARITÉ</h3>
                         <ul class="feature-list">
-                            <li data-key="geschool_feature_block4_item1">Notifications automatiques lors des paiements à
-                                la caisse.</li>
-                            <li data-key="geschool_feature_block4_item2">Alertes pour l'arrivée et le départ des
-                                apprenants de l'école.</li>
-                            <li data-key="geschool_feature_block4_item3">Envoi de communications groupées ou
-                                individuelles aux parents.</li>
-                            <li data-key="geschool_feature_block4_item4">Partage des notes de classe et des dates
-                                d'examens officiels.</li>
+                            <li data-key="geschool_feature_block4_item1">Encaissement des frais.</li>
+                            <li data-key="geschool_feature_block4_item2">Gestion des moratoires.</li>
+                            <li data-key="geschool_feature_block4_item3">Contrôle des solvabilités.</li>
+                            <li data-key="geschool_feature_block4_item4">Prise en compte des réductions de frais.</li>
                         </ul>
                     </div>
                 </div>
 
+                <!-- BLOC 5 : PRODUCTION AUTOMATIQUE DE DOCUMENTS (Impair) -->
                 <div class="feature">
                     <div class="feature-text">
-                        <h3 data-key="geschool_feature_block5_title">Tableaux de Bord et Sécurité des Données</h3>
+                        <h3 data-key="geschool_feature_block5_title">PRODUCTION AUTOMATIQUE DE DOCUMENTS</h3>
                         <ul class="feature-list">
-                            <li data-key="geschool_feature_block5_item1">Visualisez les effectifs détaillés par classe
-                                ou pour tout l'établissement.</li>
-                            <li data-key="geschool_feature_block5_item2">Accédez aux états financiers par cycle, classe
-                                ou de manière globale.</li>
-                            <li data-key="geschool_feature_block5_item3">Protégez les données de l'établissement grâce à
-                                un module de sauvegarde automatisée intégré.</li>
+                            <li data-key="geschool_feature_block5_item1">Certificat de scolarité.</li>
+                            <li data-key="geschool_feature_block5_item2">Autorisation d'entrée ou de sortie.</li>
                         </ul>
                     </div>
                     <div class="feature-image">
-                        <img src="images/geschool-feature-dashboard.png" alt="Tableau de bord avec des graphiques">
+                        <img src="images/printer.png" alt="Documents administratifs">
+                    </div>
+                </div>
+
+                <!-- BLOC 6 : SMS / MAIL (Pair -> Fond ROUGE) -->
+                <div class="feature">
+                    <div class="feature-image">
+                        <img src="images/message.png" alt="Communication SMS et Mail">
+                    </div>
+                    <div class="feature-text">
+                        <h3 data-key="geschool_feature_block6_title">SMS / MAIL</h3>
+                        <ul class="feature-list">
+                            <li data-key="geschool_feature_block6_item1">Lors de paiements à la caisse.</li>
+                            <li data-key="geschool_feature_block6_item2">Lors de l'arrivée et départ des apprenants de
+                                l'école.</li>
+                            <li data-key="geschool_feature_block6_item3">Lors des communications adressées aux parents.
+                            </li>
+                            <li data-key="geschool_feature_block6_item4">Notes de classe des apprenants.</li>
+                            <li data-key="geschool_feature_block6_item5">Des dates de contrôles continus et examens
+                                officiels.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- BLOC 7 : LE TABLEAU DE BORD (Impair) -->
+                <div class="feature">
+                    <div class="feature-text">
+                        <h3 data-key="geschool_feature_block7_title">LE TABLEAU DE BORD</h3>
+                        <ul class="feature-list">
+                            <li data-key="geschool_feature_block7_item1">Effectifs détaillés des classes ou de
+                                l'établissement.</li>
+                            <li data-key="geschool_feature_block7_item2">Etats financiers par Cycle, Classe ou Global.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="feature-image">
+                        <img src="images/stats.png" alt="Tableau de bord de direction">
+                    </div>
+                </div>
+
+                <!-- BLOC 8 : SAUVEGARDE AUTOMATISÉE (Pair -> Fond BLEU) -->
+                <div class="feature">
+                    <div class="feature-image">
+                        <img src="images/database.png" alt="Sécurité et Sauvegarde">
+                    </div>
+                    <div class="feature-text">
+                        <h3 data-key="geschool_feature_block8_title">SAUVEGARDE AUTOMATISÉE</h3>
+                        <ul class="feature-list">
+                            <li data-key="geschool_feature_block8_item1">Afin de protéger les données de
+                                l'établissement.</li>
+                            <li data-key="geschool_feature_block8_item2">Un module de sauvegarde automatisé est inclus
+                                dans Geschool.</li>
+                        </ul>
                     </div>
                 </div>
 
             </div>
         </section>
-
         <section id="contact" class="download">
             <div class="container">
                 <h2 data-key="geschool_contact_title">Intéressé par Geschool ?</h2>
@@ -258,39 +364,36 @@
 
     </main>
 
-    <footer>
+     <footer>
         <div class="container">
-            <!-- Grille symétrique à deux colonnes -->
             <div class="footer-grid">
-                <!-- Colonne 1: Tous les liens regroupés -->
                 <div class="footer-column">
                     <h5 data-key="footer_explore_title">Explorer</h5>
                     <ul>
                         <li><a href="index.html" data-key="nav_home">Accueil</a></li>
                         <li><a href="about.html" data-key="nav_about_footer">À Propos</a></li>
                         <li><a href="vtc.html" data-key="nav_vtc">ZAZA</a></li>
-                        <li><a href="nextcloud.html" data-key="nav_cloud">Cloud Hosting</a></li>
+                        <!-- <li><a href="nextcloud.html" data-key="nav_cloud">Cloud Hosting</a></li> -->
                         <li><a href="geschool.html" data-key="nav_geschool">Geschool</a></li>
                         <li><a href="news.html" data-key="nav_news">Actualités</a></li>
                         <li><a href="contact.html" data-key="nav_contact_footer">Contact</a></li>
                     </ul>
                 </div>
 
-                <!-- Colonne 2: Contact -->
                 <div class="footer-column">
                     <h5 data-key="footer_contact_title">Nous Joindre</h5>
                     <ul class="footer-contact-info">
                         <li>
-                            <img src="images/location-icon.png" alt="Adresse" class="icon">
+                            <img src="images/location-icon.png" alt="Icône localisation" class="icon">
                             <span data-key="footer_address">Immeuble acacia, Mpita, Pointe-Noire, Congo</span>
                         </li>
                         <li>
-                            <img src="images/email-icon.png" alt="Email" class="icon">
+                            <img src="images/email-icon.png" alt="Icône email" class="icon">
                             <a href="mailto:contact@smartwise.cg">contact@smartwise.cg</a>
                         </li>
                         <li>
-                            <img src="images/phone-icon.png" alt="Téléphone" class="icon">
-                            <a href="tel:+242056600459">05 660 04 59</a>
+                            <img src="images/phone-icon.png" alt="Icône téléphone" class="icon">
+                            <a href="tel:+242066236530">+242 06 623 65 30</a>
                         </li>
                     </ul>
                 </div>
@@ -298,14 +401,17 @@
 
             <div class="footer-bottom">
                 <div class="footer-social">
-                    <a href="#" title="Facebook"><img src="images/facebook-icon.png" alt="Facebook"></a>
-                    <a href="#" title="Instagram"><img src="images/instagram-icon.png" alt="Instagram"></a>
+                    <a href="coming-soon.html" title="Facebook"><img src="images/facebook-icon.png"
+                            alt="Page Facebook ZAZA"></a>
+                    <a href="coming-soon.html" title="Instagram"><img src="images/instagram-icon.png"
+                            alt="Page Instagram ZAZA"></a>
                 </div>
                 <p class="footer-copyright" data-key="footer_copyright">&copy; 2025 Smart Wise. Tous droits réservés.
                 </p>
             </div>
         </div>
     </footer>
+
 
     <script src="translations.js"></script>
     <script src="script.js"></script>
