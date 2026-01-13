@@ -4664,3 +4664,23 @@ nav .nav-links li.dropdown.submenu-open>.dropdown-menu {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+/* ================================================================ */
+/* === CORRECTIF IMAGE VTC SUR PC (ROND-POINT VISIBLE)          === */
+/* ================================================================ */
+
+/* On applique ce correctif uniquement sur les écrans larges (PC/Tablette) */
+@media (min-width: 992px) {
+    .vtc-hero .hero-background img {
+        /* "bottom" force le navigateur à coller l'image en bas.
+           Ainsi, si ça doit couper, ça coupera le ciel (haut) 
+           et gardera le rond-point (bas). */
+        object-position: bottom center !important;
+    }
+
+    /* OPTIONNEL : Si le rond-point est toujours un peu coupé, 
+       vous pouvez augmenter la hauteur de la section Hero sur PC */
+    .vtc-hero {
+        min-height: 80vh; /* Augmente la hauteur visible (actuellement souvent 60vh ou auto) */
+    }
+}
