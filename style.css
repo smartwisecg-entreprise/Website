@@ -1930,6 +1930,7 @@ footer {
 .features .feature-image img {
     box-shadow: none !important;
     border: none !important;
+    width: 220px !important;   
     /* Décommentez la ligne ci-dessous si vous voulez aussi enlever les coins arrondis */
     /* border-radius: 0 !important; */
 }
