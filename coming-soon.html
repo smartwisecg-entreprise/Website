@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+
 </head>
 
 <body>
@@ -32,21 +32,40 @@
                 <ul class="nav-links">
                     <li><a href="index.html" data-key="nav_home">Accueil</a></li>
                     <li><a href="about.html" data-key="nav_about">À Propos</a></li>
+
+                    <!-- DÉBUT DU MENU DÉROULANT -->
+
                     <li class="dropdown">
                         <a href="#">
                             <span data-key="nav_services">Nos Services</span>
                             <span class="arrow-down"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="vtc.html"><img src="images/car.png" alt="" class="dropdown-icon"><span
-                                        data-key="nav_vtc">Smart Wise VTC</span></a></li>
-                            <li><a href="nextcloud.html"><img src="images/cloud-server.png" alt=""
-                                        class="dropdown-icon"><span data-key="nav_cloud">Smart Wise Cloud
-                                        Hosting</span></a></li>
-                            <li><a href="geschool.html"><img src="images/school.png" alt="" class="dropdown-icon"><span
-                                        data-key="nav_geschool">Geschool ERP</span></a></li>
+                            <!-- CORRECTION 3 : Alt text descriptif pour les icônes du menu -->
+                            <li>
+                                <a href="vtc.html">
+                                    <img src="images/car.png" alt="Icône voiture service VTC" class="dropdown-icon">
+                                    <span data-key="nav_vtc">Smart Wise VTC</span>
+                                </a>
+                            </li>
+                            <!-- <li>
+                                <a href="nextcloud.html">
+                                    <img src="images/cloud-server.png" alt="Icône serveur Cloud Hosting"
+                                        class="dropdown-icon">
+                                    <span data-key="nav_cloud">Smart Wise Cloud Hosting</span>
+                                </a>
+                            </li> -->
+                            <li>
+                                <a href="geschool.html">
+                                    <img src="images/school.png" alt="Icône école pour ERP Geschool"
+                                        class="dropdown-icon">
+                                    <span data-key="nav_geschool">Geschool ERP</span>
+                                </a>
+                            </li>
                         </ul>
                     </li>
+                    <!-- FIN DU MENU DÉROULANT -->
+                    <li><a href="portfolio.html" data-key="nav_portfolio">Nos Réalisations</a></li>
                     <li><a href="news.html" data-key="nav_news">Actualités</a></li>
                     <li><a href="contact.html" data-key="nav_contact">Contact</a></li>
                 </ul>
@@ -74,7 +93,8 @@
                     </div>
 
                     <h1 data-key="coming_soon_title">Bientôt Disponible</h1>
-                    <p data-key="coming_soon_desc">Nous travaillons dur pour vous apporter cette nouveauté.<br>Restez connectés pour découvrir nos
+                    <p data-key="coming_soon_desc">Nous travaillons dur pour vous apporter cette nouveauté.<br>Restez
+                        connectés pour découvrir nos
                         innovations.</p>
 
                     <a href="index.html" class="btn" data-key="coming_soon_btn">Retour à l'accueil</a>

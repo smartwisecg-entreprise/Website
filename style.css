@@ -1930,8 +1930,9 @@ footer {
 .features .feature-image img {
     box-shadow: none !important;
     border: none !important;
-    width: 220px !important;   
-    /* Décommentez la ligne ci-dessous si vous voulez aussi enlever les coins arrondis */
+   /* --- NOUVEAU : Réduction de la taille des icônes --- */
+    max-width: 220px !important;  /* Ajustez ce chiffre (100px, 120px, 150px...) selon votre goût */
+    width: 100%;                  /* S'assure que l'image reste fluide */
     /* border-radius: 0 !important; */
 }
 
