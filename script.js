@@ -673,21 +673,23 @@ document.addEventListener('DOMContentLoaded', () => {
                     const shouldAnimate = (index % 2 !== 0) || isGeschool;
 
                     if (shouldAnimate) {
-                        // REGLAGE FIN : 
-                        // Si c'est Geschool, on remplit moins large (75%) pour compenser l'effet visuel
-                        // Si c'est Zaza, on garde 85%
-                        const endWidth = isGeschool ? '80%' : '100%';
+                        // 1. On définit la cible finale (100% pour tout le monde)
+                        const endWidthVal = 100;
 
-                        // On calcule le polygone de fin dynamiquement
-                        const endPolygonBefore = `polygon(0 0, ${endWidth} 0, ${parseInt(endWidth) - 20}% 100%, 0% 100%)`;
-                        const endPolygonAfter = `polygon(${endWidth} 0, 100% 0, 100% 100%, ${parseInt(endWidth) - 20}% 100%)`;
+                        // 2. On calcule le point du bas manuellement (100 - 20 = 80)
+                        // C'est CRUCIAL : GSAP a besoin de "80%" et non de "calc(...)"
+                        const endBottomVal = endWidthVal - 20;
+
+                        // 3. Construction des chaînes de caractères propres
+                        const endPolygonBefore = `polygon(0 0, ${endWidthVal}% 0, ${endBottomVal}% 100%, 0% 100%)`;
+                        const endPolygonAfter = `polygon(${endWidthVal}% 0, 100% 0, 100% 100%, ${endBottomVal}% 100%)`;
 
                         tl.fromTo(block, {
-                            // Position de départ (identique pour tous)
+                            // DÉPART : Haut à 60%, Bas à 40%
                             '--clip-before': 'polygon(0 0, 60% 0, 40% 100%, 0% 100%)',
                             '--clip-after': 'polygon(60% 0, 100% 0, 100% 100%, 40% 100%)'
                         }, {
-                            // Position de fin (Ajustée selon le bloc)
+                            // ARRIVÉE : Haut à 100%, Bas à 80% (Calculé proprement)
                             '--clip-before': endPolygonBefore,
                             '--clip-after': endPolygonAfter,
                             ease: 'none'
