@@ -587,6 +587,31 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
+        // --- 7. Page news (AJOUT) ---
+        if (document.querySelector('.news-hero')) {
+            // Animation du titre (Les mots qui arrivent avec rotation)
+            if (document.querySelector(".news-hero h1 span")) {
+                gsap.from(".news-hero h1 span", {
+                    duration: 1.2,
+                    opacity: 0,
+                    y: 40,
+                    rotationX: -90, // L'effet de bascule 3D
+                    ease: "power3.out",
+                    stagger: 0.2, // Délai entre chaque mot
+                    delay: 0.2
+                });
+            }
+
+            // Animation du sous-titre qui remonte doucement
+            gsap.from(".news-hero .hero-text p", {
+                duration: 1,
+                opacity: 0,
+                y: 20,
+                ease: "power2.out",
+                delay: 0.8 // Arrive après le titre
+            });
+        }
+
         // ==============================================================
         // === FEATURES & BLOCS COMMUNS ===
         // ==============================================================
@@ -624,11 +649,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
                         if (isEven) {
                             tl.fromTo(feature, {
+                                /* État de départ (inchangé) */
                                 '--clip-before': 'polygon(0 0, 60% 0, 40% 100%, 0% 100%)',
                                 '--clip-after': 'polygon(60% 0, 100% 0, 100% 100%, 40% 100%)'
                             }, {
-                                '--clip-before': 'polygon(0 0, 85% 0, 65% 100%, 0% 100%)',
-                                '--clip-after': 'polygon(85% 0, 100% 0, 100% 100%, 65% 100%)',
+                                /* État final : On pousse tout à 100% (et 120% en haut pour garder l'angle) */
+                                /* LE CHANGEMENT EST ICI : */
+                                '--clip-before': 'polygon(0 0, 120% 0, 100% 100%, 0% 100%)',
+                                '--clip-after': 'polygon(120% 0, 100% 0, 100% 100%, 100% 100%)',
                                 ease: 'none'
                             }, 0);
                         }
@@ -673,23 +701,26 @@ document.addEventListener('DOMContentLoaded', () => {
                     const shouldAnimate = (index % 2 !== 0) || isGeschool;
 
                     if (shouldAnimate) {
-                        // 1. On définit la cible finale (100% pour tout le monde)
-                        const endWidthVal = 100;
+                        // 1. On définit la cible pour le BAS à 100% (pour qu'il n'y ait plus de vide)
+                        const endBottomVal = 100;
 
-                        // 2. On calcule le point du bas manuellement (100 - 20 = 80)
-                        // C'est CRUCIAL : GSAP a besoin de "80%" et non de "calc(...)"
-                        const endBottomVal = endWidthVal - 20;
+                        // 2. On calcule le HAUT en ajoutant 20 (100 + 20 = 120)
+                        // Cela permet à la diagonale de sortir de l'écran en gardant son inclinaison
+                        const endWidthVal = endBottomVal + 20;
 
-                        // 3. Construction des chaînes de caractères propres
+                        // 3. Construction des chaînes de caractères
                         const endPolygonBefore = `polygon(0 0, ${endWidthVal}% 0, ${endBottomVal}% 100%, 0% 100%)`;
+
+                        // Pour le 'after', comme on dépasse 100%, on peut le laisser sortir ou le fixer, 
+                        // mais cette formule assure la continuité visuelle de la coupure.
                         const endPolygonAfter = `polygon(${endWidthVal}% 0, 100% 0, 100% 100%, ${endBottomVal}% 100%)`;
 
                         tl.fromTo(block, {
-                            // DÉPART : Haut à 60%, Bas à 40%
+                            // DÉPART : Haut à 60%, Bas à 40% (Diagonale)
                             '--clip-before': 'polygon(0 0, 60% 0, 40% 100%, 0% 100%)',
                             '--clip-after': 'polygon(60% 0, 100% 0, 100% 100%, 40% 100%)'
                         }, {
-                            // ARRIVÉE : Haut à 100%, Bas à 80% (Calculé proprement)
+                            // ARRIVÉE : Haut à 120%, Bas à 100% (Remplissage total + angle conservé)
                             '--clip-before': endPolygonBefore,
                             '--clip-after': endPolygonAfter,
                             ease: 'none'
@@ -1003,69 +1034,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
 
-
-        // ==============================================================
-        // === PARTICULES (CANVAS) ===
-        // ==============================================================
-        const canvas = document.getElementById('particle-canvas');
-        if (canvas) {
-            const ctx = canvas.getContext('2d');
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-
-            let particlesArray;
-
-            class Particle {
-                constructor(x, y, directionX, directionY, size, color) {
-                    this.x = x; this.y = y; this.directionX = directionX; this.directionY = directionY; this.size = size; this.color = color;
-                }
-                draw() {
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-                    ctx.fillStyle = this.color;
-                    ctx.fill();
-                }
-                update() {
-                    if (this.x > canvas.width || this.x < 0) { this.directionX = -this.directionX; }
-                    if (this.y > canvas.height || this.y < 0) { this.directionY = -this.directionY; }
-                    this.x += this.directionX; this.y += this.directionY;
-                    this.draw();
-                }
-            }
-
-            function initParticles() {
-                particlesArray = [];
-                let numberOfParticles = (canvas.height * canvas.width) / 9000;
-                for (let i = 0; i < numberOfParticles; i++) {
-                    let size = (Math.random() * 2) + 1;
-                    let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
-                    let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
-                    let directionX = (Math.random() * .4) - .2;
-                    let directionY = (Math.random() * .4) - .2;
-                    let color = 'rgba(255, 71, 87, 0.5)';
-                    particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
-                }
-            }
-
-            function animateParticles() {
-                requestAnimationFrame(animateParticles);
-                ctx.clearRect(0, 0, innerWidth, innerHeight);
-                for (let i = 0; i < particlesArray.length; i++) {
-                    particlesArray[i].update();
-                }
-            }
-
-            initParticles();
-            animateParticles();
-
-            window.addEventListener('resize', () => {
-                canvas.width = innerWidth;
-                canvas.height = innerHeight;
-                initParticles();
-            });
-        }
-
-
         // ==============================================================
         // === Animation section benefits (CORRIGÉ & SÉCURISÉ) ===
         // ==============================================================
@@ -1109,168 +1077,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        /* ================================================================ */
-        /* === LOGIQUE DE LA PAGE PORTFOLIO (SYSTÈME DE FILTRES) === */
-        /* ================================================================ */
-
-        const container = document.getElementById('portfolio-container');
-
-        // === 1. CHARGEMENT AUTOMATIQUE DES PROJETS ===
-        if (container) {
-            fetch('projects.json')
-                .then(response => response.json())
-                .then(projects => {
-                    generateProjects(projects);
-                    initializeFilters(); // On lance les filtres APRES le chargement
-                    initializeModals();  // On lance les modales APRES le chargement
-
-                    // Si vous utilisez un script de traduction, relancez-le ici si nécessaire
-                    // ex: if(typeof translatePage === 'function') translatePage(); 
-                })
-                .catch(error => console.error('Erreur chargement projets:', error));
-        }
-
-        // Fonction pour créer le HTML
-        function generateProjects(projects) {
-            container.innerHTML = ''; // Vide le conteneur par sécurité
-
-            projects.forEach(proj => {
-                const isModal = proj.type === 'modal';
-
-                // Création de la Div principale
-                const card = document.createElement('div');
-                card.className = `portfolio-item ${isModal ? 'trigger-modal' : ''}`;
-                card.setAttribute('data-category', proj.category);
-
-                // Gestion du clic (Lien vs Modale)
-                if (!isModal) {
-                    card.onclick = () => window.location.href = proj.link_url;
-                } else {
-                    // Ajout des data-attributes pour la modale
-                    card.setAttribute('data-title', proj.modal_details.title);
-                    card.setAttribute('data-client', proj.modal_details.client);
-                    card.setAttribute('data-desc', proj.modal_details.full_desc);
-                    card.setAttribute('data-tech', proj.modal_details.tech);
-                    card.setAttribute('data-img', proj.image);
-                }
-
-                // Structure HTML interne
-                card.innerHTML = `
-                <div class="portfolio-img-box">
-                    <img src="${proj.image}" alt="${proj.title_default}" loading="lazy">
-                </div>
-                <div class="portfolio-content">
-                    <span class="portfolio-cat" data-key="${proj.cat_key}">${proj.cat_label}</span>
-                    <h3 data-key="${proj.title_key}">${proj.title_default}</h3>
-                    <p data-key="${proj.desc_key}">${proj.desc_default}</p>
-                    
-                    <div class="portfolio-footer">
-                        <span class="btn-text">${isModal ? 'Voir le projet' : 'Découvrir'}</span>
-                        <i class="fas fa-arrow-right arrow-icon"></i>
-                    </div>
-                </div>
-            `;
-
-                container.appendChild(card);
-            });
-        }
-
-        // === 2. LOGIQUE DES FILTRES (Adaptée pour contenu dynamique) ===
-        function initializeFilters() {
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            const items = document.querySelectorAll('.portfolio-item');
-
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    // Active class
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-
-                    const filterValue = btn.getAttribute('data-filter');
-
-                    items.forEach(item => {
-                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                            item.style.display = 'flex'; // Important: flex pour garder le layout
-                            setTimeout(() => {
-                                item.style.opacity = '1';
-                                item.style.transform = 'translateY(0)';
-                            }, 50);
-                        } else {
-                            item.style.opacity = '0';
-                            item.style.transform = 'translateY(20px)';
-                            setTimeout(() => {
-                                item.style.display = 'none';
-                            }, 300);
-                        }
-                    });
-                });
-            });
-        }
-
-        // === 3. LOGIQUE DE LA MODALE (Adaptée pour contenu dynamique) ===
-        function initializeModals() {
-            const modal = document.getElementById('project-modal');
-            const closeBtn = document.querySelector('.modal-close');
-            // On sélectionne les éléments dynamiques
-            const triggers = document.querySelectorAll('.trigger-modal');
-
-            // Éléments internes de la modale
-            const mImg = document.getElementById('modal-img');
-            const mCat = document.getElementById('modal-cat');
-            const mTitle = document.getElementById('modal-title');
-            const mClient = document.getElementById('modal-client');
-            const mDesc = document.getElementById('modal-desc');
-            const mTechList = document.getElementById('modal-tech-list');
-
-            const openModal = (item) => {
-                mImg.src = item.getAttribute('data-img');
-                // Mapping simple des catégories pour l'affichage modale
-                const catMap = { 'web': 'Développement Web', 'infra': 'Infrastructure', 'logiciel': 'Logiciel' };
-                const catKey = item.getAttribute('data-category');
-
-                mCat.textContent = catMap[catKey] || 'Projet';
-                mTitle.textContent = item.getAttribute('data-title');
-                mClient.textContent = item.getAttribute('data-client');
-                mDesc.textContent = item.getAttribute('data-desc');
-
-                // Gestion des tags technos
-                mTechList.innerHTML = '';
-                const techs = item.getAttribute('data-tech').split(', ');
-                techs.forEach(tech => {
-                    const span = document.createElement('span');
-                    span.classList.add('tech-tag');
-                    span.textContent = tech;
-                    mTechList.appendChild(span);
-                });
-
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            };
-
-            const closeModal = () => {
-                modal.classList.remove('active');
-                document.body.style.overflow = '';
-            };
-
-            triggers.forEach(item => {
-                item.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    openModal(item);
-                });
-            });
-
-            if (closeBtn) closeBtn.addEventListener('click', closeModal);
-            if (modal) {
-                modal.addEventListener('click', (e) => {
-                    if (e.target === modal) closeModal();
-                });
-            }
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && modal && modal.classList.contains('active')) closeModal();
-            });
-        }
-    }
-
+        
+   } // Fermeture du if (typeof gsap !== 'undefined')
 });
 
 

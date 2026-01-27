@@ -17,6 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet"/>
 </head>
 
 <body>
@@ -200,53 +201,201 @@
 
     </main>
 
-     <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column">
-                    <h5 data-key="footer_explore_title">Explorer</h5>
-                    <ul>
-                        <li><a href="index.html" data-key="nav_home">Accueil</a></li>
-                        <li><a href="about.html" data-key="nav_about_footer">À Propos</a></li>
-                        <li><a href="vtc.html" data-key="nav_vtc">ZAZA</a></li>
-                        <!-- <li><a href="nextcloud.html" data-key="nav_cloud">Cloud Hosting</a></li> -->
-                        <li><a href="geschool.html" data-key="nav_geschool">Geschool</a></li>
-                        <li><a href="news.html" data-key="nav_news">Actualités</a></li>
-                        <li><a href="contact.html" data-key="nav_contact_footer">Contact</a></li>
-                    </ul>
+     <section class="cta-wrapper">
+
+        <!-- === APPEL À L'ACTION (CTA) === -->
+        <section class="cta-section">
+            <div class="container">
+                <h2 data-key="about_cta_title">Prêt à construire l'avenir avec nous ?</h2>
+                <p data-key="about_cta_desc">Discutons de vos projets. Notre équipe est prête à transformer vos défis en
+                    opportunités.</p>
+                <a href="contact.html" class="btn btn-primary" data-key="about_cta_btn">Contactez-nous</a>
+            </div>
+        </section>
+
+        <!-- ======================= FOOTER ======================= -->
+        <footer>
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-column">
+                        <h5 data-key="footer_explore_title">Explorer</h5>
+                        <ul>
+                            <li><a href="index.html" data-key="nav_home">Accueil</a></li>
+                            <li><a href="about.html" data-key="nav_about_footer">À Propos</a></li>
+                            <li><a href="vtc.html" data-key="nav_vtc">ZAZA</a></li>
+                            <!-- <li><a href="nextcloud.html" data-key="nav_cloud">Cloud Hosting</a></li> -->
+                            <li><a href="geschool.html" data-key="nav_geschool">Geschool</a></li>
+                            <li><a href="news.html" data-key="nav_news">Actualités</a></li>
+                            <li><a href="contact.html" data-key="nav_contact_footer">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h5 data-key="footer_contact_title">Nous Joindre</h5>
+                        <ul class="footer-contact-info">
+                            <li>
+                                <img src="images/location-icon.png" alt="Icône localisation" class="icon">
+                                <span data-key="footer_address">Immeuble acacia, Mpita, Pointe-Noire, Congo</span>
+                            </li>
+                            <li>
+                                <img src="images/email-icon.png" alt="Icône email" class="icon">
+                                <a href="mailto:contact@smartwise.cg">contact@smartwise.cg</a>
+                            </li>
+                            <li>
+                                <img src="images/phone-icon.png" alt="Icône téléphone" class="icon">
+                                <a href="tel:+242066236530">+242 06 623 65 30</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="footer-column">
-                    <h5 data-key="footer_contact_title">Nous Joindre</h5>
-                    <ul class="footer-contact-info">
-                        <li>
-                            <img src="images/location-icon.png" alt="Icône localisation" class="icon">
-                            <span data-key="footer_address">Immeuble acacia, Mpita, Pointe-Noire, Congo</span>
-                        </li>
-                        <li>
-                            <img src="images/email-icon.png" alt="Icône email" class="icon">
-                            <a href="mailto:contact@smartwise.cg">contact@smartwise.cg</a>
-                        </li>
-                        <li>
-                            <img src="images/phone-icon.png" alt="Icône téléphone" class="icon">
-                            <a href="tel:+242066236530">+242 06 623 65 30</a>
-                        </li>
-                    </ul>
+                <div class="footer-bottom">
+                    <div class="social-container">
+                        <a href="coming-soon.html" class="social-btn">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="coming-soon.html" class="social-btn">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                        <a href="coming-soon.html" class="social-btn">
+                            <i class="ri-linkedin-fill"></i>
+                        </a>
+
+                    </div>
+                    <p class="footer-copyright" data-key="footer_copyright">&copy; 2025 Smart Wise. Tous droits
+                        réservés.
+                    </p>
                 </div>
             </div>
+        </footer>
+    </section>
+     <!-- ================================================================ -->
+    <!-- === MODALE DE DEVIS - AVEC TRADUCTION === -->
+    <!-- ================================================================ -->
+    <div id="quoteModal" class="quote-modal-overlay">
+        <div class="quote-modal-container">
+            <button class="quote-modal-close" onclick="closeQuoteModal()">
+                <span class="close-icon">&times;</span>
+            </button>
 
-            <div class="footer-bottom">
-                <div class="footer-social">
-                    <a href="coming-soon.html" title="Facebook"><img src="images/facebook-icon.png"
-                            alt="Page Facebook ZAZA"></a>
-                    <a href="coming-soon.html" title="Instagram"><img src="images/instagram-icon.png"
-                            alt="Page Instagram ZAZA"></a>
+            <div class="quote-modal-body">
+                <!-- COLONNE GAUCHE -->
+                <div class="quote-sidebar branding-sidebar">
+                    <div class="sidebar-content">
+                        <!-- Ajout data-key -->
+                        <h3 class="sidebar-title" data-key="quote_sidebar_title">Concrétisons votre vision</h3>
+                        <p class="sidebar-desc" data-key="quote_sidebar_desc">Nos experts sont prêts à vous accompagner
+                            dans votre transformation numérique.</p>
+
+                        <div class="sidebar-separator"></div>
+
+                        <ul class="sidebar-contact-list">
+                            <li>
+                                <img src="images/location-icon.png" class="icon-white" alt="Adresse bureau">
+                                <div>
+                                    <strong data-key="quote_sidebar_hq">Siège social</strong><br>
+                                    <span data-key="contact_info_address_content">Immeuble Acacia, Mpita Pointe-Noire,
+                                        Congo</span>
+                                </div>
+                            </li>
+                            <li>
+                                <img src="images/phone-icon.png" class="icon-white" alt="Téléphone contact">
+                                <div>
+                                    <strong data-key="quote_sidebar_phone">Téléphone</strong><br>
+                                    <span>+242 06 623 65 30</span>
+                                </div>
+                            </li>
+                            <li>
+                                <img src="images/email-icon.png" class="icon-white" alt="Email contact">
+                                <div>
+                                    <strong>Email</strong><br>
+                                    <span>contact@smartwise.cg</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- CORRECTION 3 : Image décorative, alt vide ou descriptif motif -->
+                    <img src="images/logo_spirale.png" class="sidebar-bg-pattern" alt="Motif spirale décoratif">
                 </div>
-                <p class="footer-copyright" data-key="footer_copyright">&copy; 2025 Smart Wise. Tous droits réservés.
-                </p>
+
+                <!-- COLONNE DROITE : FORMULAIRE -->
+                <div class="quote-form-wrapper">
+                    <div class="form-header">
+                        <h2 class="form-title" data-key="quote_form_title">Demande de Devis</h2>
+                        <p class="form-subtitle" data-key="quote_form_subtitle">Remplissez ce formulaire, nous vous
+                            répondons sous 24h.</p>
+                    </div>
+
+                    <form class="quote-form" action="#" method="POST">
+                        <div class="form-grid">
+                            <!-- Type de projet -->
+                            <div class="form-group full">
+                                <label data-key="quote_label_iam">Je suis un(e)</label>
+                                <div class="radio-group">
+                                    <label class="radio-option">
+                                        <input type="radio" name="client_type" value="Entreprise" checked>
+                                        <span data-key="quote_radio_company">Entreprise</span>
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="client_type" value="Particulier">
+                                        <span data-key="quote_radio_individual">Particulier</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Champs avec Labels Flottants -->
+                            <div class="form-group">
+                                <input type="text" name="fullname" required placeholder=" ">
+                                <!-- Ajout data-key sur le label -->
+                                <label class="floating-label" data-key="quote_label_fullname">Nom complet</label>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" name="company" placeholder=" ">
+                                <label class="floating-label" data-key="quote_label_company">Entreprise
+                                    (Optionnel)</label>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="email" name="email" required placeholder=" ">
+                                <label class="floating-label" data-key="quote_label_email">Email professionnel</label>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="tel" name="phone" required placeholder=" ">
+                                <label class="floating-label" data-key="quote_label_phone">Téléphone</label>
+                            </div>
+
+                            <!-- Liste déroulante (Select) -->
+                            <div class="form-group full">
+                                <select name="service" required>
+                                    <!-- Ajout data-key sur les options -->
+                                    <option value="" disabled selected data-key="quote_select_placeholder">Quel service
+                                        vous intéresse ?</option>
+                                    <option value="VTC" data-key="quote_select_vtc">ZAZA (VTC)</option>
+                                    <option value="Cloud" data-key="quote_select_cloud">Hébergement Cloud</option>
+                                    <option value="Geschool" data-key="quote_select_geschool">Geschool</option>
+                                    <option value="Dev" data-key="quote_select_dev">Dév. Logiciel & Mobile</option>
+                                    <option value="Web" data-key="quote_select_web">Développement Web</option>
+                                    <option value="RS" data-key="quote_select_rs">Réseaux & Systèmes</option>
+                                    <option value="Arcgis" data-key="quote_select_arcgis">ArcGIS / Géomatique</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group full">
+                                <textarea name="message" rows="3" placeholder=" "></textarea>
+                                <label class="floating-label" data-key="quote_label_message">Décrivez brièvement votre
+                                    besoin...</label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-block" data-key="quote_btn_submit">Envoyer la
+                            demande</button>
+                    </form>
+                </div>
             </div>
         </div>
-    </footer>
+    </div>
 
 
     <script src="translations.js"></script>
