@@ -535,13 +535,16 @@ section {
 /* Par défaut (impairs 1, 3) : Texte gauche / Image droite. Pas de changement nécessaire. */
 
 
+/* Modifiez cette partie dans votre code existant */
 #features .feature-text,
 #features .feature-image {
-    flex: 1;
-    z-index: 2; /* Le contenu passe DEVANT le background */
+    flex: 1; /* Prend l'espace disponible équitablement */
+    z-index: 2;
     position: relative;
-     max-width: 60%; 
-    margin: 0 auto; /* Centre le texte horizontalement dans sa zone */
+    
+    /* MODIFICATION ICI : On passe de 60% à 50% ou on laisse le flex gérer */
+    max-width: 50%; /* Assure que personne ne mange l'espace de l'autre */
+    width: 100%; /* Sécurité */
 }
 
 #features .feature-image {
@@ -640,7 +643,22 @@ section {
     /* Forme Wave Asymétrique 4 */
     border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
 }
-
+/* --- CORRECTIF TABLETTE PAYSAGE & PETITS PC (992px - 1200px) --- */
+@media (min-width: 992px) and (max-width: 1200px) {
+    #features .feature {
+        padding: 3rem 2rem; /* On réduit un peu le padding interne */
+        gap: 2rem; /* On rapproche texte et image */
+    }
+    
+    #features h2 {
+        font-size: 2rem; /* Titre un peu plus petit */
+    }
+    
+    /* On s'assure que le texte ne sorte pas des formes asymétriques */
+    #features .feature-text {
+        font-size: 0.95rem; /* Réduit légèrement la police si besoin */
+    }
+}
 /* =========================================
    RESPONSIVE (MOBILE)
    ========================================= */
@@ -648,7 +666,7 @@ section {
     #features .feature {
         flex-direction: column !important; /* Force la colonne pour tous */
         text-align: center;
-        padding: 3rem 1.5rem;
+        padding: 1rem 1.5rem;
         gap: 2rem;
     }
     
@@ -914,12 +932,6 @@ footer {
     height: 100%;
     object-fit: cover;
     /* Assure que l'image couvre tout l'espace sans se déformer */
-}
-
-.hero-slideshow .swiper-slide:first-child img {
-
-    /* 50% (horizontal) et 60% (vertical) pour remonter l'image */
-    object-position: 10% 60%;
 }
 
 /* --- ÉTAPE 3 : On ajoute une surcouche sombre pour la lisibilité --- */
@@ -2190,41 +2202,58 @@ footer {
 
 /* --- START OF ADDITION --- */
 
+
+/* ================================================================ */
+/* === CORRECTIF GLOBAL (Important pour éviter le débordement) === */
+/* ================================================================ */
+html, body {
+    overflow-x: hidden; /* Empêche impérativement le scroll horizontal */
+    width: 100%;
+    position: relative;
+}
+
 /* ================================================================ */
 /* === VOITURE ANIMÉE AU SCROLL POUR LA PAGE VTC === */
 /* ================================================================ */
 
 .scroll-car-container {
     position: fixed;
-    /* Position sur le côté droit de l'écran. Ajustez si besoin. */
-    right: 30px;
-    top: 0;
-    /* Assurez-vous qu'elle soit au-dessus des autres contenus */
+    /* Version PC : On la place confortablement loin du bord */
+    right: 50px; 
+    top: 0; 
     z-index: 999;
-    /* Dimensions du conteneur. L'image s'adaptera. */
-    width: 70px;
-    /* Empêche l'élément de capter les clics de souris */
+    /* Taille PC standard */
+    width: 60px;
     pointer-events: none;
+    /* Sécurité pour ne pas dépasser la largeur de l'écran */
+    max-width: 15vw; 
 }
 
 .scroll-car-container img {
     width: 100%;
     height: auto;
+    display: block; /* Supprime les petits espaces fantômes sous les images */
     transition: transform 0.2s ease-out;
-    /* Ajoute une transition douce pour le retournement */
 }
 
-/* On cache la voiture sur les écrans mobiles pour ne pas surcharger l'interface */
+/* ================================================================ */
+/* === VERSION MOBILE (Adaptation stricte) === */
+/* ================================================================ */
 @media (max-width: 768px) {
     .scroll-car-container {
-        /* On réduit sa taille pour qu'elle soit moins intrusive */
-        width: 45px;
+        /* On réduit franchement la taille pour le mobile */
+        width: 35px;
 
-        /* On la rapproche un peu du bord de l'écran */
-        right: 15px;
+        /* On utilise '5vw' (5% de la largeur de l'écran) au lieu des pixels.
+           Cela garantit que la voiture s'écarte du bord proportionnellement 
+           à la taille de l'écran du téléphone. */
+        right: 5vw; 
+        
+        /* Optionnel : Si elle touche le texte "Le confort...", 
+           on peut ajouter une légère opacité pour voir le texte dessous */
+        /* opacity: 0.9; */
     }
 }
-
 /* --- END OF ADDITION --- */
 
 /* ================================================================ */
@@ -3042,6 +3071,35 @@ nav .nav-links li.dropdown.submenu-open>.dropdown-menu {
     /* Espacement réduit aussi */
 }
 
+/* 1. Le conteneur principal */
+.geschool-content {
+    display: flex;             /* Active le mode Flexbox */
+    flex-direction: row;       /* Met l'image et le texte côte à côte */
+    justify-content: flex-start; /* IMPORTANT : Pousse tout le contenu vers la GAUCHE */
+    align-items: center;       /* Centre verticalement l'image et le texte */
+    text-align: left;          /* Assure que le texte lui-même est aligné à gauche */
+    
+    /* Optionnel : Si votre container a une largeur fixe et est centré, ceci le décale */
+    margin-left: 0;            
+    margin-right: auto;
+    
+    /* Optionnel : Ajoutez un peu d'espace sur le bord gauche pour que ça ne colle pas l'écran */
+    padding-left: -5%;          
+}
+
+.geschool-hero h1 span {
+    
+    font-size: clamp(1.5rem, 5vw, 3.5rem) !important;
+    letter-spacing: 4px;
+    
+    /* Ajoutez ces lignes : */
+    white-space: nowrap;   /* Empêche le texte de se casser sur deux lignes */
+    display: inline-block; /
+    
+}
+
+
+
 /* 4. EXCEPTION : PAGE ACTUALITÉS & COMING SOON (Taille moyenne) */
 /* Si tu veux qu'ils soient un peu différents des autres */
 .news-hero h1 span,
@@ -3049,6 +3107,10 @@ nav .nav-links li.dropdown.submenu-open>.dropdown-menu {
     font-size: clamp(2.2rem, 8vw, 4.5rem);
 }
 
+/* Edition du titre h1*/
+.news-hero .hero-text {
+    padding-top: 320px; /* Augmentez ce chiffre pour descendre plus bas */
+}
 
 /* ================================================================ */
 /* === GESTION DU LAYOUT DESKTOP (PC > 992px) === */
@@ -3181,6 +3243,7 @@ nav .nav-links li.dropdown.submenu-open>.dropdown-menu {
         font-size: clamp(2rem, 10vw, 3.5rem);
     }
 
+   
     .vtc-hero h1 span {
         font-size: clamp(1.6rem, 5vw, 2.2rem);
     }
@@ -5164,7 +5227,7 @@ nav .nav-links li.dropdown.submenu-open>.dropdown-menu {
 /* --- L'IMAGE (LOGO) À GAUCHE --- */
 .geschool-hero .hero-image {
     flex: 0 0 auto;
-    width: 500px;
+    width: 400px;
     display: flex;
     justify-content: center;
 }
@@ -5353,3 +5416,7 @@ nav .nav-links li.dropdown.submenu-open>.dropdown-menu {
         0 0 30px rgba(78, 121, 148, 0.5);
     /* Halo diffus */
 }
+
+
+
+

@@ -131,9 +131,10 @@ const translations = {
         nextcloud_contact_wa_link: "https://wa.me/242056323722?text=Hello,%20I%20have%20a%20question%20about%20your%20GoCloud%20offers.",
 
         // --- Geschool Page (geschool.html) ---
-        
-        geschool_hero_line2: "The 5-in-1 School",
-        geschool_hero_line3: "Management Software",
+        geschool_hero_line1: "The 5-in-1",
+        geschool_hero_line2: "School",
+        geschool_hero_line3: "Management",
+        geschool_hero_line4: "Software",
         geschool_hero_subtitle: "A revolutionary and innovative solution integrating 5 management software modules to solve the challenges of the education sector and optimize your institution's operations.",
         geschool_hero_cta_contact: "Request a Demo",
         geschool_benefits_title: "A Complete Platform for Your School",
@@ -463,9 +464,10 @@ const translations = {
         nextcloud_contact_wa_link: "https://wa.me/242056323722?text=Bonjour,%20j'ai%20une%20question%20concernant%20vos%20offres%20GoCloud.",
 
         // --- Geschool Page (geschool.html) ---
-       
-        geschool_hero_line2: "Le Progiciel de Gestion",
+        geschool_hero_line1: "Progiciel",
+        geschool_hero_line2: "de Gestion",
         geschool_hero_line3: "Scolaire 5 en 1",
+        geschool_hero_line4: " ",
         geschool_hero_subtitle: "Une solution révolutionnaire et innovante intégrant 5 logiciels de gestion pour résoudre les problématiques du secteur éducatif et optimiser le fonctionnement de votre établissement.",
         geschool_hero_cta_contact: "Demander une démo",
         geschool_benefits_title: "Une Plateforme Complète pour Votre École",

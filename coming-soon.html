@@ -5,6 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-key-meta="meta_title_coming_soon">Bientôt Disponible - Smart Wise</title>
+    
+    <link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+    <link rel="manifest" href="/images/site.webmanifest" />
 
     <!-- CSS Links -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
@@ -104,51 +110,74 @@
         </section>
     </main>
 
-    <!-- === FOOTER (Identique aux autres pages) === -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column">
-                    <h5 data-key="footer_explore_title">Explorer</h5>
-                    <ul>
-                        <li><a href="index.html" data-key="nav_home">Accueil</a></li>
-                        <li><a href="about.html" data-key="nav_about_footer">À Propos</a></li>
-                        <li><a href="vtc.html">Smart Wise VTC</a></li>
-                        <li><a href="nextcloud.html">Smart Wise Cloud</a></li>
-                        <li><a href="geschool.html">Geschool ERP</a></li>
-                        <li><a href="news.html" data-key="nav_news">Actualités</a></li>
-                        <li><a href="contact.html" data-key="nav_contact_footer">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h5 data-key="footer_contact_title">Nous Joindre</h5>
-                    <ul class="footer-contact-info">
-                        <li>
-                            <img src="images/location-icon.png" alt="Adresse" class="icon">
-                            <span data-key="footer_address">Immeuble acacia, Mpita, Pointe-Noire, Congo</span>
-                        </li>
-                        <li>
-                            <img src="images/email-icon.png" alt="Email" class="icon">
-                            <a href="mailto:contact@smartwise.cg">contact@smartwise.cg</a>
-                        </li>
-                        <li>
-                            <img src="images/phone-icon.png" alt="Téléphone" class="icon">
-                            <a href="tel:+242066236530">+242 06 623 65 30</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="footer-social">
-                    <a href="#" title="Facebook"><img src="images/facebook-icon.png" alt="Facebook"></a>
-                    <a href="#" title="Instagram"><img src="images/instagram-icon.png" alt="Instagram"></a>
-                </div>
-                <p class="footer-copyright" data-key="footer_copyright">&copy; 2025 Smart Wise. Tous droits réservés.
-                </p>
-            </div>
-        </div>
-    </footer>
+    <section class="cta-wrapper">
 
+        <!-- === APPEL À L'ACTION (CTA) === -->
+        <section class="cta-section">
+            <div class="container">
+                <h2 data-key="about_cta_title">Prêt à construire l'avenir avec nous ?</h2>
+                <p data-key="about_cta_desc">Discutons de vos projets. Notre équipe est prête à transformer vos défis en
+                    opportunités.</p>
+                <a href="contact.html" class="btn btn-primary" data-key="about_cta_btn">Contactez-nous</a>
+            </div>
+        </section>
+
+        <!-- ======================= FOOTER ======================= -->
+        <footer>
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-column">
+                        <h5 data-key="footer_explore_title">Explorer</h5>
+                        <ul>
+                            <li><a href="index.html" data-key="nav_home">Accueil</a></li>
+                            <li><a href="about.html" data-key="nav_about_footer">À Propos</a></li>
+                            <li><a href="vtc.html" data-key="nav_vtc">ZAZA</a></li>
+                            <!-- <li><a href="nextcloud.html" data-key="nav_cloud">Cloud Hosting</a></li> -->
+                            <li><a href="geschool.html" data-key="nav_geschool">Geschool</a></li>
+                            <li><a href="news.html" data-key="nav_news">Actualités</a></li>
+                            <li><a href="contact.html" data-key="nav_contact_footer">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h5 data-key="footer_contact_title">Nous Joindre</h5>
+                        <ul class="footer-contact-info">
+                            <li>
+                                <img src="images/location-icon.png" alt="Icône localisation" class="icon">
+                                <span data-key="footer_address">Immeuble acacia, Mpita, Pointe-Noire, Congo</span>
+                            </li>
+                            <li>
+                                <img src="images/email-icon.png" alt="Icône email" class="icon">
+                                <a href="mailto:contact@smartwise.cg">contact@smartwise.cg</a>
+                            </li>
+                            <li>
+                                <img src="images/phone-icon.png" alt="Icône téléphone" class="icon">
+                                <a href="tel:+242066236530">+242 06 623 65 30</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <div class="social-container">
+                        <a href="coming-soon.html" class="social-btn">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="coming-soon.html" class="social-btn">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                        <a href="coming-soon.html" class="social-btn">
+                            <i class="ri-linkedin-fill"></i>
+                        </a>
+
+                    </div>
+                    <p class="footer-copyright" data-key="footer_copyright">&copy; 2025 Smart Wise. Tous droits
+                        réservés.
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </section>
     <!-- Scripts -->
     <script src="translations.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
