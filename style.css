@@ -2238,17 +2238,6 @@ footer {
 
 
 /* ================================================================ */
-/* === CORRECTIF GLOBAL (Important pour éviter le débordement) === */
-/* ================================================================ */
-html,
-body {
-    overflow-x: hidden;
-    /* Empêche impérativement le scroll horizontal */
-    width: 100%;
-    position: relative;
-}
-
-/* ================================================================ */
 /* === VOITURE ANIMÉE AU SCROLL POUR LA PAGE VTC === */
 /* ================================================================ */
 
@@ -5459,4 +5448,24 @@ nav .nav-links li.dropdown.submenu-open>.dropdown-menu {
         /* Cœur lumineux */
         0 0 30px rgba(78, 121, 148, 0.5);
     /* Halo diffus */
+}
+
+/* --- Correction débordement Pricing VTC --- */
+.pricing {
+    /* Coupe tout ce qui dépasse horizontalement (les coins des cartes) */
+    overflow-x: hidden;
+    
+    /* Sécurité : force la section à ne jamais dépasser la largeur de l'écran */
+    max-width: 100vw;
+    width: 100%;
+
+    /* Important : laisse le contenu vertical dépasser si besoin (pour les ombres etc) */
+    overflow-y: visible;
+}
+
+/* Optionnel : Ajoute un peu de marge interne sur les côtés pour que 
+   l'animation ait de la place pour tourner sans être coupée net */
+.pricing .container {
+    padding-left: 20px;
+    padding-right: 20px;
 }
