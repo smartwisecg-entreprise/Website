@@ -25,6 +25,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
 
@@ -137,6 +138,125 @@
                 </div>
             </div>
         </section>
+
+
+        <!-- ================================================================ -->
+        <!-- === SECTION 1 : CARDS C# STYLISÉES === -->
+        <!-- ================================================================ -->
+        <!-- SECTION 1 : CODE SHOWCASE (Expertise Logicielle) -->
+        <section class="code-showcase-section">
+            <div class="container">
+                <div class="showcase-wrapper">
+                    <div class="showcase-content">
+                        <!-- AJOUT DES DATA-KEY ICI -->
+                        <span class="badge-tech" data-key="code_showcase_badge">Ingénierie & Solutions</span>
+                        <h2 class="section-title" data-key="code_showcase_title">L'ingénierie logicielle au service de
+                            vos infrastructures numériques</h2>
+                        <p class="section-text" data-key="code_showcase_desc">
+                            Du développement de systèmes critiques à l'analyse géomatique, en passant par l'architecture
+                            réseau,
+                            nous concevons des solutions technologiques robustes, intégrées et performantes.
+                        </p>
+                        <div class="image-box">
+                            <img src="images/coder.webp" alt="Développement de logiciels" class="showcase-img"
+                                data-key-alt="alt_code_img">
+                        </div>
+                    </div>
+
+                    <div class="showcase-terminal">
+                        <div class="code-card">
+                            <div class="code-header">
+                                <div class="terminal-dots">
+                                    <span class="t-dot red"></span>
+                                    <span class="t-dot yellow"></span>
+                                    <span class="t-dot green"></span>
+                                </div>
+                                <span class="filename" data-key="terminal_filename">SmartWise_Innovation.cs</span>
+                            </div>
+                            <div class="code-content" id="terminal-code">
+                                <!-- Les lignes de code C# restent généralement en anglais, mais on peut ajouter des keys si besoin -->
+                                <div class="code-line"><span class="keyword">using</span> System.Intelligence;</div>
+                                <div class="code-line"><span class="keyword">namespace</span> <span
+                                        class="class-name">SmartWise.Core</span> {</div>
+                                <div class="code-line indent-1"><span class="keyword">public class</span> <span
+                                        class="class-name">DigitalTransformation</span> {</div>
+                                <div class="code-line indent-2"><span class="keyword">public async</span> <span
+                                        class="type">Task</span> <span class="method">ExecuteProject</span>() {</div>
+                                <div class="code-line indent-3"><span class="keyword">var</span> app = <span
+                                        class="keyword">new</span> <span class="type">CustomSoftware</span>();</div>
+                                <div class="code-line indent-3">app.<span class="method">AddFeature</span>(<span
+                                        class="string">"Cloud Sync"</span>);</div>
+                                <div class="code-line indent-3">app.<span class="method">AddFeature</span>(<span
+                                        class="string">"AI Analytics"</span>);</div>
+                                <div class="code-line indent-3"><span class="keyword">await</span> app.<span
+                                        class="method">DeployToCongo</span>();</div>
+                                <div class="code-line indent-2">}</div>
+                                <div class="code-line indent-1">}</div>
+                                <div class="code-line">}</div>
+
+                                <!-- AJOUT DATA-KEY POUR LA SORTIE TERMINAL -->
+                                <div class="terminal-output">
+                                    <div class="log-msg"><span class="prompt">></span> <span
+                                            data-key="terminal_log_compiling">[INFO] Compiling
+                                            SmartWise_Innovation.cs...</span></div>
+                                    <div class="log-msg"><span class="prompt">></span> <span
+                                            data-key="terminal_log_building">[INFO] Building digital
+                                            infrastructure...</span></div>
+                                    <div class="log-msg"><span class="prompt">></span> <span
+                                            data-key="terminal_log_success">[SUCCESS] Project successfully deployed to
+                                            Brazzaville Server.</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2 : STACK TECH -->
+        <section class="tech-stack">
+            <div class="huly-ripples">
+                <div class="concentric-wave"></div>
+                <div class="concentric-wave"></div>
+                <div class="concentric-wave"></div>
+                <div class="concentric-wave"></div>
+            </div>
+
+            <div class="tech-content-centered">
+                <!-- AJOUT DES DATA-KEY ICI -->
+                <h2 class="tech-title" data-key="tech_stack_title">Stack Technique</h2>
+                <p class="tech-subtitle" data-key="tech_stack_subtitle">L'excellence technique au service de vos logiciels et infrastructures.</p>
+
+                <div class="tech-icons-grid">
+                    <div class="tech-item" style="--clr:#9b4993;">
+                        <div class="icon-box"><i class="fab fa-microsoft"></i></div><span>C#</span>
+                    </div>
+                    <div class="tech-item" style="--clr:#f7df1e;">
+                        <div class="icon-box"><i class="fab fa-js"></i></div><span>JavaScript</span>
+                    </div>
+                    <div class="tech-item" style="--clr:#3776ab;">
+                        <div class="icon-box"><i class="fab fa-python"></i></div><span>Python</span>
+                    </div>
+                    <div class="tech-item" style="--clr:#2962ff;">
+                        <div class="icon-box"><i class="fas fa-database"></i></div><span>SQL Server</span>
+                    </div>
+                    <div class="tech-item" style="--clr:#e34f26;">
+                        <div class="icon-box"><i class="fab fa-html5"></i></div><span>HTML5</span>
+                    </div>
+                    <div class="tech-item" style="--clr:#1572b6;">
+                        <div class="icon-box"><i class="fab fa-css3-alt"></i></div><span>CSS3</span>
+                    </div>
+                    <div class="tech-item" style="--clr:#32a852;">
+                        <div class="icon-box"><i class="fas fa-map-marked-alt"></i></div><span>SIG / ArcGIS</span>
+                    </div>
+
+                    <!-- AJOUT : RÉSEAUX & SYSTÈMES -->
+                    <div class="tech-item" style="--clr:#607d8b;">
+                        <div class="icon-box"><i class="fas fa-network-wired"></i></div><span>Réseaux</span>
+                    </div>
+                </div>
+            </div>
+        </section>
         <!-- ================================================================ -->
         <!-- === FIN DE LA MODIFICATION DE LA SECTION HERO === -->
         <!-- ================================================================ -->
@@ -242,61 +362,62 @@
                     un devis</a>
             </div>
         </section>
-   
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column">
-                    <h5 data-key="footer_explore_title">Explorer</h5>
-                    <ul>
-                        <li><a href="index.html" data-key="nav_home">Accueil</a></li>
-                        <li><a href="about.html" data-key="nav_about_footer">À Propos</a></li>
-                        <li><a href="vtc.html" data-key="nav_vtc">ZAZA</a></li>
-                        <!-- <li><a href="nextcloud.html" data-key="nav_cloud">Cloud Hosting</a></li> -->
-                        <li><a href="geschool.html" data-key="nav_geschool">Geschool</a></li>
-                        <li><a href="news.html" data-key="nav_news">Actualités</a></li>
-                        <li><a href="contact.html" data-key="nav_contact_footer">Contact</a></li>
-                    </ul>
+
+        <footer>
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-column">
+                        <h5 data-key="footer_explore_title">Explorer</h5>
+                        <ul>
+                            <li><a href="index.html" data-key="nav_home">Accueil</a></li>
+                            <li><a href="about.html" data-key="nav_about_footer">À Propos</a></li>
+                            <li><a href="vtc.html" data-key="nav_vtc">ZAZA</a></li>
+                            <!-- <li><a href="nextcloud.html" data-key="nav_cloud">Cloud Hosting</a></li> -->
+                            <li><a href="geschool.html" data-key="nav_geschool">Geschool</a></li>
+                            <li><a href="news.html" data-key="nav_news">Actualités</a></li>
+                            <li><a href="contact.html" data-key="nav_contact_footer">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h5 data-key="footer_contact_title">Nous Joindre</h5>
+                        <ul class="footer-contact-info">
+                            <li>
+                                <img src="images/location-icon.png" alt="Icône localisation" class="icon">
+                                <span data-key="footer_address">Immeuble acacia, Mpita, Pointe-Noire, Congo</span>
+                            </li>
+                            <li>
+                                <img src="images/email-icon.png" alt="Icône email" class="icon">
+                                <a href="mailto:contact@smartwise.cg">contact@smartwise.cg</a>
+                            </li>
+                            <li>
+                                <img src="images/phone-icon.png" alt="Icône téléphone" class="icon">
+                                <a href="tel:+242066236530">+242 06 623 65 30</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="footer-column">
-                    <h5 data-key="footer_contact_title">Nous Joindre</h5>
-                    <ul class="footer-contact-info">
-                        <li>
-                            <img src="images/location-icon.png" alt="Icône localisation" class="icon">
-                            <span data-key="footer_address">Immeuble acacia, Mpita, Pointe-Noire, Congo</span>
-                        </li>
-                        <li>
-                            <img src="images/email-icon.png" alt="Icône email" class="icon">
-                            <a href="mailto:contact@smartwise.cg">contact@smartwise.cg</a>
-                        </li>
-                        <li>
-                            <img src="images/phone-icon.png" alt="Icône téléphone" class="icon">
-                            <a href="tel:+242066236530">+242 06 623 65 30</a>
-                        </li>
-                    </ul>
+                <div class="footer-bottom">
+                    <div class="social-container">
+                        <a href="coming-soon.html" class="social-btn">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="coming-soon.html" class="social-btn">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                        <a href="coming-soon.html" class="social-btn">
+                            <i class="ri-linkedin-fill"></i>
+                        </a>
+
+                    </div>
+                    <p class="footer-copyright" data-key="footer_copyright">&copy; 2025 Smart Wise. Tous droits
+                        réservés.
+                    </p>
                 </div>
             </div>
-
-            <div class="footer-bottom">
-                <div class="social-container">
-                    <a href="coming-soon.html" class="social-btn">
-                        <i class="ri-facebook-fill"></i>
-                    </a>
-                    <a href="coming-soon.html" class="social-btn">
-                        <i class="ri-instagram-line"></i>
-                    </a>
-                    <a href="coming-soon.html" class="social-btn">
-                        <i class="ri-linkedin-fill"></i>
-                    </a>
-
-                </div>
-                <p class="footer-copyright" data-key="footer_copyright">&copy; 2025 Smart Wise. Tous droits réservés.
-                </p>
-            </div>
-        </div>
-    </footer>
-     </section>
+        </footer>
+    </section>
 
     <!-- ================================================================ -->
     <!-- === MODALE DE DEVIS - AVEC TRADUCTION === -->

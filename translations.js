@@ -58,6 +58,22 @@ const translations = {
         home_service_geschool_desc: "The all-in-one software solution for managing students, grades, finances, and communication within your educational institution.",
         home_service_geschool_btn: "Discover Geschool",
 
+        // SECTION : CODE SHOWCASE (ENGINEERING)
+        "code_showcase_badge": "Engineering & Solutions",
+        "code_showcase_title": "Software engineering powering your digital infrastructures",
+        "code_showcase_desc": "From critical systems development to geomatics analysis and network architecture, we design robust, integrated, and high-performance technological solutions.",
+        "alt_code_img": "Software and systems solutions development",
+
+        // C# TERMINAL
+        "terminal_filename": "SmartWise_Innovation.cs",
+        "terminal_log_compiling": "[INFO] Compiling SmartWise_Innovation.cs...",
+        "terminal_log_building": "[INFO] Building digital infrastructure...",
+        "terminal_log_success": "[SUCCESS] Solution successfully deployed to servers.",
+
+        // TECH STACK SECTION
+        "tech_stack_title": "Technology Ecosystem",
+        "tech_stack_subtitle": "Technical excellence powering your software and infrastructure",
+
         // --- VTC Page (vtc.html) ---
         vtc_hero_word1: "Request a ride,",
         vtc_hero_word2: "or",
@@ -387,6 +403,22 @@ const translations = {
         home_service_geschool_title: "Geschool",
         home_service_geschool_desc: "La solution logicielle tout-en-un pour la gestion des apprenants, des notes, des finances et de la communication au sein de votre établissement scolaire.",
         home_service_geschool_btn: "Découvrir Geschool",
+
+        // SECTION : CODE SHOWCASE (INGÉNIERIE)
+        "code_showcase_badge": "Ingénierie & Solutions",
+        "code_showcase_title": "L'ingénierie logicielle au service de vos infrastructures numériques",
+        "code_showcase_desc": "Du développement de systèmes critiques à l'analyse géomatique, en passant par l'architecture réseau, nous concevons des solutions technologiques robustes, intégrées et performantes.",
+        "alt_code_img": "Développement de solutions logicielles et systèmes",
+
+        // TERMINAL C#
+        "terminal_filename": "SmartWise_Innovation.cs",
+        "terminal_log_compiling": "[INFO] Compilation de SmartWise_Innovation.cs...",
+        "terminal_log_building": "[INFO] Construction de l'infrastructure numérique...",
+        "terminal_log_success": "[SUCCÈS] Solution déployée avec succès sur les serveurs.",
+
+        // SECTION TECH STACK
+        "tech_stack_title": "Écosystème Technologique",
+        "tech_stack_subtitle": "L'excellence technique au service de vos logiciels et infrastructures",
 
         // --- VTC Page (vtc.html) ---
         vtc_hero_word1: "Commandez une course",

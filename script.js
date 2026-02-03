@@ -340,6 +340,50 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
+        // --- ANIMATION CODE SHOWCASE (Lignes qui s'ajoutent au scroll) ---
+        
+            if (document.querySelector('.code-showcase-section')) {
+                const lines = document.querySelectorAll('.code-line');
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: ".showcase-terminal",
+                        start: "top 70%",
+                        toggleActions: "play none none none"
+                    }
+                });
+
+                // Animation de chaque ligne
+                lines.forEach((line, index) => {
+                    tl.to(line, {
+                        width: "100%",
+                        duration: 1.5,
+                        ease: "none",
+                        onStart: () => {
+                            line.classList.add('is-typing');
+                        },
+                        onComplete: () => {
+                            line.classList.remove('is-typing');
+                        }
+                    }, index * 0.4); // Délai entre les lignes
+                });
+
+                // Animation de la console de sortie à la fin
+                tl.to(".terminal-output", {
+                    display: "block",
+                    opacity: 1,
+                    duration: 0.5
+                });
+
+                // Simulation de logs de déploiement
+                tl.from(".log-msg", {
+                    opacity: 0,
+                    y: 10,
+                    stagger: 0.2,
+                    duration: 0.4
+                });
+            }
+        
+
         // --- 2. Page Geschool ---
         if (document.querySelector('.geschool-hero')) {
             if (document.querySelector(".geschool-hero h1 span")) {
@@ -1077,8 +1121,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        
-   } // Fermeture du if (typeof gsap !== 'undefined')
+
+    } // Fermeture du if (typeof gsap !== 'undefined')
 });
 
 
