@@ -5521,6 +5521,7 @@ nav .nav-links li.dropdown.submenu-open>.dropdown-menu {
     border-radius: 12px;
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
 }
 
 .code-header {
@@ -5567,6 +5568,7 @@ nav .nav-links li.dropdown.submenu-open>.dropdown-menu {
     font-family: 'Consolas', 'Monaco', monospace;
     font-size: 0.95rem;
     line-height: 1.7;
+    overflow-x: hidden;
 }
 
 /* Coloration C# */
@@ -5609,7 +5611,8 @@ nav .nav-links li.dropdown.submenu-open>.dropdown-menu {
     white-space: nowrap;
     overflow: hidden;
     width: 0;
-    /* Initialisé à 0 pour l'effet de frappe */
+    display: block;
+    box-sizing: border-box;
 }
 
 /* Ligne en cours d'écriture */
@@ -5692,6 +5695,7 @@ nav .nav-links li.dropdown.submenu-open>.dropdown-menu {
     .code-card {
         border-radius: 10px;
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.22);
+        overflow-x: auto;
     }
 
     .code-header {
@@ -5709,8 +5713,10 @@ nav .nav-links li.dropdown.submenu-open>.dropdown-menu {
 
     /* Code */
     .code-content {
-        padding: 20px 16px;
-        font-size: 0.8rem;
+        padding: 15px 10px;
+        /* Moins de padding interne */
+        font-size: 0.75rem;
+        /* Police plus petite pour que les lignes tiennent */
         line-height: 1.6;
         overflow-x: auto;
     }
@@ -5770,22 +5776,30 @@ nav .nav-links li.dropdown.submenu-open>.dropdown-menu {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    background: radial-gradient(circle, transparent 40%, rgba(255,255,255,0.05) 50%, transparent 60%);
+    background: radial-gradient(circle, transparent 40%, rgba(255, 255, 255, 0.05) 50%, transparent 60%);
     border: 1px solid rgba(78, 121, 148, 0.2);
-    
+
     /* Optimisation : Prépare le GPU */
     will-change: transform, opacity;
     pointer-events: none;
-    
+
     /* Animation */
     animation: speaker-pulse 6s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
     opacity: 0;
 }
 
 /* Décalage pour que les ondes se suivent */
-.concentric-wave:nth-child(2) { animation-delay: 1.5s; }
-.concentric-wave:nth-child(3) { animation-delay: 3s; }
-.concentric-wave:nth-child(4) { animation-delay: 4.5s; }
+.concentric-wave:nth-child(2) {
+    animation-delay: 1.5s;
+}
+
+.concentric-wave:nth-child(3) {
+    animation-delay: 3s;
+}
+
+.concentric-wave:nth-child(4) {
+    animation-delay: 4.5s;
+}
 
 /* 3. L'animation de l'onde de choc (Kick) */
 @keyframes speaker-pulse {
@@ -5793,15 +5807,18 @@ nav .nav-links li.dropdown.submenu-open>.dropdown-menu {
         transform: translate(-50%, -50%) scale(0.5);
         opacity: 0;
     }
+
     10% {
         opacity: 0.8;
     }
+
     100% {
         /* Scale 12 c'est grand, vérifie que ça ne crée pas de zone blanche sur mobile */
         transform: translate(-50%, -50%) scale(12);
         opacity: 0;
     }
 }
+
 .huly-ripples {
     position: absolute;
     top: 50%;
