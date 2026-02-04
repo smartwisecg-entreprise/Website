@@ -5752,22 +5752,26 @@ nav .nav-links li.dropdown.submenu-open>.dropdown-menu {
    Section Tech - AJUSTÉE AUX VARIABLES
    ========================================= */
 
+/* =========================================
+   Section Tech - OPTIMISÉE ET NETTOYÉE
+   ========================================= */
+
 .tech-stack {
     position: relative;
     width: 100%;
     min-height: 100vh;
-    /* Dégradé basé sur la couleur primaire pour la cohérence */
     background: linear-gradient(115deg, #3a6073, #16222a);
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: clamp(60px, 10vh, 120px) 20px;
+    /* Indispensable pour la fluidité */
+    contain: paint;
 }
 
 /* --- Ondes concentriques --- */
 
-/* 2. L'onde qui fait "plier" le décor */
 .concentric-wave {
     position: absolute;
     top: 50%;
@@ -5778,56 +5782,21 @@ nav .nav-links li.dropdown.submenu-open>.dropdown-menu {
     border-radius: 50%;
     background: radial-gradient(circle, transparent 40%, rgba(255, 255, 255, 0.05) 50%, transparent 60%);
     border: 1px solid rgba(78, 121, 148, 0.2);
-
-    /* Optimisation : Prépare le GPU */
     will-change: transform, opacity;
     pointer-events: none;
-
-    /* Animation */
     animation: speaker-pulse 6s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
     opacity: 0;
 }
 
-/* Décalage pour que les ondes se suivent */
-.concentric-wave:nth-child(2) {
-    animation-delay: 1.5s;
-}
+.concentric-wave:nth-child(2) { animation-delay: 1.5s; }
+.concentric-wave:nth-child(3) { animation-delay: 3s; }
+.concentric-wave:nth-child(4) { animation-delay: 4.5s; }
 
-.concentric-wave:nth-child(3) {
-    animation-delay: 3s;
-}
-
-.concentric-wave:nth-child(4) {
-    animation-delay: 4.5s;
-}
-
-/* 3. L'animation de l'onde de choc (Kick) */
 @keyframes speaker-pulse {
-    0% {
-        transform: translate(-50%, -50%) scale(0.5);
-        opacity: 0;
-    }
-
-    10% {
-        opacity: 0.8;
-    }
-
-    100% {
-        /* Scale 12 c'est grand, vérifie que ça ne crée pas de zone blanche sur mobile */
-        transform: translate(-50%, -50%) scale(12);
-        opacity: 0;
-    }
+    0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+    10% { opacity: 0.8; }
+    100% { transform: translate(-50%, -50%) scale(12); opacity: 0; }
 }
-
-.huly-ripples {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    pointer-events: none;
-}
-
 
 /* --- Contenu --- */
 .tech-content-centered {
@@ -5840,7 +5809,6 @@ nav .nav-links li.dropdown.submenu-open>.dropdown-menu {
 
 .tech-title {
     font-size: var(--heading-1);
-    /* Respecte le root */
     font-weight: 800;
     line-height: var(--lh-tight);
     background: linear-gradient(to bottom, var(--white) 40%, var(--primary-color));
@@ -5848,51 +5816,23 @@ nav .nav-links li.dropdown.submenu-open>.dropdown-menu {
     background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 15px;
-    padding-bottom: 0.1em;
-    /* Donne de l'air au "g" */
 }
 
 .tech-subtitle {
     color: rgba(255, 255, 255, 0.7);
     font-size: var(--text-md);
-    /* Respecte le root */
     max-width: 600px;
     margin: 0 auto clamp(40px, 8vh, 70px);
 }
 
-/* --- Grille Responsive --- */
-/* --- Grille Responsive (Mise à jour vers Flex pour la symétrie) --- */
+/* --- Grille --- */
 .tech-icons-grid {
     display: flex;
     flex-wrap: wrap;
-    /* Permet le passage à la ligne */
     justify-content: center;
-    /* Centre parfaitement les icônes, même sur la dernière ligne */
-    gap: clamp(30px, 5vw, 60px);
-    /* Un peu plus d'espace pour la clarté */
+    gap: clamp(20px, 4vw, 50px);
     max-width: 950px;
-    /* Augmenté pour laisser respirer 3 ou 4 icônes par ligne */
     margin: 40px auto 0;
-}
-
-/* --- Boites d'icônes (Ton style conservé et optimisé) --- */
-.icon-box {
-
-    width: clamp(80px, 18vw, 110px);
-    height: clamp(80px, 18vw, 110px);
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-radius: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: clamp(2rem, 8vw, 3rem);
-
-    color: var(--clr);
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .tech-item {
@@ -5901,82 +5841,69 @@ nav .nav-links li.dropdown.submenu-open>.dropdown-menu {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* On définit une largeur de base pour que les éléments soient bien alignés */
     flex: 0 1 150px;
+    outline: none;
 }
 
-/* --- Style du texte sous l'icône (Pour le côté "Propre") --- */
-.tech-item span {
-    margin-top: 15px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: rgba(255, 255, 255, 0.5);
-    /* Plus discret pour laisser l'icône briller */
-    transition: color 0.3s ease, transform 0.3s ease;
+.icon-box {
+    width: clamp(80px, 18vw, 110px);
+    height: clamp(80px, 18vw, 110px);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(2rem, 8vw, 3rem);
+    color: var(--clr);
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s ease, background 0.4s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    will-change: transform;
 }
 
-/* --- Effets au survol --- */
-.tech-item:hover .icon-box {
-    transform: translateY(-10px);
-    background: rgba(255, 255, 255, 0.1);
-    border-color: var(--clr);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 20px var(--clr);
-}
-
-.tech-item:hover span {
-    color: #fff;
-    transform: translateY(-5px);
-}
-
+/* Fusion des styles du span */
 .tech-item span {
     display: block;
     margin-top: 15px;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.4);
-    transition: 0.3s;
     font-size: var(--text-xs);
-    /* Respecte le root */
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1.5px;
+    color: rgba(255, 255, 255, 0.4);
+    transition: all 0.3s ease;
 }
 
-.tech-item:hover span {
-    color: var(--white);
-    text-shadow: 0 0 10px var(--clr);
+/* --- Effets au survol (Desktop uniquement pour éviter les bugs mobile) --- */
+@media (hover: hover) {
+    .tech-item:hover .icon-box {
+        transform: translateY(-10px);
+        background: rgba(255, 255, 255, 0.1);
+        border-color: var(--clr);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 20px var(--clr);
+    }
+
+    .tech-item:hover span {
+        color: var(--white);
+        transform: translateY(-5px);
+        text-shadow: 0 0 10px var(--clr);
+    }
 }
 
 /* --- AJUSTEMENTS MOBILES --- */
 @media (max-width: 600px) {
-    .tech-icons-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px 15px;
+    .icon-box {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: rgba(255, 255, 255, 0.12);
+    }
+
+    .tech-item {
+        flex: 0 1 calc(50% - 20px);
     }
 
     .tech-title {
         font-size: var(--heading-2);
-        /* Plus petit sur mobile */
-    }
-}
-
-/* Animation Ripple */
-@keyframes huly-ripple {
-    0% {
-        width: 100px;
-        height: 100px;
-        opacity: 0;
-        border-width: 3px;
-    }
-
-    10% {
-        opacity: 0.4;
-    }
-
-    100% {
-        width: clamp(800px, 150vw, 1600px);
-        height: clamp(800px, 150vw, 1600px);
-        opacity: 0;
-        border-width: 1px;
     }
 }
