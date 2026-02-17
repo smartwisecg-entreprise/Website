@@ -100,34 +100,57 @@
     <footer>
         <div class="container">
             <div class="footer-grid">
+                <!-- Colonne 1 -->
                 <div class="footer-column">
                     <h5 data-key="footer_explore_title">Explorer</h5>
                     <ul>
                         <li><a href="index.html" data-key="nav_home">Accueil</a></li>
                         <li><a href="about.html" data-key="nav_about_footer">À Propos</a></li>
                         <li><a href="vtc.html" data-key="nav_vtc">ZAZA</a></li>
-                        <!-- <li><a href="nextcloud.html" data-key="nav_cloud">Cloud Hosting</a></li> -->
                         <li><a href="geschool.html" data-key="nav_geschool">Geschool</a></li>
-                        <li><a href="news.html">Actualités</a></li>
+                        <li><a href="news.html" data-key="nav_news">Actualités</a></li>
                         <li><a href="contact.html" data-key="nav_contact_footer">Contact</a></li>
                     </ul>
                 </div>
+
+                <!-- Colonne 2 -->
                 <div class="footer-column">
                     <h5 data-key="footer_contact_title">Nous Joindre</h5>
                     <ul class="footer-contact-info">
                         <li>
-                            <img src="images/location-icon.png" alt="Icône localisation" class="icon">
-                            <span data-key="footer_address">Immeuble acacia, Mpita, Pointe-Noire, Congo</span>
+                            <img src="images/location-icon.png" alt="" class="icon">
+                            <span data-key="footer_address">Immeuble acacia, Mpita, Pointe-Noire</span>
                         </li>
                         <li>
-                            <img src="images/email-icon.png" alt="Icône email" class="icon">
+                            <img src="images/email-icon.png" alt="" class="icon">
                             <a href="mailto:contact@smartwise.cg">contact@smartwise.cg</a>
                         </li>
                         <li>
-                            <img src="images/phone-icon.png" alt="Icône téléphone" class="icon">
+                            <img src="images/phone-icon.png" alt="" class="icon">
                             <a href="tel:+242066236530">+242 06 623 65 30</a>
                         </li>
                     </ul>
+                </div>
+
+                <!-- Colonne 3 (Newsletter) -->
+                <div class="footer-column">
+                    <!-- AJOUT data-key -->
+                    <h5 data-key="footer_newsletter_title">Newsletter</h5>
+
+                    <!-- AJOUT data-key -->
+                    <p class="newsletter-desc" data-key="footer_newsletter_desc">Rejoignez notre communauté pour
+                        suivre nos innovations.</p>
+
+                    <form class="newsletter-box" id="newsletter-form">
+                        <!-- AJOUT data-key-placeholder -->
+                        <input type="email" id="newsletter-email" name="email" placeholder="Votre email"
+                            data-key-placeholder="footer_newsletter_placeholder" required>
+
+                        <button type="submit" id="newsletter-btn">
+                            <i class="ri-send-plane-fill"></i>
+                        </button>
+                    </form>
+                    <p id="newsletter-message" style="margin-top: 10px; font-size: 0.9em; min-height: 20px;"></p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -140,13 +163,13 @@
             </div>
         </div>
     </footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="translations.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="script.js"></script>
     <!-- Script de lecture -->
-   <script type="module">
+    <script type="module">
         import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm'
 
         // --- TES CLES SUPABASE ---
@@ -162,7 +185,7 @@
         // 2. Fonction principale pour charger l'article
         async function loadOneArticle() {
             const container = document.getElementById('article-content');
-            
+
             // Récupérer l'ID dans l'URL
             const params = new URLSearchParams(window.location.search);
             const id = params.get('id');
@@ -192,13 +215,13 @@
             const title = art[`title_${lang}`] || art.title_fr;
             const content = art[`content_${lang}`] || art.content_fr;
             const category = art[`category_${lang}`] || art.category_fr;
-            
+
             // Texte du bouton retour
             const backText = lang === 'fr' ? '← Retour aux actualités' : '← Back to News';
 
             // Formatage date
-            const dateStr = new Date(art.date).toLocaleDateString(lang === 'fr' ? 'fr-FR' : 'en-US', { 
-                year: 'numeric', month: 'long', day: 'numeric' 
+            const dateStr = new Date(art.date).toLocaleDateString(lang === 'fr' ? 'fr-FR' : 'en-US', {
+                year: 'numeric', month: 'long', day: 'numeric'
             });
 
             // Titre de la page navigateur

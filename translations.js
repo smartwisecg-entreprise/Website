@@ -38,6 +38,13 @@ const translations = {
         nav_about_footer: "About Us",
         nav_contact_footer: "Contact",
         footer_copyright: "© 2025 Smart Wise. All rights reserved.",
+        footer_newsletter_title: "Newsletter",
+        footer_newsletter_desc: "Join our community to follow our latest innovations.",
+        footer_newsletter_placeholder: "Your email",
+        
+        // Messages JS (pour le script de la newsletter)
+        newsletter_success: "Thank you! You have been subscribed.",
+        newsletter_error: "An error occurred. Please try again.",
 
         // --- Homepage (index.html) ---
         home_hero_title: "Innovative Solutions for Modern Life",
@@ -73,6 +80,9 @@ const translations = {
         // TECH STACK SECTION
         "tech_stack_title": "Technology Ecosystem",
         "tech_stack_subtitle": "Technical excellence powering your software and infrastructure",
+
+         // --- PARTNERS SECTION ---
+        home_partners_title: "They Trust Us",
 
         // --- VTC Page (vtc.html) ---
         vtc_hero_word1: "Request a ride,",
@@ -384,6 +394,13 @@ const translations = {
         nav_about_footer: "À Propos",
         nav_contact_footer: "Contact",
         footer_copyright: "© 2025 Smart Wise. Tous droits réservés.",
+        footer_newsletter_title: "Newsletter",
+        footer_newsletter_desc: "Rejoignez notre communauté pour suivre nos innovations.",
+        footer_newsletter_placeholder: "Votre email",
+
+        // Messages JS (pour le script de la newsletter)
+        newsletter_success: "Merci ! Vous êtes bien inscrit.",
+        newsletter_error: "Une erreur est survenue. Réessayez.",
 
         // --- Homepage (index.html) ---
         home_hero_title: "Des Solutions Innovantes pour la Vie Moderne",
@@ -419,6 +436,9 @@ const translations = {
         // SECTION TECH STACK
         "tech_stack_title": "Écosystème Technologique",
         "tech_stack_subtitle": "L'excellence technique au service de vos logiciels et infrastructures",
+
+          // --- SECTION PARTENAIRES ---
+        home_partners_title: "Ils nous font confiance",
 
         // --- VTC Page (vtc.html) ---
         vtc_hero_word1: "Commandez une course",

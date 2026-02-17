@@ -1123,6 +1123,90 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     } // Fermeture du if (typeof gsap !== 'undefined')
+
+    // ==============================================================
+    // === GESTION NEWSLETTER (NOUVEAU CODE INTÉGRÉ) ===
+    // ==============================================================
+    const newsletterForm = document.getElementById('newsletter-form');
+
+    if (newsletterForm) {
+        let lastSubmitTime = 0;
+        const THROTTLE_MS = 3000;
+
+        newsletterForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // 1. Vérification Supabase
+            if (!supabaseClient) {
+                showNotification("Le service de newsletter est indisponible.", "error");
+                return;
+            }
+
+            // 2. Récupération des éléments
+            const emailInput = newsletterForm.querySelector('input[type="email"]');
+            const submitBtn = newsletterForm.querySelector('button');
+            const icon = submitBtn ? submitBtn.querySelector('i') : null;
+            const email = emailInput.value.trim().toLowerCase();
+
+            // 3. Validation Email
+            const isValidEmail = (email) => {
+                if (email.length > 254 || email.length < 3) return false;
+                return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
+            };
+
+            if (!isValidEmail(email)) {
+                showNotification("L'adresse email semble invalide.", "error");
+                // Petit effet de "secousse" via CSS animation simple ou GSAP
+                if (typeof gsap !== 'undefined') {
+                    gsap.fromTo(newsletterForm, { x: -5 }, { x: 5, duration: 0.1, repeat: 3, yoyo: true });
+                }
+                return;
+            }
+
+            // 4. Anti-spam / Throttle
+            const now = Date.now();
+            if (now - lastSubmitTime < THROTTLE_MS) {
+                showNotification("Merci de patienter quelques secondes.", "error");
+                if (typeof gsap !== 'undefined') {
+                    gsap.fromTo(newsletterForm, { x: -5 }, { x: 5, duration: 0.1, repeat: 3, yoyo: true });
+                }
+                return;
+            }
+            lastSubmitTime = now;
+
+            // 5. UI Loading (Bouton)
+            const originalIconClass = icon ? icon.className : '';
+            if (submitBtn) submitBtn.disabled = true;
+            if (icon) icon.className = 'ri-loader-4-line ri-spin';
+
+            try {
+                // 6. Envoi Supabase
+                const { error } = await supabaseClient
+                    .from('newsletter_subscribers')
+                    .insert([{ email }]);
+
+                if (error) {
+                    if (error.code === '23505') { // Code unique constraint violation
+                        showNotification("Vous êtes déjà inscrit ! 😎", "success");
+                    } else {
+                        throw error;
+                    }
+                } else {
+                    showNotification("Inscription validée ! Merci 🚀", "success");
+                    newsletterForm.reset();
+                }
+
+            } catch (err) {
+                console.error('Newsletter Error:', err);
+                showNotification("Une erreur technique est survenue.", "error");
+            } finally {
+                // Reset UI
+                if (submitBtn) submitBtn.disabled = false;
+                if (icon) icon.className = originalIconClass || 'ri-send-plane-fill';
+            }
+        });
+    }
+
 });
 
 
