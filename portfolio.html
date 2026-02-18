@@ -513,6 +513,12 @@
                         if (lang === 'en' && proj.modal_details_en) {
                             details = proj.modal_details_en;
                         }
+
+                        // --- AJOUT IMPORTANT ICI ---
+                        // On force la catégorie à être celle affichée sur la carte (displayCat)
+                        proj.category_to_display = displayCat;
+                        // ---------------------------
+
                         openProjectModal(proj, details);
                     }
                 });
@@ -584,10 +590,16 @@
             const modal = document.getElementById('project-modal');
             if (!details) details = {};
 
+            // Mises à jour existantes
             document.getElementById('modal-img').src = proj.image;
             document.getElementById('modal-title').textContent = details.title || proj.title_default;
             document.getElementById('modal-client').textContent = details.client || "-";
             document.getElementById('modal-desc').textContent = details.full_desc || "";
+
+            // --- AJOUTEZ CETTE LIGNE ---
+            // Assurez-vous que votre objet 'details' ou 'proj' contient bien une propriété 'category'
+            document.getElementById('modal-cat').textContent = proj.category_to_display || proj.cat_label || proj.category || "Catégorie";
+            // ---------------------------
 
             const techContainer = document.getElementById('modal-tech-list');
             techContainer.innerHTML = '';

@@ -4808,7 +4808,7 @@ nav .nav-links li.dropdown.submenu-open>.dropdown-menu {
     width: 100%;
     max-width: 900px;
     border-radius: 12px;
-    overflow: hidden;
+    overflow: visible;
     display: flex;
     flex-direction: column;
     max-height: 90vh;
@@ -4838,34 +4838,94 @@ nav .nav-links li.dropdown.submenu-open>.dropdown-menu {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+/* =============================================
+   BODY : un seul scroll ici
+   ============================================= */
 .modal-body {
     display: flex;
     flex-wrap: wrap;
     overflow-y: auto;
+    align-items: flex-start;
+    max-height: 90vh;
+    border-radius: 12px;
 }
 
+/* =============================================
+   COLONNE IMAGE
+   ============================================= */
 .modal-image-col {
-    flex: 1 1 400px;
-    background: #f0f0f0;
-    min-height: 300px;
+    flex: 0 0 260px;
+    background-color: #f4f7f9;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 32px 24px;
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    border-radius: 12px 0 0 12px;
 }
 
 .modal-image-col img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
     display: block;
+    max-width: 180px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
+/* =============================================
+   COLONNE TEXTE
+   ============================================= */
 .modal-text-col {
     flex: 1 1 350px;
-    padding: 40px;
+    padding: 40px 40px 40px 36px;
+}
+
+.modal-text-col .modal-category {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--primary-color, #4e7994);
+    margin-bottom: 8px;
+}
+
+.modal-text-col h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin: 0 0 10px 0;
+    line-height: 1.2;
+}
+
+.modal-text-col .modal-client {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eef2f5;
+}
+
+.modal-text-col .modal-client strong {
+    color: var(--primary-color, #4e7994);
+}
+
+.modal-text-col .modal-description {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: #444;
+    margin-bottom: 28px;
 }
 
 .tech-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
+    padding-top: 4px;
 }
 
 .tech-tag {
@@ -4873,10 +4933,117 @@ nav .nav-links li.dropdown.submenu-open>.dropdown-menu {
     color: var(--primary-color, #4e7994);
     padding: 6px 14px;
     border-radius: 20px;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     font-weight: 600;
+    letter-spacing: 0.02em;
 }
 
+@media (max-width: 768px) {
+
+    .modal-overlay {
+        padding: 0;
+        align-items: flex-end;
+    }
+
+    .modal-content {
+        max-width: 100%;
+        max-height: 95vh;
+        border-radius: 20px 20px 0 0;
+        transform: translateY(100%);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .modal-overlay.active .modal-content {
+        transform: translateY(0);
+    }
+
+    .modal-body {
+        flex-direction: column;
+        flex-wrap: nowrap;       /* ✅ Empêche le retour côte à côte */
+        flex: 1 1 auto;
+        overflow-y: auto;
+        overflow-x: hidden;
+        max-height: none;
+        border-radius: 20px 20px 0 0;
+    }
+
+    .modal-image-col {
+        flex: 0 0 auto;          /* ✅ Écrase le flex: 0 0 260px du desktop */
+        width: 100%;             /* ✅ Prend toute la largeur */
+        min-height: unset;       /* ✅ Supprime le min-height du desktop */
+        border-radius: 20px 20px 0 0;
+        padding: 32px 24px 24px;
+        position: relative;
+        top: auto;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .modal-image-col img {
+        max-width: 110px;
+        border-radius: 14px;
+    }
+
+    .modal-close {
+        top: 12px;
+        right: 12px;
+        width: 32px;
+        height: 32px;
+        font-size: 1.2rem;
+    }
+
+    .modal-text-col {
+        width: 100%;
+        flex: 0 0 auto;          /* ✅ Ne se compresse pas */
+        padding: 24px 20px 40px;
+        box-sizing: border-box;
+    }
+
+    .modal-text-col h2 {
+        font-size: 1.5rem;
+    }
+
+    .modal-text-col .modal-description {
+        font-size: 0.9rem;
+        line-height: 1.65;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .modal-image-col {
+        padding: 24px 16px 18px;
+    }
+
+    .modal-image-col img {
+        max-width: 80px;
+        border-radius: 10px;
+    }
+
+    .modal-text-col {
+        padding: 20px 16px 32px;
+    }
+
+    .modal-text-col h2 {
+        font-size: 1.3rem;
+    }
+
+    .modal-text-col .modal-category {
+        font-size: 0.68rem;
+    }
+
+    .modal-text-col .modal-description {
+        font-size: 0.88rem;
+    }
+
+    .tech-tag {
+        font-size: 0.78rem;
+        padding: 5px 11px;
+    }
+}
 /* --- 6. RESPONSIVE --- */
 @media (max-width: 768px) {
     .portfolio-grid {
@@ -4884,15 +5051,6 @@ nav .nav-links li.dropdown.submenu-open>.dropdown-menu {
         padding: 0 10px;
     }
 
-    .modal-body {
-        flex-direction: column;
-    }
-
-    .modal-image-col {
-        height: 200px;
-        min-height: auto;
-        flex: none;
-    }
 }
 
 /* ==========================================================================
