@@ -34,7 +34,7 @@ const translations = {
         // Footer
         footer_explore_title: "Explore",
         footer_contact_title: "Contact Us",
-        footer_address: "Acacia building, Mpita, Pointe-Noire, Congo",
+        footer_address: "Belle époque, Aéroport, Pointe-Noire, Congo",
         nav_about_footer: "About Us",
         nav_contact_footer: "Contact",
         footer_copyright: "© 2025 Smart Wise. All rights reserved.",
@@ -287,7 +287,7 @@ const translations = {
         contact_info_title: "Our Contact Details",
         contact_info_intro: "We are always happy to connect. Contact us using the information below or leave us a message.",
         contact_info_address_title: "Address",
-        contact_info_address_content: "Acacia building, Mpita, Pointe-Noire, Congo",
+        contact_info_address_content: "Belle époque, Aéroport, Pointe-Noire, Congo",
         contact_info_phone_title: "Phone",
         contact_info_phone_content: "06 623 65 30",
         contact_info_email_title: "Email",
@@ -365,12 +365,12 @@ const translations = {
         meta_title_news: "Actualités - Smart Wise",
         meta_title_home: "Smart Wise - Génie Informatique & Solutions Logicielles - République du Congo",
         meta_title_portfolio: "Nos Réalisations - Smart Wise Congo",
-        meta_desc_vtc: "Commandez votre course avec ZAZA. Trajets rapides, sécurisés et confortables en République du congo. Téléchargez l'application pour vos déplacements.",
+        meta_desc_vtc: "Commandez votre course avec ZAZA. Trajets rapides, sécurisés et confortables en République du Congo. Téléchargez l'application pour vos déplacements.",
         meta_desc_nextcloud: "Solution Cloud Nextcloud sécurisée au Congo par Smart Wise. Stockage de données souverain, collaboration en temps réel et contrôle total pour entreprises.",
         meta_desc_geschool: "GESCHOOL est la solution pour la gestion de votre établissement scolaire. Notes, finances, scolarité et communication en un seul logiciel.",
         meta_desc_about: "Découvrez Smart Wise : experts en génie informatique transformant le numérique en République du Congo par l'innovation.",
         meta_desc_contact: "Contactez Smart Wise pour vos projets informatiques. Retrouvez-nous à Pointe-Noire (Immeuble Acacia), par téléphone ou email. Notre équipe est à votre écoute.",
-        meta_desc_news: "Retrouvez toute l'actualité de Smart Wise Congo : mises à jour ZAZA VTC, GESCHOOL, et les dernières tendances technologiques en République du congo.",
+        meta_desc_news: "Retrouvez toute l'actualité de Smart Wise Congo : mises à jour ZAZA VTC, GESCHOOL, et les dernières tendances technologiques en République du Congo.",
         meta_desc_home: "Smart Wise Congo : experts en génie logiciel, VTC ZAZA, Cloud et GESCHOOL. Boostez vos performances avec nos solutions technologiques innovantes.",
 
         // Navigation
@@ -390,13 +390,13 @@ const translations = {
         // Footer
         footer_explore_title: "Explorer",
         footer_contact_title: "Nous Joindre",
-        footer_address: "Immeuble acacia, Mpita, Pointe-Noire, Congo",
+        footer_address: "Belle époque, Aéroport, Pointe-Noire, Congo",
         nav_about_footer: "À Propos",
         nav_contact_footer: "Contact",
         footer_copyright: "© 2025 Smart Wise. Tous droits réservés.",
         footer_newsletter_title: "Newsletter",
         footer_newsletter_desc: "Rejoignez notre communauté pour suivre nos innovations.",
-        footer_newsletter_placeholder: "Votre email",
+        footer_newsletter_placeholder: "Votre e-mail",
 
         // Messages JS (pour le script de la newsletter)
         newsletter_success: "Merci ! Vous êtes bien inscrit.",
@@ -406,7 +406,7 @@ const translations = {
         home_hero_title: "Des Solutions Innovantes pour la Vie Moderne",
         home_hero_word1: "INNOVER",
         home_hero_ampersand: "&",
-        home_hero_word2: "AMELIORER",
+        home_hero_word2: "AMÉLIORER",
         home_hero_cta_learn_more: "En savoir plus",
         home_hero_cta_vtc: "Découvrir ZAZA",
         home_hero_cta_cloud: "Explorer GoCloud",
@@ -568,7 +568,7 @@ const translations = {
 
         // BLOC 6
         geschool_feature_block6_title: "SMS / MAIL",
-        geschool_feature_block6_item1: "Lors de paiements la caisse.",
+        geschool_feature_block6_item1: "Lors de paiements à la caisse.",
         geschool_feature_block6_item2: "Lors de l'arrivée et départ des apprenants de l'école.",
         geschool_feature_block6_item3: "Lors des communications adressées aux parents.",
         geschool_feature_block6_item4: "Notes de classe des apprenants.",
@@ -576,8 +576,8 @@ const translations = {
 
         // BLOC 7
         geschool_feature_block7_title: "LE TABLEAU DE BORD",
-        geschool_feature_block7_item1: "Effectifs détaillé des classes ou de l'établissement.",
-        geschool_feature_block7_item2: "Etats financiers par Cycle, Classe ou Global.",
+        geschool_feature_block7_item1: "Effectifs détaillés des classes ou de l'établissement.",
+        geschool_feature_block7_item2: "États financiers par Cycle, Classe ou Global.",
 
         // BLOC 8
         geschool_feature_block8_title: "SAUVEGARDE AUTOMATISÉE",
@@ -594,7 +594,7 @@ const translations = {
         about_hero_subtitle: "Des innovateurs passionnés qui transforment des idées complexes en solutions technologiques simples, intuitives et performantes pour propulser votre croissance.",
         about_story_title: "Notre Histoire",
         about_story_p1: "Fondée en 2025, Smart Wise est née d'une ambition simple : rendre la technologie accessible et véritablement utile. Partant du constat que de nombreuses entreprises et institutions peinaient à trouver des outils numériques adaptés à leurs réalités, nous avons décidé de créer des solutions sur-mesure.",
-        about_story_p2: "De notre premier projet, Geschool , à nos services de VTC et de Cloud Hosting, chaque étape de notre parcours a été guidée par l'écoute de nos clients et une quête incessante d'excellence.",
+        about_story_p2: "De notre premier projet, Geschool, à nos services de VTC et de Cloud Hosting, chaque étape de notre parcours a été guidée par l'écoute de nos clients et une quête incessante d'excellence.",
         about_values_title: "Ce qui nous guide",
         about_values_subtitle: "Nos valeurs ne sont pas de simples mots sur un mur. Elles sont le moteur de chacune de nos actions et la garantie de notre engagement envers vous.",
         about_value1_title: "Innovation",
@@ -645,7 +645,7 @@ const translations = {
         contact_info_title: "Contact",
         contact_info_intro: "Nous sommes toujours ravis d'échanger. Contactez-nous via les informations ci-dessous ou laissez-nous un message.",
         contact_info_address_title: "Adresse",
-        contact_info_address_content: "Immeuble acacia, Mpita,<br>Pointe-Noire, Congo",
+        contact_info_address_content: "Belle époque, Aéroport,<br>Pointe-Noire, Congo",
         contact_info_phone_title: "Téléphone",
         contact_info_phone_content: "06 623 65 30",
         contact_info_email_title: "Email",
@@ -682,7 +682,7 @@ const translations = {
 
         quote_label_fullname: "Nom complet",
         quote_label_company: "Entreprise (Optionnel)",
-        quote_label_email: "Email professionnel",
+        quote_label_email: "E-mail professionnel",
         quote_label_phone: "Téléphone",
 
         quote_select_placeholder: "Quel service vous intéresse ?",
