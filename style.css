@@ -369,7 +369,20 @@ section {
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
+    align-items: center;
     /* Allow buttons to wrap on small screens */
+}
+
+.coming-soon-msg {
+    display: none;
+    font-size: var(--text-sm);
+    color: #2e7d32;
+    font-weight: 600;
+    padding: 8px 16px;
+    background: #fff;
+    border: 1px solid rgba(46, 125, 50, 0.3);
+    border-radius: 8px;
+    white-space: nowrap;
 }
 
 .hero-image {
@@ -2182,10 +2195,12 @@ footer {
 
 /* On peut aussi directement limiter la taille de l'image à l'intérieur */
 .vtc-hero .hero-image img {
-    max-width: 300px;
+    max-width: 580px;
     /* Ajustez cette valeur pour rendre l'image plus petite ou plus grande */
     /* L'animation floatY est déjà appliquée, pas besoin de la réécrire */
 }
+
+
 
 /* ================================================================ */
 /* === CORRECTIF VTC : SUPPRESSION BORDURES SECTION FEATURES    === */
